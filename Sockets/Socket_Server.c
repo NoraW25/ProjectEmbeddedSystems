@@ -6,6 +6,8 @@
 #include <sys/socket.h>
 #include <unistd.h>
 
+#define PORT 8080
+
 int main(int argc, char const* argv[])
 {
     int server_fd, new_socket;
