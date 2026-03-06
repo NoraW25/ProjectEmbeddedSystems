@@ -4,8 +4,8 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>20</x>
-      <y>90</y>
+      <x>70</x>
+      <y>120</y>
       <w>300</w>
       <h>40</h>
     </coordinates>
@@ -15,8 +15,8 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>950</x>
-      <y>280</y>
+      <x>1000</x>
+      <y>310</y>
       <w>140</w>
       <h>110</h>
     </coordinates>
@@ -26,8 +26,8 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>930</x>
-      <y>90</y>
+      <x>980</x>
+      <y>120</y>
       <w>200</w>
       <h>110</h>
     </coordinates>
@@ -37,8 +37,8 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>930</x>
-      <y>460</y>
+      <x>980</x>
+      <y>490</y>
       <w>260</w>
       <h>110</h>
     </coordinates>
@@ -48,10 +48,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>10</x>
-      <y>10</y>
+      <x>60</x>
+      <y>40</y>
       <w>910</w>
-      <h>900</h>
+      <h>1050</h>
     </coordinates>
     <panel_attributes>Automatiseren Revalidatie verdieping
 halign=left</panel_attributes>
@@ -60,8 +60,8 @@ halign=left</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>920</x>
-      <y>650</y>
+      <x>970</x>
+      <y>680</y>
       <w>280</w>
       <h>110</h>
     </coordinates>
@@ -71,8 +71,8 @@ halign=left</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>20</x>
-      <y>560</y>
+      <x>70</x>
+      <y>590</y>
       <w>300</w>
       <h>40</h>
     </coordinates>
@@ -82,8 +82,8 @@ halign=left</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>20</x>
-      <y>320</y>
+      <x>70</x>
+      <y>350</y>
       <w>300</w>
       <h>40</h>
     </coordinates>
@@ -93,8 +93,8 @@ halign=left</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>20</x>
-      <y>190</y>
+      <x>70</x>
+      <y>220</y>
       <w>300</w>
       <h>40</h>
     </coordinates>
@@ -104,8 +104,8 @@ halign=left</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>20</x>
-      <y>450</y>
+      <x>70</x>
+      <y>480</y>
       <w>300</w>
       <h>40</h>
     </coordinates>
@@ -115,8 +115,8 @@ halign=left</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>20</x>
-      <y>670</y>
+      <x>70</x>
+      <y>700</y>
       <w>310</w>
       <h>40</h>
     </coordinates>
@@ -126,8 +126,8 @@ halign=left</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>20</x>
-      <y>780</y>
+      <x>70</x>
+      <y>810</y>
       <w>310</w>
       <h>40</h>
     </coordinates>
@@ -137,8 +137,8 @@ halign=left</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
-      <y>90</y>
+      <x>360</x>
+      <y>120</y>
       <w>710</w>
       <h>50</h>
     </coordinates>
@@ -149,8 +149,8 @@ fg=BLUE</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
-      <y>100</y>
+      <x>360</x>
+      <y>130</y>
       <w>740</w>
       <h>410</h>
     </coordinates>
@@ -161,8 +161,8 @@ fg=BLUE</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
-      <y>100</y>
+      <x>360</x>
+      <y>130</y>
       <w>700</w>
       <h>230</h>
     </coordinates>
@@ -173,8 +173,8 @@ fg=BLUE</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
-      <y>100</y>
+      <x>360</x>
+      <y>130</y>
       <w>740</w>
       <h>600</h>
     </coordinates>
@@ -185,8 +185,8 @@ fg=BLUE</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
-      <y>110</y>
+      <x>360</x>
+      <y>140</y>
       <w>710</w>
       <h>120</h>
     </coordinates>
@@ -196,8 +196,8 @@ fg=BLUE</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
-      <y>200</y>
+      <x>360</x>
+      <y>230</y>
       <w>700</w>
       <h>130</h>
     </coordinates>
@@ -207,8 +207,8 @@ fg=BLUE</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
-      <y>200</y>
+      <x>360</x>
+      <y>230</y>
       <w>740</w>
       <h>500</h>
     </coordinates>
@@ -218,8 +218,8 @@ fg=BLUE</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
-      <y>300</y>
+      <x>360</x>
+      <y>330</y>
       <w>700</w>
       <h>60</h>
     </coordinates>
@@ -229,8 +229,8 @@ fg=BLUE</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
-      <y>330</y>
+      <x>360</x>
+      <y>360</y>
       <w>740</w>
       <h>180</h>
     </coordinates>
@@ -240,8 +240,8 @@ fg=BLUE</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
-      <y>330</y>
+      <x>360</x>
+      <y>360</y>
       <w>740</w>
       <h>370</h>
     </coordinates>
@@ -251,8 +251,8 @@ fg=BLUE</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
-      <y>300</y>
+      <x>360</x>
+      <y>330</y>
       <w>700</w>
       <h>190</h>
     </coordinates>
@@ -262,8 +262,8 @@ fg=BLUE</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
-      <y>460</y>
+      <x>360</x>
+      <y>490</y>
       <w>740</w>
       <h>50</h>
     </coordinates>
@@ -273,8 +273,8 @@ fg=BLUE</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
-      <y>460</y>
+      <x>360</x>
+      <y>490</y>
       <w>740</w>
       <h>240</h>
     </coordinates>
@@ -284,8 +284,8 @@ fg=BLUE</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
-      <y>110</y>
+      <x>360</x>
+      <y>140</y>
       <w>710</w>
       <h>490</h>
     </coordinates>
@@ -298,8 +298,8 @@ fg=BLUE</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
-      <y>300</y>
+      <x>360</x>
+      <y>330</y>
       <w>700</w>
       <h>300</h>
     </coordinates>
@@ -312,8 +312,8 @@ fg=BLUE</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
-      <y>570</y>
+      <x>360</x>
+      <y>600</y>
       <w>740</w>
       <h>130</h>
     </coordinates>
@@ -326,8 +326,8 @@ fg=BLUE</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
-      <y>110</y>
+      <x>370</x>
+      <y>140</y>
       <w>700</w>
       <h>600</h>
     </coordinates>
@@ -340,8 +340,8 @@ fg=BLUE</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
-      <y>300</y>
+      <x>370</x>
+      <y>330</y>
       <w>690</w>
       <h>410</h>
     </coordinates>
@@ -354,8 +354,8 @@ fg=BLUE</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
-      <y>660</y>
+      <x>370</x>
+      <y>690</y>
       <w>730</w>
       <h>70</h>
     </coordinates>
@@ -368,8 +368,8 @@ fg=BLUE</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
-      <y>110</y>
+      <x>370</x>
+      <y>140</y>
       <w>700</w>
       <h>710</h>
     </coordinates>
@@ -380,8 +380,8 @@ fg=MAGENTA</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
-      <y>300</y>
+      <x>370</x>
+      <y>330</y>
       <w>690</w>
       <h>520</h>
     </coordinates>
@@ -392,8 +392,8 @@ fg=MAGENTA</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
-      <y>480</y>
+      <x>370</x>
+      <y>510</y>
       <w>730</w>
       <h>340</h>
     </coordinates>
@@ -404,8 +404,8 @@ fg=MAGENTA</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
-      <y>670</y>
+      <x>370</x>
+      <y>700</y>
       <w>730</w>
       <h>150</h>
     </coordinates>
@@ -416,13 +416,58 @@ fg=MAGENTA</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>150</x>
-      <y>350</y>
+      <x>200</x>
+      <y>380</y>
       <w>90</w>
       <h>120</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;extends&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>70</x>
+      <y>950</y>
+      <w>310</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Registreren van het ruimtegebruik</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>140</y>
+      <w>700</w>
+      <h>850</h>
+    </coordinates>
+    <panel_attributes>
+fg=GRAY</panel_attributes>
+    <additional_attributes>10.0;830.0;680.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>910</y>
+      <w>730</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;60.0;710.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>980</x>
+      <y>880</y>
+      <w>260</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Baliemedewerker benedenverdieping</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
