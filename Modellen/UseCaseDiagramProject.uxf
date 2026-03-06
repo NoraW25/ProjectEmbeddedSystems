@@ -456,7 +456,8 @@ fg=GRAY</panel_attributes>
       <w>730</w>
       <h>80</h>
     </coordinates>
-    <panel_attributes/>
+    <panel_attributes>
+fg=GRAY</panel_attributes>
     <additional_attributes>10.0;60.0;710.0;10.0</additional_attributes>
   </element>
   <element>
