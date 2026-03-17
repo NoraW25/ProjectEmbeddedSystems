@@ -89,8 +89,8 @@ int main(void) {
     uint32_t speed = 250000;                   // 250 kHz (veilig starten)
 
     // 1) Open SPI device
-    int fd = spi_open(dev_sub1, mode, speed, bits);
-    if (fd < 0) {
+    int fd_sub1 = spi_open(dev_sub1, mode, speed, bits);
+    if (fd_sub1 < 0) {
         fprintf(stderr, "Kon SPI niet openen\n");
         return 1;
     }
@@ -99,9 +99,9 @@ int main(void) {
     uint8_t tx[1] = { 0x55 };  // voorbeeld commando
     uint8_t rx[1] = { 0x00 };
 
-    if (spi_transfer(fd, tx, rx, sizeof(tx), speed) != 0) {
+    if (spi_transfer(fd_sub1, tx, rx, sizeof(tx), speed) != 0) {
         fprintf(stderr, "SPI transfer mislukt\n");
-        close(fd);
+        close(fd_sub1);
         return 1;
     }
 
@@ -109,7 +109,34 @@ int main(void) {
     // Verwacht dat de STM32 iets terugstuurt (bijv. een vaste byte), zodat je weet dat het werkt.
 
     // 3) Sluit SPI
-    close(fd);
+    close(fd_sub1);
+
+
+
+    const char *dev_sub2 = "/dev/spidev0.1"; // CE1, sub2
+
+    // 1) Open SPI device
+    int fd_sub2 = spi_open(dev_sub2, mode, speed, bits);
+    if (fd_sub2 < 0) {
+        fprintf(stderr, "Kon SPI niet openen\n");
+        return 1;
+    }
+
+    // 2) Voorbeeld: stuur 1 byte en lees 1 byte terug (full duplex)
+    uint8_t tx2[1] = { 0x55 };  // voorbeeld commando
+    uint8_t rx2[1] = { 0x00 };
+
+    if (spi_transfer(fd_sub2, tx2, rx2, sizeof(tx2), speed) != 0) {
+        fprintf(stderr, "SPI transfer mislukt\n");
+        close(fd_sub2);
+        return 1;
+    }
+
+    printf("Verstuurd: 0x%02X, Ontvangen: 0x%02X\n", tx2[0], rx2[0]);
+    // Verwacht dat de STM32 iets terugstuurt (bijv. een vaste byte), zodat je weet dat het werkt.
+
+    // 3) Sluit SPI
+    close(fd_sub2);
     return 0;
 }
 
