@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>10</zoom_level>
+  <zoom_level>11</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>340</x>
-      <y>20</y>
-      <w>210</w>
-      <h>120</h>
+      <x>605</x>
+      <y>143</y>
+      <w>242</w>
+      <h>132</h>
     </coordinates>
-    <panel_attributes>servo
+    <panel_attributes>Servo
 --
 
 --
@@ -21,16 +21,33 @@ huidigeStand() : void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>20</x>
-      <y>20</y>
-      <w>210</w>
-      <h>120</h>
+      <x>605</x>
+      <y>671</y>
+      <w>242</w>
+      <h>132</h>
     </coordinates>
     <panel_attributes>Knop
 --
--stand : bool
+
 --
--checkStand() : bool
+-genereer_interupt() : void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>605</x>
+      <y>407</y>
+      <w>242</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>Deur
+--
+-stand
+--
+-bereken_actie() : void
 
 </panel_attributes>
     <additional_attributes/>
@@ -38,12 +55,28 @@ huidigeStand() : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>220</x>
-      <y>80</y>
-      <w>140</w>
-      <h>30</h>
+      <x>715</x>
+      <y>264</y>
+      <w>66</w>
+      <h>165</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+opent
+m1=1
+m2=2</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>715</x>
+      <y>528</y>
+      <w>44</w>
+      <h>165</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=2</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
   </element>
 </diagram>

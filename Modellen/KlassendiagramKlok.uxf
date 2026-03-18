@@ -4,12 +4,12 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>20</x>
-      <y>20</y>
+      <x>550</x>
+      <y>380</y>
       <w>210</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>AflezenTijd
+    <panel_attributes>Klok
 --
 
 --
