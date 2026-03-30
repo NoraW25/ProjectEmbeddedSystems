@@ -57,9 +57,10 @@ int processCommand(char* str) {
 int main() {
     char entireCommandBuffer[100];
 
+    printf("Enter command:\n\n> ");
+    fflush(stdout);  // make sure prompt appears
+
     while (1) {
-        printf("Enter command:\n\n> ");
-        fflush(stdout);  // make sure prompt appears
 
         // Set up select()
         fd_set readfds;
@@ -78,6 +79,8 @@ int main() {
                 entireCommandBuffer[strcspn(entireCommandBuffer, "\n")] = 0; // remove newline
                 int res = processCommand(entireCommandBuffer);
                 if (res == -2) break;
+                printf("Enter command:\n\n> ");
+                fflush(stdout);  // make sure prompt appears
             }
         }
 
