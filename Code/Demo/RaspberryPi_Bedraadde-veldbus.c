@@ -174,7 +174,7 @@ Command commandList[] = {
     {
         "help",
         &command_undefined
-    }
+    },
     {
         "senddata",
         &command_sendData
