@@ -70,7 +70,7 @@ int verzend_can_frame(int socket)
     frame.can_id  = 410;   // 11-bit ID
     frame.can_dlc = 2;       // 8 bytes data
 
-    frame.data[0] = 12;
+    frame.data[0] = 82;
     frame.data[1] = 34;
     //frame.data[2] = 0x30;
     //frame.data[3] = 0x40;
