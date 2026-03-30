@@ -186,7 +186,7 @@ int command_help(char* str) {
     for (int i=0; i<sizeof(commandList)/sizeof(Command); i++) {
         printf("%d. %s\n", i+1, commandList[i].commandName);
     }
-    printf("----------------------\n")
+    printf("----------------------\n");
     return 1;
 }
 
