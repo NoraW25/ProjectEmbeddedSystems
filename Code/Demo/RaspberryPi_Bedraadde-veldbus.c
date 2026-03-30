@@ -70,7 +70,7 @@ int verzend_can_frame(int ID, int dataLen, int data[8])
     frame.can_dlc = dataLen;       // 8 bytes data
 
     printf("%d %d\n", ID, dataLen);
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < dataLen; i++) {
         printf("%d\n", data[i]);
         frame.data[i] = data[i];
     }
@@ -147,12 +147,11 @@ int command_sendData(char* str) {
     char* ptr = str + baseLen;
 
     for (int i = 0; i < 8; i++) {
-        int thisLen = sscanf(str, " %d", &data[i]);
-        if (thisLen <= 1) {
-            break;
-        }
-        dataLen = i;
-        ptr += thisLen;
+        if (sscanf(ptr, " %d", &data[i]) != 1) break;
+        dataLen++;
+        // Move pointer past the number just read
+        while (*ptr && *ptr != ' ') ptr++;
+        while (*ptr == ' ') ptr++;
     }
 
     verzend_can_frame(addr, dataLen, data);
