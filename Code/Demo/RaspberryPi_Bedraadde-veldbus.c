@@ -141,7 +141,7 @@ int command_exit(char* str) {
 int command_sendData(char* str) {
     int addr;
     int data[8];
-    int dataLen;
+    int dataLen=0;
 
     sscanf(str, " %d", &addr);
     char* ptr = str + 1;
