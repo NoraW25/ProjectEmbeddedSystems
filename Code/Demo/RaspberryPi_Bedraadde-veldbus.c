@@ -20,7 +20,7 @@ volatile int blijvenLezen = 1;
 
 void intHandler(int dummy)
 {
-    keepRunning = 0;
+    blijvenLezen = 0;
     printf("\nCTRL-C ontvangen. Programma stopt...\n");
 }
 
