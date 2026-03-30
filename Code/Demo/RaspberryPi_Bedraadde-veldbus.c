@@ -67,17 +67,17 @@ int verzend_can_frame(int socket)
 {
     struct can_frame frame;
 
-    frame.can_id  = 0x123;   // 11-bit ID
-    frame.can_dlc = 8;       // 8 bytes data
+    frame.can_id  = 410;   // 11-bit ID
+    frame.can_dlc = 1;       // 8 bytes data
 
-    frame.data[0] = 0x10;
-    frame.data[1] = 0x20;
-    frame.data[2] = 0x30;
-    frame.data[3] = 0x40;
-    frame.data[4] = 0x50;
-    frame.data[5] = 0x60;
-    frame.data[6] = 0x70;
-    frame.data[7] = 0x80;
+    frame.data[0] = 1234;
+    //frame.data[1] = 0x20;
+    //frame.data[2] = 0x30;
+    //frame.data[3] = 0x40;
+    //frame.data[4] = 0x50;
+    //frame.data[5] = 0x60;
+    //frame.data[6] = 0x70;
+    //frame.data[7] = 0x80;
 
     int bytes = write(socket, &frame, sizeof(frame));
 
