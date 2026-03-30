@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>605</x>
-      <y>143</y>
+      <x>374</x>
+      <y>341</y>
       <w>242</w>
       <h>132</h>
     </coordinates>
@@ -15,14 +15,14 @@
 --
 open() : void
 dicht() : void
-huidigeStand() : void</panel_attributes>
+get_huidige_stand() : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>605</x>
-      <y>671</y>
+      <x>1144</x>
+      <y>341</y>
       <w>242</w>
       <h>132</h>
     </coordinates>
@@ -30,7 +30,7 @@ huidigeStand() : void</panel_attributes>
 --
 
 --
--genereer_interupt() : void
+
 
 </panel_attributes>
     <additional_attributes/>
@@ -38,8 +38,8 @@ huidigeStand() : void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>605</x>
-      <y>407</y>
+      <x>759</x>
+      <y>341</y>
       <w>242</w>
       <h>132</h>
     </coordinates>
@@ -55,29 +55,29 @@ huidigeStand() : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>715</x>
-      <y>264</y>
-      <w>66</w>
-      <h>165</h>
+      <x>605</x>
+      <y>396</y>
+      <w>176</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 opent
 m1=1
-m2=2</panel_attributes>
-    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+m2=1</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>715</x>
-      <y>528</y>
-      <w>110</w>
-      <h>165</h>
+      <x>990</x>
+      <y>396</y>
+      <w>176</w>
+      <h>55</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+    <panel_attributes>lt=&lt;-
 reageert op
 m1=1
 m2=2</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
   </element>
 </diagram>
