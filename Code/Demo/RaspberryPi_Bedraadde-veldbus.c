@@ -19,7 +19,7 @@
 #include <signal.h>
 
 volatile int blijvenLezen = 1;
-volatile int socket;
+volatile int globalCANsocket;
 
 void intHandler(int dummy)
 {
@@ -73,7 +73,7 @@ int verzend_can_frame(int ID, int dataLen, int data[8])
         frame.data[i] = data[i];
     }
 
-    int bytes = write(socket, &frame, sizeof(frame));
+    int bytes = write(globalCANsocket, &frame, sizeof(frame));
 
     if (bytes != sizeof(frame)) {
         perror("Kon CAN frame niet versturen");
@@ -92,7 +92,7 @@ int lees_can_frames()
     printf("Wachten op CAN berichten...\n");
 
     while (blijvenLezen) {
-        aantalBytes = read(socket, &frame, sizeof(struct can_frame));
+        aantalBytes = read(globalCANsocket, &frame, sizeof(struct can_frame));
 
         if (!blijvenLezen) {
             printf("Stoppen met lezen van CAN frames.\n");
@@ -114,7 +114,7 @@ int lees_can_frames()
         printf("  DLC    : %d\n", frame.can_dlc);
         printf("  Data   : ");
 
-        verzend_can_frame_buzzer(socket);
+        //verzend_can_frame(socket);
 
         for (int i = 0; i < frame.can_dlc; i++)
             printf("%02X ", frame.data[i]);
@@ -196,8 +196,8 @@ int processCommand(char* str) {
 int main() {
     const char* ifname = "can0";
     // Socket openen
-    socket = open_can_socket(ifname);
-    if (socket < 0) {
+    globalCANsocket = open_can_socket(ifname);
+    if (globalCANsocket < 0) {
         return 1;
     }
 
@@ -246,6 +246,6 @@ int main() {
     }
 
     printf("Exiting\n");
-    close(socket);//close CANBUS
+    close(globalCANsocket);//close CANBUS
     return 0;
 }
