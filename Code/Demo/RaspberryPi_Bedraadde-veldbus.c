@@ -68,7 +68,7 @@ int verzend_can_frame(int socket)
     struct can_frame frame;
 
     frame.can_id  = 420;   // 11-bit ID
-    frame.can_dlc = 2;       // 8 bytes data
+    frame.can_dlc = 0;       // 8 bytes data
 
     frame.data[0] = 0;
     //frame.data[1] = 34;
