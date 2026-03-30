@@ -130,7 +130,7 @@ int main(void)
 	    header.IDE = CAN_ID_STD;
 	    header.RTR = CAN_RTR_DATA;
 	    header.DLC = 1;
-	    char msg[] = "CAN verstuurd!\n";
+	    char msg[] = "CAN verstuurd!\n\r";
 	    HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
 	    HAL_Delay(4000);
 	    if (HAL_CAN_AddTxMessage(&hcan1, &header, data, &mailbox) != HAL_OK)

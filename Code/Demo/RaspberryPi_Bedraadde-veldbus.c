@@ -12,6 +12,17 @@
 #include <net/if.h>
 #include <linux/can.h>
 #include <linux/can/raw.h>
+#include <signal.h>
+
+
+volatile int blijvenLezen = 1;
+
+
+void intHandler(int dummy)
+{
+    keepRunning = 0;
+    printf("\nCTRL-C ontvangen. Programma stopt...\n");
+}
 
 
 
@@ -88,8 +99,13 @@ int lees_can_frames(int socket)
 
     printf("Wachten op CAN berichten...\n");
 
-    while (1) {
+    while (blijvenLezen) {
         aantalBytes = read(socket, &frame, sizeof(struct can_frame));
+
+        if(!blijvenLezen) {
+            printf("Stoppen met lezen van CAN frames.\n");
+            break;
+        }
 
         if (aantalBytes < 0) {
             perror("Fout bij read().");
@@ -121,17 +137,23 @@ int main()
     const char *ifname = "can0";
 
     // Socket openen
-    int s = open_can_socket(ifname);
-    if (s < 0){
+    int socket = open_can_socket(ifname);
+    if (socket < 0){
         return 1;
     }
 
     // Verstuur frame
-    verzend_can_frame(s);
+    verzend_can_frame(socket);
+
+
+    signal(SIGINT, intHandler);
+    signal(SIGTERM, intHandler);
+
 
     // Start CAN ontvangt lus
-    lees_can_frames(s);
+    lees_can_frames(socket);
 
-    close(s);
+    close(socket);
+    printf("Programma netjes afgesloten.\n");
     return 0;
 }
