@@ -138,6 +138,15 @@ int command_exit(char* str) {
     return -2;
 }
 
+int command_help(char* str) {
+    printf("----------------------\nCommands:\n\n");
+    for (int i=0; i<sizeof(commandList)/sizeof(Command); i++) {
+        printf("%d. %s\n", i+1, commandList[i].commandName);
+    }
+    printf("----------------------\n")
+    return 1;
+}
+
 int command_sendData(char* str) {
     int addr;
     int data[8];
@@ -157,9 +166,9 @@ int command_sendData(char* str) {
         if (*ptr=='\0') break;
     }
 
-    verzend_can_frame(addr, dataLen, data);
+    int res = verzend_can_frame(addr, dataLen, data);
 
-    return 1;
+    return res+1;
 }
 
 Command commandList[] = {
