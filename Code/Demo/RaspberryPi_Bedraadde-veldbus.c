@@ -131,7 +131,8 @@ int lees_can_frames(int socket)
     return 0;
 }
 
-
+// Bij het opstarten van de Pi eerst deze commando geven:
+// sudo ip link set can0 up type can bitrate 500000 restart-ms 100
 int main()
 {
     const char *ifname = "can0";
