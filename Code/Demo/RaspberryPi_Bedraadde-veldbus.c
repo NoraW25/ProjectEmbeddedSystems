@@ -138,13 +138,8 @@ int command_exit(char* str) {
     return -2;
 }
 
-int command_help(char* str) {
-    printf("----------------------\nCommands:\n\n");
-    for (int i=0; i<sizeof(commandList)/sizeof(Command); i++) {
-        printf("%d. %s\n", i+1, commandList[i].commandName);
-    }
-    printf("----------------------\n")
-    return 1;
+int command_undefined(char* str) {
+    return 0;
 }
 
 int command_sendData(char* str) {
@@ -177,10 +172,23 @@ Command commandList[] = {
         &command_exit
     },
     {
+        "help",
+        &command_undefined
+    }
+    {
         "senddata",
         &command_sendData
     }
 };
+
+int command_help(char* str) {
+    printf("----------------------\nCommands:\n\n");
+    for (int i=0; i<sizeof(commandList)/sizeof(Command); i++) {
+        printf("%d. %s\n", i+1, commandList[i].commandName);
+    }
+    printf("----------------------\n")
+    return 1;
+}
 
 int processCommand(char* str) {
     //Returns: -1 if no command found, -2 if shutting down, 0 if command failed, 1 if command succeeded
@@ -208,6 +216,8 @@ int processCommand(char* str) {
 }
 
 int main() {
+    commandList[1].commandFunc = &command_help;
+
     const char* ifname = "can0";
     // Socket openen
     globalCANsocket = open_can_socket(ifname);
