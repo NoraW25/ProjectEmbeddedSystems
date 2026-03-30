@@ -140,11 +140,11 @@ int command_sendData(char* str) {
     int data[8];
     int dataLen;
 
-    int baseLen = sscanf(str, " %d", addr);
+    int baseLen = sscanf(str, " %d", &addr);
     char* ptr = str + baseLen;
 
     for (int i = 0; i < 8; i++) {
-        int thisLen = sscanf(str, " %d", data[i]);
+        int thisLen = sscanf(str, " %d", &data[i]);
         if (thisLen <= 1) {
             break;
         }
