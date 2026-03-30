@@ -67,11 +67,11 @@ int verzend_can_frame(int socket)
 {
     struct can_frame frame;
 
-    frame.can_id  = 410;   // 11-bit ID
+    frame.can_id  = 420;   // 11-bit ID
     frame.can_dlc = 2;       // 8 bytes data
 
-    frame.data[0] = 82;
-    frame.data[1] = 34;
+    frame.data[0] = 0;
+    //frame.data[1] = 34;
     //frame.data[2] = 0x30;
     //frame.data[3] = 0x40;
     //frame.data[4] = 0x50;
@@ -132,7 +132,7 @@ int lees_can_frames(int socket)
 }
 
 // Bij het opstarten van de Pi eerst deze commando geven:
-// sudo ip link set can0 up type can bitrate 500000 restart-ms 100
+//sudo ip link set can0 up type can bitrate 500000 restart-ms 100
 int main()
 {
     const char *ifname = "can0";

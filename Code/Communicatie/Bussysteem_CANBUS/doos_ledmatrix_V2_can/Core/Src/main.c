@@ -52,6 +52,7 @@ uint8_t state = 0;
 CAN_RxHeaderTypeDef   rxHeader;
 uint8_t               rxData[8];
 volatile int datacheck = 0;
+volatile int zonnepaneelDatacheck = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -151,14 +152,21 @@ int main(void)
 	    data[0] = (voltage >> 8) & 0xFF;
 	    data[1] = voltage & 0xFF;
 
-
+	    if (HAL_CAN_AddTxMessage(&hcan1, &header, data, &mailbox) != HAL_OK){
+	    		    	Error_Handler ();
+	    		    	HAL_UART_Transmit(&huart2, (uint8_t*) txtBuffer, aantal, HAL_MAX_DELAY);
+	    		    }
+	    		    else {
+	    		    	char msg[] = "CAN verstuurd!\n\r";
+	    		    	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+	    		    }
 
 
 
 	    HAL_Delay(1000);
-	    if (datacheck)
+	    if (zonnepaneelDatacheck)
 	    {
-	    	datacheck = 0;
+	    	zonnepaneelDatacheck = 0;
 		    char msg2[] = "CAN ontvangen!\n\0";
 		    HAL_UART_Transmit(&huart2, (uint8_t*)msg2, strlen(msg2), HAL_MAX_DELAY);
 
@@ -410,7 +418,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
   }
   if ((rxHeader.StdId == 310))
   {
-	  datacheck = 1;
+	  zonnepaneelDatacheck = 1;
   }
 }
 
