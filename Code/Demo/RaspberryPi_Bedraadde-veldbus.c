@@ -1,8 +1,12 @@
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/select.h>
+
 #include <stdlib.h>
 #include <unistd.h>
-#include <string.h>
 #include <errno.h>
 
 #include <sys/types.h>
@@ -14,9 +18,8 @@
 #include <linux/can/raw.h>
 #include <signal.h>
 
-
 volatile int blijvenLezen = 1;
-
+volatile int socket;
 
 void intHandler(int dummy)
 {
@@ -24,9 +27,7 @@ void intHandler(int dummy)
     printf("\nCTRL-C ontvangen. Programma stopt...\n");
 }
 
-
-
-int open_can_socket(const char *ifname)
+int open_can_socket(const char* ifname)
 {
     int canSocket;
     struct ifreq ifr;
@@ -48,11 +49,11 @@ int open_can_socket(const char *ifname)
     }
 
     // CAN‑adres instellen
-    socketAdres.can_family  = AF_CAN;
+    socketAdres.can_family = AF_CAN;
     socketAdres.can_ifindex = ifr.ifr_ifindex;
 
     // Socket binden
-    if (bind(canSocket, (struct sockaddr *)&socketAdres, sizeof(socketAdres)) < 0) {
+    if (bind(canSocket, (struct sockaddr*)&socketAdres, sizeof(socketAdres)) < 0) {
         perror("Fout bij bind()");
         close(canSocket);
         return -1;
@@ -61,23 +62,16 @@ int open_can_socket(const char *ifname)
     return canSocket;
 }
 
-
-
-int verzend_can_frame(int socket)
+int verzend_can_frame(int ID, int dataLen, int data[8])
 {
     struct can_frame frame;
 
-    frame.can_id  = 410;   // 11-bit ID
-    frame.can_dlc = 0;       // 8 bytes data
+    frame.can_id = ID;   // 11-bit ID
+    frame.can_dlc = dataLen;       // 8 bytes data
 
-    frame.data[0] = 12;
-    frame.data[1] = 34;
-    //frame.data[2] = 0x30;
-    //frame.data[3] = 0x40;
-    //frame.data[4] = 0x50;
-    //frame.data[5] = 0x60;
-    //frame.data[6] = 0x70;
-    //frame.data[7] = 0x80;
+    for (int i = 0; i < 8; i++) {
+        frame.data[i] = data[i];
+    }
 
     int bytes = write(socket, &frame, sizeof(frame));
 
@@ -90,27 +84,7 @@ int verzend_can_frame(int socket)
     return 0;
 }
 
-int verzend_can_frame_buzzer(int socket)
-{
-    struct can_frame frame;
-
-    frame.can_id  = 420;   // 11-bit ID
-    frame.can_dlc = 0;       // 8 bytes data
-
-    int bytes = write(socket, &frame, sizeof(frame));
-
-    if (bytes != sizeof(frame)) {
-        perror("Kon CAN frame niet versturen");
-        return -1;
-    }
-
-    printf("CAN frame verzonden: ID=0x%03X, %d bytes\n", frame.can_id, frame.can_dlc);
-    return 0;
-}
-
-
-
-int lees_can_frames(int socket)
+int lees_can_frames()
 {
     struct can_frame frame;
     int aantalBytes;
@@ -120,7 +94,7 @@ int lees_can_frames(int socket)
     while (blijvenLezen) {
         aantalBytes = read(socket, &frame, sizeof(struct can_frame));
 
-        if(!blijvenLezen) {
+        if (!blijvenLezen) {
             printf("Stoppen met lezen van CAN frames.\n");
             break;
         }
@@ -151,20 +125,84 @@ int lees_can_frames(int socket)
     return 0;
 }
 
-// Bij het opstarten van de Pi eerst deze commando geven:
-//sudo ip link set can0 up type can bitrate 500000 restart-ms 100
-int main()
-{
-    const char *ifname = "can0";
+typedef int (*CommandFunc)(char* args);
+typedef struct {
+    char commandName[20];
+    CommandFunc commandFunc;
+} Command;
 
+int command_exit(char* str) {
+    return -2;
+}
+
+int command_sendData(char* str) {
+    int addr;
+    int data[8];
+    int dataLen;
+
+    int baseLen = sscanf(str, " %d", addr);
+    char* ptr = str + baseLen;
+
+    for (int i = 0; i < 8; i++) {
+        int thisLen = sscanf(str, " %d", data[i]);
+        if (thisLen <= 1) {
+            break;
+        }
+        dataLen = i;
+        ptr += thisLen;
+    }
+
+    verzend_can_frame(addr, dataLen, data);
+
+    return 1;
+}
+
+Command commandList[] = {
+    {
+        "exit",
+        &command_exit
+    },
+    {
+        "senddata",
+        &command_sendData
+    }
+};
+
+int processCommand(char* str) {
+    //Returns: -1 if no command found, -2 if shutting down, 0 if command failed, 1 if command succeeded
+    char commandBuffer[20];
+    sscanf(str, "%s", commandBuffer);
+    int commandLength = strlen(commandBuffer);
+    char* remainder = str + commandLength;
+    while (*remainder == ' ') {
+        remainder += 1;
+    }
+    for (int i = 0; i < sizeof(commandList) / sizeof(Command); i++) {
+        if (strcmp(commandBuffer, commandList[i].commandName) == 0) {
+            int res = commandList[i].commandFunc(remainder);
+            if (res > 0) {
+                printf("succesfully executed command %s\n", commandList[i].commandName);
+            }
+            else if (res == 0) {
+                printf("failed to execute command %s\n", commandList[i].commandName);
+            }
+            return res;
+        }
+    }
+    printf("command %s not found", commandBuffer);
+    return -1;
+}
+
+int main() {
+    const char* ifname = "can0";
     // Socket openen
-    int socket = open_can_socket(ifname);
-    if (socket < 0){
+    socket = open_can_socket(ifname);
+    if (socket < 0) {
         return 1;
     }
 
     // Verstuur frame
-    verzend_can_frame(socket);
+    //verzend_can_frame(socket);
 
 
     signal(SIGINT, intHandler);
@@ -172,9 +210,42 @@ int main()
 
 
     // Start CAN ontvangt lus
-    lees_can_frames(socket);
+    //lees_can_frames(socket);
 
-    close(socket);
-    printf("Programma netjes afgesloten.\n");
+    //Command line code
+    char entireCommandBuffer[100];
+
+    printf("Enter command:\n\n> ");
+    fflush(stdout);  // make sure prompt appears
+
+    while (1) {
+
+        // Set up select()
+        fd_set readfds;
+        FD_ZERO(&readfds);
+        FD_SET(STDIN_FILENO, &readfds);
+
+        struct timeval timeout;
+        timeout.tv_sec = 0;   // 0 seconds
+        timeout.tv_usec = 100000; // 100ms -> loop every 0.1 sec
+
+        int ready = select(STDIN_FILENO + 1, &readfds, NULL, NULL, &timeout);
+
+        if (ready > 0) {
+            // input is available
+            if (fgets(entireCommandBuffer, sizeof(entireCommandBuffer), stdin) != NULL) {
+                entireCommandBuffer[strcspn(entireCommandBuffer, "\n")] = 0; // remove newline
+                int res = processCommand(entireCommandBuffer);
+                if (res == -2) break;
+                printf("Enter command:\n\n> ");
+                fflush(stdout);  // make sure prompt appears
+            }
+        }
+
+        // Do other non-blocking work here if needed
+    }
+
+    printf("Exiting\n");
+    close(socket);//close CANBUS
     return 0;
 }
