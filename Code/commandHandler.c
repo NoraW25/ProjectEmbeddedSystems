@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
+#include <sys/select.h>
 
 typedef int (*CommandFunc)(char* args);
 typedef struct {
@@ -53,16 +55,35 @@ int processCommand(char* str) {
 }
 
 int main() {
+    char entireCommandBuffer[100];
+
     while (1) {
         printf("Enter command:\n\n> ");
-        char entireCommandBuffer[100];
-        scanf(" %[^\n]", entireCommandBuffer);
+        fflush(stdout);  // make sure prompt appears
 
-        int res = processCommand(entireCommandBuffer);
-        if (res == -2) {
-            break;
+        // Set up select()
+        fd_set readfds;
+        FD_ZERO(&readfds);
+        FD_SET(STDIN_FILENO, &readfds);
+
+        struct timeval timeout;
+        timeout.tv_sec = 0;   // 0 seconds
+        timeout.tv_usec = 100000; // 100ms -> loop every 0.1 sec
+
+        int ready = select(STDIN_FILENO + 1, &readfds, NULL, NULL, &timeout);
+
+        if (ready > 0) {
+            // input is available
+            if (fgets(entireCommandBuffer, sizeof(entireCommandBuffer), stdin) != NULL) {
+                entireCommandBuffer[strcspn(entireCommandBuffer, "\n")] = 0; // remove newline
+                int res = processCommand(entireCommandBuffer);
+                if (res == -2) break;
+            }
         }
+
+        // Do other non-blocking work here if needed
     }
+
     printf("Exiting\n");
     return 0;
 }
