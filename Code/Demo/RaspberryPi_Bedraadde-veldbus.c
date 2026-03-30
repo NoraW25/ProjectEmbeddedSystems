@@ -23,7 +23,7 @@ int open_can_socket(const char *ifname)
 
     // Maak raw CAN socket
     canSocket = socket(PF_CAN, SOCK_RAW, CAN_RAW);
-    if (s < 0) {
+    if (canSocket < 0) {
         perror("Fout bij het openen van de socket.");
         return -1;
     }
