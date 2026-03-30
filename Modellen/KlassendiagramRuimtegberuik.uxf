@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>9</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>468</x>
-      <y>414</y>
-      <w>198</w>
-      <h>99</h>
+      <x>315</x>
+      <y>441</y>
+      <w>154</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>RevalidatieZaal
 --
@@ -20,10 +20,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>783</x>
-      <y>162</y>
-      <w>198</w>
-      <h>99</h>
+      <x>588</x>
+      <y>182</y>
+      <w>154</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>FitnessOpstelling
 --
@@ -38,25 +38,25 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>549</x>
-      <y>198</y>
-      <w>252</w>
-      <h>234</h>
+      <x>329</x>
+      <y>210</y>
+      <w>273</w>
+      <h>245</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 bevat &gt;
 m1=3
 m2=1
 </panel_attributes>
-    <additional_attributes>260.0;20.0;20.0;20.0;20.0;240.0</additional_attributes>
+    <additional_attributes>370.0;20.0;10.0;20.0;10.0;330.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>783</x>
-      <y>288</y>
-      <w>198</w>
-      <h>99</h>
+      <x>588</x>
+      <y>287</y>
+      <w>154</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>Deur
 --
@@ -70,24 +70,24 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>621</x>
-      <y>324</y>
-      <w>180</w>
-      <h>108</h>
+      <x>434</x>
+      <y>315</y>
+      <w>168</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-bevat
+bevat &gt;
 m1=1
 m2=1</panel_attributes>
-    <additional_attributes>180.0;20.0;10.0;20.0;10.0;100.0</additional_attributes>
+    <additional_attributes>220.0;20.0;10.0;20.0;10.0;180.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>783</x>
-      <y>414</y>
-      <w>198</w>
-      <h>99</h>
+      <x>588</x>
+      <y>609</y>
+      <w>154</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>Klok
 --
@@ -102,26 +102,26 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>657</x>
-      <y>450</y>
-      <w>144</w>
-      <h>45</h>
+      <x>427</x>
+      <y>511</y>
+      <w>175</w>
+      <h>161</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-leest tijd af via
+bevat &gt;
 m1=1
 m2=1</panel_attributes>
-    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>230.0;200.0;20.0;200.0;20.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>783</x>
-      <y>540</y>
-      <w>198</w>
-      <h>90</h>
+      <x>588</x>
+      <y>441</y>
+      <w>154</w>
+      <h>70</h>
     </coordinates>
-    <panel_attributes>KlimaatController
+    <panel_attributes>Ventilator
 --
 
 --
@@ -132,24 +132,24 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>612</x>
-      <y>504</y>
-      <w>189</w>
-      <h>108</h>
+      <x>462</x>
+      <y>455</y>
+      <w>140</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 beinvloed klimaat via
 m1=1
 m2=1</panel_attributes>
-    <additional_attributes>190.0;90.0;20.0;90.0;20.0;10.0</additional_attributes>
+    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>783</x>
-      <y>657</y>
-      <w>198</w>
-      <h>108</h>
+      <x>588</x>
+      <y>756</y>
+      <w>154</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>Verlichting
 --
@@ -162,15 +162,85 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>513</x>
-      <y>504</y>
-      <w>288</w>
-      <h>243</h>
+      <x>329</x>
+      <y>511</y>
+      <w>273</w>
+      <h>315</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
-stelt verlichting in via
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+stelt verlichting in via &gt;
 m1=1
 m2=1</panel_attributes>
-    <additional_attributes>300.0;240.0;60.0;240.0;60.0;10.0</additional_attributes>
+    <additional_attributes>370.0;420.0;10.0;420.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>602</x>
+      <y>357</y>
+      <w>133</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=-
+past verwerking aan op ^
+m1=*
+m2=0..2</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>735</x>
+      <y>217</y>
+      <w>196</w>
+      <h>273</h>
+    </coordinates>
+    <panel_attributes>lt=-
+bepaald temperatuur v
+m1=*
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;10.0;110.0;360.0;10.0;360.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>658</x>
+      <y>679</y>
+      <w>63</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=-
+beïnvloed
+m1=0..1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>735</x>
+      <y>322</y>
+      <w>161</w>
+      <h>357</h>
+    </coordinates>
+    <panel_attributes>lt=-
+bepaald openingstijden ^
+m1=*
+m2=0..1</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0;50.0;480.0;10.0;480.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>602</x>
+      <y>504</y>
+      <w>147</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes>lt=-
+bepaald wanneer regeling ^
+m1=0..1
+m2=0..1</panel_attributes>
+    <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>

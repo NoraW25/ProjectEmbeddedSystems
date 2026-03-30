@@ -15,7 +15,7 @@
 --
 open() : void
 dicht() : void
-get_huidige_stand() : void</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -74,7 +74,7 @@ m2=1</panel_attributes>
       <w>176</w>
       <h>55</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=-
 reageert op
 m1=1
 m2=2</panel_attributes>

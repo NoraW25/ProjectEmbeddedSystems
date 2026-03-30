@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>8</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
-      <y>120</y>
-      <w>168</w>
-      <h>88</h>
+      <x>711</x>
+      <y>108</y>
+      <w>198</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>KlimaatSensor
 --
 -pinNr : int
 --
-+leesUit() : int 
+/+leesUit() : int /
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>392</x>
-      <y>288</y>
-      <w>168</w>
-      <h>88</h>
+      <x>414</x>
+      <y>297</y>
+      <w>198</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>LuchtvochtigheidSensor
 --
@@ -36,10 +36,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
-      <y>288</y>
-      <w>168</w>
-      <h>88</h>
+      <x>711</x>
+      <y>297</y>
+      <w>198</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>TemperatuurSensor
 --
@@ -52,10 +52,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>912</x>
-      <y>288</y>
-      <w>168</w>
-      <h>88</h>
+      <x>1008</x>
+      <y>297</y>
+      <w>198</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>CO2Sensor
 --
@@ -68,26 +68,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
-      <y>544</y>
-      <w>168</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>KlimaatController
---
-
---
--aanpassen() : int 
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>920</x>
-      <y>600</y>
-      <w>168</w>
-      <h>64</h>
+      <x>558</x>
+      <y>549</y>
+      <w>198</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>KlimaatDisplay
 --
@@ -100,10 +84,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
-      <y>776</y>
-      <w>168</w>
-      <h>96</h>
+      <x>864</x>
+      <y>549</y>
+      <w>189</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>Ventilator
 --
@@ -117,21 +101,21 @@ stop() : void
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>456</x>
-      <y>200</y>
-      <w>296</w>
-      <h>104</h>
+      <x>504</x>
+      <y>198</y>
+      <w>324</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>350.0;10.0;350.0;60.0;10.0;60.0;10.0;110.0</additional_attributes>
+    <additional_attributes>340.0;10.0;340.0;60.0;10.0;60.0;10.0;110.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>728</x>
-      <y>200</y>
-      <w>24</w>
-      <h>104</h>
+      <x>801</x>
+      <y>198</y>
+      <w>27</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
@@ -139,10 +123,10 @@ stop() : void
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>728</x>
-      <y>200</y>
-      <w>288</w>
-      <h>104</h>
+      <x>801</x>
+      <y>198</y>
+      <w>324</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0;340.0;60.0;340.0;110.0</additional_attributes>
@@ -150,71 +134,84 @@ stop() : void
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>464</x>
-      <y>368</y>
-      <w>200</w>
-      <h>224</h>
+      <x>567</x>
+      <y>387</y>
+      <w>153</w>
+      <h>180</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
-leest uit ^
-m1=1
-m2=1</panel_attributes>
-    <additional_attributes>230.0;250.0;10.0;250.0;10.0;10.0</additional_attributes>
+    <panel_attributes>lt=-
+laat waarde zien van ^
+m1=1..*
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>728</x>
-      <y>368</y>
-      <w>72</w>
-      <h>192</h>
+      <x>729</x>
+      <y>387</y>
+      <w>153</w>
+      <h>180</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
-leest uit ^
-m1=1
-m2=1</panel_attributes>
-    <additional_attributes>10.0;220.0;10.0;10.0</additional_attributes>
+    <panel_attributes>lt=-
+laat waarde zien van ^
+m1=1..*
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>808</x>
-      <y>368</y>
-      <w>256</w>
-      <h>224</h>
+      <x>1026</x>
+      <y>387</y>
+      <w>108</w>
+      <h>180</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
-leest uit ^
-m1=1
-m2=1</panel_attributes>
-    <additional_attributes>10.0;250.0;240.0;250.0;240.0;10.0</additional_attributes>
+    <panel_attributes>lt=-
+laat draaien v
+m1=1..*
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>808</x>
-      <y>624</y>
-      <w>128</w>
-      <h>40</h>
+      <x>873</x>
+      <y>387</y>
+      <w>108</w>
+      <h>180</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
-stuurt door
-m1=1
-m2=1</panel_attributes>
-    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+    <panel_attributes>lt=-
+laat draaien v
+m1=1..*
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>720</x>
-      <y>656</y>
-      <w>72</w>
-      <h>136</h>
+      <x>450</x>
+      <y>387</y>
+      <w>531</w>
+      <h>405</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
-stuurt aan
-m1=1
-m2=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+    <panel_attributes>lt=-
+laat draaien &gt;
+m1=1..*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;430.0;570.0;430.0;570.0;290.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>648</x>
+      <y>387</y>
+      <w>558</w>
+      <h>351</h>
+    </coordinates>
+    <panel_attributes>lt=-
+laat waarde zien van &gt;
+m1=*
+m2=1..*</panel_attributes>
+    <additional_attributes>10.0;290.0;10.0;370.0;580.0;370.0;580.0;10.0</additional_attributes>
   </element>
 </diagram>
