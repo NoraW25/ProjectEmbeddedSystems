@@ -67,17 +67,35 @@ int verzend_can_frame(int socket)
 {
     struct can_frame frame;
 
-    frame.can_id  = 420;   // 11-bit ID
+    frame.can_id  = 410;   // 11-bit ID
     frame.can_dlc = 0;       // 8 bytes data
 
-    frame.data[0] = 0;
-    //frame.data[1] = 34;
+    frame.data[0] = 12;
+    frame.data[1] = 34;
     //frame.data[2] = 0x30;
     //frame.data[3] = 0x40;
     //frame.data[4] = 0x50;
     //frame.data[5] = 0x60;
     //frame.data[6] = 0x70;
     //frame.data[7] = 0x80;
+
+    int bytes = write(socket, &frame, sizeof(frame));
+
+    if (bytes != sizeof(frame)) {
+        perror("Kon CAN frame niet versturen");
+        return -1;
+    }
+
+    printf("CAN frame verzonden: ID=0x%03X, %d bytes\n", frame.can_id, frame.can_dlc);
+    return 0;
+}
+
+int verzend_can_frame_buzzer(int socket)
+{
+    struct can_frame frame;
+
+    frame.can_id  = 420;   // 11-bit ID
+    frame.can_dlc = 0;       // 8 bytes data
 
     int bytes = write(socket, &frame, sizeof(frame));
 
@@ -121,6 +139,8 @@ int lees_can_frames(int socket)
         printf("  ID     : 0x%03X\n", frame.can_id & CAN_EFF_MASK);
         printf("  DLC    : %d\n", frame.can_dlc);
         printf("  Data   : ");
+
+        verzend_can_frame_buzzer(socket);
 
         for (int i = 0; i < frame.can_dlc; i++)
             printf("%02X ", frame.data[i]);
