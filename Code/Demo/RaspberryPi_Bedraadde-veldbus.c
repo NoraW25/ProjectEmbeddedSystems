@@ -69,7 +69,7 @@ int verzend_can_frame(int ID, int dataLen, int data[8])
     frame.can_id = ID;   // 11-bit ID
     frame.can_dlc = dataLen;       // 8 bytes data
 
-    printf("%d %d\n", ID, dataLen)
+    printf("%d %d\n", ID, dataLen);
     for (int i = 0; i < 8; i++) {
         printf("%d\n", data[i]);
         frame.data[i] = data[i];
