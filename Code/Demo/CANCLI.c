@@ -178,6 +178,7 @@ int command_sendData(char* str) {
     char* ptr = str + 1;
     while (*ptr != ' ') ptr++;
     while (*ptr == ' ') ptr++;
+    printf("\n\n%s\n\n", ptr);
 
     for (int i = 0; i < 8; i++) {
         if (sscanf(ptr, " %d", &data[i]) != 1) break;
