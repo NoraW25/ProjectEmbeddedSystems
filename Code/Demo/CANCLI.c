@@ -422,12 +422,12 @@ int main() {
 
         if (readoutIncomingCAN==1) {
             printf("\nincoming can message:");
-            printf("  ID     : 0x%03X\n", *frame.can_id & CAN_EFF_MASK);
-            printf("  DLC    : %d\n", *frame.can_dlc);
+            printf("  ID     : 0x%03X\n", frame.can_id & CAN_EFF_MASK);
+            printf("  DLC    : %d\n", frame.can_dlc);
             printf("  Data   : ");
 
-            for (int i = 0; i < *frame.can_dlc; i++)
-                printf("%02X ", *frame.data[i]);
+            for (int i = 0; i < frame.can_dlc; i++)
+                printf("%02X ", frame.data[i]);
 
             printf("\n\n> ");
         }
