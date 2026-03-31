@@ -1,9 +1,9 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
+  **************************
   * @file           : main.c
   * @brief          : Main program body
-  ******************************************************************************
+  **************************
   * @attention
   *
   * Copyright (c) 2026 STMicroelectronics.
@@ -13,7 +13,7 @@
   * in the root directory of this software component.
   * If no LICENSE file comes with this software, it is provided AS-IS.
   *
-  ******************************************************************************
+  **************************
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
@@ -21,7 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdio.h>
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -40,23 +41,31 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+ADC_HandleTypeDef hadc1;
+
+CAN_HandleTypeDef hcan1;
+
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-
+uint8_t state = 0;
+CAN_RxHeaderTypeDef   rxHeader;
+uint8_t               rxData[8];
+volatile int datacheck = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
+static void MX_CAN1_Init(void);
+static void MX_ADC1_Init(void);
 /* USER CODE BEGIN PFP */
-
+void uartPrint(char *msg);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
 /* USER CODE END 0 */
 
 /**
@@ -89,14 +98,80 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART2_UART_Init();
+  MX_CAN1_Init();
+  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
+  CAN_FilterTypeDef filter;
 
+  filter.FilterBank = 0;
+  filter.FilterMode = CAN_FILTERMODE_IDMASK;
+  filter.FilterScale = CAN_FILTERSCALE_32BIT;
+  filter.FilterIdHigh = 0;
+  filter.FilterIdLow = 0;
+  filter.FilterMaskIdHigh = 0;
+  filter.FilterMaskIdLow = 0;
+  filter.FilterFIFOAssignment = CAN_FILTER_FIFO0;
+  filter.FilterActivation = ENABLE;
+
+  HAL_CAN_ConfigFilter(&hcan1, &filter);
+  HAL_CAN_Start(&hcan1);
+  if (HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING) != HAL_OK)
+  {
+	  Error_Handler();
+  }
+
+  uint16_t voltage = { 0 };
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
+	    CAN_TxHeaderTypeDef header;
+	    uint32_t mailbox;
+	    uint8_t data[2] = {0x11, 0x12};
+
+	    header.StdId = 0x310;
+	    header.IDE = CAN_ID_STD;
+	    header.RTR = CAN_RTR_DATA;
+	    header.DLC = 2;
+	    char txtBuffer[70] = { 0 };
+	    HAL_Delay(4000);
+
+	    // Zonnepaneel
+	    HAL_ADC_Start(&hadc1);
+	    HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+	    voltage = HAL_ADC_GetValue(&hadc1);
+	    HAL_ADC_Stop(&hadc1);
+
+	    int aantal = snprintf(txtBuffer, 70, "De voltage uit zonnepaneel: %d.\r\n", voltage);
+	    HAL_UART_Transmit(&huart2, (uint8_t*) txtBuffer, aantal, HAL_MAX_DELAY);
+
+	    data[0] = (voltage >> 8) & 0xFF;
+	    data[1] = voltage & 0xFF;
+
+
+
+
+
+	    HAL_Delay(1000);
+	    if (datacheck)
+	    {
+	    	datacheck = 0;
+		    char msg2[] = "CAN ontvangen!\n\0";
+		    HAL_UART_Transmit(&huart2, (uint8_t*)msg2, strlen(msg2), HAL_MAX_DELAY);
+
+
+		    if (HAL_CAN_AddTxMessage(&hcan1, &header, data, &mailbox) != HAL_OK){
+		    	Error_Handler ();
+		    	HAL_UART_Transmit(&huart2, (uint8_t*) txtBuffer, aantal, HAL_MAX_DELAY);
+		    }
+		    else {
+		    	char msg[] = "CAN verstuurd!\n\r";
+		    	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+		    }
+	    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -162,6 +237,101 @@ void SystemClock_Config(void)
   /** Enable MSI Auto calibration
   */
   HAL_RCCEx_EnableMSIPLLMode();
+}
+
+/**
+  * @brief ADC1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_ADC1_Init(void)
+{
+
+  /* USER CODE BEGIN ADC1_Init 0 */
+
+  /* USER CODE END ADC1_Init 0 */
+
+  ADC_ChannelConfTypeDef sConfig = {0};
+
+  /* USER CODE BEGIN ADC1_Init 1 */
+
+  /* USER CODE END ADC1_Init 1 */
+
+  /** Common config
+  */
+  hadc1.Instance = ADC1;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
+  hadc1.Init.Resolution = ADC_RESOLUTION_12B;
+  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+  hadc1.Init.LowPowerAutoWait = DISABLE;
+  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.DiscontinuousConvMode = DISABLE;
+  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  hadc1.Init.DMAContinuousRequests = DISABLE;
+  hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+  hadc1.Init.OversamplingMode = DISABLE;
+  if (HAL_ADC_Init(&hadc1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Regular Channel
+  */
+  sConfig.Channel = ADC_CHANNEL_5;
+  sConfig.Rank = ADC_REGULAR_RANK_1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
+  sConfig.SingleDiff = ADC_SINGLE_ENDED;
+  sConfig.OffsetNumber = ADC_OFFSET_NONE;
+  sConfig.Offset = 0;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN ADC1_Init 2 */
+
+  /* USER CODE END ADC1_Init 2 */
+
+}
+
+/**
+  * @brief CAN1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_CAN1_Init(void)
+{
+
+  /* USER CODE BEGIN CAN1_Init 0 */
+
+  /* USER CODE END CAN1_Init 0 */
+
+  /* USER CODE BEGIN CAN1_Init 1 */
+
+  /* USER CODE END CAN1_Init 1 */
+  hcan1.Instance = CAN1;
+  hcan1.Init.Prescaler = 10;
+  hcan1.Init.Mode = CAN_MODE_NORMAL;
+  hcan1.Init.SyncJumpWidth = CAN_SJW_1TQ;
+  hcan1.Init.TimeSeg1 = CAN_BS1_13TQ;
+  hcan1.Init.TimeSeg2 = CAN_BS2_2TQ;
+  hcan1.Init.TimeTriggeredMode = DISABLE;
+  hcan1.Init.AutoBusOff = ENABLE;
+  hcan1.Init.AutoWakeUp = DISABLE;
+  hcan1.Init.AutoRetransmission = ENABLE;
+  hcan1.Init.ReceiveFifoLocked = DISABLE;
+  hcan1.Init.TransmitFifoPriority = DISABLE;
+  if (HAL_CAN_Init(&hcan1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN CAN1_Init 2 */
+
+  /* USER CODE END CAN1_Init 2 */
+
 }
 
 /**
@@ -232,6 +402,17 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
+{
+  if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &rxHeader, rxData) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if ((rxHeader.StdId == 310))
+  {
+	  datacheck = 1;
+  }
+}
 
 /* USER CODE END 4 */
 
