@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdint.h>
 #include <unistd.h>
 #include <sys/select.h>
 
@@ -356,7 +357,7 @@ int processCANframe(struct can_frame *frame) {
         int isRTR = (frame->can_id & CAN_RTR_FLAG) != 0;
 
         if (canBindings[i].canID == id &&
-            canBindings[i].canRTR == isRTR) {
+            canBindings[i].reqRTR == isRTR) {
             return canBindings[i].canFunc(frame);
         }
     }
@@ -420,7 +421,7 @@ int main() {
         processCANframe(&frame);
 
         if (readoutIncomingCAN==1) {
-            printf("\nincoming can message:")
+            printf("\nincoming can message:");
             printf("  ID     : 0x%03X\n", *frame.can_id & CAN_EFF_MASK);
             printf("  DLC    : %d\n", *frame.can_dlc);
             printf("  Data   : ");
