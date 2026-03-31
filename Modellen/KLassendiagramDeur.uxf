@@ -7,7 +7,7 @@
       <x>275</x>
       <y>396</y>
       <w>242</w>
-      <h>88</h>
+      <h>77</h>
     </coordinates>
     <panel_attributes>Servo
 --
@@ -23,7 +23,7 @@
       <x>1045</x>
       <y>396</y>
       <w>242</w>
-      <h>88</h>
+      <h>77</h>
     </coordinates>
     <panel_attributes>Knop
 --
@@ -40,7 +40,7 @@
       <x>660</x>
       <y>396</y>
       <w>242</w>
-      <h>88</h>
+      <h>77</h>
     </coordinates>
     <panel_attributes>Deur
 --

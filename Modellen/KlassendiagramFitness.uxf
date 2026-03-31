@@ -5,17 +5,15 @@
     <id>UMLClass</id>
     <coordinates>
       <x>238</x>
-      <y>301</y>
+      <y>322</y>
       <w>147</w>
-      <h>91</h>
+      <h>49</h>
     </coordinates>
     <panel_attributes>FitnessOpstelling
 --
 
 --
--start() : void
--stop() : void
--reset() : void
+
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -29,7 +27,7 @@
     </coordinates>
     <panel_attributes>HartslagSensor
 --
--hartslag
+
 --
 
 </panel_attributes>
@@ -57,14 +55,13 @@
       <x>476</x>
       <y>322</y>
       <w>147</w>
-      <h>63</h>
+      <h>49</h>
     </coordinates>
     <panel_attributes>Buzzer
 --
 
 --
-+start() : void
-+stop() : void
+
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -94,10 +91,8 @@
     </coordinates>
     <panel_attributes>Encoder
 --
--afstand
---
-/+afstandverwerking() : int/
-</panel_attributes>
+
+--</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -138,13 +133,13 @@
       <x>259</x>
       <y>77</y>
       <w>231</w>
-      <h>238</h>
+      <h>259</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 bevat &gt;
 m1=1
 m2=1</panel_attributes>
-    <additional_attributes>10.0;320.0;10.0;10.0;310.0;10.0</additional_attributes>
+    <additional_attributes>10.0;350.0;10.0;10.0;310.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -195,13 +190,13 @@ m2=0..1</panel_attributes>
       <x>336</x>
       <y>217</y>
       <w>154</w>
-      <h>98</h>
+      <h>119</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 bevat &gt;
 m1=1
 m2=1..*</panel_attributes>
-    <additional_attributes>10.0;120.0;10.0;20.0;200.0;20.0</additional_attributes>
+    <additional_attributes>10.0;150.0;10.0;20.0;200.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -315,7 +310,7 @@ m2=1</panel_attributes>
 laat fitnessgegevens zien middels
 m1=1
 m2=1..*</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;550.0;1140.0;550.0;1140.0;10.0;1080.0;10.0</additional_attributes>
+    <additional_attributes>10.0;40.0;10.0;550.0;1140.0;550.0;1140.0;10.0;1080.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -395,29 +390,29 @@ m2=1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>483</x>
-      <y>378</y>
+      <y>364</y>
       <w>77</w>
-      <h>266</h>
+      <h>280</h>
     </coordinates>
     <panel_attributes>lt=-
 signaleerd ^
 m1=*
 m2=*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;360.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;380.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>595</x>
-      <y>378</y>
+      <y>364</y>
       <w>77</w>
-      <h>189</h>
+      <h>203</h>
     </coordinates>
     <panel_attributes>lt=-
 signaleerd ^
 m1=*
 m2=*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;240.0;80.0;240.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;260.0;80.0;260.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -453,12 +448,12 @@ m2=*</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>259</x>
-      <y>385</y>
+      <y>364</y>
       <w>21</w>
-      <h>469</h>
+      <h>490</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;650.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;680.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -496,12 +491,12 @@ m2=*</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>259</x>
-      <y>385</y>
+      <y>364</y>
       <w>189</w>
-      <h>469</h>
+      <h>490</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;560.0;250.0;560.0;250.0;650.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;590.0;250.0;590.0;250.0;680.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -538,12 +533,12 @@ m2=1
     <id>Relation</id>
     <coordinates>
       <x>259</x>
-      <y>385</y>
+      <y>364</y>
       <w>413</w>
-      <h>469</h>
+      <h>490</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;560.0;570.0;560.0;570.0;650.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;590.0;570.0;590.0;570.0;680.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
