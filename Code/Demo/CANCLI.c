@@ -175,7 +175,7 @@ int command_sendData(char* str) {
     int dataLen=0;
 
     sscanf(str, " %d", &addr);
-    char* ptr = str + 1;
+    char* ptr = str;
     while (*ptr != ' ') ptr++;
     while (*ptr == ' ') ptr++;
     printf("\n\n%s\n\n", ptr);
