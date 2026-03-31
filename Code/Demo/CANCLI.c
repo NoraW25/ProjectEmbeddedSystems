@@ -86,50 +86,8 @@ int verzend_can_frame(int ID, int dataLen, int data[8])
     return 0;
 }
 
-int lees_can_frames()
+int lees_can_frames_nonblocking(struct can_frame *frame)
 {
-    struct can_frame frame;
-    int aantalBytes;
-
-    printf("Wachten op CAN berichten...\n");
-
-    while (blijvenLezen) {
-        aantalBytes = read(globalCANsocket, &frame, sizeof(struct can_frame));
-
-        if (!blijvenLezen) {
-            printf("Stoppen met lezen van CAN frames.\n");
-            break;
-        }
-
-        if (aantalBytes < 0) {
-            perror("Fout bij read().");
-            return -1;
-        }
-
-        if (aantalBytes < sizeof(struct can_frame)) {
-            fprintf(stderr, "Onvolledig CAN frame ontvangen.\n");
-            continue;
-        }
-
-        printf("\nOntvangen CAN frame:\n");
-        printf("  ID     : 0x%03X\n", frame.can_id & CAN_EFF_MASK);
-        printf("  DLC    : %d\n", frame.can_dlc);
-        printf("  Data   : ");
-
-        //verzend_can_frame(socket);
-
-        for (int i = 0; i < frame.can_dlc; i++)
-            printf("%02X ", frame.data[i]);
-
-        printf("\n");
-    }
-
-    return 0;
-}
-
-int lees_can_frames_nonblocking()
-{
-    struct can_frame frame;
     int aantalBytes;
 
     fd_set readfds;
@@ -154,7 +112,7 @@ int lees_can_frames_nonblocking()
     }
 
     if (FD_ISSET(globalCANsocket, &readfds)) {
-        aantalBytes = read(globalCANsocket, &frame, sizeof(struct can_frame));
+        aantalBytes = read(globalCANsocket, frame, sizeof(struct can_frame));
 
         if (aantalBytes < 0) {
             //perror("Fout bij read()");
@@ -166,15 +124,14 @@ int lees_can_frames_nonblocking()
             return 0;
         }
 
-        printf("\nOntvangen CAN frame:\n");
-        printf("  ID     : 0x%03X\n", frame.can_id & CAN_EFF_MASK);
-        printf("  DLC    : %d\n", frame.can_dlc);
+        /*printf("  ID     : 0x%03X\n", *frame.can_id & CAN_EFF_MASK);
+        printf("  DLC    : %d\n", *frame.can_dlc);
         printf("  Data   : ");
 
-        for (int i = 0; i < frame.can_dlc; i++)
-            printf("%02X ", frame.data[i]);
+        for (int i = 0; i < *frame.can_dlc; i++)
+            printf("%02X ", *frame.data[i]);
 
-        printf("\n");
+        printf("\n");*/
     }
 
     return 1;
@@ -363,6 +320,49 @@ int processCommand(char* str) {
     return -1;
 }
 
+
+typedef int (*CANfunc)(struct can_frame *frame);
+/**
+ * @brief the id of a can message
+ */
+typedef struct {
+    int canID;
+    int reqRTR;
+    CANfunc canFunc;
+} CANbinding;
+
+int process_solarPanel(struct can_frame *frame) {
+    printf("rec\n")
+    return 1;
+}
+
+CANbinding canBindings[] = {
+    {
+        0x310,
+        0,
+        &process_solarPanel
+    }
+}
+
+int processCANframe(struct can_frame *frame) {
+    for (int i = 0; i < sizeof(canBindings)/sizeof(CANbinding); i++) {
+        uint32_t id;
+        // Extract ID correctly
+        if (frame->can_id & CAN_EFF_FLAG)
+            id = frame->can_id & CAN_EFF_MASK;
+        else
+            id = frame->can_id & CAN_SFF_MASK;
+
+        int isRTR = (frame->can_id & CAN_RTR_FLAG) != 0;
+
+        if (canBindings[i].canID == id &&
+            canBindings[i].canRTR == isRTR) {
+            return canBindings[i].canFunc(frame);
+        }
+    }
+    return -1;
+}
+
 int main() {
     commandList[1].commandFunc = &command_help;//Set the help command to the help function, this function is defined later to use the length of the command array.
 
@@ -414,8 +414,21 @@ int main() {
             }
         }
 
-        if (readoutIncomingCAN) {
-            lees_can_frames_nonblocking();
+        struct can_frame frame;
+        int res = lees_can_frames_nonblocking(&frame);
+        
+        processCANframe(&frame);
+
+        if (readoutIncomingCAN==1) {
+            printf("\nincoming can message:")
+            printf("  ID     : 0x%03X\n", *frame.can_id & CAN_EFF_MASK);
+            printf("  DLC    : %d\n", *frame.can_dlc);
+            printf("  Data   : ");
+
+            for (int i = 0; i < *frame.can_dlc; i++)
+                printf("%02X ", *frame.data[i]);
+
+            printf("\n\n> ");
         }
     }
 
