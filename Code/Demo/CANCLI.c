@@ -176,19 +176,21 @@ int command_sendData(char* str) {
 
     sscanf(str, " %d", &addr);
     char* ptr = str;
-    while (*ptr != ' ') ptr++;
-    while (*ptr == ' ') ptr++;
-    printf("\n\n%s\n\n", ptr);
-
-    for (int i = 0; i < 8; i++) {
-        if (sscanf(ptr, " %d", &data[i]) != 1) break;
-        dataLen++;
-        // Move pointer past the number just read
+    if (*ptr!='0') {
         while (*ptr != ' ') ptr++;
         while (*ptr == ' ') ptr++;
-        if (*ptr=='\0') break;
-    }
+        printf("\n\n%s\n\n", ptr);
 
+        for (int i = 0; i < 8; i++) {
+            if (sscanf(ptr, " %d", &data[i]) != 1) break;
+            dataLen++;
+            // Move pointer past the number just read
+            while (*ptr != ' ') ptr++;
+            while (*ptr == ' ') ptr++;
+            if (*ptr=='\0') break;
+        }
+    }
+    
     int res = verzend_can_frame(addr, dataLen, data);
 
     return res+1;
