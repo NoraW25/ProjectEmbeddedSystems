@@ -66,6 +66,7 @@ int open_can_socket(const char* ifname)
     return canSocket;
 }
 
+int printSentCANFrames = 0;
 int verzend_can_frame(int ID, int dataLen, int data[8])
 {
     struct can_frame frame;
@@ -73,9 +74,9 @@ int verzend_can_frame(int ID, int dataLen, int data[8])
     frame.can_id = ID;   // 11-bit ID
     frame.can_dlc = dataLen;       // 8 bytes data
 
-    printf("%d %d\n", ID, dataLen);
+    if(printSentCANFrames) printf("%d %d\n", ID, dataLen);
     for (int i = 0; i < dataLen; i++) {
-        printf("%d\n", data[i]);
+        if(printSentCANFrames) printf("%d\n", data[i]);
         frame.data[i] = data[i];
     }
 
@@ -86,7 +87,7 @@ int verzend_can_frame(int ID, int dataLen, int data[8])
         return -1;
     }
 
-    printf("CAN frame verzonden: ID=0x%03X, %d bytes\n", frame.can_id, frame.can_dlc);
+    if(printSentCANFrames) printf("CAN frame verzonden: ID=0x%03X, %d bytes\n", frame.can_id, frame.can_dlc);
     return 0;
 }
 
@@ -201,8 +202,11 @@ int command_sendData(char* str) {
             while (*ptr == ' ') ptr++;
             if (*ptr=='\0') break;
         }
-
+    
+    int temp = printSentCANFrames;
+    printSentCANFrames = 1;
     int res = verzend_can_frame(addr, dataLen, data);
+    printSentCANFrames = 0;
 
     return res+1;
 }
@@ -236,6 +240,17 @@ int command_enableUpdateClockwSolar(char* str){
     }
     else if (strcmp(str, "off")==0) {
         updateClockwSolar=0;
+        return 1;
+    }
+    return 0;
+}
+int command_enableReadoutSending(char* str){
+    if (strcmp(str, "on")==0) {
+        printSentCANFrames=1;
+        return 1;
+    }
+    else if (strcmp(str, "off")==0) {
+        printSentCANFrames=0;
         return 1;
     }
     return 0;
@@ -278,11 +293,15 @@ Command commandList[] = {
         &command_sendData
     },
     {
-        "readdata",
+        "printreaddata",
         &command_enableReadoutData
     },
     {
-        "enableSolarClock",
+        "printsentdata",
+        &command_enableReadoutSending
+    },
+    {
+        "enablesolarclock",
         &command_enableUpdateClockwSolar
     },
     {
