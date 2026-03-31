@@ -193,9 +193,22 @@ int command_sendData(char* str) {
     return res+1;
 }
 
+/**
+ * @brief start CAN command.
+ * 
+ * This function enables the CAN interface and re-opens the socket if it hasn't been opened before.
+ * 
+ * @param str string containing arguments for function (not used)
+ * @return 0 or 1
+ */
 int command_startCAN(char* str) {
     int res = system("ip link set can0 up type can bitrate 500000");
     if (res==-1) {
+        return 0;
+    }
+    if (globalCANsocket > 0) close(globalCANsocket); // close if already open
+    globalCANsocket = open_can_socket(ifname);
+    if (globalCANsocket < 0) {
         return 0;
     }
     return 1;
