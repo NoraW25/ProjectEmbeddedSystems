@@ -304,6 +304,10 @@ Command commandList[] = {
         &command_sendData
     },
     {
+        "readdata",
+        &command_enableReadoutData
+    },
+    {
         "startcan",
         &command_startCAN
     }
