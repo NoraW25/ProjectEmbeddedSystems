@@ -284,7 +284,7 @@ Command commandList[] = {
     {
         "enableSolarClock",
         &command_enableUpdateClockwSolar
-    }
+    },
     {
         "startcan",
         &command_startCAN
