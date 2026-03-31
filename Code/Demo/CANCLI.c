@@ -176,7 +176,7 @@ int command_sendData(char* str) {
 
     sscanf(str, " %d", &addr);
     char* ptr = str;
-    if (*ptr!='0') {
+    if (*ptr!='\0') {
         while (*ptr != ' ') ptr++;
         while (*ptr == ' ') ptr++;
         printf("\n\n%s\n\n", ptr);
@@ -190,7 +190,7 @@ int command_sendData(char* str) {
             if (*ptr=='\0') break;
         }
     }
-    
+
     int res = verzend_can_frame(addr, dataLen, data);
 
     return res+1;
