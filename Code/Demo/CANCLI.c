@@ -254,7 +254,7 @@ int command_sendData(char* str) {
  * @param str string containing arguments for function, must be on\0 or off\0
  * @return 0 or 1
  */
-volatile uint8_t readoutIncomingCAN=0;
+volatile int readoutIncomingCAN=0;
 int command_enableReadoutData(char* str) {
     if (strcmp(str, "on")) {
         readoutIncomingCAN=1;
