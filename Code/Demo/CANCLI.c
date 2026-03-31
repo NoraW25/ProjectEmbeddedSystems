@@ -354,10 +354,10 @@ typedef struct {
 
 int process_solarPanel(struct can_frame *frame) {
     if(updateClockwSolar==0) return 0;
-    int data[] = {
-        (*int)frame->data[0],
-        (*int)frame->data[1]
-    };
+    int data[8];
+    for (int i=0; i<frame->dlc;i++){
+        data[i]=frame->data[i];
+    }
     verzend_can_frame(KLOK_ADDR, 2, data);
     return 1;
 }
