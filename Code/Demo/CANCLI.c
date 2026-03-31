@@ -19,6 +19,9 @@
 #include <linux/can/raw.h>
 #include <signal.h>
 
+#define KLOK_ADDR 410
+#define BUZZER_ADDR 420
+
 volatile int blijvenLezen = 1;
 volatile int globalCANsocket;
 
@@ -214,11 +217,11 @@ int command_sendData(char* str) {
  */
 volatile int readoutIncomingCAN=0;
 int command_enableReadoutData(char* str) {
-    if (strcmp(str, "on")) {
+    if (strcmp(str, "on")==0) {
         readoutIncomingCAN=1;
         return 1;
     }
-    else if (strcmp(str, "off")) {
+    else if (strcmp(str, "off")==0) {
         readoutIncomingCAN=0;
         return 1;
     }
@@ -333,7 +336,7 @@ typedef struct {
 } CANbinding;
 
 int process_solarPanel(struct can_frame *frame) {
-    printf("rec\n");
+    verzend_can_frame(KLOK_ADDR, 2, can_frame->data);
     return 1;
 }
 
