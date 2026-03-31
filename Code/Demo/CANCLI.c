@@ -342,7 +342,7 @@ CANbinding canBindings[] = {
         0,
         &process_solarPanel
     }
-}
+};
 
 int processCANframe(struct can_frame *frame) {
     for (int i = 0; i < sizeof(canBindings)/sizeof(CANbinding); i++) {
