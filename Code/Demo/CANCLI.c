@@ -332,7 +332,7 @@ typedef struct {
 } CANbinding;
 
 int process_solarPanel(struct can_frame *frame) {
-    printf("rec\n")
+    printf("rec\n");
     return 1;
 }
 
