@@ -52,7 +52,6 @@ uint8_t state = 0;
 CAN_RxHeaderTypeDef   rxHeader;
 uint8_t               rxData[8];
 volatile int datacheck = 0;
-volatile int zonnepaneelDatacheck = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -120,8 +119,6 @@ int main(void)
   {
 	  Error_Handler();
   }
-
-  uint16_t voltage = { 0 };
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -131,56 +128,26 @@ int main(void)
 
 	    CAN_TxHeaderTypeDef header;
 	    uint32_t mailbox;
-	    uint8_t data[2] = {0x11, 0x12};
+	    uint8_t data[1] = {0x11};
 
-	    header.StdId = 0x310;
+	    header.StdId = 0x101;
 	    header.IDE = CAN_ID_STD;
 	    header.RTR = CAN_RTR_DATA;
-	    header.DLC = 2;
-	    char txtBuffer[70] = { 0 };
+	    header.DLC = 1;
+	    char msg[] = "CAN verstuurd!\n\r";
+	    HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
 	    HAL_Delay(4000);
-
-	    // Zonnepaneel
-	    HAL_ADC_Start(&hadc1);
-	    HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-	    voltage = HAL_ADC_GetValue(&hadc1);
-	    HAL_ADC_Stop(&hadc1);
-
-	    int aantal = snprintf(txtBuffer, 70, "De voltage uit zonnepaneel: %d.\r\n", voltage);
-	    HAL_UART_Transmit(&huart2, (uint8_t*) txtBuffer, aantal, HAL_MAX_DELAY);
-
-	    // Schrijf de voltage data om naar data die verzonden kan worden over CAN
-	    data[0] = (voltage >> 8) & 0xFF;
-	    data[1] = voltage & 0xFF;
-
-	    // Code zodat Pi niet in blokking komt op het moment
-	    if (HAL_CAN_AddTxMessage(&hcan1, &header, data, &mailbox) != HAL_OK){
-	    	Error_Handler ();
-	    	HAL_UART_Transmit(&huart2, (uint8_t*) txtBuffer, aantal, HAL_MAX_DELAY);
+	    if (HAL_CAN_AddTxMessage(&hcan1, &header, data, &mailbox) != HAL_OK)
+	    {
+	       Error_Handler ();
 	    }
-	    else {
-	    	char msg[] = "CAN verstuurd!\n\r";
-	    	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
-	    }
-
-
 
 	    HAL_Delay(1000);
-	    // Kijk of er een bericht is gestuurd vanaf de Pi om zonnepaneeldata op te vragen
-	    if (zonnepaneelDatacheck){
+	    if (datacheck)
+	    {
+	    	datacheck = 0;
 		    char msg2[] = "CAN ontvangen!\n\0";
 		    HAL_UART_Transmit(&huart2, (uint8_t*)msg2, strlen(msg2), HAL_MAX_DELAY);
-
-		    if (HAL_CAN_AddTxMessage(&hcan1, &header, data, &mailbox) != HAL_OK){
-		    	Error_Handler ();
-		    	HAL_UART_Transmit(&huart2, (uint8_t*) txtBuffer, aantal, HAL_MAX_DELAY);
-		    }
-		    else {
-		    	char msg[] = "CAN verstuurd!\n\r";
-		    	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
-		    }
-
-	    	zonnepaneelDatacheck = 0;
 	    }
     /* USER CODE END WHILE */
 
@@ -291,7 +258,7 @@ static void MX_ADC1_Init(void)
 
   /** Configure Regular Channel
   */
-  sConfig.Channel = ADC_CHANNEL_5;
+  sConfig.Channel = ADC_CHANNEL_6;
   sConfig.Rank = ADC_REGULAR_RANK_1;
   sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
   sConfig.SingleDiff = ADC_SINGLE_ENDED;
@@ -418,9 +385,9 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
   {
     Error_Handler();
   }
-  if ((rxHeader.StdId == 110))
+  if ((rxHeader.StdId == 310))
   {
-	  zonnepaneelDatacheck = 1;
+	  datacheck = 1;
   }
 }
 
