@@ -151,6 +151,15 @@ int main(void)
 	    data[0] = (voltage >> 8) & 0xFF;
 	    data[1] = voltage & 0xFF;
 
+	    if (HAL_CAN_AddTxMessage(&hcan1, &header, data, &mailbox) != HAL_OK){
+	    	Error_Handler ();
+	    	HAL_UART_Transmit(&huart2, (uint8_t*) txtBuffer, aantal, HAL_MAX_DELAY);
+	    }
+	    else {
+	    	char msg[] = "CAN verstuurd!\n\r";
+	    	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+	    }
+
 
 
 
