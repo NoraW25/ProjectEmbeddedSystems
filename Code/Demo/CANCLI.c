@@ -128,20 +128,47 @@ int lees_can_frames()
 }
 
 typedef int (*CommandFunc)(char* args);
+/**
+ * @brief the name (alias) and function of a command
+ */
 typedef struct {
     char commandName[20];
     CommandFunc commandFunc;
 } Command;
 
+/**
+ * @brief exit command.
+ * 
+ * This function shuts down running processes and returns -2, signifying to the main thread to exit any loops.
+ * 
+ * @param str string containing arguments for function
+ * @return -2
+ */
 int command_exit(char* str) {
     intHandler(0);
     return -2;
 }
 
+/**
+ * @brief undefined command.
+ * 
+ * This is a placeholder function for undefined commands, this function returns 0 and will thus cause an error.
+ * 
+ * @param str string containing arguments for function
+ * @return 0
+ */
 int command_undefined(char* str) {
     return 0;
 }
 
+/**
+ * @brief send data command.
+ * 
+ * This function sends a CAN message to the first number address in the argument string with up to 8 data bytes as successive arguments in the string.
+ * 
+ * @param str string containing arguments for function
+ * @return 0 or 1
+ */
 int command_sendData(char* str) {
     int addr;
     int data[8];
@@ -166,6 +193,14 @@ int command_sendData(char* str) {
     return res+1;
 }
 
+int command_startCAN(char* str) {
+    int res = system("ip link set can0 up type can bitrate 500000");
+    if (res==-1) {
+        return 0;
+    }
+    return 1;
+}
+
 Command commandList[] = {
     {
         "exit",
@@ -178,9 +213,21 @@ Command commandList[] = {
     {
         "senddata",
         &command_sendData
+    },
+    {
+        "startcan",
+        &command_startCAN
     }
 };
 
+/**
+ * @brief help command.
+ * 
+ * This function prints all of the available commands.
+ * 
+ * @param str string containing arguments for function
+ * @return 1
+ */
 int command_help(char* str) {
     printf("----------------------\nCommands:\n\n");
     for (int i=0; i<sizeof(commandList)/sizeof(Command); i++) {
@@ -190,8 +237,16 @@ int command_help(char* str) {
     return 1;
 }
 
+/**
+ * @brief process command.
+ * 
+ * This function processes the entered string into commands.
+ * 
+ * @param str string containing the command and it's arguments seperated by spaces.
+ * @return -1 if no command found, -2 if shutting down, 0 if command failed, 1 if command succeeded
+ */
+
 int processCommand(char* str) {
-    //Returns: -1 if no command found, -2 if shutting down, 0 if command failed, 1 if command succeeded
     char commandBuffer[20];
     sscanf(str, "%s", commandBuffer);
     int commandLength = strlen(commandBuffer);
@@ -216,7 +271,7 @@ int processCommand(char* str) {
 }
 
 int main() {
-    commandList[1].commandFunc = &command_help;
+    commandList[1].commandFunc = &command_help;//Set the help command to the help function, this function is defined later to use the length of the command array.
 
     const char* ifname = "can0";
     // Socket openen
