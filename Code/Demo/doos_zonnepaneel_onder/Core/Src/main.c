@@ -58,8 +58,8 @@ volatile int datacheck = 0;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
-static void MX_CAN1_Init(void);
 static void MX_ADC1_Init(void);
+static void MX_CAN1_Init(void);
 /* USER CODE BEGIN PFP */
 void uartPrint(char *msg);
 /* USER CODE END PFP */
@@ -98,8 +98,8 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART2_UART_Init();
-  MX_CAN1_Init();
   MX_ADC1_Init();
+  MX_CAN1_Init();
   /* USER CODE BEGIN 2 */
   CAN_FilterTypeDef filter;
 
