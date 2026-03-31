@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>12</zoom_level>
+  <zoom_level>11</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>48</x>
-      <y>372</y>
-      <w>264</w>
-      <h>144</h>
+      <x>99</x>
+      <y>429</y>
+      <w>242</w>
+      <h>132</h>
     </coordinates>
     <panel_attributes>RGBLed
 --
@@ -21,10 +21,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1260</x>
-      <y>372</y>
-      <w>264</w>
-      <h>144</h>
+      <x>1210</x>
+      <y>429</y>
+      <w>242</w>
+      <h>132</h>
     </coordinates>
     <panel_attributes>Encoder
 --
@@ -37,24 +37,24 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>300</x>
-      <y>420</y>
-      <w>396</w>
-      <h>60</h>
+      <x>330</x>
+      <y>473</y>
+      <w>363</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 zorgt voor
 m1=1
-m2=2</panel_attributes>
+m2=1..*</panel_attributes>
     <additional_attributes>310.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>672</x>
-      <y>372</y>
-      <w>264</w>
-      <h>144</h>
+      <x>671</x>
+      <y>429</y>
+      <w>242</w>
+      <h>132</h>
     </coordinates>
     <panel_attributes>Verlichting
 --
@@ -67,10 +67,10 @@ m2=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>924</x>
-      <y>420</y>
-      <w>360</w>
-      <h>60</h>
+      <x>902</x>
+      <y>473</y>
+      <w>330</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>lt=-
 aanpassen via
@@ -81,15 +81,15 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>168</x>
-      <y>264</y>
-      <w>1272</w>
-      <h>132</h>
+      <x>209</x>
+      <y>330</y>
+      <w>1166</w>
+      <h>121</h>
     </coordinates>
     <panel_attributes>lt=-
 ingesteld door
 m1=1
-m2=2</panel_attributes>
+m2=1..*</panel_attributes>
     <additional_attributes>1030.0;90.0;1030.0;20.0;10.0;20.0;10.0;90.0</additional_attributes>
   </element>
 </diagram>

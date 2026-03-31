@@ -4,27 +4,26 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>374</x>
-      <y>341</y>
+      <x>275</x>
+      <y>396</y>
       <w>242</w>
-      <h>132</h>
+      <h>88</h>
     </coordinates>
     <panel_attributes>Servo
 --
 
 --
-open() : void
-dicht() : void
+
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1144</x>
-      <y>341</y>
+      <x>1045</x>
+      <y>396</y>
       <w>242</w>
-      <h>132</h>
+      <h>88</h>
     </coordinates>
     <panel_attributes>Knop
 --
@@ -38,16 +37,16 @@ dicht() : void
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>759</x>
-      <y>341</y>
+      <x>660</x>
+      <y>396</y>
       <w>242</w>
-      <h>132</h>
+      <h>88</h>
     </coordinates>
     <panel_attributes>Deur
 --
--stand
+
 --
--bereken_actie() : void
+
 
 </panel_attributes>
     <additional_attributes/>
@@ -55,8 +54,8 @@ dicht() : void
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>605</x>
-      <y>396</y>
+      <x>506</x>
+      <y>418</y>
       <w>176</w>
       <h>55</h>
     </coordinates>
@@ -69,8 +68,8 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>990</x>
-      <y>396</y>
+      <x>891</x>
+      <y>418</y>
       <w>176</w>
       <h>55</h>
     </coordinates>
