@@ -149,27 +149,27 @@ int main(void)
 	    int aantal = snprintf(txtBuffer, 70, "De voltage uit zonnepaneel: %d.\r\n", voltage);
 	    HAL_UART_Transmit(&huart2, (uint8_t*) txtBuffer, aantal, HAL_MAX_DELAY);
 
+	    // Schrijf de voltage data om naar data die verzonden kan worden over CAN
 	    data[0] = (voltage >> 8) & 0xFF;
 	    data[1] = voltage & 0xFF;
 
+	    // Code zodat Pi niet in blokking komt op het moment
 	    if (HAL_CAN_AddTxMessage(&hcan1, &header, data, &mailbox) != HAL_OK){
-	    		    	Error_Handler ();
-	    		    	HAL_UART_Transmit(&huart2, (uint8_t*) txtBuffer, aantal, HAL_MAX_DELAY);
-	    		    }
-	    		    else {
-	    		    	char msg[] = "CAN verstuurd!\n\r";
-	    		    	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
-	    		    }
+	    	Error_Handler ();
+	    	HAL_UART_Transmit(&huart2, (uint8_t*) txtBuffer, aantal, HAL_MAX_DELAY);
+	    }
+	    else {
+	    	char msg[] = "CAN verstuurd!\n\r";
+	    	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+	    }
 
 
 
 	    HAL_Delay(1000);
-	    if (zonnepaneelDatacheck)
-	    {
-	    	zonnepaneelDatacheck = 0;
+	    // Kijk of er een bericht is gestuurd vanaf de Pi om zonnepaneeldata op te vragen
+	    if (zonnepaneelDatacheck){
 		    char msg2[] = "CAN ontvangen!\n\0";
 		    HAL_UART_Transmit(&huart2, (uint8_t*)msg2, strlen(msg2), HAL_MAX_DELAY);
-
 
 		    if (HAL_CAN_AddTxMessage(&hcan1, &header, data, &mailbox) != HAL_OK){
 		    	Error_Handler ();
@@ -179,6 +179,8 @@ int main(void)
 		    	char msg[] = "CAN verstuurd!\n\r";
 		    	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
 		    }
+
+	    	zonnepaneelDatacheck = 0;
 	    }
     /* USER CODE END WHILE */
 
@@ -416,7 +418,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
   {
     Error_Handler();
   }
-  if ((rxHeader.StdId == 310))
+  if ((rxHeader.StdId == 110))
   {
 	  zonnepaneelDatacheck = 1;
   }
