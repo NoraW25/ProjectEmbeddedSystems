@@ -228,6 +228,19 @@ int command_enableReadoutData(char* str) {
     return 0;
 }
 
+volatile int updateClockwSolar = 0;
+int command_enableUpdateClockwSolar(char* str){
+    if (strcmp(str, "on")==0) {
+        updateClockwSolar=1;
+        return 1;
+    }
+    else if (strcmp(str, "off")==0) {
+        updateClockwSolar=0;
+        return 1;
+    }
+    return 0;
+}
+
 /**
  * @brief start CAN command.
  * 
@@ -268,6 +281,10 @@ Command commandList[] = {
         "readdata",
         &command_enableReadoutData
     },
+    {
+        "enableSolarClock",
+        &command_enableUpdateClockwSolar
+    }
     {
         "startcan",
         &command_startCAN
@@ -336,7 +353,8 @@ typedef struct {
 } CANbinding;
 
 int process_solarPanel(struct can_frame *frame) {
-    verzend_can_frame(KLOK_ADDR, 2, can_frame->data);
+    if(updateClockwSolar==0) return 0;
+    verzend_can_frame(KLOK_ADDR, 2, frame->data);
     return 1;
 }
 
