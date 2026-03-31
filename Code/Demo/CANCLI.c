@@ -127,6 +127,59 @@ int lees_can_frames()
     return 0;
 }
 
+int lees_can_frames_nonblocking()
+{
+    struct can_frame frame;
+    int aantalBytes;
+
+    fd_set readfds;
+    struct timeval timeout;
+
+    FD_ZERO(&readfds);
+    FD_SET(globalCANsocket, &readfds);
+
+    timeout.tv_sec = 0;
+    timeout.tv_usec = 0; // return immediately (polling)
+
+    int ready = select(globalCANsocket + 1, &readfds, NULL, NULL, &timeout);
+
+    if (ready < 0) {
+        //perror("select() fout");
+        return 0;
+    }
+
+    if (ready == 0) {
+        // No data available
+        return 0;
+    }
+
+    if (FD_ISSET(globalCANsocket, &readfds)) {
+        aantalBytes = read(globalCANsocket, &frame, sizeof(struct can_frame));
+
+        if (aantalBytes < 0) {
+            //perror("Fout bij read()");
+            return 0;
+        }
+
+        if (aantalBytes < sizeof(struct can_frame)) {
+            //fprintf(stderr, "Onvolledig CAN frame ontvangen.\n");
+            return 0;
+        }
+
+        printf("\nOntvangen CAN frame:\n");
+        printf("  ID     : 0x%03X\n", frame.can_id & CAN_EFF_MASK);
+        printf("  DLC    : %d\n", frame.can_dlc);
+        printf("  Data   : ");
+
+        for (int i = 0; i < frame.can_dlc; i++)
+            printf("%02X ", frame.data[i]);
+
+        printf("\n");
+    }
+
+    return 1;
+}
+
 typedef int (*CommandFunc)(char* args);
 /**
  * @brief the name (alias) and function of a command
@@ -176,10 +229,8 @@ int command_sendData(char* str) {
 
     sscanf(str, " %d", &addr);
     char* ptr = str;
-    if (*ptr!='\0') {
         while (*ptr != ' '&&*ptr!='\0') ptr++;
         while (*ptr == ' ') ptr++;
-        printf("\n\n%s\n\n", ptr);
 
         for (int i = 0; i < 8; i++) {
             if (sscanf(ptr, " %d", &data[i]) != 1) break;
@@ -189,11 +240,31 @@ int command_sendData(char* str) {
             while (*ptr == ' ') ptr++;
             if (*ptr=='\0') break;
         }
-    }
 
     int res = verzend_can_frame(addr, dataLen, data);
 
     return res+1;
+}
+
+/**
+ * @brief read data command.
+ * 
+ * This function enables or disables printouts of incoming CAN data.
+ * 
+ * @param str string containing arguments for function, must be on\0 or off\0
+ * @return 0 or 1
+ */
+volatile uint8_t readoutIncomingCAN=0;
+int command_enableReadoutData(char* str) {
+    if (strcmp(str, "on")) {
+        readoutIncomingCAN=1;
+        return 1;
+    }
+    else if (strcmp(str, "off")) {
+        readoutIncomingCAN=0;
+        return 1;
+    }
+    return 0;
 }
 
 /**
@@ -339,7 +410,9 @@ int main() {
             }
         }
 
-        // Do other non-blocking work here if needed
+        if (readoutIncomingCAN) {
+            lees_can_frames_nonblocking();
+        }
     }
 
     printf("Exiting\n");
