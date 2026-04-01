@@ -1,81 +1,80 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>12</zoom_level>
+  <zoom_level>13</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>552</x>
-      <y>96</y>
-      <w>264</w>
-      <h>144</h>
+      <x>143</x>
+      <y>468</y>
+      <w>286</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>RGBLed
 --
--kleur
+
 --
-+verander_kleur(kleur) : void
-+huidige_kleur() : kleur
+
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>552</x>
-      <y>672</y>
-      <w>264</w>
-      <h>144</h>
+      <x>1235</x>
+      <y>455</y>
+      <w>286</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>Encoder
 --
 
 --
--genereer_interupt() : void
+
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>672</x>
-      <y>228</y>
-      <w>168</w>
-      <h>180</h>
+      <x>416</x>
+      <y>481</y>
+      <w>286</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
-aangestuurd door
+zorgt voor
 m1=1
-m2=2</panel_attributes>
-    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+m2=1..*</panel_attributes>
+    <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>552</x>
-      <y>384</y>
-      <w>264</w>
-      <h>144</h>
+      <x>676</x>
+      <y>455</y>
+      <w>286</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>Verlichting
 --
--huidigeLEDStand : kleur
+
 --
--bereken_lichtsetting() : void
+
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>672</x>
-      <y>516</y>
-      <w>120</w>
-      <h>180</h>
+      <x>949</x>
+      <y>481</y>
+      <w>312</w>
+      <h>65</h>
     </coordinates>
-    <panel_attributes>lt=-&gt;&gt;&gt;&gt;
-reageert op
-m1=1
+    <panel_attributes>lt=-
+aanpassen via
+m1=1..2
 m2=1</panel_attributes>
-    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+    <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>

@@ -4,33 +4,32 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>605</x>
-      <y>143</y>
+      <x>275</x>
+      <y>396</y>
       <w>242</w>
-      <h>132</h>
+      <h>77</h>
     </coordinates>
     <panel_attributes>Servo
 --
 
 --
-open() : void
-dicht() : void
-huidigeStand() : void</panel_attributes>
+
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>605</x>
-      <y>671</y>
+      <x>1045</x>
+      <y>396</y>
       <w>242</w>
-      <h>132</h>
+      <h>77</h>
     </coordinates>
     <panel_attributes>Knop
 --
 
 --
--genereer_interupt() : void
+
 
 </panel_attributes>
     <additional_attributes/>
@@ -38,16 +37,16 @@ huidigeStand() : void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>605</x>
-      <y>407</y>
+      <x>660</x>
+      <y>396</y>
       <w>242</w>
-      <h>132</h>
+      <h>77</h>
     </coordinates>
     <panel_attributes>Deur
 --
--stand
+
 --
--bereken_actie() : void
+
 
 </panel_attributes>
     <additional_attributes/>
@@ -55,29 +54,29 @@ huidigeStand() : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>715</x>
-      <y>264</y>
-      <w>66</w>
-      <h>165</h>
+      <x>506</x>
+      <y>418</y>
+      <w>176</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 opent
 m1=1
-m2=2</panel_attributes>
-    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+m2=1</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>715</x>
-      <y>528</y>
-      <w>110</w>
-      <h>165</h>
+      <x>891</x>
+      <y>418</y>
+      <w>176</w>
+      <h>55</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+    <panel_attributes>lt=-
 reageert op
 m1=1
 m2=2</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
   </element>
 </diagram>
