@@ -23,17 +23,12 @@ int main(int argc, char const* argv[])
     // Convert IPv4 and IPv6 addresses from text to binary
     // form
     // Vul voor het ip-adres het adres in wat je via dhcp voor de server hebt gekregen
-    if (inet_pton(AF_INET, "145.52.127.222", &serv_addr.sin_addr)
-        <= 0) {
-        printf(
-            "\nInvalid address/ Address not supported \n");
+    if (inet_pton(AF_INET, "145.52.127.222", &serv_addr.sin_addr) <= 0) {
+        printf("\nInvalid address/ Address not supported \n");
         return -1;
     }
 
-    if ((status
-         = connect(client_fd, (struct sockaddr*)&serv_addr,
-                   sizeof(serv_addr)))
-        < 0) {
+    if ((status = connect(client_fd, (struct sockaddr*)&serv_addr, sizeof(serv_addr))) < 0) {
         printf("\nConnection Failed \n");
         return -1;
     }
@@ -42,8 +37,7 @@ int main(int argc, char const* argv[])
     // terminator at the end
     send(client_fd, hello, strlen(hello), 0);
     printf("Hello message sent\n");
-    valread = read(client_fd, buffer,
-                   1024 - 1); 
+    valread = read(client_fd, buffer, 1024 - 1); 
     printf("%s\n", buffer);
 
     // closing the connected socket
