@@ -49,7 +49,12 @@ ClientSocket* ClientSocket::instantie() {
 
 void ClientSocket::versturen(std::string bericht){
     if (kanVersturen()) {
-        send(client_fd, bericht.c_str(), bericht.size(), 0);
+        int resultaat = send(client_fd, bericht.c_str(), bericht.size(), 0);
+        if(resultaat < 0){
+            std::cout<<"Error: bericht niet verzonden"<<std::endl;
+        } else {
+            std::cout << "Aantal verzonden bytes: " << resultaat << std::endl;
+        }
         std::cout<<"In bericht versturen in if"<<std::endl;
     }
     
