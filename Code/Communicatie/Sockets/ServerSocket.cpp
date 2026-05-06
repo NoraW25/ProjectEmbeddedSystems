@@ -94,7 +94,7 @@ bool ServerSocket::heeftOntvangen(){
     } 
     
     ssize_t bytes = read(actieve_socket, buffer, sizeof(buffer) - 1);
-    std::cout<<"heeftOntvangen na read()"<<std::endl;
+    //std::cout<<"heeftOntvangen na read()"<<std::endl;
 
     if (bytes < 0) {
         if (errno == EAGAIN || errno == EWOULDBLOCK) {
