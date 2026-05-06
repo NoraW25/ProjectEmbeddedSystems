@@ -6,8 +6,8 @@ int main(int argc, char const* argv[])
 
     while (true){
         if(socket->heeftOntvangen()){
-            std::cout<<socket->ontvangst()<<std::endline;
-            std::cout<<"Ontvangen"<<std::endline;
+            std::cout<<socket->ontvangst()<<std::endl;
+            std::cout<<"Ontvangen"<<std::endl;
         }
     }
 }
