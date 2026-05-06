@@ -53,7 +53,7 @@ void ClientSocket::versturen(std::string bericht){
         std::cout<<"In bericht versturen in if"<<std:endl;
     }
     
-    std::cout<<"In bericht versturen"<<std:endl;
+    std::cout<<"In bericht versturen"<<std::endl;
 }
 
 std::string ClientSocket::ontvangst(){
