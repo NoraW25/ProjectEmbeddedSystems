@@ -13,6 +13,6 @@ int main(int argc, char const* argv[])
             std::cout<<"Ontvangen"<<std::endl;
         }
 
-        std::cout<<kanVersturen()<<std::endl;
+        std::cout<<socket->kanVersturen()<<std::endl;
     }
 }
