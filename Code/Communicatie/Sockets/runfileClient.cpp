@@ -17,5 +17,6 @@ int main(int argc, char const* argv[])
         }
 
         sleep(10); // wacht 10 seconden om code te testen
+        socket->versturen("Hello there! from client");
     }
 }
