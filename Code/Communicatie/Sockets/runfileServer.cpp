@@ -1,5 +1,8 @@
 #include "ServerSocket.h"
 
+#include <stdio.h>
+#include <iostream>
+
 int main(int argc, char const* argv[])
 {
     ServerSocket* socket = ServerSocket::instantie();

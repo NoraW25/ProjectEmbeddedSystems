@@ -1,5 +1,8 @@
 #include "ClientSocket.h"
 
+#include <stdio.h>
+#include <iostream>
+
 int main(int argc, char const* argv[])
 {
     ClientSocket* socket = ClientSocket::instantie();
