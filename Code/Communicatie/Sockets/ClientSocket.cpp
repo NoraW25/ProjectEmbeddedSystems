@@ -6,9 +6,10 @@ ClientSocket* ClientSocket::pointerInstantie = 0;
 ClientSocket::ClientSocket():
     poort(8080),
     client_fd(-1),
-    buffer({0}),
     server_ip("145.52.127.222"),
     status(0){
+
+    buffer[1024] = {0};
     
     // Aanmaken socket file
     server_fd = socket(AF_INET, SOCK_STREAM, 0)
@@ -55,9 +56,7 @@ void ClientSocket::versturen(std::string bericht){
 std::string ClientSocket::ontvangst(){
     std::string ontvangenbericht = std::string(buffer);
 
-    for(int i = 0; i < 1024 || buffer[i+1] = '\0'; i++){
-        buffer[i] = '\0';
-    }
+    memset(buffer, 0, sizeof(buffer));
 
     return ontvangenbericht;
 }

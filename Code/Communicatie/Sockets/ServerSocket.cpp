@@ -7,8 +7,9 @@ ServerSocket* ServerSocket::pointerInstantie = 0;
 ServerSocket::ServerSocket():
     poort(8080),
     actieve_socket(-1),
-    server_fd(-1),
-    buffer({0}){
+    server_fd(-1){
+
+    buffer[1024] = {0};
     
     // Aanmaken socket file
     server_fd = socket(AF_INET, SOCK_STREAM, 0);
@@ -44,7 +45,7 @@ ServerSocket::ServerSocket():
 ServerSocket::~ServerSocket(){
     // sluit de actieve socket
     if (actieve_socket >= 0){
-        close(active_socket);
+        close(actieve_socket);
     }
   
     // sluit de luisterende socket
@@ -70,9 +71,7 @@ void ServerSocket::versturen(std::string bericht){
 std::string ServerSocket::ontvangst(){
     std::string ontvangenbericht = std::string(buffer);
 
-    for(int i = 0; i < 1024 || buffer[i+1] = '\0'; i++){
-        buffer[i] = '\0';
-    }
+    memset(buffer, 0, sizeof(buffer));
 
     return ontvangenbericht;
 }
