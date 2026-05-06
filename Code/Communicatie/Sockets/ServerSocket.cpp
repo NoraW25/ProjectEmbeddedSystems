@@ -78,8 +78,19 @@ std::string ServerSocket::ontvangst(){
 
 bool ServerSocket::heeftOntvangen(){
     if (actieve_socket < 0) {
-        return false;
-        std::cout<<"In situatie actieve heeft geen connectie"<<std::endl;
+        socklen_t addrlen = sizeof(adres);
+        int nieuwesocket = accept(server_fd, (struct sockaddr*)&adres, &addrlen);
+
+        if (nieuwesocket >= 0) {
+            std::cout << "Nieuwe client verbonden!" << std::endl;
+            actieve_socket = nieuwesocket;
+
+            // Maak client-socket non-blocking
+            int flags = fcntl(actieve_socket, F_GETFL, 0);
+            fcntl(actieve_socket, F_SETFL, flags | O_NONBLOCK);
+        } else {
+            return false;
+        }
     } 
     
     ssize_t bytes = read(actieve_socket, buffer, sizeof(buffer) - 1);

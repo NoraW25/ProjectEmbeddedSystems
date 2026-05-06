@@ -12,7 +12,5 @@ int main(int argc, char const* argv[])
             std::cout<<socket->ontvangst()<<std::endl;
             std::cout<<"Ontvangen"<<std::endl;
         }
-
-        std::cout<<socket->kanVersturen()<<std::endl;
     }
 }
