@@ -11,6 +11,9 @@ int main(int argc, char const* argv[])
         if(socket->heeftOntvangen()){
             std::cout<<socket->ontvangst()<<std::endl;
             std::cout<<"Ontvangen"<<std::endl;
+            socket->versturen("Hello there! from server");
         }
+
+        
     }
 }
