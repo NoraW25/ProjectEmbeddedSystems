@@ -50,7 +50,7 @@ ClientSocket* ClientSocket::instantie() {
 void ClientSocket::versturen(std::string bericht){
     if (kanVersturen()) {
         send(client_fd, bericht.c_str(), bericht.size(), 0);
-        std::cout<<"In bericht versturen in if"<<std:endl;
+        std::cout<<"In bericht versturen in if"<<std::endl;
     }
     
     std::cout<<"In bericht versturen"<<std::endl;
