@@ -12,14 +12,14 @@ ClientSocket::ClientSocket():
     buffer[1024] = {0};
     
     // Aanmaken socket file
-    server_fd = socket(AF_INET, SOCK_STREAM, 0)
-    if (server_fd < 0) {
+    client_fd = socket(AF_INET, SOCK_STREAM, 0)
+    if (client_fd < 0) {
         perror("socket failed");
         exit(EXIT_FAILURE);
     }
 
     server_adres.sin_family = AF_INET;
-    server_adres.sin_port = htons(PORT);
+    server_adres.sin_port = htons(poort);
 
     if (inet_pton(AF_INET, server_ip, &server_adres.sin_addr) <= 0) {
         std::cout << "\nAdres kon niet geladen worden\n" << std::endl;
