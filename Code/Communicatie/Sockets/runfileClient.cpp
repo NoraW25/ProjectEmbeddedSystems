@@ -2,11 +2,11 @@
 
 int main(int argc, char const* argv[])
 {
-    ClientSocket socket;
+    ClientSocket* socket = ClientSocket::instantie();
 
     while (true){
-        if(heeftOntvangen()){
-            std::cout<<ontvangst()<<std::endline;
+        if(socket->heeftOntvangen()){
+            std::cout<<socket->ontvangst()<<std::endline;
             std::cout<<"Ontvangen"<<std::endline;
         }
     }
