@@ -9,13 +9,13 @@ public:
     std::string ontvangst() override;
     bool kanVersturen() override;
     bool heeftOntvangen() override;
+    
+    bool heeftVerbinding();
 
-    static ClientSocket* instantie();
+    ClientSocket();
     ~ClientSocket();
 
 private:
-    ClientSocket();
-    
     int poort;
     char buffer[1024];
     int status;
@@ -24,7 +24,6 @@ private:
     struct sockaddr_in server_adres;
     std::string server_ip; // Vul voor het ip-adres het adres in wat je via dhcp voor de server hebt gekregen
 
-    static ClientSocket* pointerInstantie;
 };
 
 #endif

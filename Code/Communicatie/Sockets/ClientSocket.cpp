@@ -7,7 +7,7 @@ ClientSocket::ClientSocket():
     poort(8080),
     client_fd(-1),
     server_ip("145.52.127.222"),
-    status(0){
+    status(-1){
 
     memset(buffer, 0, sizeof(buffer));
     
@@ -22,14 +22,28 @@ ClientSocket::ClientSocket():
     server_adres.sin_port = htons(poort);
 
     if (inet_pton(AF_INET, server_ip.c_str(), &server_adres.sin_addr) <= 0) {
-        std::cout << "\nAdres kon niet geladen worden\n" << std::endl;
-    } else {
-        if ((status = connect(client_fd, (struct sockaddr*)&server_adres, sizeof(server_adres))) < 0) {
-            std::cout << "\nConnectie gefaald\n" << std::endl;
-        }
-
-        std::cout << "Client heeft connectie met de server " << poort << std::endl;
+        std::cout << "Adres kon niet geladen worden\n";
+        return;
     }
+
+    int flags = fcntl(client_fd, F_GETFL, 0);
+    fcntl(client_fd, F_SETFL, flags | O_NONBLOCK);
+
+    status = connect(client_fd, (struct sockaddr*)&server_adres, sizeof(server_adres));
+
+    if (status == 0) {
+        std::cout << "Direct verbonden met server" << std::endl;
+    } else if (status < 0 && errno == EINPROGRESS) {
+        std::cout << "Bezig met verbinden" << std::endl;
+        status = 1;
+    } else {
+        std::cout << "Connectie gefaald" << std::endl;        
+        status = -1;
+        close(client_fd);
+        client_fd = -1;
+    }
+
+    std::cout << "Client heeft connectie met de server " << poort << std::endl;
 }
 
 ClientSocket::~ClientSocket(){
@@ -37,14 +51,6 @@ ClientSocket::~ClientSocket(){
     if (client_fd >= 0){
         close(client_fd);
     }
-}
-
-ClientSocket* ClientSocket::instantie() {
-	if (pointerInstantie == 0) {
-		pointerInstantie = new ClientSocket();
-	}
-
-	return pointerInstantie;
 }
 
 void ClientSocket::versturen(std::string bericht){
@@ -55,10 +61,7 @@ void ClientSocket::versturen(std::string bericht){
         } else {
             std::cout << "Aantal verzonden bytes: " << resultaat << std::endl;
         }
-        std::cout<<"In bericht versturen in if"<<std::endl;
     }
-    
-    std::cout<<"In bericht versturen"<<std::endl;
 }
 
 std::string ClientSocket::ontvangst(){
@@ -70,8 +73,12 @@ std::string ClientSocket::ontvangst(){
 }
 
 bool ClientSocket::heeftOntvangen(){
-    if (client_fd < 0) {
-        return false;
+    if (status != 0) {
+        heeftVerbinding();
+
+        if (status != 0){
+            return false;
+        }
     } 
     
     ssize_t bytes = read(client_fd, buffer, sizeof(buffer) - 1);
@@ -101,7 +108,41 @@ bool ClientSocket::heeftOntvangen(){
 bool ClientSocket::kanVersturen(){
     if(status == 0){
         return true;
-    } 
+    } else {
+        return heeftVerbinding();
+    }
+}
+
+bool ClientSocket::heeftVerbinding(){
+    if (status == 0) {
+        return true;
+    }
+
+    fd_set wfds; // Lijst met sockets
+    FD_ZERO(&wfds); // Maak lijst leeg
+    FD_SET(client_fd, &wfds); // Zet client_fd in de lijst
+
+    struct timeval tijdinterval = {0, 0}; // wacht geen seconden tijdens het checken -> non blocking
+
+    int result = select(client_fd + 1, NULL, &wfds, NULL, &tijdinterval); // Kijk of de verbinding is opgezet
+
+    if (result > 0 && FD_ISSET(client_fd, &wfds)) {
+        int err;
+        socklen_t len = sizeof(err);
+        getsockopt(client_fd, SOL_SOCKET, SO_ERROR, &err, &len); // Kijkt of de verbinding succesvol is opgezet
+
+        if (err == 0) {
+            status = 0; // verbonden
+            std::cout << "Connectie voltooid\n";
+            return true;
+        } else {
+            std::cout << "Connectie mislukt: " << strerror(err) << "\n";
+            status = -1;
+            close(client_fd);
+            client_fd = -1;
+            return false;
+        }
+    }
 
     return false;
 }

@@ -6,7 +6,7 @@
 
 int main(int argc, char const* argv[])
 {
-    ClientSocket* socket = ClientSocket::instantie();
+    ClientSocket* socket = new ClientSocket();
 
     socket->versturen("Hello there! from client");
 
