@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <unistd.h>
 
 int main(int argc, char const* argv[])
 {
@@ -15,6 +16,6 @@ int main(int argc, char const* argv[])
             std::cout<<"Ontvangen"<<std::endl;
         }
 
-        delay(10000);
+        sleep(10); // wacht 10 seconden om code te testen
     }
 }
