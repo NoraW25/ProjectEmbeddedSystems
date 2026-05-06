@@ -9,7 +9,7 @@ ServerSocket::ServerSocket():
     actieve_socket(-1),
     server_fd(-1){
 
-    buffer[1024] = {0};
+    memset(buffer, 0, sizeof(buffer));
     
     // Aanmaken socket file
     server_fd = socket(AF_INET, SOCK_STREAM, 0);
@@ -79,6 +79,7 @@ std::string ServerSocket::ontvangst(){
 bool ServerSocket::heeftOntvangen(){
     if (actieve_socket < 0) {
         return false;
+        std::cout<<"In situatie actieve heeft geen connectie"<<std::endl;
     } 
     
     ssize_t bytes = read(actieve_socket, buffer, sizeof(buffer) - 1);

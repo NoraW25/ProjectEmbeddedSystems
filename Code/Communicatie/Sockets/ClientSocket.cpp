@@ -9,7 +9,7 @@ ClientSocket::ClientSocket():
     server_ip("145.52.127.222"),
     status(0){
 
-    buffer[1024] = {0};
+    memset(buffer, 0, sizeof(buffer));
     
     // Aanmaken socket file
     client_fd = socket(AF_INET, SOCK_STREAM, 0);
