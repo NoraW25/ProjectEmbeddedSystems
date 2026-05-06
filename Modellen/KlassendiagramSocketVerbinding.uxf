@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>147</x>
-      <y>196</y>
+      <x>224</x>
+      <y>154</y>
       <w>147</w>
       <h>133</h>
     </coordinates>
@@ -23,8 +23,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>413</y>
+      <x>77</x>
+      <y>371</y>
       <w>147</w>
       <h>189</h>
     </coordinates>
@@ -50,8 +50,8 @@ _+instantie():ClientSocket*_</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>294</x>
-      <y>413</y>
+      <x>371</x>
+      <y>371</y>
       <w>147</w>
       <h>189</h>
     </coordinates>
@@ -77,8 +77,8 @@ _+instantie():ServerSocket*_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
-      <y>322</y>
+      <x>287</x>
+      <y>280</y>
       <w>175</w>
       <h>105</h>
     </coordinates>
@@ -88,8 +88,8 @@ _+instantie():ServerSocket*_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>63</x>
-      <y>322</y>
+      <x>140</x>
+      <y>280</y>
       <w>168</w>
       <h>105</h>
     </coordinates>
@@ -99,8 +99,8 @@ _+instantie():ServerSocket*_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>994</x>
-      <y>196</y>
+      <x>1071</x>
+      <y>154</y>
       <w>147</w>
       <h>133</h>
     </coordinates>
@@ -115,8 +115,8 @@ _+instantie():ServerSocket*_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>644</x>
-      <y>196</y>
+      <x>721</x>
+      <y>154</y>
       <w>147</w>
       <h>133</h>
     </coordinates>
@@ -131,8 +131,8 @@ _+instantie():ServerSocket*_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>784</x>
-      <y>252</y>
+      <x>861</x>
+      <y>210</y>
       <w>224</w>
       <h>21</h>
     </coordinates>
@@ -142,8 +142,8 @@ _+instantie():ServerSocket*_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>287</x>
-      <y>252</y>
+      <x>364</x>
+      <y>210</y>
       <w>371</w>
       <h>21</h>
     </coordinates>
