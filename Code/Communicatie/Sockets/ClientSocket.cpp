@@ -48,10 +48,10 @@ ClientSocket* ClientSocket::instantie() {
 }
 
 void ClientSocket::versturen(std::string bericht){
-    //if (kanVersturen()) {
+    if (kanVersturen()) {
         send(client_fd, bericht.c_str(), bericht.size(), 0);
         std::cout<<"In bericht versturen in if"<<std::endl;
-    //}
+    }
     
     std::cout<<"In bericht versturen"<<std::endl;
 }
@@ -94,7 +94,7 @@ bool ClientSocket::heeftOntvangen(){
 }
 
 bool ClientSocket::kanVersturen(){
-    if(status > 0){
+    if(status == 0){
         return true;
     } 
 
