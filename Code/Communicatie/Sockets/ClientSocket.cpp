@@ -1,8 +1,6 @@
 #include "ClientSocket.h"
 
 
-ClientSocket* ClientSocket::pointerInstantie = 0;
-
 ClientSocket::ClientSocket():
     poort(8080),
     client_fd(-1),
