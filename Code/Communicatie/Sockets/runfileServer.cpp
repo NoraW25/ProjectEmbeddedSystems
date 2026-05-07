@@ -13,7 +13,5 @@ int main(int argc, char const* argv[])
             std::cout<<"Ontvangen"<<std::endl;
             socket->versturen("Hello there! from server");
         }
-
-        
     }
 }
