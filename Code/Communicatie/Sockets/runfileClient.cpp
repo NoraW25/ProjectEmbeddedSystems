@@ -1,3 +1,17 @@
+
+/*!
+ * @file runfileClient.cpp
+ * @test Test de werking van de klassen Server- en ClientSocket
+ * @brief Maakt een client socket aan en kan daardoor berichten ontvangen en versturen.
+ * 
+ * Dit is het file dat op de aangewezen client moet draaien.
+ * 
+ * Hierin wordt een ClientSocket gemaakt. Deze verstuurd indien mogelijk dan meteen bericht naar de server en gaat daarna luisteren.
+ * Als er iets ontvangen is, wordt dat uitgelezen. 
+ * Vervolgens zal het systeem voor de test 10 seconden wachten tot het nog een bericht verzendt, 
+ * dit is blocking, dus er wordt tegelijk GEEN informatie van de server ontvangen. 
+ */
+
 #include "ClientSocket.h"
 
 #include <stdio.h>
