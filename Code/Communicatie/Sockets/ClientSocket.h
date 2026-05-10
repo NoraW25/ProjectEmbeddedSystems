@@ -1,3 +1,4 @@
+
 /*!
  * @file ClientSocket.h
  * @class ClientSocket
@@ -25,7 +26,7 @@ public:
     * Deze functie bekijkt met behulp van de status van het object of er verbinding is met de server of niet.
     * Als er geen verbinding is zal er geprobeerd worden om verbinding te maken.
     * 
-    * @return Boolean: terugkoppeling op of er wel of geen verbinding is met de server. Bij verbinding: true.
+    * @return Boolean - Terugkoppeling op of er wel of geen verbinding is met de server. Bij verbinding: true.
     */
     bool heeftVerbinding();
 
