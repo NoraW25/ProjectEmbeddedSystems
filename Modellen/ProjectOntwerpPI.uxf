@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2004</x>
+      <y>378</y>
+      <w>120</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>CanTransmitter
+--
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1998</x>
+      <y>648</y>
+      <w>120</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>CanReceiver
+--
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1080</x>
+      <y>420</y>
+      <w>228</w>
+      <h>204</h>
+    </coordinates>
+    <panel_attributes>CommunicationController
+--
+
+--
++ transmitData(const vector&lt;uint8_t&gt; data)
+
++ Connection*:requestData(int address, Function *func)
+
++ Connection*:logReceived(int address, Function *func)
++ void:unbindReceived(RecEvent* event)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1380</x>
+      <y>474</y>
+      <w>222</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>Requestor
+--
+- requested:vector&lt;RequestorEvent&gt;
+--
++ Connection*:requestData(int address, Function *func)
++ void:processData(address, vector&lt;uint8_t&gt; data)
++ void:removeEvent(Event event*)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1428</x>
+      <y>816</y>
+      <w>216</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>ReceiveBinder
+--
+- requested:vector&lt;ReceiveBinderEvent&gt;
+--
++ Connection*:logReceived(int address, Function *func)
++ void:processData(address, vector&lt;uint8_t&gt; data)
++ void:removeEvent(Event *event)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1680</x>
+      <y>288</y>
+      <w>192</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Klassen verantwoordelijk voor het
+versturen en ontvangen van data op de canbus
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1446</x>
+      <y>282</y>
+      <w>144</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Klassen verantwoordelijk voor het
+afhandelen van ontvangen data
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1674</x>
+      <y>384</y>
+      <w>204</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Interface:Transmitter
+--
+
+--
++ void:sendData(int address, vector&lt;uint8_t&gt; data)
++ void:sendRequest(int address)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1674</x>
+      <y>648</y>
+      <w>204</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Interface:Receiver
+--
+
+--
++ bool:receive(int* address, vector&lt;uint8_t&gt;* data)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1872</x>
+      <y>420</y>
+      <w>144</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+m1=1
+m2=1
+r1=transmitter</panel_attributes>
+    <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1872</x>
+      <y>684</y>
+      <w>138</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+m1=1
+m2=1
+r1=receiver</panel_attributes>
+    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1428</x>
+      <y>648</y>
+      <w>150</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>DataProcessor
+--
+- eventConnection: Connection*
+--
++ void:processData()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1500</x>
+      <y>576</y>
+      <w>54</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+m1=1
+m2=1
+r1=requestor</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1500</x>
+      <y>732</y>
+      <w>66</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+m1=1
+m2=1
+r1=receiveBinder</panel_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
+      <y>780</y>
+      <w>180</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>Connection
+--
+- function: Function*
+- event: Event*
+--
++ ~Connection()
++ Function*:getFunction()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>516</x>
+      <y>774</y>
+      <w>180</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>Event
+--
+# connections: vector&lt;Connection*&gt;
+- flag: bool
+--
++ void:addConnection()
+# void:fire()
++ bool:getFlag()
+/+ void:callConnected()/
++ void: removeConnection()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1302</x>
+      <y>498</y>
+      <w>90</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+r2=requestor</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1302</x>
+      <y>618</y>
+      <w>186</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+r2=receiveBinder</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;330.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1302</x>
+      <y>564</y>
+      <w>132</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+r2=processor</panel_attributes>
+    <additional_attributes>10.0;10.0;200.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1302</x>
+      <y>432</y>
+      <w>384</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+m1=1
+m2=1
+r2=transmitter</panel_attributes>
+    <additional_attributes>10.0;20.0;620.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1572</x>
+      <y>684</y>
+      <w>114</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+m1=1
+m2=1
+r2=receiver</panel_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1128</x>
+      <y>708</y>
+      <w>168</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>RequestorEvent
+--
+- requestor: Requestor*
+- dataBuffer:vector&lt; vector&lt;uint8_t&gt; &gt;
+--
++ void:callConnected()
++ void:addData(vector&lt;uint8_t&gt; data)
+- void:removeEvent()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>690</x>
+      <y>750</y>
+      <w>450</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>730.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1074</x>
+      <y>288</y>
+      <w>270</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Controller verantwoordelijk voor het aanleveren van datafuncties
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1020</x>
+      <y>228</y>
+      <w>924</w>
+      <h>780</h>
+    </coordinates>
+    <panel_attributes>Communication
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1128</x>
+      <y>852</y>
+      <w>168</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>ReceiveBinderEvent
+--
+- receiveBinder: ReceiveBinder*
+- dataBuffer:vector&lt; vector&lt;uint8_t&gt; &gt;
+--
++ void:callConnected()
++ void:addData(vector&lt;uint8_t&gt; data)
+- void:removeEvent()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>690</x>
+      <y>864</y>
+      <w>450</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>730.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>516</x>
+      <y>372</y>
+      <w>198</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>Singleton:RunServiceController
+--
+
+--
++ void:addEvent(Event *event)
++ void:removeEvent(Event *event)
++ Connection:connectToUpdate(Function func*)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>156</x>
+      <y>372</y>
+      <w>246</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>Scheduler
+--
+- events: vector&lt;Event*&gt;
+--
++ void:update()
++ void:addEvent(Event *event)
++ void:removeEvent(Event *event)
++ Connection:connectToUpdate(Function func*)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>192</x>
+      <y>606</y>
+      <w>168</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>UpdateEvent
+--
+
+--
++ void:callConnected()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>354</x>
+      <y>660</y>
+      <w>174</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;270.0;310.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>474</y>
+      <w>66</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+r2=updateEvent</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>396</x>
+      <y>408</y>
+      <w>132</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+m1=1
+m2=1
+r2=scheduler</panel_attributes>
+    <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>108</x>
+      <y>228</y>
+      <w>660</w>
+      <h>504</h>
+    </coordinates>
+    <panel_attributes>Scheduling
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>708</x>
+      <y>408</y>
+      <w>384</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+m1=1
+m2=1
+r1=runService</panel_attributes>
+    <additional_attributes>10.0;20.0;620.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1596</x>
+      <y>468</y>
+      <w>90</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+m1=1
+m2=1
+r1=transmitter</panel_attributes>
+    <additional_attributes>130.0;20.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>516</x>
+      <y>270</y>
+      <w>198</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>Levert functies aan voor het toevoegen van events
+aan het update register en voor het toevoegen van
+functies aan het update event
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>666</x>
+      <y>474</y>
+      <w>66</w>
+      <h>312</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+m1=1
+m2=0..*
+r1=runService</panel_attributes>
+    <additional_attributes>20.0;10.0;10.0;500.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1290</x>
+      <y>576</y>
+      <w>102</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+m1=0..*
+m2=1</panel_attributes>
+    <additional_attributes>10.0;250.0;150.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1290</x>
+      <y>576</y>
+      <w>132</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+m1=0..*
+m2=1</panel_attributes>
+    <additional_attributes>10.0;460.0;200.0;10.0</additional_attributes>
+  </element>
+</diagram>
