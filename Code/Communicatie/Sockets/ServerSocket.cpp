@@ -2,11 +2,11 @@
 #include "ServerSocket.h"
 
 
-ServerSocket* ServerSocket::pointerInstantie = 0;
+ServerSocket* ServerSocket::pointerInstance = 0;
 
 ServerSocket::ServerSocket():
-    poort(8080),
-    actieve_socket(-1),
+    port(8080),
+    active_socket(-1),
     server_fd(-1){
 
     memset(buffer, 0, sizeof(buffer));
@@ -21,11 +21,11 @@ ServerSocket::ServerSocket():
     int opt = 1;
     setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt));
 
-    adres.sin_family = AF_INET;
-    adres.sin_addr.s_addr = INADDR_ANY;
-    adres.sin_port = htons(poort);
+    address.sin_family = AF_INET;
+    address.sin_addr.s_addr = INADDR_ANY;
+    address.sin_port = htons(port);
 
-    if (bind(server_fd, (struct sockaddr*)&adres, sizeof(adres)) < 0) {
+    if (bind(server_fd, (struct sockaddr*)&address, sizeof(address)) < 0) {
         perror("bind failed");
         exit(EXIT_FAILURE);
     }
@@ -39,13 +39,13 @@ ServerSocket::ServerSocket():
     int flags = fcntl(server_fd, F_GETFL, 0);
     fcntl(server_fd, F_SETFL, flags | O_NONBLOCK);
 
-    std::cout << "Server luistert (non-blocking) op poort " << poort << std::endl;
+    std::cout << "Server luistert (non-blocking) op poort " << port << std::endl;
 }
 
 ServerSocket::~ServerSocket(){
     // sluit de actieve socket
-    if (actieve_socket >= 0){
-        close(actieve_socket);
+    if (active_socket >= 0){
+        close(active_socket);
     }
   
     // sluit de luisterende socket
@@ -54,46 +54,46 @@ ServerSocket::~ServerSocket(){
     }
 }
 
-ServerSocket* ServerSocket::instantie() {
-	if (pointerInstantie == 0) {
-		pointerInstantie = new ServerSocket();
+ServerSocket* ServerSocket::instance() {
+	if (pointerInstance == 0) {
+		pointerInstance = new ServerSocket();
 	}
 
-	return pointerInstantie;
+	return pointerInstance;
 }
 
-void ServerSocket::versturen(std::string bericht){
-    if (kanVersturen()) {
-        send(actieve_socket, bericht.c_str(), bericht.size(), 0);
+void ServerSocket::send(std::string message){
+    if (canSend()) {
+        send(actieve_socket, message.c_str(), message.size(), 0);
     }
 }
 
-std::string ServerSocket::ontvangst(){
-    std::string ontvangenbericht = std::string(buffer);
+std::string ServerSocket::received(){
+    std::string receivedMessage = std::string(buffer);
 
     memset(buffer, 0, sizeof(buffer));
 
-    return ontvangenbericht;
+    return receivedMessage;
 }
 
-bool ServerSocket::heeftOntvangen(){
-    if (actieve_socket < 0) {
-        socklen_t addrlen = sizeof(adres);
-        int nieuwesocket = accept(server_fd, (struct sockaddr*)&adres, &addrlen);
+bool ServerSocket::hasReceived(){
+    if (active_socket < 0) {
+        socklen_t addrlen = sizeof(address);
+        int new_socket = accept(server_fd, (struct sockaddr*)&address, &addrlen);
 
-        if (nieuwesocket >= 0) {
+        if (new_socket >= 0) {
             std::cout << "Nieuwe client verbonden!" << std::endl;
-            actieve_socket = nieuwesocket;
+            active_socket = new_socket;
 
             // Maak client-socket non-blocking
-            int flags = fcntl(actieve_socket, F_GETFL, 0);
-            fcntl(actieve_socket, F_SETFL, flags | O_NONBLOCK);
+            int flags = fcntl(active_socket, F_GETFL, 0);
+            fcntl(active_socket, F_SETFL, flags | O_NONBLOCK);
         } else {
             return false;
         }
     } 
     
-    ssize_t bytes = read(actieve_socket, buffer, sizeof(buffer) - 1);
+    ssize_t bytes = read(active_socket, buffer, sizeof(buffer) - 1);
     //std::cout<<"heeftOntvangen na read()"<<std::endl;
 
     if (bytes < 0) {
@@ -106,8 +106,8 @@ bool ServerSocket::heeftOntvangen(){
 
     if (bytes == 0) {
         std::cout << "Client verbinding verbroken" << std::endl;
-        close(actieve_socket);
-        actieve_socket = -1;
+        close(active_socket);
+        active_socket = -1;
         return false;
     }
 
@@ -118,8 +118,8 @@ bool ServerSocket::heeftOntvangen(){
     return false;
 }
 
-bool ServerSocket::kanVersturen(){
-    if (actieve_socket >= 0) {
+bool ServerSocket::canSend(){
+    if (active_socket >= 0) {
         return true;
     } else {
         return false;

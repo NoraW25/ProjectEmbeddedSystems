@@ -17,10 +17,10 @@
 
 class ServerSocket: public InterfaceSocket {
 public:
-    void versturen(std::string) override;  
-    std::string ontvangst() override;
-    bool kanVersturen() override;
-    bool heeftOntvangen() override;
+    void send(std::string) override;  
+    std::string received() override;
+    bool canSend() override;
+    bool hasReceived() override;
 
     /*!
      * @brief Haalt het adres van de serversocket op.
@@ -32,7 +32,7 @@ public:
      * 
      * @return ServerSocket* - Een pointer naar het enige object van ServerSocket.
      */
-    static ServerSocket* instantie();
+    static ServerSocket* instance();
 
     /*!
      * @brief Sluit luisterende en actieve sockets.
@@ -50,14 +50,14 @@ private:
      */
     ServerSocket();
     
-    int poort;
+    int port;
     char buffer[1024];
 
     int server_fd;
-    int actieve_socket;
-    struct sockaddr_in adres;
+    int active_socket;
+    struct sockaddr_in address;
 
-    static ServerSocket* pointerInstantie;
+    static ServerSocket* pointerInstance;
 };
 
 #endif

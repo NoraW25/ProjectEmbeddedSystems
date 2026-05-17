@@ -1,10 +1,10 @@
 #include "ClientSocket.h"
 
 
-ClientSocket::ClientSocket():
-    poort(8080),
+ClientSocket::ClientSocket(std::string ip):
+    port(8080),
     client_fd(-1),
-    server_ip("145.52.127.222"),
+    server_ip(ip),
     status(-1){
 
     memset(buffer, 0, sizeof(buffer));
@@ -16,10 +16,10 @@ ClientSocket::ClientSocket():
         exit(EXIT_FAILURE);
     }
 
-    server_adres.sin_family = AF_INET;
-    server_adres.sin_port = htons(poort);
+    server_address.sin_family = AF_INET;
+    server_address.sin_port = htons(port);
 
-    if (inet_pton(AF_INET, server_ip.c_str(), &server_adres.sin_addr) <= 0) {
+    if (inet_pton(AF_INET, server_ip.c_str(), &server_address.sin_addr) <= 0) {
         std::cout << "Adres kon niet geladen worden\n";
         return;
     }
@@ -27,7 +27,7 @@ ClientSocket::ClientSocket():
     int flags = fcntl(client_fd, F_GETFL, 0);
     fcntl(client_fd, F_SETFL, flags | O_NONBLOCK);
 
-    status = connect(client_fd, (struct sockaddr*)&server_adres, sizeof(server_adres));
+    status = connect(client_fd, (struct sockaddr*)&server_address, sizeof(server_address));
 
     if (status == 0) {
         std::cout << "Direct verbonden met server" << std::endl;
@@ -41,7 +41,7 @@ ClientSocket::ClientSocket():
         client_fd = -1;
     }
 
-    std::cout << "Client heeft connectie met de server " << poort << std::endl;
+    std::cout << "Client heeft connectie met de server " << port << std::endl;
 }
 
 ClientSocket::~ClientSocket(){
@@ -51,28 +51,28 @@ ClientSocket::~ClientSocket(){
     }
 }
 
-void ClientSocket::versturen(std::string bericht){
-    if (kanVersturen()) {
-        int resultaat = send(client_fd, bericht.c_str(), bericht.size(), 0);
-        if(resultaat < 0){
+void ClientSocket::send(std::string message){
+    if (canSend()) {
+        int result = send(client_fd, message.c_str(), message.size(), 0);
+        if(result < 0){
             std::cout<<"Error: bericht niet verzonden"<<std::endl;
         } else {
-            std::cout << "Aantal verzonden bytes: " << resultaat << std::endl;
+            std::cout << "Aantal verzonden bytes: " << result << std::endl;
         }
     }
 }
 
-std::string ClientSocket::ontvangst(){
-    std::string ontvangenbericht = std::string(buffer);
+std::string ClientSocket::received(){
+    std::string received_message = std::string(buffer);
 
     memset(buffer, 0, sizeof(buffer));
 
-    return ontvangenbericht;
+    return received_message;
 }
 
-bool ClientSocket::heeftOntvangen(){
+bool ClientSocket::hasReceived(){
     if (status != 0) {
-        heeftVerbinding();
+        hasReceived();
 
         if (status != 0){
             return false;
@@ -103,15 +103,15 @@ bool ClientSocket::heeftOntvangen(){
     return false;
 }
 
-bool ClientSocket::kanVersturen(){
+bool ClientSocket::canSend(){
     if(status == 0){
         return true;
     } else {
-        return heeftVerbinding();
+        return hasReceived();
     }
 }
 
-bool ClientSocket::heeftVerbinding(){
+bool ClientSocket::hasConnection(){
     if (status == 0) {
         return true;
     }
@@ -120,9 +120,9 @@ bool ClientSocket::heeftVerbinding(){
     FD_ZERO(&wfds); // Maak lijst leeg
     FD_SET(client_fd, &wfds); // Zet client_fd in de lijst
 
-    struct timeval tijdinterval = {0, 0}; // wacht geen seconden tijdens het checken -> non blocking
+    struct timeval timeinterval = {0, 0}; // wacht geen seconden tijdens het checken -> non blocking
 
-    int result = select(client_fd + 1, NULL, &wfds, NULL, &tijdinterval); // Kijk of de verbinding is opgezet
+    int result = select(client_fd + 1, NULL, &wfds, NULL, &timeinterval); // Kijk of de verbinding is opgezet
 
     if (result > 0 && FD_ISSET(client_fd, &wfds)) {
         int err;

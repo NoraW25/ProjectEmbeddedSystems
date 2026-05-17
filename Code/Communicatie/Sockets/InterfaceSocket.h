@@ -29,7 +29,7 @@ public:
      *
      * @param std::string - Het bericht dat verstuurd moet worden.
      */
-    virtual void versturen(std::string) = 0;
+    virtual void send(std::string) = 0;
 
     /*!
      * @brief Geeft het ontvangen bericht.
@@ -38,7 +38,7 @@ public:
      *
      * @return std::string - Het bericht dat is ontvangen.
      */
-    virtual std::string ontvangst() = 0;
+    virtual std::string received() = 0;
 
     /*!
      * @brief Geeft terug of er wel of niet een bericht verstuurd kan worden.
@@ -47,7 +47,7 @@ public:
      *
      * @return Boolean - Terugkoppeling op of er wel of niet een bericht verstuurd kan worden. Als er verstuurd kan worden: true.
      */
-    virtual bool kanVersturen() = 0;
+    virtual bool canSend() = 0;
 
     /*!
      * @brief Geeft terug of er wel of niet een bericht is ontvangen.
@@ -56,7 +56,7 @@ public:
      *
      * @return Boolean - Terugkoppeling op of er wel of niet een bericht is ontvangen. Als er is ontvangen: true.
      */
-    virtual bool heeftOntvangen() = 0;
+    virtual bool hasReceived() = 0;
 };
 
 
