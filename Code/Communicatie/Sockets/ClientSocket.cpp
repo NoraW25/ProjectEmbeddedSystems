@@ -72,7 +72,7 @@ std::string ClientSocket::received(){
 
 bool ClientSocket::hasReceived(){
     if (status != 0) {
-        hasReceived();
+        hasConnection();
 
         if (status != 0){
             return false;
@@ -107,7 +107,7 @@ bool ClientSocket::canSend(){
     if(status == 0){
         return true;
     } else {
-        return hasReceived();
+        return hasConnection();
     }
 }
 
