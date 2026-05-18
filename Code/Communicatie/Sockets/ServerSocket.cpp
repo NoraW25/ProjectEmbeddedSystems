@@ -64,7 +64,7 @@ ServerSocket* ServerSocket::instance() {
 
 void ServerSocket::send(std::string message){
     if (canSend()) {
-        send(actieve_socket, message.c_str(), message.size(), 0);
+        send(active_socket, message.c_str(), message.size(), 0);
     }
 }
 
