@@ -51,9 +51,9 @@ ClientSocket::~ClientSocket(){
     }
 }
 
-void ClientSocket::sendSocket(std::string message){
+void ClientSocket::sendSocket(std::string send_message){
     if (canSend()) {
-        int result = send(client_fd, message.c_str(), message.size(), 0);
+        int result = send(client_fd, send_message.c_str(), send_message.size(), 0);
         if(result < 0){
             std::cout<<"Error: bericht niet verzonden"<<std::endl;
         } else {
