@@ -18,13 +18,13 @@
 
 int main(int argc, char const* argv[])
 {
-    ServerSocket* socket = ServerSocket::instantie();
+    ServerSocket* socket = ServerSocket::instance();
 
     while (true){
-        if(socket->heeftOntvangen()){
-            std::cout<<socket->ontvangst()<<std::endl;
+        if(socket->hasReceived()){
+            std::cout<<socket->received()<<std::endl;
             std::cout<<"Ontvangen"<<std::endl;
-            socket->versturen("Hello there! from server");
+            socket->sendSocket("Hello there! from server");
         }
     }
 }
