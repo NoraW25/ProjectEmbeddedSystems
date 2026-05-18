@@ -14,7 +14,7 @@
 
 class ClientSocket: public InterfaceSocket {
 public:
-    void send(std::string) override;  
+    void sendSocket(std::string) override;  
     std::string received() override;
     bool canSend() override;
     bool hasReceived() override;

@@ -62,9 +62,9 @@ ServerSocket* ServerSocket::instance() {
 	return pointerInstance;
 }
 
-void ServerSocket::send(std::string message){
+void ServerSocket::sendSocket(std::string message){
     if (canSend()) {
-        ::send(active_socket, message.c_str(), message.size(), 0);
+        send(active_socket, message.c_str(), message.size(), 0);
     }
 }
 

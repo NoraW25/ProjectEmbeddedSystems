@@ -51,7 +51,7 @@ ClientSocket::~ClientSocket(){
     }
 }
 
-void ClientSocket::send(std::string message){
+void ClientSocket::sendSocket(std::string message){
     if (canSend()) {
         int result = send(client_fd, message.c_str(), message.size(), 0);
         if(result < 0){

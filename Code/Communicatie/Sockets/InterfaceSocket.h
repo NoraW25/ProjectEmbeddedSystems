@@ -29,7 +29,7 @@ public:
      *
      * @param std::string - Het bericht dat verstuurd moet worden.
      */
-    virtual void send(std::string) = 0;
+    virtual void sendSocket(std::string) = 0;
 
     /*!
      * @brief Geeft het ontvangen bericht.

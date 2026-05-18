@@ -22,7 +22,7 @@ int main(int argc, char const* argv[])
 {
     ClientSocket* socket = new ClientSocket("145.52.127.222");
 
-    socket->send("Hello there! from client");
+    socket->sendSocket("Hello there! from client");
 
     while (true){
         if(socket->hasReceived()){
@@ -31,6 +31,6 @@ int main(int argc, char const* argv[])
         }
 
         sleep(10); // wacht 10 seconden om code te testen
-        socket->send("Hello there! from client");
+        socket->sendSocket("Hello there! from client");
     }
 }
