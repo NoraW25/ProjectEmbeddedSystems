@@ -24,7 +24,7 @@ int main(int argc, char const* argv[])
         if(socket->hasReceived()){
             std::cout<<socket->received()<<std::endl;
             std::cout<<"Ontvangen"<<std::endl;
-            socket->send("Hello there! from server");
+            socket->sendSocket("Hello there! from server");
         }
     }
 }
