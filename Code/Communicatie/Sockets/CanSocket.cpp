@@ -67,22 +67,36 @@ CanSocket* CanSocket::instance() {
 }
 
 void CanSocket::sendSocket(std::string message){
-    if (canSend()){
-        int result_sending = send(can_fd, message.c_str(), message.size(), 0);
-        if (result < 0){
-            std::cout<<"Error: bericht niet verzonden."<<std::endl;
-        } else {
-            std::cout << "Aantal verzonden bytes: " << result << std::endl;
+
+    struct can_frame& send_frame;
+
+    
+
+    ssize_t bytes = write(can_fd, &send_frame, sizeof(send_frame));
+
+    if (bytes == sizeof(send_frame)) {
+        return true; // OK
+    }
+
+    if (bytes < 0) {
+        if (errno == EAGAIN) {
+            return false; // buffer vol, later opnieuw
         }
+        if (errno == ENETDOWN) {
+            std::cout << "CAN interface down." << std::endl;
+            return false;
+        }
+        std::cout << "CAN write error." << std::endl;
+        return false;
     }
 }
 
 std::string CanSocket::received(){
     char buffer[64];
-    int length = sprintf(buffer, "ID:%03X DLC:%d DATA:", frame.can_id, frame.can_dlc);
+    int length = sprintf(buffer, "ID:%03X;DLC:%d;DATA:", frame.can_id, frame.can_dlc);
 
-    for (int i = 0; i < f.can_dlc; i++) {
-        len += sprintf(buffer + length, " %02X", f.data[i]);
+    for (int i = 0; i < frame.can_dlc; i++) {
+        length += sprintf(buffer + length, "%02X", frame.data[i]);
     }
 
     return std::string(buffer);
