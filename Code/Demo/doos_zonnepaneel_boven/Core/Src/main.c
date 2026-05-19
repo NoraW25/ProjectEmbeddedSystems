@@ -40,9 +40,9 @@
 #define GPIOA_REG 0x12
 #define GPIOB_REG 0x13
 
-#define CAN_ID_TEMPERATURE   0x101
-#define CAN_ID_CO2           0x102
-#define CAN_ID_HUMIDITY    0x103
+#define CAN_ID_TEMPERATURE   0xD2
+#define CAN_ID_CO2           0xDC
+#define CAN_ID_HUMIDITY    0xE6
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -51,16 +51,16 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-CAN_HandleTypeDef hcan1;
+CAN_HandleTypeDef hcan1;//struct met alle instellingen voor de CANBUS
 
-I2C_HandleTypeDef hi2c1;
+I2C_HandleTypeDef hi2c1;//struct met alle instellingen voor de i2c
 
-UART_HandleTypeDef huart2;
+UART_HandleTypeDef huart2; //struct voor alle instellingen voor de huart.
 
 /* USER CODE BEGIN PV */
-volatile uint8_t  can_data_ready = 0;
-volatile uint32_t can_received_id = 0;
-volatile uint8_t  can_rx_data[8];
+CAN_RxHeaderTypeDef rxHeader;//struct met alle instellingen voor de canbus rx header
+uint8_t rxData[8];//Binnenkomende CANBUS data.
+volatile int datacheck = 0;//om te zien of er data binnen is gekomen
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -126,13 +126,13 @@ int main(void)
   filter.FilterScale = CAN_FILTERSCALE_32BIT;
   filter.FilterIdHigh = 0;
   filter.FilterIdLow = 0;
-  filter.FilterMaskIdHigh = 0;
+  filter.FilterMaskIdHigh = 0;//accepteert momenteel alle CANBUS berichten.
   filter.FilterMaskIdLow = 0;
   filter.FilterFIFOAssignment = CAN_FILTER_FIFO0;
   filter.FilterActivation = ENABLE;
 
   HAL_CAN_ConfigFilter(&hcan1, &filter);
-  HAL_CAN_Start(&hcan1);
+  HAL_CAN_Start(&hcan1); //start de CANBUS
   if (HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING) != HAL_OK)
   {
 	  Error_Handler();
@@ -144,18 +144,37 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-//	  LEDBar_AllOn();
+//	  LEDBar_AllOn();//Voor Testen
 
-	  uint8_t invoer[5] = {0};
-	    HAL_UART_Transmit(&huart2, (uint8_t*)"Geef CO2 waarde (400-2000): \r\n", 30, 100);
-	    HAL_UART_Receive(&huart2, invoer, 4, HAL_MAX_DELAY);  // wacht op 4 karakters
 
-	    int co2 = atoi((char*)invoer);  // "1500" → 1500
+	  //VOOR HET TESTEN.
+//	  uint8_t invoer[5] = {0};
+//	    HAL_UART_Transmit(&huart2, (uint8_t*)"Geef CO2 waarde (400-2000): \r\n", 30, 100);
+//	    HAL_UART_Receive(&huart2, invoer, 4, HAL_MAX_DELAY);  // wacht op 4 karakters
+//
+//	    int co2 = atoi((char*)invoer);  // "1500" → 1500
+//
+//	    char terugkoppeling[40];
+//	    sprintf(terugkoppeling, "CO2: %d ppm\r\n", co2);
+//	    HAL_UART_Transmit(&huart2, (uint8_t*)terugkoppeling, strlen(terugkoppeling), 100);
+//	    LEDBar_CO2(co2);
 
-	    char terugkoppeling[40];
-	    sprintf(terugkoppeling, "CO2: %d ppm\r\n", co2);
-	    HAL_UART_Transmit(&huart2, (uint8_t*)terugkoppeling, strlen(terugkoppeling), 100);
-	    LEDBar_CO2(co2);
+
+	  if (datacheck){
+		  datacheck = 0;
+		  if (rxHeader.StdId == CAN_ID_TEMPERATURE) {//Temperatuur
+			  //Check nog met Vere hoe je je temperatuur ontvangt.
+			  LEDBar_Temp(temp);
+		  }
+		  else if(rxHeader.StdId == CAN_ID_CO2){//CO2
+			  int co2 = (rxData[0] << 8) | rxData[1];//Co2 data past niet in 1 byte.
+			  LEDBar_CO2(co2);
+		  }
+		  else if(rxHeader.StdId == CAN_ID_HUMIDITY){//Humidity
+			  int humidity = rxData[0];
+			  LEDBar_Humidity(humidity);
+		  }
+	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -239,7 +258,7 @@ static void MX_CAN1_Init(void)
 
   /* USER CODE END CAN1_Init 1 */
   hcan1.Instance = CAN1;
-  hcan1.Init.Prescaler = 10;
+  hcan1.Init.Prescaler = 4;
   hcan1.Init.Mode = CAN_MODE_NORMAL;
   hcan1.Init.SyncJumpWidth = CAN_SJW_1TQ;
   hcan1.Init.TimeSeg1 = CAN_BS1_13TQ;
@@ -377,6 +396,17 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
+	if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &rxHeader, rxData) != HAL_OK) {
+		Error_Handler();
+		//leest ontvangen data uit.
+	}
+	if ((rxHeader.StdId == CAN_ID_TEMPERATURE && rxHeader.RTR == 0)||(rxHeader.StdId == CAN_ID_CO2 && rxHeader.RTR == 0)
+			||(rxHeader.StdId == CAN_ID_HUMIDITY && rxHeader.RTR == 0)) {
+		//checkt de message ID.
+		datacheck = 1;
+	}
+}
 
 
 
@@ -394,9 +424,7 @@ void MCP23017_Init(void) {
     HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, data, 2, HAL_MAX_DELAY);
 }
 
-//void readSensorData(){
-//
-//}
+
 
 
 void LEDBar_CO2(int co2){

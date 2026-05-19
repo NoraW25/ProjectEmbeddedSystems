@@ -4,16 +4,22 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>510</x>
-      <y>210</y>
+      <x>160</x>
+      <y>240</y>
       <w>250</w>
-      <h>160</h>
+      <h>260</h>
     </coordinates>
     <panel_attributes>10LedBar
 --
 co2:int
 temp:double
 humidity:int
+rxData : uint8_t[8]
+datacheck : volatile int 
+hcan1 : CAN_HandleTypeDef
+hi2c1 : I2C_HandleTypeDef
+huart2 : UART_HandleTypeDef
+rxHeader : CAN_RxHeaderTypeDef
 --
 MCP23017_Init:void(void);
 LEDBar_CO2(int co2):void;
