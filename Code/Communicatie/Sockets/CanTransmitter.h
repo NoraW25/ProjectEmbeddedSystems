@@ -15,6 +15,11 @@ public:
 
 private:
     CanSocket* socket;
+    int nr_bytes;
+
+    const std::string key_id /*ID:*/;
+    const std::string key_dcl /*DCL:*/;
+    const std::string key_data /*DATA:*/;
 };
 
 #endif CANTRANSMITTER_H

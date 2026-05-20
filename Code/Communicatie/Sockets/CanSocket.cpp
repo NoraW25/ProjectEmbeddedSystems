@@ -5,7 +5,11 @@
 CanSocket* CanSocket::pointer_instance = 0;
 
 CanSocket::CanSocket():
-    ifname("can0")
+    ifname("can0"),
+    key_id("ID:"),
+    key_dlc("DLC:"),
+    key_data("DATA:"),
+    status(false)
 {    
     system("ip link set can0 down");
     int result_settings = system("ip link set can0 up type can bitrate 500000");
@@ -14,7 +18,8 @@ CanSocket::CanSocket():
         return -1;
     }
 
-    memset(buffer, 0, sizeof(buffer));
+    send_frame = {};
+    received_frame = {};
 
     // Aanmaken socket file
     can_fd = socket(PF_CAN, SOCK_RAW, CAN_RAW);
@@ -49,6 +54,8 @@ CanSocket::CanSocket():
         ~CanSocket();
         return;
     }
+
+    status = 1;
 }
 
 CanSocket::~CanSocket(){
@@ -67,57 +74,47 @@ CanSocket* CanSocket::instance() {
 }
 
 void CanSocket::sendSocket(std::string message){
-
-    struct can_frame& send_frame;
-
+    send_frame.can_id = parseId(message);
+    send_frame.can_dlc = parseDlc(message);
     
+    std::vector<uint8_t> data = parseData(message);
 
-    ssize_t bytes = write(can_fd, &send_frame, sizeof(send_frame));
-
-    if (bytes == sizeof(send_frame)) {
-        return true; // OK
+    for (int i = 0; i < data.size(); i++){
+        send_frame.data[i] = data[i];
     }
 
-    if (bytes < 0) {
-        if (errno == EAGAIN) {
-            return false; // buffer vol, later opnieuw
-        }
-        if (errno == ENETDOWN) {
-            std::cout << "CAN interface down." << std::endl;
-            return false;
-        }
-        std::cout << "CAN write error." << std::endl;
-        return false;
-    }
+    send_on_can();
 }
 
 std::string CanSocket::received(){
-    char buffer[64];
-    int length = sprintf(buffer, "ID:%03X;DLC:%d;DATA:", frame.can_id, frame.can_dlc);
-
-    for (int i = 0; i < frame.can_dlc; i++) {
-        length += sprintf(buffer + length, "%02X", frame.data[i]);
+    // Als je meteen de hasReceived aanroept heb je hetzelfde res
+    // Format -> ID:%d;DCL:%d;Data:%d;%d;%d;%d;
+    std::string message = "";
+    if (hasReceived()){
+        message += key_id + std::to_string(bufferReceivedBytes) + ";" + key_dlc + std::to_string(data.size()) + ";" + key_data;
+        for (int i = 0; i < data.size(); i++){
+            message += std::to_string(data[i]) + ";";
+        }        
     }
-
-    return std::string(buffer);
-    std::string received_message = std::string(buffer);
-
-    memset(buffer, 0, sizeof(buffer));
-
-    return received_message;
+    return message;
 }
 
 bool CanSocket::canSend(){
-    return can_fd;
+    if (status = 1){
+        return true;
+    } else {
+        return send_on_can();
+    }
 }
 
 bool CanSocket::hasReceived(){
+    // Voor algemeen gebruik in de CanReceiver
     if (can_fd <= 0){
         std::cout<<"Error: Geen CAN-socket aanwezig."<<std::endl;
         return false;
     }
 
-    ssize_t bytes = read(can_fd, &frame, sizeof(frame));
+    ssize_t bytes = read(can_fd, &received_frame, sizeof(received_frame));
 
     if (bytes < 0){
         if (errno == EAGAIN) {
@@ -131,6 +128,66 @@ bool CanSocket::hasReceived(){
         }
     }
 
+    bufferReceivedAddress = received_frame.can_id;
+    for(int i = 0; i < received_frame.can_dlc; i++){
+        bufferReceivedBytes = received_frame.data[i];
+    }
+
     return true;
 }
 
+int CanSocket::parseId(const std::string& message){
+    size_t key = message.find(key_id) + key_id.length();
+    size_t value = message.find(";", key);
+    int id = std::stoi(message.substr(key, value - key));
+    return id;
+}
+
+int CanSocket::parseDlc(const std::string& message){
+    size_t key = message.find(key_dlc) + key_dcl.length();
+    size_t value = message.find(";", key);
+    int dlc = std::stoi(message.substr(key, value - key));
+    return dlc;
+}
+
+std::vector<uint8_t> CanSocket::parseData(const std::string& message){
+    std::vector<uint8_t> result;
+
+    size_t position = message.find(key_data) + key_data.length();
+    size_t next = message.find(";", position);
+
+    while(next != std::string::npos){
+        int value = std::stoi(message.substr(pos, next-pos));
+        result.push_back((uint8_t) value);
+
+        position = next + 1;
+        next = message.find(";", position);
+    }
+
+    return result;
+}
+
+bool CanSocket::send_on_can(){
+    ssize_t bytes = write(can_fd, &send_frame, sizeof(send_frame));
+
+    if (bytes == sizeof(send_frame)) {
+        send_frame = {};
+        status = 1;
+        return true;
+    }
+
+    if (bytes < 0) {
+        if (errno == EAGAIN) {
+            std::cout<<"Error: CAN Buffer is vol."<<std::endl;
+            status = 0;
+            return false; // buffer vol, later opnieuw
+        }
+        if (errno == ENETDOWN) {
+            std::cout << "Error: CAN interface down." << std::endl;
+            status = 0;
+            return false;
+        }
+        std::cout << "Error: CAN write error." << std::endl;
+        return false;
+    }    
+}
