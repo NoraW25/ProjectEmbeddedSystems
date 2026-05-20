@@ -163,7 +163,8 @@ int main(void)
 	  if (datacheck){
 		  datacheck = 0;
 		  if (rxHeader.StdId == CAN_ID_TEMPERATURE) {//Temperatuur
-			  //Check nog met Vere hoe je je temperatuur ontvangt.
+			  float temp;
+			  memcpy(&temp, rxData, 4);//zet de eerste 4 ontvangen bytes om naar een float
 			  LEDBar_Temp(temp);
 		  }
 		  else if(rxHeader.StdId == CAN_ID_CO2){//CO2
