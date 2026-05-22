@@ -40,40 +40,17 @@ int main(int argc, char const* argv[])
             std::string chunk = socket->received();
             std::cout << "TCP CHUNK=[" << chunk << "]" << std::endl;
 
-            tcpBuffer += chunk;   // voeg toe aan buffer
-
-            // -----------------------------
-            // 3. Verwerk complete berichten
-            // -----------------------------
-            size_t position;
-            while ((position = tcpBuffer.find(";")) != std::string::npos) {
-
-                std::string message = tcpBuffer.substr(0, position);
-                tcpBuffer.erase(0, position + 1);
-
-                std::cout << "TCP MESSAGE=[" << message << "]" << std::endl;
-
-                // -----------------------------
-                // 4. Integer uit bericht halen
-                // -----------------------------
-                int value = 0;
-                if (sscanf(message.c_str(), "%*[^0-9]%d", &value) == 1) {
-
-                    std::cout << "Parsed integer: " << value << std::endl;
-
-                    // -----------------------------
-                    // 5. CAN bericht sturen
-                    // -----------------------------
-                    std::string text =
-                        "ID:410;DCL:1;Data:" + std::to_string(value) + ";";
-
-                    socketCan->sendSocket(text);
-                    std::cout << "CAN TX: " << text << std::endl;
-
-                } else {
-                    std::cout << "Kon geen integer uit bericht halen" << std::endl;
-                }
+            if (chunk.empty()) {
+                continue;
             }
+            unsigned char byteValue = chunk[0];
+            int value = static_cast<int>(byteValue);
+
+            std::cout << "Parsed integer: " << value << std::endl;
+            std::string text = "ID:410;DCL:1;Data:" + std::to_string(value) + ";";
+
+            socketCan->sendSocket(text);
+            std::cout << "CAN TX: " << text << std::endl;
         }
     }
 }
