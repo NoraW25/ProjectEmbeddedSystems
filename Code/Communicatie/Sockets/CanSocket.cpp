@@ -198,6 +198,7 @@ bool CanSocket::send_on_can(){
     }
 
     if (bytes < 0) {
+        std::cout << "CAN write error, errno=" << errno << std::endl;
         if (errno == EAGAIN) {
             std::cout<<"Error: CAN Buffer is vol."<<std::endl;
             status = 0;
