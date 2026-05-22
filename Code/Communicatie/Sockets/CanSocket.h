@@ -20,6 +20,8 @@ public:
     virtual bool canSend() override;
     virtual bool hasReceived() override;
 
+    void setFrameCan(int address, int dlc, int data);
+
     static CanSocket* instance();
 
 private:

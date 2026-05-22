@@ -35,10 +35,12 @@ int main(int argc, char const* argv[])
         //socket->sendSocket("Hello there! from server");
 
         if(socket->hasReceived()){
-            std::string waarde = socket->received();
-            std::cout<<waarde<<std::endl;
+            std::string str = socket->received();
+            std::cout<<str<<std::endl;
             std::cout<<"Ontvangen"<<std::endl;
-            std::string text = "ID:410;DCL:1;Data:" + waarde + ";";
+            int value = 0;
+            scanf_s(str.c_str(), "%d", value);
+            std::string text = "ID:410;DCL:1;Data:" + value + ";";
             socketCan->sendSocket(text);
         }
     }

@@ -90,6 +90,12 @@ void CanSocket::sendSocket(std::string message){
     send_on_can();
 }
 
+void CanSocket::setFrameCan(int address, int dlc, int data){
+    send_frame.can_id = address;
+    send_frame.can_dlc = 1;
+    send_frame.data[0] = data;
+}
+
 std::string CanSocket::received(){
     // Format -> ID:%d;DCL:%d;Data:%d;%d;%d;%d;
     std::string message = "";
