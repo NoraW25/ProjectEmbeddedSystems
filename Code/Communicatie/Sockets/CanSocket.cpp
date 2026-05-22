@@ -140,7 +140,7 @@ int CanSocket::parseId(const std::string& message){
 }
 
 int CanSocket::parseDlc(const std::string& message){
-    size_t key = message.find(key_dlc) + key_dcl.length();
+    size_t key = message.find(key_dlc) + key_dlc.length();
     size_t value = message.find(";", key);
     int dlc = std::stoi(message.substr(key, value - key));
     return dlc;
@@ -153,7 +153,7 @@ std::vector<uint8_t> CanSocket::parseData(const std::string& message){
     size_t next = message.find(";", position);
 
     while(next != std::string::npos){
-        int value = std::stoi(message.substr(pos, next-pos));
+        int value = std::stoi(message.substr(position, next-position));
         result.push_back((uint8_t) value);
 
         position = next + 1;
@@ -185,5 +185,7 @@ bool CanSocket::send_on_can(){
         }
         std::cout << "Error: CAN write error." << std::endl;
         return false;
-    }    
+    }
+    
+    return false;
 }
