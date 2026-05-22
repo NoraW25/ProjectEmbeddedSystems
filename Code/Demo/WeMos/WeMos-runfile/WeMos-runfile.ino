@@ -1,10 +1,12 @@
 
 #define D4 2
+#define D5 14
 
 #include "InterfaceActuatorPWM.h"
 #include "LampPWM.h"
+#include "VentilatorPWM.h"
 
-LampPWM* actuator = new LampPWM(D4);
+VentilatorPWM* actuator = new VentilatorPWM(D5);
 
 void setup() {
   // put your setup code here, to run once:
