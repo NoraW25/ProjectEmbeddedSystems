@@ -15,7 +15,7 @@ CanSocket::CanSocket():
     int result_settings = system("ip link set can0 up type can bitrate 500000");
     if (result_settings == -1) {
         perror("Fout bij het configureren van systeeminstellingen voor CAN.");
-        return -1;
+        return;
     }
 
     send_frame = {};
@@ -34,9 +34,8 @@ CanSocket::CanSocket():
 
     struct ifreq ifr{};
     strcpy(ifr.ifr_name, ifname);
-    if(ioctl(s, SIOCGIFINDEX, &ifr) < 0){
+    if(ioctl(can_fd, SIOCGIFINDEX, &ifr) < 0){
         perror("Fout bij ioctl(SIOCGIFINDEX).");
-        ~CanSocket();
         return;
     }
 
@@ -45,13 +44,11 @@ CanSocket::CanSocket():
 
     if (bind(can_fd, (struct sockaddr*)&socket_address, sizeof(socket_address)) < 0) {
         perror("Fout bij bind()");
-        ~CanSocket();
         return;
     }
 
     if(can_fd < 0){
         perror("Het opzetten van de CAN socket is mislukt.");
-        ~CanSocket();
         return;
     }
 
@@ -90,9 +87,9 @@ std::string CanSocket::received(){
     // Format -> ID:%d;DCL:%d;Data:%d;%d;%d;%d;
     std::string message = "";
     //if (hasReceived()){
-        message += key_id + std::to_string(bufferReceivedBytes) + ";" + key_dlc + std::to_string(data.size()) + ";" + key_data;
+        message += key_id + std::to_string(bufferReceivedAddress) + ";" + key_dlc + std::to_string(received_frame.data.size()) + ";" + key_data;
         for (int i = 0; i < data.size(); i++){
-            message += std::to_string(data[i]) + ";";
+            message += std::to_string(received_frame.data[i]) + ";";
         }        
     //}
     return message;

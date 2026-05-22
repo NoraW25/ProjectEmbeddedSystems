@@ -24,7 +24,7 @@ int main(int argc, char const* argv[])
 
 
     while (true){
-        if(socketCan->hasReceived){
+        if(socketCan->hasReceived()){
             std::cout<<socketCan->received()<<std::endl;
             std::cout<<"Ontvangen"<<std::endl;
             //socketCan->sendSocket("Hello there! from server");

@@ -13,7 +13,7 @@
 
 class CanSocket : public InterfaceSocket {
 public:
-    virtual ~CanSocket() = default;
+    virtual ~CanSocket();
 
     virtual void sendSocket(std::string) override;  
     virtual std::string received() override;
