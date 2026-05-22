@@ -43,8 +43,8 @@ int main(int argc, char const* argv[])
             if (chunk.empty()) {
                 continue;
             }
-            unsigned char byteValue = chunk[0];
-            int value = static_cast<int>(byteValue);
+            int value = (static_cast<unsigned char>(chunk[0]) << 8) |
+            static_cast<unsigned char>(chunk[1]);
 
             //value = 50;
 
