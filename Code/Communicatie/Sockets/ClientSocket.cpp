@@ -4,7 +4,7 @@
 ClientSocket::ClientSocket(std::string ip):
     port(8080),
     client_fd(-1),
-    server_ip("145.52.127.222"),
+    server_ip(ip),
     status(-1){
 
     memset(buffer, 0, sizeof(buffer));
