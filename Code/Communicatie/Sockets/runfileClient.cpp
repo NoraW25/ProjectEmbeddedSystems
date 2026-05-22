@@ -33,7 +33,7 @@ int main(int argc, char const* argv[])
         }
 
         if(socketWemos->hasReceived()){
-            std::cout<<socket->received()<<std::endl;
+            std::cout<<socketWemos->received()<<std::endl;
             std::cout<<"Ontvangen Wemos"<<std::endl;
         }
 
