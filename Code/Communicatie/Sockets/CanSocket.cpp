@@ -162,8 +162,8 @@ std::vector<uint8_t> CanSocket::parseData(const std::string& message){
 
     std::cout<<"In parseData"<<std::endl;
 
-    size_t pos = message.find(key_data);
-    if (pos == std::string::npos){
+    size_t position = message.find(key_data);
+    if (position == std::string::npos){
         return result;
     }
 
