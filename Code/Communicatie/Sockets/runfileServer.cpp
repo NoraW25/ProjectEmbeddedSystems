@@ -32,6 +32,8 @@ int main(int argc, char const* argv[])
             //socketCan->sendSocket("Hello there! from server");
         }
 
+        socket->sendSocket("Hello there! from server");
+
         if(socket->hasReceived()){
             std::cout<<socket->received()<<std::endl;
             std::cout<<"Ontvangen"<<std::endl;
