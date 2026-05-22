@@ -16,6 +16,8 @@ CanSocket::CanSocket():
     if (result_settings == -1) {
         perror("Fout bij het configureren van systeeminstellingen voor CAN.");
         return;
+    } else {
+        std::cout<<"Na result settings in can constructor"<<std::endl;
     }
 
     send_frame = {};
