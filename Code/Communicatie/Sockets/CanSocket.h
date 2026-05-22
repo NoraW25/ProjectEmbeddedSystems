@@ -23,6 +23,7 @@ public:
     void setFrameCan(int address, int dlc, int data);
 
     static CanSocket* instance();
+    bool send_on_can();
 
 private:
     CanSocket();
@@ -48,7 +49,6 @@ private:
     std::vector<uint8_t> bufferReceivedBytes;
     int bufferReceivedAddress;
 
-    bool send_on_can();
 
 };
 

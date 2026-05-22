@@ -98,6 +98,7 @@ void CanSocket::setFrameCan(int address, int dlc, int data){
     send_frame.data[0] = data;
 }
 
+
 std::string CanSocket::received(){
     // Format -> ID:%d;DCL:%d;Data:%d;%d;%d;%d;
     std::string message = "";

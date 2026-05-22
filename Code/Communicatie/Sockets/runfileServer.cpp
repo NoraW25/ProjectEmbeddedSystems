@@ -55,6 +55,9 @@ int main(int argc, char const* argv[])
             std::cout << "CAN TX: " << text << std::endl;
             std::string text2 ="cansend can0 19a#" + std::to_string(value);
             system(text2.c_str());
+
+            socketCan->setFrameCan(0x410, 1, value);
+            socketCan->send_on_can()
         }
     }
 }
