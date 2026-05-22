@@ -38,7 +38,7 @@ int main(int argc, char const* argv[])
             std::string waarde = socket->received();
             std::cout<<waarde<<std::endl;
             std::cout<<"Ontvangen"<<std::endl;
-            std::string text = "ID:410;DCL:1;Data:" + waarde.to_string();
+            std::string text = "ID:410;DCL:1;" + waarde + ";";
             socketCan->sendSocket(text);
         }
     }
