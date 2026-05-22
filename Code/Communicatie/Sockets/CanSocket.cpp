@@ -13,7 +13,7 @@ CanSocket::CanSocket():
 {    
     system("ip link set can0 down");
     int result_settings = system("ip link set can0 up type can bitrate 500000");
-    if (result_settings == -1) {
+    if (result_settings != 0) {
         perror("Fout bij het configureren van systeeminstellingen voor CAN.");
         return;
     } else {
