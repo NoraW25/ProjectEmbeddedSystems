@@ -20,7 +20,9 @@
 int main(int argc, char const* argv[])
 {
     ServerSocket* socket = ServerSocket::instance();
+    std::cout<<"Na socket Server instantiatie";
     CanSocket* socketCan = CanSocket::instance();
+    std::cout<<"Na socket Can instantiatie";
 
 
     while (true){
