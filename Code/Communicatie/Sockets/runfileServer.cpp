@@ -36,19 +36,25 @@ int main(int argc, char const* argv[])
 
         if(socket->hasReceived()){
             std::string str = socket->received();
-            std::cout<<str<<std::endl;
-            std::cout<<"Ontvangen"<<std::endl;
+            std::cout << "RAW=[" << str << "]" << std::endl;
+
+            if (str.empty()) {
+                std::cout << "Leeg bericht genegeerd" << std::endl;
+                continue;
+            }
+
             int value = 0;
 
-
-            std::string text = "ID:410;DCL:1;Data:" + std::to_string(45) + ";";
             if (sscanf(str.c_str(), "%*[^0-9]%d", &value) == 1) {
-                std::cout<<std::to_string(value)<<std::endl;
-                std::string text = "ID:410;DCL:1;Data:" + std::to_string(45) + ";";
+                std::cout << "Gevonden integer: " << value << std::endl;
+
+                std::string text = "ID:410;DCL:1;Data:" + std::to_string(value) + ";";
                 socketCan->sendSocket(text);
+
             } else {
                 std::cout << "Kon geen integer uit string halen" << std::endl;
             }
         }
+
     }
 }
