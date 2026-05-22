@@ -9,6 +9,7 @@
 #include <signal.h>
 #include <sys/types.h>
 #include <sys/ioctl.h>
+#include <vector>
 
 class CanSocket : public InterfaceSocket {
 public:
@@ -49,4 +50,4 @@ private:
 
 };
 
-#endif CANSOCKET_H
+#endif
