@@ -188,6 +188,9 @@ std::vector<uint8_t> CanSocket::parseData(const std::string& message){
 }
 
 bool CanSocket::send_on_can(){
+
+    std::cout << "ID: " << std::hex << send_frame.can_id << std::endl;
+    std::cout << "DLC: " << std::dec << (int)send_frame.can_dlc << std::endl;
     ssize_t bytes = write(can_fd, &send_frame, sizeof(send_frame));
 
     std::cout<<"Na write send_on_can"<<std::endl;
