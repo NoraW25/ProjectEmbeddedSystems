@@ -12,6 +12,7 @@
  */
 
 #include "ServerSocket.h"
+#include "CanSocket.h"
 
 #include <stdio.h>
 #include <iostream>
@@ -19,8 +20,16 @@
 int main(int argc, char const* argv[])
 {
     ServerSocket* socket = ServerSocket::instance();
+    CanSocket* socketCan = CanSocket::instance();
+
 
     while (true){
+        if(socketCan->hasReceived){
+            std::cout<<socketCan->received()<<std::endl;
+            std::cout<<"Ontvangen"<<std::endl;
+            //socketCan->sendSocket("Hello there! from server");
+        }
+
         if(socket->hasReceived()){
             std::cout<<socket->received()<<std::endl;
             std::cout<<"Ontvangen"<<std::endl;

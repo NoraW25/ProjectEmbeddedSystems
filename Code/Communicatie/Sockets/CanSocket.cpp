@@ -87,15 +87,14 @@ void CanSocket::sendSocket(std::string message){
 }
 
 std::string CanSocket::received(){
-    // Als je meteen de hasReceived aanroept heb je hetzelfde res
     // Format -> ID:%d;DCL:%d;Data:%d;%d;%d;%d;
     std::string message = "";
-    if (hasReceived()){
+    //if (hasReceived()){
         message += key_id + std::to_string(bufferReceivedBytes) + ";" + key_dlc + std::to_string(data.size()) + ";" + key_data;
         for (int i = 0; i < data.size(); i++){
             message += std::to_string(data[i]) + ";";
         }        
-    }
+    //}
     return message;
 }
 
