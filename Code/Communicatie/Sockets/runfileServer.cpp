@@ -49,7 +49,7 @@ int main(int argc, char const* argv[])
             //value = 50;
 
             std::cout << "Parsed integer: " << value << std::endl;
-            std::string text = "ID:410;DLC:1;DATA:" + std::to_string(value) + ";";
+            //std::string text = "ID:410;DLC:1;DATA:" + std::to_string(value) + ";";
 
             // socketCan->sendSocket(text);
             // std::cout << "CAN TX: " << text << std::endl;
@@ -57,7 +57,7 @@ int main(int argc, char const* argv[])
             // system(text2.c_str());
 
             socketCan->setFrameCan(0x410, 1, value);
-            socketCan->send_on_can();
+            //socketCan->send_on_can();
         }
     }
 }
