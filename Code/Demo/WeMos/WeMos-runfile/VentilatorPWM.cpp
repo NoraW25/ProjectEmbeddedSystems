@@ -16,7 +16,7 @@ void VentilatorPWM::turnOn(){
 }
 
 void VentilatorPWM::turnOn(int new_dutycycle){
-    dutycycle = map(new_dutycycle, 0, 100, 0, 255);
+    dutycycle = map(new_dutycycle, 0, 100, 0, 150);
     status = true;
     createPWM();
 }
@@ -27,7 +27,7 @@ void VentilatorPWM::turnOff(){
 }
 
 void VentilatorPWM::changeDutycycle(int new_dutycycle){
-    dutycycle = map(new_dutycycle, 0, 100, 0, 255);
+    dutycycle = map(new_dutycycle, 0, 100, 0, 150);
 
     if (status){
         createPWM();
