@@ -51,13 +51,13 @@ int main(int argc, char const* argv[])
             std::cout << "Parsed integer: " << value << std::endl;
             std::string text = "ID:410;DLC:1;DATA:" + std::to_string(value) + ";";
 
-            socketCan->sendSocket(text);
-            std::cout << "CAN TX: " << text << std::endl;
-            std::string text2 ="cansend can0 19a#" + std::to_string(value);
-            system(text2.c_str());
+            // socketCan->sendSocket(text);
+            // std::cout << "CAN TX: " << text << std::endl;
+            // std::string text2 ="cansend can0 19a#" + std::to_string(value);
+            // system(text2.c_str());
 
             socketCan->setFrameCan(0x410, 1, value);
-            socketCan->send_on_can()
+            socketCan->send_on_can();
         }
     }
 }
