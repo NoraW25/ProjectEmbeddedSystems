@@ -35,30 +35,30 @@ int main(int argc, char const* argv[])
 
         //socket->sendSocket("Hello there! from server");
 
-        // if (socket->hasReceived()) {
+        if (socket->hasReceived()) {
 
-        //     std::string chunk = socket->received();
-        //     std::cout << "TCP CHUNK=[" << chunk << "]" << std::endl;
+            std::string chunk = socket->received();
+            std::cout << "TCP CHUNK=[" << chunk << "]" << std::endl;
 
-        //     if (chunk.empty()) {
-        //         continue;
-        //     }
-        //     unsigned char byteValue = chunk[0];
-        //     int value = static_cast<int>(byteValue);
+            if (chunk.empty()) {
+                continue;
+            }
+            unsigned char byteValue = chunk[0];
+            int value = static_cast<int>(byteValue);
 
-        //     //value = 50;
+            //value = 50;
 
-        //     std::cout << "Parsed integer: " << value << std::endl;
-        //     //std::string text = "ID:410;DLC:1;DATA:" + std::to_string(value) + ";";
+            std::cout << "Parsed integer: " << value << std::endl;
+            //std::string text = "ID:410;DLC:1;DATA:" + std::to_string(value) + ";";
 
-        //     // socketCan->sendSocket(text);
-        //     // std::cout << "CAN TX: " << text << std::endl;
-        //     std::string text2 ="cansend can0 19a#" + std::to_string(value);
-        //     system(text2.c_str());
+            // socketCan->sendSocket(text);
+            // std::cout << "CAN TX: " << text << std::endl;
+            // std::string text2 ="cansend can0 19a#" + std::to_string(value);
+            // system(text2.c_str());
 
-        //     //socketCan->setFrameCan(0x410, 1, value);
-        //     //socketCan->send_on_can();
-        // }
+            socketCan->setFrameCan(0x19a, 1, value);
+            socketCan->send_on_can();
+        }
 
     }
 }
