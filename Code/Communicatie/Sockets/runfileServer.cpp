@@ -39,9 +39,13 @@ int main(int argc, char const* argv[])
             std::cout<<str<<std::endl;
             std::cout<<"Ontvangen"<<std::endl;
             int value = 0;
-            sscanf(str.c_str(), "%d", value);
-            std::string text = "ID:410;DCL:1;Data:" + std::to_string(value) + ";";
-            socketCan->sendSocket(text);
+
+            if (sscanf(str.c_str(), "%d", &value) == 1) {
+                std::string text = "ID:410;DCL:1;Data:" + std::to_string(value) + ";";
+                socketCan->sendSocket(text);
+            } else {
+                std::cout << "Kon geen integer uit string halen" << std::endl;
+            }
         }
     }
 }
