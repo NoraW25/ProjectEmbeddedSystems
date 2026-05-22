@@ -86,12 +86,16 @@ void CanSocket::sendSocket(std::string message){
 std::string CanSocket::received(){
     // Format -> ID:%d;DCL:%d;Data:%d;%d;%d;%d;
     std::string message = "";
-    //if (hasReceived()){
-        message += key_id + std::to_string(bufferReceivedAddress) + ";" + key_dlc + std::to_string(bufferReceivedBytes.size()) + ";" + key_data;
-        for (int i = 0; i < bufferReceivedBytes.size(); i++){
-            message += std::to_string(bufferReceivedBytes[i]) + ";";
-        }        
-    //}
+    message += key_id + std::to_string(bufferReceivedAddress) + ";" + 
+        key_dlc + std::to_string(bufferReceivedBytes.size()) + ";" + 
+        key_data;
+    
+    for (int i = 0; i < bufferReceivedBytes.size(); i++){
+        message += std::to_string(bufferReceivedBytes[i]) + ";";
+    }
+    
+    bufferReceivedBytes.clear();
+    
     return message;
 }
 
