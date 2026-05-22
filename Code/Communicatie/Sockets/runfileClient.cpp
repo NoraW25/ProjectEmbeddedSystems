@@ -21,7 +21,7 @@
 int main(int argc, char const* argv[])
 {
     ClientSocket* socket = new ClientSocket("145.52.127.222");
-    ClientSocket* socketWemos = new ClientSocket("145.52.222.116");
+    ClientSocket* socketWemos = new ClientSocket("145.52.127.116");
 
     socketWemos->sendSocket("hello there! from RPi");
     socket->sendSocket("Hello there! from client");
@@ -29,12 +29,12 @@ int main(int argc, char const* argv[])
     while (true){
         if(socket->hasReceived()){
             std::cout<<socket->received()<<std::endl;
-            std::cout<<"Ontvangen"<<std::endl;
+            std::cout<<"Ontvangen server"<<std::endl;
         }
 
         if(socketWemos->hasReceived()){
             std::cout<<socket->received()<<std::endl;
-            std::cout<<"Ontvangen"<<std::endl;
+            std::cout<<"Ontvangen Wemos"<<std::endl;
         }
 
         //sleep(10); // wacht 10 seconden om code te testen
