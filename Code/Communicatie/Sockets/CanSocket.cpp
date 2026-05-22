@@ -75,13 +75,18 @@ CanSocket* CanSocket::instance() {
 void CanSocket::sendSocket(std::string message){
     send_frame.can_id = parseId(message);
     send_frame.can_dlc = parseDlc(message);
+
+    std::cout<<"SendSocket na parse id & message"<<std::endl;
     
     std::vector<uint8_t> data = parseData(message);
+
+    std::cout<<"SendSocket na parse data"<<std::endl;
 
     for (int i = 0; i < data.size(); i++){
         send_frame.data[i] = data[i];
     }
 
+    std::cout<<"Voor send on can"<<std::endl;
     send_on_can();
 }
 
@@ -172,6 +177,7 @@ std::vector<uint8_t> CanSocket::parseData(const std::string& message){
 bool CanSocket::send_on_can(){
     ssize_t bytes = write(can_fd, &send_frame, sizeof(send_frame));
 
+    std::cout<<"Na write send_on_can"<<std::endl;
     if (bytes == sizeof(send_frame)) {
         send_frame = {};
         status = 1;
