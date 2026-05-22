@@ -46,6 +46,8 @@ int main(int argc, char const* argv[])
             unsigned char byteValue = chunk[0];
             int value = static_cast<int>(byteValue);
 
+            value = 50;
+
             std::cout << "Parsed integer: " << value << std::endl;
             std::string text = "ID:410;DLC:1;Data:" + std::to_string(value) + ";";
 
