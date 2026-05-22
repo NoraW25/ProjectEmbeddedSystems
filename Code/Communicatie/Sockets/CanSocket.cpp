@@ -160,17 +160,28 @@ int CanSocket::parseDlc(const std::string& message){
 std::vector<uint8_t> CanSocket::parseData(const std::string& message){
     std::vector<uint8_t> result;
 
-    size_t position = message.find(key_data) + key_data.length();
+    size_t pos = message.find(key_data);
+    if (pos == std::string::npos){
+        return result;
+    }
+
+    position = key_data.length();
     size_t next = message.find(";", position);
 
     while(next != std::string::npos){
-        int value = std::stoi(message.substr(position, next-position));
-        result.push_back((uint8_t) value);
+        std::string part = message.substr(pos, next - pos);
+        std::cout << part << std::endl;
 
+        try{
+            int value = std::stoi(part);
+            result.push_back((uint8_t) value);
+        }catch(const std::exception&){
+            std::cout<<"value geen text"<<std::endl;
+        }       
+        
         position = next + 1;
         next = message.find(";", position);
     }
-
     return result;
 }
 
