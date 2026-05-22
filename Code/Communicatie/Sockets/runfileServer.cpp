@@ -39,8 +39,8 @@ int main(int argc, char const* argv[])
             std::cout<<str<<std::endl;
             std::cout<<"Ontvangen"<<std::endl;
             int value = 0;
-            scanf(str.c_str(), "%d", value);
-            std::string text = "ID:410;DCL:1;Data:" + value.to_string() + ";";
+            sscanf(str.c_str(), "%d", value);
+            std::string text = "ID:410;DCL:1;Data:" + std::to_string(value) + ";";
             socketCan->sendSocket(text);
         }
     }
