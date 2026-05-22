@@ -73,6 +73,8 @@ CanSocket* CanSocket::instance() {
 }
 
 void CanSocket::sendSocket(std::string message){
+    send_frame = {};
+
     send_frame.can_id = parseId(message);
     send_frame.can_dlc = parseDlc(message);
 
