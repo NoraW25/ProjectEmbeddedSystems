@@ -24,6 +24,7 @@ int main(int argc, char const* argv[])
     CanSocket* socketCan = CanSocket::instance();
     //std::cout<<"Na socket Can instantiatie";
 
+    std::string tcpBuffer;
 
     while (true){
         if(socketCan->hasReceived()){
@@ -73,6 +74,6 @@ int main(int argc, char const* argv[])
                     std::cout << "Kon geen integer uit bericht halen" << std::endl;
                 }
             }
-
+        }
     }
 }
