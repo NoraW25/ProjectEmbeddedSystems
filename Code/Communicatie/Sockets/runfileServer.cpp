@@ -40,6 +40,8 @@ int main(int argc, char const* argv[])
             std::cout<<"Ontvangen"<<std::endl;
             int value = 0;
 
+
+            std::string text = "ID:410;DCL:1;Data:" + std::to_string(45) + ";";
             if (sscanf(str.c_str(), "%*[^0-9]%d", &value) == 1) {
                 std::cout<<std::to_string(value)<<std::endl;
                 std::string text = "ID:410;DCL:1;Data:" + std::to_string(45) + ";";
