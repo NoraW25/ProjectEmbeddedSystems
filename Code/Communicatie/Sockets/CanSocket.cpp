@@ -87,9 +87,9 @@ std::string CanSocket::received(){
     // Format -> ID:%d;DCL:%d;Data:%d;%d;%d;%d;
     std::string message = "";
     //if (hasReceived()){
-        message += key_id + std::to_string(bufferReceivedAddress) + ";" + key_dlc + std::to_string(received_frame.data.size()) + ";" + key_data;
-        for (int i = 0; i < data.size(); i++){
-            message += std::to_string(received_frame.data[i]) + ";";
+        message += key_id + std::to_string(bufferReceivedAddress) + ";" + key_dlc + std::to_string(bufferReceivedBytes.size()) + ";" + key_data;
+        for (int i = 0; i < bufferReceivedBytes.size(); i++){
+            message += std::to_string(bufferReceivedBytes[i]) + ";";
         }        
     //}
     return message;
@@ -126,7 +126,7 @@ bool CanSocket::hasReceived(){
 
     bufferReceivedAddress = received_frame.can_id;
     for(int i = 0; i < received_frame.can_dlc; i++){
-        bufferReceivedBytes = received_frame.data[i];
+        bufferReceivedBytes.push_back(received_frame.data[i]);
     }
 
     return true;
