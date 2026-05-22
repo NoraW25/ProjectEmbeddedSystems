@@ -115,7 +115,7 @@ std::string CanSocket::received(){
 }
 
 bool CanSocket::canSend(){
-    if (status = 1){
+    if (status == 1){
         return true;
     } else {
         return send_on_can();
@@ -168,32 +168,34 @@ int CanSocket::parseDlc(const std::string& message){
 std::vector<uint8_t> CanSocket::parseData(const std::string& message){
     std::vector<uint8_t> result;
 
-    std::cout<<"In parseData"<<std::endl;
+    std::cout << "In parseData" << std::endl;
 
-    size_t position = message.find(key_data);
+    size_t position = message.find(key_data);   // "DATA:"
     if (position == std::string::npos){
         return result;
     }
 
-    position = key_data.length();
+    position += key_data.length();              // <-- NA "DATA:" beginnen
     size_t next = message.find(";", position);
 
-    while(next != std::string::npos){
+    while (next != std::string::npos){
         std::string part = message.substr(position, next - position);
         std::cout << part << std::endl;
 
-        try{
+        try {
             int value = std::stoi(part);
-            result.push_back((uint8_t) value);
-        }catch(const std::exception&){
-            std::cout<<"value geen text"<<std::endl;
-        }       
-        
+            result.push_back((uint8_t)value);
+        } catch (const std::exception&) {
+            std::cout << "value geen text" << std::endl;
+        }
+
         position = next + 1;
         next = message.find(";", position);
     }
+
     return result;
 }
+
 
 bool CanSocket::send_on_can(){
 
