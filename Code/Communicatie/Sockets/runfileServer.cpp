@@ -53,8 +53,8 @@ int main(int argc, char const* argv[])
 
             socketCan->sendSocket(text);
             std::cout << "CAN TX: " << text << std::endl;
-            char[50] text2 ="cansend can0 19a#" + std::to_string(value);
-            system(text2);
+            std::string text2 ="cansend can0 19a#" + std::to_string(value);
+            system(text2.c_str());
         }
     }
 }
