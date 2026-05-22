@@ -43,7 +43,11 @@ int main(int argc, char const* argv[])
             if (chunk.empty()) {
                 continue;
             }
-            unsigned char byteValue = stoi(chunk);
+            try {
+                unsigned char byteValue = stoi(chunk);
+            }catch (...){
+                ;
+            }
             int value = static_cast<int>(byteValue);
 
             //value = 50;
