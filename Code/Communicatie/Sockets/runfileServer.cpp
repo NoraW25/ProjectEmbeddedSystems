@@ -45,14 +45,8 @@ int main(int argc, char const* argv[])
             }
             try {
                 unsigned char byteValue = stoi(chunk);
-            }catch (...){
-                ;
-            }
-            int value = static_cast<int>(byteValue);
-
-            //value = 50;
-
-            std::cout << "Parsed integer: " << value << std::endl;
+                int value = static_cast<int>(byteValue);
+                std::cout << "Parsed integer: " << value << std::endl;
             //std::string text = "ID:410;DLC:1;DATA:" + std::to_string(value) + ";";
 
             // socketCan->sendSocket(text);
@@ -62,6 +56,14 @@ int main(int argc, char const* argv[])
 
             socketCan->setFrameCan(0x19a, 1, value);
             socketCan->send_on_can();
+            }catch (...){
+                ;
+            }
+            
+
+            //value = 50;
+
+            
         }
 
     }
