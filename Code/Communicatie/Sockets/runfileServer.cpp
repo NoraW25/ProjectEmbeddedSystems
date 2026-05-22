@@ -41,7 +41,7 @@ int main(int argc, char const* argv[])
             int value = 0;
 
             if (sscanf(str.c_str(), "%*[^0-9]%d", &value) == 1) {
-                std::cout<<to_string(value)<<std::endl;
+                std::cout<<std::to_string(value)<<std::endl;
                 std::string text = "ID:410;DCL:1;Data:" + std::to_string(value) + ";";
                 socketCan->sendSocket(text);
             } else {
