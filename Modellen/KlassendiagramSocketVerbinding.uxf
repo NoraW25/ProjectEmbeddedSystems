@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>7</zoom_level>
+  <zoom_level>6</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>224</x>
-      <y>154</y>
-      <w>147</w>
-      <h>133</h>
+      <x>162</x>
+      <y>300</y>
+      <w>126</w>
+      <h>114</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt; Socket
 --
@@ -23,74 +23,74 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>77</x>
-      <y>371</y>
-      <w>147</w>
-      <h>189</h>
+      <x>36</x>
+      <y>486</y>
+      <w>126</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>ClientSocket
 --
--poort:int
--serverAdres:sockaddr_in
+-port:int
+-serverAddress:sockaddr_in
 -buffer:char[1024]
 -status:int
 -client_fd:int
 -server_ip:string
 --
-+versturen(string):void
-+ontvangst():string
-+kanVersturen():bool
-+heeftOntvangen():bool
-+heeftConnectie():bool
-+ClientSocket()
++sendSocket(string):void
++received():string
++canSend():bool
++hasReceived():bool
++hasConnection():bool
++ClientSocket(string)
 +~ClientSocket()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>371</x>
-      <y>371</y>
-      <w>147</w>
-      <h>189</h>
+      <x>228</x>
+      <y>486</y>
+      <w>126</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>ServerSocket
 --
--poort:int
+-port:int
 -buffer:char[1024]
 -server_fd:int
 -active_socket:int
--adres
+-address:sockaddr_in
 _-instantieSocket:ServerSocket*_
 --
-+versturen(string):void
-+ontvangst():string
-+kanVersturen():bool
-+heeftOntvangen():bool
++sendSocket(string):void
++received():string
++canSend():bool
++hasReceived():bool
 -ServerSocket()
 +~ServerSocket()
-_+instantie():ServerSocket*_
+_+instance():ServerSocket*_
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>287</x>
-      <y>280</y>
-      <w>175</w>
-      <h>105</h>
+      <x>216</x>
+      <y>408</y>
+      <w>90</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0;230.0;70.0;230.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0;130.0;70.0;130.0;130.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>140</x>
-      <y>280</y>
-      <w>168</w>
-      <h>105</h>
+      <x>90</x>
+      <y>408</y>
+      <w>144</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>220.0;10.0;220.0;70.0;10.0;70.0;10.0;130.0</additional_attributes>
@@ -98,26 +98,10 @@ _+instantie():ServerSocket*_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1071</x>
-      <y>154</y>
-      <w>147</w>
-      <h>133</h>
-    </coordinates>
-    <panel_attributes>BerichtFormatter
---
-
---
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>721</x>
-      <y>154</y>
-      <w>147</w>
-      <h>133</h>
+      <x>588</x>
+      <y>300</y>
+      <w>126</w>
+      <h>114</h>
     </coordinates>
     <panel_attributes>MainProgram
 --
@@ -130,23 +114,71 @@ _+instantie():ServerSocket*_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>861</x>
-      <y>210</y>
-      <w>224</w>
-      <h>21</h>
+      <x>282</x>
+      <y>348</y>
+      <w>318</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x</panel_attributes>
-    <additional_attributes>300.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;510.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>364</x>
-      <y>210</y>
-      <w>371</w>
-      <h>21</h>
+      <x>216</x>
+      <y>408</y>
+      <w>294</w>
+      <h>90</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-x</panel_attributes>
-    <additional_attributes>10.0;10.0;510.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;.
+fg=RED</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0;470.0;70.0;470.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>414</x>
+      <y>486</y>
+      <w>168</w>
+      <h>318</h>
+    </coordinates>
+    <panel_attributes>CanSocket
+--
+-ifname:char* const 
+-received_frame:can_frame
+-send_frame:can_frame
+-can_fd:int
+-status:int
+_-pointer_instance:CanSocket*_
+-socket_address:sockaddr_can
+
+-key_id:string const
+-key_dlc:string const
+-key_data:string const
+
+-bufferReceivedBytes:vector&lt;uint8_t&gt;
+-bufferReceivedAddress:int
+--
++sendSocket(string):void
++received():string
++canSend():bool
++hasReceived():bool
+
++sendOnCan():bool
++setFrameCan(int, int, int):void
+
+-CanSocket()
++~CanSocket()
+
+_+instance():ServerSocket*_
+
+-parseId(const string&amp;):int
+-parseDlc(const string&amp;):int
+-parseData(const string&amp;):vector&lt;uint8_t&gt;
+
+
+
+fg=RED</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
