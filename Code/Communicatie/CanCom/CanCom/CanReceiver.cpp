@@ -4,13 +4,15 @@
 CanReceiver::CanReceiver():
     socket(CanSocket::instance()),
     key_id("ID:"),
-    key_dcl("DCL:"),
     key_data("DATA:"){
 
 }
 
-void CanReceiver::receive(int* address, std::vector<uint8_t>* data){
-    std::string message = socket->Received();
+bool CanReceiver::receive(int* address, std::vector<uint8_t>* data){
+    if (socket->hasReceived() == false) {
+        return false;
+    }
+    std::string message = socket->received();
 
     if (message.length() == 0){
         std::cout<<"ERROR: CanReceiver, leeg bericht gekregen"<<std::endl;
@@ -22,6 +24,7 @@ void CanReceiver::receive(int* address, std::vector<uint8_t>* data){
 
     address = &address_buffer;
     data = &data_buffer;
+    return true;
 }
 
 int CanSocket::parseId(const std::string& message){

@@ -11,7 +11,7 @@ public:
     CanReceiver();
     virtual ~CanReceiver() = default;
 
-    virtual void receive(int*, std::vector<uint8_t>*);
+    virtual bool receive(int*, std::vector<uint8_t>*);
 
 private:
     CanSocket* socket;

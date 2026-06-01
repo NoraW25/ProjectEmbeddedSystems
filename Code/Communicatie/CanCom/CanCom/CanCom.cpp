@@ -14,8 +14,8 @@
 #include "CommunicationController.h"
 #include "Connection.h"
 
-//#include "CanReceiver.h"
-//#include "CanTransmitter.h"
+#include "CanReceiver.h"
+#include "CanTransmitter.h"
 
 void testFunction(std::vector<uint8_t> data) {
     printf("[TestFunction] received data: \n");
@@ -42,11 +42,13 @@ int main()
     Scheduling::RunServiceController* runService = Scheduling::RunServiceController::getInstance(&scheduler);
     scheduler.initEvent();
 
-    VirtualTransmitter transmitter;
-    VirtualReceiver receiver;
+    CanTransmitter transmitter;
+    CanReceiver receiver;
     Communication::CommunicationController canController(&transmitter, &receiver);
 
-    runService->connectToUpdate(*basicTestFunction);
+    canController.logReceived(300, *testFunction);
+
+    /*runService->connectToUpdate(*basicTestFunction);
     scheduler.update();
 
     std::vector<uint8_t> testData1;
@@ -67,7 +69,7 @@ int main()
     testData3.push_back(0xAA);
     testData3.push_back(0xFF);
     receiver.setBuffer(300, testData3);
-    scheduler.update();
+    scheduler.update();*/
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
