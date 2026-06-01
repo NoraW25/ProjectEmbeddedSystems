@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="CanCom/CanCom.vcxproj" Id="d709110d-feac-4b00-93d7-b80bd21887df" />
+</Solution>

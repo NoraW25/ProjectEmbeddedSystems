@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>108</x>
+      <y>294</y>
+      <w>126</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt; 
+InterfaceActuatorSimple
+--
+
+--
+/+turnOn():void/
+/+turnOff():void/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>162</x>
+      <y>402</y>
+      <w>18</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>438</x>
+      <y>294</y>
+      <w>126</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt; 
+InterfaceActuatorPWM
+--
+
+--
+/+turnOn():void/
+/+turnOn(int):void/
+/+turnOff():void/
+/+changeDutycycle(int):void/
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>108</x>
+      <y>498</y>
+      <w>126</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>Lamp
+--
+-pin_nr:int
+-status:bool
+--
++Lamp(int)
++turnOn():void
++turnOff():void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>336</x>
+      <y>498</y>
+      <w>126</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>LampPWM
+--
+-pin_nr:int
+-status:bool
+-dutycycle:int;
+--
++LampPWM(int);
++turnOn():void
++turnOn(int):void
++turnOff():void
++changeDutycycle(int):void
+-createPWM():void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>528</x>
+      <y>498</y>
+      <w>126</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>Ventilator
+--
+-pin_nr:int
+-status:bool
+-dutycycle:int;
+--
++LampPWM(int);
++turnOn():void
++turnOn(int):void
++turnOff():void
++changeDutycycle(int):void
+-createPWM():void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>402</y>
+      <w>120</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>180.0;10.0;180.0;100.0;10.0;100.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>492</x>
+      <y>402</y>
+      <w>114</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0;170.0;100.0;170.0;160.0</additional_attributes>
+  </element>
+</diagram>

@@ -20,17 +20,24 @@
 
 int main(int argc, char const* argv[])
 {
-    ClientSocket* socket = new ClientSocket();
+    ClientSocket* socket = new ClientSocket("145.52.127.222");
+    ClientSocket* socketWemos = new ClientSocket("145.52.127.116");
 
-    socket->versturen("Hello there! from client");
+    socketWemos->sendSocket("hello there! from RPi");
+    socket->sendSocket("Hello there! from client");
 
     while (true){
-        if(socket->heeftOntvangen()){
-            std::cout<<socket->ontvangst()<<std::endl;
-            std::cout<<"Ontvangen"<<std::endl;
+        if(socket->hasReceived()){
+            std::cout<<socket->received()<<std::endl;
+            std::cout<<"Ontvangen server"<<std::endl;
         }
 
-        sleep(10); // wacht 10 seconden om code te testen
-        socket->versturen("Hello there! from client");
+        if(socketWemos->hasReceived()){
+            std::cout<<socketWemos->received()<<std::endl;
+            std::cout<<"Ontvangen Wemos"<<std::endl;
+        }
+
+        //sleep(10); // wacht 10 seconden om code te testen
+        //socket->sendSocket("Hello there! from client");
     }
 }

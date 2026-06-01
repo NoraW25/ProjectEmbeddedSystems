@@ -14,10 +14,10 @@
 
 class ClientSocket: public InterfaceSocket {
 public:
-    void versturen(std::string) override;  
-    std::string ontvangst() override;
-    bool kanVersturen() override;
-    bool heeftOntvangen() override;
+    void sendSocket(std::string) override;  
+    std::string received() override;
+    bool canSend() override;
+    bool hasReceived() override;
     
 
     /*!
@@ -28,7 +28,7 @@ public:
     * 
     * @return Boolean - Terugkoppeling op of er wel of geen verbinding is met de server. Bij verbinding: true.
     */
-    bool heeftVerbinding();
+    bool hasConnection();
 
     /*!
     * @brief Maakt de ClientSocket aan.
@@ -36,8 +36,10 @@ public:
     * Deze constructor zorgt ervoor dat de basis van de ClientSocket er in ieder geval is. 
     * Door de nonblocking structuur van de code, kunnen er andere werkzaamheden tegelijk verlopen, 
     * maar zorgt er ook voor dat de constructor de kans loopt dat de verbinding nog niet volledig is opgezet als de constructor zijn werk heeft gedaan.
+    * 
+    * @param string - IP-adres waarmee verbinding gemaakt moet worden.
     */
-    ClientSocket();
+    ClientSocket(std::string);
 
     /*!
     * @brief Sluit de ClientSocket.
@@ -47,12 +49,12 @@ public:
     ~ClientSocket();
 
 private:
-    int poort;
+    int port;
     char buffer[1024];
     int status; // -1 = Connectie gefaald; 0 = Verbinding; 1 = Bezig met verbinden.
 
     int client_fd;
-    struct sockaddr_in server_adres;
+    struct sockaddr_in server_address;
     std::string server_ip; // Vul voor het ip-adres het adres in wat je via dhcp voor de server hebt gekregen
 
 };
