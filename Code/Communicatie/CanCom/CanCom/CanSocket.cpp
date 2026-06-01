@@ -87,7 +87,7 @@ void CanSocket::sendSocket(std::string message){
         send_frame.data[i] = data[i];
     }
     
-    send_frame.can_dlc = i;
+    send_frame.can_dlc = data.size();
 
     std::cout<<"Voor send on can"<<std::endl;
     send_on_can();
