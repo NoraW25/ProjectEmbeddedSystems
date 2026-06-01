@@ -22,4 +22,4 @@ private:
     const std::string key_data /*DATA:*/;
 };
 
-#endif CANTRANSMITTER_H
+#endif
