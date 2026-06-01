@@ -22,8 +22,9 @@ namespace Communication {
 		if (receiver->receive(&recAddress, &data) == false) {
 			return;
 		}
-
+		
 		if (requestor->processData(recAddress, data)) {
+			printf("data has been processed beforehand\n");
 			return;
 		}
 
