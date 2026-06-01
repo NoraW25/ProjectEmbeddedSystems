@@ -17,6 +17,7 @@
 #include "CanReceiver.h"
 #include "CanTransmitter.h"
 
+Communication::CommunicationController* canController;
 void testFunction(std::vector<uint8_t> data) {
     printf("[TestFunction] received data: \n");
 
@@ -24,7 +25,9 @@ void testFunction(std::vector<uint8_t> data) {
     for (size_t i = 0; i < data.size(); ++i)
     {
         printf("%02X ", data[i]);
+
     }
+    canController->transmitData(0x19A, data);
     printf("\n");
 }
 
@@ -44,10 +47,9 @@ int main()
 
     CanTransmitter transmitter;
     CanReceiver receiver;
-    Communication::CommunicationController canController(&transmitter, &receiver);
+    canController = new Communication::CommunicationController(& transmitter, & receiver);
 
-    canController.logReceived(310, *testFunction);
-    canController.logReceived(0x310, *testFunction);
+    canController->logReceived(0x310, *testFunction);
 
     while (1) {
         scheduler.update();

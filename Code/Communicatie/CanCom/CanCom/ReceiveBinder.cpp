@@ -29,12 +29,9 @@ namespace Communication {
 	}
 
 	void ReceiveBinder::processData(int address, std::vector<uint8_t> data) {
-		printf("processing data: %d\n", address);
 		for (int i = 0; i < events.size(); i++) {
 			Events::ReceiveBinderEvent* event = events[i];
-			printf("> Event has address: %d\n", address);
 			if (event->getAddress() == address) {
-				printf("> > Firing event\n");
 				event->fire(data);
 			}
 		}

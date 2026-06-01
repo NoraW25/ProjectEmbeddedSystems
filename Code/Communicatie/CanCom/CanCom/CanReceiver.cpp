@@ -24,7 +24,6 @@ bool CanReceiver::receive(int* address, std::vector<uint8_t>* data){
 
     *address = address_buffer;
     *data = data_buffer;
-    printf("received data: %d", *address);
     return true;
 }
 
