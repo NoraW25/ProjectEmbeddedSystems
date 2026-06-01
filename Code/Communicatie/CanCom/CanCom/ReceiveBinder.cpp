@@ -3,6 +3,7 @@
 #include "ReceiveBinderEvent.h"
 
 #include <algorithm>
+#include <stdio.h>
 
 namespace Communication {
 	ReceiveBinder::ReceiveBinder() {
