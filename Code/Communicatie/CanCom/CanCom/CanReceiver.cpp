@@ -22,9 +22,9 @@ bool CanReceiver::receive(int* address, std::vector<uint8_t>* data){
     address_buffer = parseId(message);
     data_buffer = parseData(message);
 
-    address = &address_buffer;
-    data = &data_buffer;
-    printf("received data\n");
+    *address = address_buffer;
+    *data = data_buffer;
+    printf("received data: %d", *address);
     return true;
 }
 
