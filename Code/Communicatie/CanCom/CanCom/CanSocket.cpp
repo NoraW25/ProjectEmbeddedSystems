@@ -76,7 +76,6 @@ void CanSocket::sendSocket(std::string message){
     send_frame = {};
 
     send_frame.can_id = parseId(message);
-    send_frame.can_dlc = parseDlc(message);
 
     std::cout<<"SendSocket na parse id & message"<<std::endl;
     
@@ -87,6 +86,8 @@ void CanSocket::sendSocket(std::string message){
     for (int i = 0; i < data.size(); i++){
         send_frame.data[i] = data[i];
     }
+    
+    send_frame.can_dlc = i;
 
     std::cout<<"Voor send on can"<<std::endl;
     send_on_can();
