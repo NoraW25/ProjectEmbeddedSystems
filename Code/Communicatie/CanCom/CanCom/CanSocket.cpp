@@ -181,7 +181,7 @@ std::vector<uint8_t> CanSocket::parseData(const std::string& message){
 
     while (next != std::string::npos){
         std::string part = message.substr(position, next - position);
-        std::cout << part << std::endl;
+        std::cout << "Part " << part << std::endl;
 
         try {
             int value = std::stoi(part);
