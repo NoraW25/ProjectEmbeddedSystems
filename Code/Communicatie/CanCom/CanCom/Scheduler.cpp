@@ -2,6 +2,8 @@
 
 #include "Event.h"
 
+#include <algorithm>
+
 namespace Scheduling {
 	Scheduler::Scheduler():updateEvent(nullptr) {
 

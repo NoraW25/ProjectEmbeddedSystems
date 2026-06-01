@@ -2,6 +2,8 @@
 
 #include "ReceiveBinderEvent.h"
 
+#include <algorithm>
+
 namespace Communication {
 	ReceiveBinder::ReceiveBinder() {
 
