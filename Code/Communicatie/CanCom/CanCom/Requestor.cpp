@@ -3,6 +3,8 @@
 #include "RequestorEvent.h"
 #include "Transmitter.h"
 
+#include <algorithm>
+
 namespace Communication {
 	Requestor::Requestor(Transmitter* trans):transmitter(trans) {
 
