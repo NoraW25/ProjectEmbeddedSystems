@@ -16,8 +16,6 @@ namespace Communication {
 	}
 
 	void DataProcessor::processData() {
-		printf("Dataprocessor received update call\n");
-
 		int recAddress = 0;
 		std::vector<uint8_t> data;
 
