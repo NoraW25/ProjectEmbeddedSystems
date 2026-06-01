@@ -48,6 +48,10 @@ int main()
 
     canController.logReceived(300, *testFunction);
 
+    while (1) {
+        scheduler.update();
+    }
+
     /*runService->connectToUpdate(*basicTestFunction);
     scheduler.update();
 
