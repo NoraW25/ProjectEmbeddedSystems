@@ -1,10 +1,10 @@
 #include <ESP8266WiFi.h>
 #include "ServerSocketWemos.h"
 
-const char* ssid = "YOUR_WIFI";
-const char* password = "YOUR_PASS";
+const char* ssid = "NSELab";
+const char* password = "NSELabWiFi";
 
-ServerSocket server(8080);
+ServerSocketWemos server(8080);
 
 void setup() {
     Serial.begin(115200);
