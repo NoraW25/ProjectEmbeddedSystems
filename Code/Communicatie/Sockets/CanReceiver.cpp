@@ -38,7 +38,7 @@ std::vector<uint8_t> CanSocket::parseData(const std::string& message){
     size_t next = message.find(";", position);
 
     while(next != std::string::npos){
-        int value = std::stoi(message.substr(pos, next-pos));
+        int value = std::stoi(message.substr(position, next-position));
         result.push_back((uint8_t) value);
 
         position = next + 1;
