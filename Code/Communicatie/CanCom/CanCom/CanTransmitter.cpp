@@ -19,7 +19,7 @@ void CanTransmitter::sendData(int address, std::vector<uint8_t> data){
     for (int i = 0; i < data.size(); i++){
         // Vul met databytes
         post += std::to_string(data[i]);
-        post += ";"
+        post += ";";
     }
 
     std::cout<<post<<std::endl;

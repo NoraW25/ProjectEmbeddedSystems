@@ -16,7 +16,7 @@ bool CanReceiver::receive(int* address, std::vector<uint8_t>* data){
 
     if (message.length() == 0){
         std::cout<<"ERROR: CanReceiver, leeg bericht gekregen"<<std::endl;
-        return;
+        return false;
     }
 
     address_buffer = parseId(message);
@@ -41,7 +41,7 @@ std::vector<uint8_t> CanSocket::parseData(const std::string& message){
     size_t next = message.find(";", position);
 
     while(next != std::string::npos){
-        int value = std::stoi(message.substr(pos, next-pos));
+        int value = std::stoi(message.substr(position, next-position));
         result.push_back((uint8_t) value);
 
         position = next + 1;
