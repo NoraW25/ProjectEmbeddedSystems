@@ -46,7 +46,8 @@ int main()
     CanReceiver receiver;
     Communication::CommunicationController canController(&transmitter, &receiver);
 
-    canController.logReceived(300, *testFunction);
+    canController.logReceived(310, *testFunction);
+    canController.logReceived(0x310, *testFunction);
 
     while (1) {
         scheduler.update();
