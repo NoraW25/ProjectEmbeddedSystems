@@ -6,15 +6,20 @@ CanGeneraliser::CanGeneraliser():
 
 }
 
+CanGeneraliser::CanGeneraliser(std::string ifname):
+    socket(CanSocket::instance(ifname)){
+
+}
+
 bool CanGeneraliser::receive(int* address, std::vector<uint8_t>* data){
     return socket->received(address, data);
 }
 
-void CanTransmitter::sendData(int address, std::vector<uint8_t> data){
+void CanGeneraliser::sendData(int address, std::vector<uint8_t> data){
     socket->send(address, data);
 }
 
-void CanTransmitter::sendRequest(int address){
+void CanGeneraliser::sendRequest(int address){
     std::vector<uint8_t> data;
     socket->send(address, data);
 }

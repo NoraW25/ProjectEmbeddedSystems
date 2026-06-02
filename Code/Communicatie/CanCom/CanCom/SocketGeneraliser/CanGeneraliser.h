@@ -12,6 +12,7 @@ class CanGeneraliser :
 {
 public:
     CanGeneraliser();
+    CanGeneraliser(std::string);
     virtual ~CanGeneraliser() = default;
 
     virtual void sendData(int, std::vector<uint8_t>) override;

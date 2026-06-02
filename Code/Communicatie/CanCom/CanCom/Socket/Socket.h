@@ -27,8 +27,8 @@ public:
      * Deze methode bekijkt of er verstuurd kan worden met kanVersturen.
      * Als er verstuurd kan worden, wordt de meegegeven string verstuurd.
      *
-     * @param int
-     * @param vector<uint8_t> 
+     * @param int adres of proces id, geeft aan wat voor soort data over de lijn gestuurd wordt en wie erop moet reageren.
+     * @param vector<uint8_t> de data die verzonden moet worden.
      */
     virtual void send(int, std::vector<uint8_t>) = 0;
 
@@ -48,6 +48,8 @@ public:
      * Eerst wordt er bekeken of de socket een verbinding heeft. Is dat niet het geval, zal de verbinding opnieuw geprobeerd worden op te zetten.
      * Als er een bericht is ontvangen worden het adres en de data meegegeven in met de pointerparameters.
      *
+     * @param int   adres of proces id, geeft aan wat voor soort data over de lijn gestuurd wordt en wie erop moet reageren.
+     * @param vector<uint8_t> de opslagplaats voor de ontvangen data.
      * @return Boolean - Terugkoppeling op of er wel of niet een bericht is ontvangen. Als er is ontvangen: true.
      */
     virtual bool received(int*, std::vector<uint8_t>*) = 0;
