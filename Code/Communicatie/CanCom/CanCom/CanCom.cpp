@@ -14,8 +14,7 @@
 #include "CommunicationController.h"
 #include "Connection.h"
 
-#include "CanReceiver.h"
-#include "CanTransmitter.h"
+#include "SocketGeneraliser/CanGeneraliser.h"
 
 Communication::CommunicationController* canController;
 void testFunction(std::vector<uint8_t> data) {
@@ -45,9 +44,8 @@ int main()
     Scheduling::RunServiceController* runService = Scheduling::RunServiceController::getInstance(&scheduler);
     scheduler.initEvent();
 
-    CanTransmitter transmitter;
-    CanReceiver receiver;
-    canController = new Communication::CommunicationController(& transmitter, & receiver);
+    CanGeneraliser generaliser;
+    canController = new Communication::CommunicationController(& generaliser, & generaliser);
 
     canController->logReceived(0x310, *testFunction);
 
