@@ -53,6 +53,7 @@ int main()
     runService->createTask(*basicTestFunction, 10000);
     runService->createTask(*basicTestFunction, 15000);
     runService->createTask(*basicTestFunction, 3000);
+    runService->createTask(*basicTestFunction, 20000);
     //BIND FUNCTIES HIERBOVEN
 
     while (1) {
