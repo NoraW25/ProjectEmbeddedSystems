@@ -25,6 +25,8 @@ namespace Events {
 		Connection* connect(std::function<void(std::vector<uint8_t>)>);
 
 		int getAddress();
+
+		void removeConnection(Connection*);
 	};
 
 }

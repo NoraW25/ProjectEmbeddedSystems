@@ -12,7 +12,7 @@ namespace Events {
 		bool flag;
 	public:
 		Event();
-		virtual ~Event();
+		~Event();
 
 		void setFlag();
 		void resetFlag();
@@ -20,7 +20,7 @@ namespace Events {
 
 		virtual void callConnected() = 0;
 
-		void removeConnection(Connection*);
+		virtual void removeConnection(Connection*);
 	};
 
 }

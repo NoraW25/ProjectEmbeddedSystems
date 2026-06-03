@@ -15,7 +15,7 @@ namespace Events {
 			connection->getFunction()(*data);
 		}
 		dataBuffer.erase(dataBuffer.begin());
-		resetFlag();
+		delete this;
 	}
 
 	void RequestorEvent::fire(std::vector<uint8_t> data) {
@@ -31,6 +31,19 @@ namespace Events {
 		Connection* newConnection = new DataConnection(this, func);
 		connections.push_back(newConnection);
 		return newConnection;
+	}
+
+	void RequestorEvent::removeConnection(Connection* removing) {
+		int numConnections = connections.size();
+		for (int i = 0; i < numConnections; i++) {
+			if (connections[i] == removing) {
+				connections.erase(connections.begin() + i);
+				return;
+			}
+		}
+		if (numConnections <= 1) {
+			delete this;
+		}
 	}
 
 }

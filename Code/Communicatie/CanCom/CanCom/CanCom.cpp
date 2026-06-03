@@ -49,7 +49,9 @@ int main()
     CanReceiver receiver;
     canController = new Communication::CommunicationController(& transmitter, & receiver);
 
+    //BIND FUNCTIES HIERONDER
     canController->logReceived(0x310, *testFunction);
+    //BIND FUNCTIES HIERBOVEN
 
     while (1) {
         scheduler.update();
