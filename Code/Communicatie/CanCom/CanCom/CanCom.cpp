@@ -48,7 +48,7 @@ int main()
     canController = new Communication::CommunicationController(& generaliser, & generaliser);
 
     //BIND FUNCTIES HIERONDER
-    canController->logReceived(0x310, *testFunction);
+    //canController->logReceived(0x310, *testFunction);
     runService->createTask(*basicTestFunction, 5000);
     runService->createTask(*basicTestFunction, 10000);
     runService->createTask(*basicTestFunction, 15000);
