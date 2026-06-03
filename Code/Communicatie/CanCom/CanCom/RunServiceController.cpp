@@ -27,4 +27,8 @@ namespace Scheduling {
 	Events::Connection* RunServiceController::connectToUpdate(std::function<void()> func) {
 		return scheduler->connectToUpdate(func);
 	}
+
+	Events::Connection* RunServiceController::createTask(std::function<void()> func, uint32_t delay) {
+		return scheduler->createTask(func, delay);
+	}
 }

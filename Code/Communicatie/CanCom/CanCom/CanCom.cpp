@@ -31,7 +31,7 @@ void testFunction(std::vector<uint8_t> data) {
 }
 
 void basicTestFunction() {
-    printf("updated\n");
+    printf("[BasicTestFunction] called\n");
 }
 
 void calculate(std::vector<uint8_t>) {
@@ -49,6 +49,7 @@ int main()
 
     //BIND FUNCTIES HIERONDER
     canController->logReceived(0x310, *testFunction);
+    runService->createTask(*basicTestFunction, 5000);
     //BIND FUNCTIES HIERBOVEN
 
     while (1) {

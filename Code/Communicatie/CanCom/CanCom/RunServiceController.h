@@ -25,7 +25,7 @@ namespace Scheduling {
 		void addEvent(Events::Event* event);
 		void removeEvent(Events::Event* event);
 		Events::Connection* connectToUpdate(std::function<void()>);
-
+		Events::Connection* createTask(std::function<void()>, uint32_t delay);
 	private:
 		// Private constructor/destructor
 		RunServiceController(Scheduler*);
