@@ -17,9 +17,10 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <arpa/inet.h>
+#include <vector>
 
 
-class InterfaceSocket{
+class Socket{
 public:
     /*!
      * @brief Verstuurd een bericht.
@@ -27,18 +28,11 @@ public:
      * Deze methode bekijkt of er verstuurd kan worden met kanVersturen.
      * Als er verstuurd kan worden, wordt de meegegeven string verstuurd.
      *
-     * @param std::string - Het bericht dat verstuurd moet worden.
+     * @param int adres of proces id, geeft aan wat voor soort data over de lijn gestuurd wordt en wie erop moet reageren.
+     * @param vector<uint8_t> de data die verzonden moet worden.
      */
-    virtual void sendSocket(std::string) = 0;
+    virtual void send(int, std::vector<uint8_t>) = 0;
 
-    /*!
-     * @brief Geeft het ontvangen bericht.
-     *
-     * Deze methode stuurt het ontvangen bericht, dat in de buffer van het object staat, door naar de opvrager.
-     *
-     * @return std::string - Het bericht dat is ontvangen.
-     */
-    virtual std::string received() = 0;
 
     /*!
      * @brief Geeft terug of er wel of niet een bericht verstuurd kan worden.
@@ -50,13 +44,16 @@ public:
     virtual bool canSend() = 0;
 
     /*!
-     * @brief Geeft terug of er wel of niet een bericht is ontvangen.
+     * @brief Geeft terug of er wel of niet een bericht is ontvangen. Als er een bericht is ontvangen wordt de inhoud meegegeven.
      *
      * Eerst wordt er bekeken of de socket een verbinding heeft. Is dat niet het geval, zal de verbinding opnieuw geprobeerd worden op te zetten.
+     * Als er een bericht is ontvangen worden het adres en de data meegegeven in met de pointerparameters.
      *
+     * @param int   adres of proces id, geeft aan wat voor soort data over de lijn gestuurd wordt en wie erop moet reageren.
+     * @param vector<uint8_t> de opslagplaats voor de ontvangen data.
      * @return Boolean - Terugkoppeling op of er wel of niet een bericht is ontvangen. Als er is ontvangen: true.
      */
-    virtual bool hasReceived() = 0;
+    virtual bool received(int*, std::vector<uint8_t>*) = 0;
 };
 
 
