@@ -5,8 +5,23 @@ ClientSocket::ClientSocket(std::string ip):
     port(8080),
     client_fd(-1),
     server_ip(ip),
-    status(-1){
+    status(-1),
+    translator(MessageTranslator::instance()){
+    
+    tcpStartup();
+}
 
+ClientSocket::ClientSocket(std::string ip, int port):
+    port(port),
+    client_fd(-1),
+    server_ip(ip),
+    status(-1),
+    translator(MessageTranslator::instance()){
+    
+    tcpStartup();
+}
+
+void ClientSocket::tcpStartup(){
     memset(buffer, 0, sizeof(buffer));
     
     // Aanmaken socket file
@@ -51,9 +66,10 @@ ClientSocket::~ClientSocket(){
     }
 }
 
-void ClientSocket::sendSocket(std::string send_message){
+void ClientSocket::send(int* id, std::vector<uint8_t>* data){
     if (canSend()) {
-        int result = send(client_fd, send_message.c_str(), send_message.size(), 0);
+        std::string message = translator->translate(id, data);
+        int result = send(client_fd, message.c_str(), message.size(), 0);
         if(result < 0){
             std::cout<<"Error: bericht niet verzonden"<<std::endl;
         } else {
@@ -62,23 +78,9 @@ void ClientSocket::sendSocket(std::string send_message){
     }
 }
 
-std::string ClientSocket::received(){
+bool ClientSocket::received(int* id, std::vector<uint8_t>* data){
     std::string received_message = std::string(buffer);
 
-    memset(buffer, 0, sizeof(buffer));
-
-    return received_message;
-}
-
-bool ClientSocket::hasReceived(){
-    if (status != 0) {
-        hasConnection();
-
-        if (status != 0){
-            return false;
-        }
-    } 
-    
     ssize_t bytes = read(client_fd, buffer, sizeof(buffer) - 1);
 
     if (bytes < 0) {
@@ -97,10 +99,25 @@ bool ClientSocket::hasReceived(){
     }
 
     if(buffer[0] != 0) {
-        return true; 
+        if (buffer[0] != '\n'){
+            translator->translate(id, data, std::to_string(buffer));
+        }
+        return true;
     }
 
     return false;
+}
+
+bool ClientSocket::hasReceived(){
+    if (status != 0) {
+        hasConnection();
+
+        if (status != 0){
+            return false;
+        }
+    } 
+    
+    
 }
 
 bool ClientSocket::canSend(){

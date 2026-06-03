@@ -85,7 +85,7 @@ ServerSocket* ServerSocket::instance(int port) {
 
 void ServerSocket::send(int id, std::vector<uint8_t> data){
     if (canSend()) {
-        // Translate
+        std::string message = translator->translate(id, data);
 
         send(active_socket, message.c_str(), message.size(), 0);
     }
@@ -135,7 +135,7 @@ bool ServerSocket::received(int* id, std::vector<uint8_t>* data){
     }
 
     if(buffer[0] != 0) {        
-        if (buffer != '\n'){
+        if (buffer[0] != '\n'){
             // translate message to
         }
         return true;

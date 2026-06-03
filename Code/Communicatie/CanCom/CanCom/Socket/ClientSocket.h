@@ -11,6 +11,7 @@
 #define CLIENTSOCKET_H
 
 #include "Socket.h"
+#include "../Translator/MessageTranslator.h"
 
 class ClientSocket: public Socket {
 public:
@@ -38,7 +39,8 @@ public:
     * 
     * @param string - IP-adres waarmee verbinding gemaakt moet worden.
     */
-    ClientSocket(std::string);
+    ClientSocket(std::string);    
+    ClientSocket(std::string, int);
 
     /*!
     * @brief Sluit de ClientSocket.
@@ -52,10 +54,13 @@ private:
     char buffer[1024];
     int status; // -1 = Connectie gefaald; 0 = Verbinding; 1 = Bezig met verbinden.
 
+    void tcpStartup();
+
     int client_fd;
     struct sockaddr_in server_address;
     std::string server_ip; // Vul voor het ip-adres het adres in wat je via dhcp voor de server hebt gekregen
 
+    MessageTranslator* translator;
 };
 
 #endif
