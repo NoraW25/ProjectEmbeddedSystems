@@ -4,7 +4,7 @@
 
 #include "../Receiver.h"
 #include "../Transmitter.h"
-#include "../SocketGeneraliser/CanSocket.h"
+#include "../Socket/CanSocket.h"
 
 
 class CanGeneraliser : 
