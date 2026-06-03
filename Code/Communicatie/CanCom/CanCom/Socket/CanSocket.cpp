@@ -20,7 +20,7 @@ CanSocket::CanSocket(std::string ifname):
 
 void CanSocket::canStartup(){
     std::string system_text1 = "ip link set " + ifname + " down";
-    system(system_text.c_str());
+    system(system_text1.c_str());
     std::string system_text2 = "ip link set " + ifname + " up type can bitrate 500000";
     int result_settings = system(system_text2.c_str());
     if (result_settings != 0) {
@@ -45,7 +45,7 @@ void CanSocket::canStartup(){
     fcntl(can_fd, F_SETFL, flags | O_NONBLOCK);
 
     struct ifreq ifr{};
-    strcpy(ifr.ifr_name, ifname);
+    strcpy(ifr.ifr_name, ifname.c_str());
     if(ioctl(can_fd, SIOCGIFINDEX, &ifr) < 0){
         perror("Fout bij ioctl(SIOCGIFINDEX).");
         return;
