@@ -1,6 +1,7 @@
 #include "TimedEvent.h"
 
 #include "SimpleConnection.h"
+#include "RunServiceController.h"
 
 namespace Events {
 	TimedEvent::TimedEvent(uint32_t setTime) :
@@ -8,6 +9,11 @@ namespace Events {
 		startTime(std::chrono::steady_clock::time_point{}) 
 	{
 		startTime = std::chrono::steady_clock::now();
+	}
+
+	TimedEvent::~TimedEvent() {
+		Scheduling::RunServiceController* runService = Scheduling::RunServiceController::getInstance(nullptr);
+		runService->removeTimedEvent(this);
 	}
 
 	void TimedEvent::callConnected() {

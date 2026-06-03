@@ -12,7 +12,7 @@ namespace Events {
 		bool flag;
 	public:
 		Event();
-		~Event();
+		virtual ~Event();
 
 		void setFlag();
 		void resetFlag();

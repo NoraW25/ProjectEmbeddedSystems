@@ -12,6 +12,7 @@ namespace Events {
 		std::chrono::time_point<std::chrono::steady_clock> startTime;
 	public:
 		TimedEvent(uint32_t);
+		~TimedEvent() override;
 		void callConnected();
 		Connection* Connect(std::function<void()>);
 		void checkTimer();

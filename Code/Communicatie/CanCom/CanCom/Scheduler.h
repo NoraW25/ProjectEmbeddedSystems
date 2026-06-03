@@ -21,6 +21,7 @@ namespace Scheduling {
 		void update();
 		void addEvent(Events::Event*);
 		void removeEvent(Events::Event*);
+		void removeTimedEvent(Events::TimedEvent*);
 		void initEvent();
 		Events::Connection* connectToUpdate(std::function<void()>);
 		Events::Connection* createTask(std::function<void()>, uint32_t delay);

@@ -3,6 +3,8 @@
 #include "Connection.h"
 #include "RunServiceController.h"
 
+#include <stdio.h>
+
 namespace Events {
 
 	Event::Event() :flag(false) {
@@ -11,6 +13,7 @@ namespace Events {
 	}
 
 	Event::~Event() {
+		printf("[Event] event removing\n");
 		for (int i = 0; i < connections.size(); i++) {
 			connections[i]->Disconnect();
 		}

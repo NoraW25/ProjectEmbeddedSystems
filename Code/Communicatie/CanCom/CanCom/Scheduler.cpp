@@ -38,23 +38,21 @@ namespace Scheduling {
 		events.push_back(event);
 	}
 
+	void Scheduler::removeTimedEvent(Events::TimedEvent* event) {
+		timedEvents.erase(
+			std::remove(timedEvents.begin(), timedEvents.end(), event),
+			timedEvents.end()
+		);
+	}
+
 	void Scheduler::removeEvent(Events::Event* event) {
-		Events::TimedEvent* d = dynamic_cast<Events::TimedEvent*>(event);
-
-		if (d != nullptr) {
-			timedEvents.erase(
-				std::remove(timedEvents.begin(), timedEvents.end(), d),
-				timedEvents.end()
-			);
-		}
-
 		events.erase(
 			std::remove(events.begin(), events.end(), event),
 			events.end()
 		);
 		deletedEvents += 1;
 
-		printf("[Scheduler] removed events, remaining events: %d, remaining timed events: %d", events.size(), timedEvents.size());
+		printf("[Scheduler] removed events, remaining events: %d, remaining timed events: %d\n", events.size(), timedEvents.size());
 	}
 
 	Events::Connection* Scheduler::connectToUpdate(std::function<void()> func) {
