@@ -3,6 +3,8 @@
 #include "SimpleConnection.h"
 #include "RunServiceController.h"
 
+#include <stdio.h>
+
 namespace Events {
 	TimedEvent::TimedEvent(uint32_t setTime) :
 		time(setTime),
