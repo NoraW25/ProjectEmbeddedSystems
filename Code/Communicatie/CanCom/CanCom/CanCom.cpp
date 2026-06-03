@@ -50,6 +50,9 @@ int main()
     //BIND FUNCTIES HIERONDER
     canController->logReceived(0x310, *testFunction);
     runService->createTask(*basicTestFunction, 5000);
+    runService->createTask(*basicTestFunction, 10000);
+    runService->createTask(*basicTestFunction, 15000);
+    runService->createTask(*basicTestFunction, 3000);
     //BIND FUNCTIES HIERBOVEN
 
     while (1) {
