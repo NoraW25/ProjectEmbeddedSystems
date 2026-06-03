@@ -30,7 +30,7 @@ private:
     static CanSocket* pointer_instance;
 
     struct sockaddr_can socket_address;
-    const char* ifname /*default = "can0"*/;
+    std::string ifname /*default = "can0"*/;
 
     int can_fd;
     int status;
