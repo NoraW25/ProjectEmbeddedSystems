@@ -14,7 +14,7 @@
 #include "CommunicationController.h"
 #include "Connection.h"
 
-#include "../SocketGeneraliser/CanGeneraliser.h"
+#include "SocketGeneraliser/CanGeneraliser.h"
 
 Communication::CommunicationController* canController;
 void testFunction(std::vector<uint8_t> data) {
