@@ -40,7 +40,7 @@ void testFunction2(std::vector<uint8_t> data) {
         printf("%02X ", data[i]);
 
     }
-    server_controller->transmitData(0x10, data)
+    server_controller->transmitData(0x10, data);
 }
 
 void basicTestFunction() {

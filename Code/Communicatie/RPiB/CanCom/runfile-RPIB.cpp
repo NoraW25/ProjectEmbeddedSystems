@@ -27,7 +27,7 @@ void testFunction2(std::vector<uint8_t> data) {
         printf("%02X ", data[i]);
 
     }
-    client_controller->transmitData(0x100, data)
+    client_controller->transmitData(0x100, data);
 }
 
 void basicTestFunction() {
