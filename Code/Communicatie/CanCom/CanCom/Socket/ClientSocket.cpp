@@ -100,7 +100,7 @@ bool ClientSocket::received(int* id, std::vector<uint8_t>* data){
 
     if(buffer[0] != 0) {
         if (buffer[0] != '\n'){
-            translator->translate(id, data, std::to_string(buffer));
+            translator->translate(id, data, std::string(buffer));
         }
         return true;
     }

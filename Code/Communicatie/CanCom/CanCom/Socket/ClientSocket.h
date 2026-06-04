@@ -12,6 +12,7 @@
 
 #include "Socket.h"
 #include "../Translator/MessageTranslator.h"
+#include <cstdint>
 
 class ClientSocket: public Socket {
 public:
@@ -55,6 +56,7 @@ private:
     int status; // -1 = Connectie gefaald; 0 = Verbinding; 1 = Bezig met verbinden.
 
     void tcpStartup();
+    bool hasReceived();
 
     int client_fd;
     struct sockaddr_in server_address;
