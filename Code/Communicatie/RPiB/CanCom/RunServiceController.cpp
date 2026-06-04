@@ -20,11 +20,19 @@ namespace Scheduling {
 		scheduler->addEvent(event);
 	}
 
+	void RunServiceController::removeTimedEvent(Events::TimedEvent* event) {
+		scheduler->removeTimedEvent(event);
+	}
+
 	void RunServiceController::removeEvent(Events::Event* event) {
 		scheduler->removeEvent(event);
 	}
 
 	Events::Connection* RunServiceController::connectToUpdate(std::function<void()> func) {
 		return scheduler->connectToUpdate(func);
+	}
+
+	Events::Connection* RunServiceController::createTask(std::function<void()> func, uint32_t delay) {
+		return scheduler->createTask(func, delay);
 	}
 }

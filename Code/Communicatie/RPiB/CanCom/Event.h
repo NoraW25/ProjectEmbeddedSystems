@@ -20,7 +20,7 @@ namespace Events {
 
 		virtual void callConnected() = 0;
 
-		void removeConnection(Connection*);
+		virtual void removeConnection(Connection*);
 	};
 
 }

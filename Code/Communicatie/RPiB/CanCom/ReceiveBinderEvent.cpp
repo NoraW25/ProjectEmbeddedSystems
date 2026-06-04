@@ -33,4 +33,17 @@ namespace Events {
 		return newConnection;
 	}
 
+	void ReceiveBinderEvent::removeConnection(Connection* removing) {
+		int numConnections = connections.size();
+		for (int i = 0; i < numConnections; i++) {
+			if (connections[i] == removing) {
+				connections.erase(connections.begin() + i);
+				return;
+			}
+		}
+		if (numConnections <= 1) {
+			delete this;
+		}
+	}
+
 }
