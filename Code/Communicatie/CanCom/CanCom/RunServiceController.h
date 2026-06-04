@@ -1,9 +1,11 @@
 #pragma once
 
 #include <functional>
+#include <stdint.h>
 
 namespace Events {
 	class Event;
+	class TimedEvent;
 	class Connection;
 }
 
@@ -24,8 +26,9 @@ namespace Scheduling {
 
 		void addEvent(Events::Event* event);
 		void removeEvent(Events::Event* event);
+		void removeTimedEvent(Events::TimedEvent*);
 		Events::Connection* connectToUpdate(std::function<void()>);
-
+		Events::Connection* createTask(std::function<void()>, uint32_t delay);
 	private:
 		// Private constructor/destructor
 		RunServiceController(Scheduler*);

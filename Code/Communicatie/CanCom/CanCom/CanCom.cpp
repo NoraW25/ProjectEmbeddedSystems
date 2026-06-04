@@ -45,7 +45,7 @@ void testFunction2(std::vector<uint8_t> data) {
 }
 
 void basicTestFunction() {
-    printf("updated\n");
+    printf("[BasicTestFunction] called\n");
 }
 
 void calculate(std::vector<uint8_t>) {
@@ -63,10 +63,17 @@ int main()
     canController = new Communication::CommunicationController(& generaliser, & generaliser);
     server_controller = new Communication::CommunicationController(& generaliser_server, & generaliser_server);
 
+    //BIND FUNCTIES HIERONDER
     canController->logReceived(0x310, *testFunction);
     server_controller->logReceived(0x100, *testFunction2);
 
 
+    runService->createTask(*basicTestFunction, 5000);
+    runService->createTask(*basicTestFunction, 10000);
+    runService->createTask(*basicTestFunction, 15000);
+    runService->createTask(*basicTestFunction, 3000);
+    runService->createTask(*basicTestFunction, 20000);
+    //BIND FUNCTIES HIERBOVEN
 
     while (1) {
         scheduler.update();
