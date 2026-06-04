@@ -61,7 +61,7 @@ int main()
     CanGeneraliser generaliser;
     ServerGeneraliser generaliser_server;
     canController = new Communication::CommunicationController(& generaliser, & generaliser);
-    server_Controller = new Communication::CommunicationController(& generaliser_server, & generaliser_server);
+    server_controller = new Communication::CommunicationController(& generaliser_server, & generaliser_server);
 
     canController->logReceived(0x310, *testFunction);
     server_controller->logReceived(0x100, *testFunction2);
