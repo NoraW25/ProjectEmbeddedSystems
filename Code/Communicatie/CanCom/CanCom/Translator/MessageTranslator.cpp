@@ -32,7 +32,7 @@ void MessageTranslator::translate(int* id, std::vector<uint8_t>* data, std::stri
 }
 
 std::string MessageTranslator::translate(int id, std::vector<uint8_t> data){
-    std::string text = key_id + stringifyId(id) + ";" + key_data + stringifyData(data);
+    std::string text = key_id + stringifyId(id) + ";"+ key_data + stringifyData(data);
     return text;
 }
 
@@ -80,7 +80,9 @@ std::string MessageTranslator::stringifyData(std::vector<uint8_t>& data){
 
     for(int it = 0; it < data.size(); it++){
         text += std::to_string(static_cast<int>(data[it])) + ";";
+        printf("Debug: In data forloop");
     }
 
+    printf(text.c_str());
     return text;
 }
