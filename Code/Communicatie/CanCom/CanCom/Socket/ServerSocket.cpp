@@ -88,7 +88,7 @@ void ServerSocket::send(int id, std::vector<uint8_t> data){
     if (canSend()) {
         std::string message = translator->translate(id, data);
 
-        send(active_socket, message.c_str(), message.size(), 0);
+        ::send(active_socket, message.c_str(), message.size(), 0);
     }
 }
 
