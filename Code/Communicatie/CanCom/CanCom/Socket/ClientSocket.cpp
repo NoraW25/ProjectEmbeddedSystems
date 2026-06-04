@@ -74,6 +74,7 @@ void ClientSocket::send(int id, std::vector<uint8_t> data){
             std::cout<<"Error: bericht niet verzonden"<<std::endl;
         } else {
             std::cout << "Aantal verzonden bytes: " << result << std::endl;
+            std::cout << message  << std::endl;
         }
     }
 }
