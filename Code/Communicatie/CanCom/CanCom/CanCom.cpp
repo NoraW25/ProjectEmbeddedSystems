@@ -15,6 +15,7 @@
 #include "Connection.h"
 
 #include "SocketGeneraliser/CanGeneraliser.h"
+#include "SocketGeneraliser/ServerGeneraliser.h"
 
 Communication::CommunicationController* canController;
 Communication::CommunicationController* server_controller;
