@@ -57,7 +57,7 @@ int main()
 
     client_controller->logReceived(0x10, *testFunction2);
 
-    runService->createTask(*transmitFunc, 5000);
+    runService->createTask(*transmitFunc, 1000);
 
     while (1) {
         //printf("updating\n");
