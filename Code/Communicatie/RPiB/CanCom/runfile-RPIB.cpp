@@ -34,6 +34,14 @@ void basicTestFunction() {
     printf("updated\n");
 }
 
+void transmitFunc() {
+    std::vector<uint8_t> begin_data;
+    begin_data.push_back(45);
+    begin_data.push_back(85);
+    client_controller->transmitData(0x10, begin_data);
+    printf("transmit\n");
+}
+
 void calculate(std::vector<uint8_t>) {
 
 }
@@ -49,13 +57,9 @@ int main()
 
     client_controller->logReceived(0x10, *testFunction2);
 
-    std::vector<uint8_t> begin_data;
-    begin_data.push_back(45);
-    begin_data.push_back(85);
-
     sleep(100);
 
-    client_controller->transmitData(0x10, begin_data);
+    runService->createTask(*transmitFunc, 5000);
 
     while (1) {
         scheduler.update();
