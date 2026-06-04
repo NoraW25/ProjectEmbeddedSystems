@@ -16,7 +16,7 @@
 #include "Socket.h"
 #include "../Translator/MessageTranslator.h"
 
-class ServerSocket: public InterfaceSocket {
+class ServerSocket: public Socket {
 public:
     virtual void send(int, std::vector<uint8_t>) override;  
     virtual bool received(int*, std::vector<uint8_t>*) override;
