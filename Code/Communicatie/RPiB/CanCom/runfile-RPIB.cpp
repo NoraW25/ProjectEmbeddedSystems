@@ -57,8 +57,6 @@ int main()
 
     client_controller->logReceived(0x10, *testFunction2);
 
-    sleep(100);
-
     runService->createTask(*transmitFunc, 5000);
 
     while (1) {
