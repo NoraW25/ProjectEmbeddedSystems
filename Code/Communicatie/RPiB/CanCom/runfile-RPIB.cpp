@@ -16,31 +16,18 @@
 
 #include "SocketGeneraliser/CanGeneraliser.h"
 
-Communication::CommunicationController* canController;
-Communication::CommunicationController* server_controller;
+//Communication::CommunicationController* canController;
+Communication::CommunicationController* client_controller;
 
 
-void testFunction(std::vector<uint8_t> data) {
-    printf("[TestFunction] received data: \n");
-
+void testFunction2(std::vector<uint8_t> data) {
     printf("[TestFunction] Data (%zu bytes): ", data.size());
     for (size_t i = 0; i < data.size(); ++i)
     {
         printf("%02X ", data[i]);
 
     }
-    canController->transmitData(0x19A, data);
-    printf("\n");
-}
-
-void testFunction2(std::vector<uint8_t> data) {
-    printf("[TestFunction] Data (%zu bytes) socket: ", data.size());
-    for (size_t i = 0; i < data.size(); ++i)
-    {
-        printf("%02X ", data[i]);
-
-    }
-    server_controller->transmitData(0x10, data)
+    client_controller->transmitData(0x100, data)
 }
 
 void basicTestFunction() {
@@ -57,15 +44,17 @@ int main()
     Scheduling::RunServiceController* runService = Scheduling::RunServiceController::getInstance(&scheduler);
     scheduler.initEvent();
 
-    CanGeneraliser generaliser;
-    ServerGeneraliser generaliser_server;
-    canController = new Communication::CommunicationController(& generaliser, & generaliser);
-    server_Controller = new Communication::CommunicationController(& generaliser_server, & generaliser_server);
+    ClientGeneraliser generaliser_client;
+    client_Controller = new Communication::CommunicationController(& generaliser_client, & generaliser_client);
 
-    canController->logReceived(0x310, *testFunction);
-    server_controller->logReceived(0x100, *testFunction2);
+    client_controller->logReceived(0x10, *testFunction2);
+
+    std::vector<uint8_t> begin_data;
+    begin_data.push_back(45);
+    begin_data.push_back(85);
 
 
+    client_controller->transmitData(0x10, begin_data);
 
     while (1) {
         scheduler.update();
