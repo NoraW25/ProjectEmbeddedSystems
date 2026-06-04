@@ -117,7 +117,7 @@ bool ServerSocket::received(int* id, std::vector<uint8_t>* data){
         }
     } 
 
-
+    
     
     ssize_t bytes = read(active_socket, buffer, sizeof(buffer) - 1);
     //std::cout<<"heeftOntvangen na read()"<<std::endl;

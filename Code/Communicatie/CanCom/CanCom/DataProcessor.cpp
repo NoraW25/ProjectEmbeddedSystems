@@ -16,7 +16,6 @@ namespace Communication {
 	}
 
 	void DataProcessor::processData() {
-		printf("processingData");
 		int recAddress = 0;
 		std::vector<uint8_t> data;
 
