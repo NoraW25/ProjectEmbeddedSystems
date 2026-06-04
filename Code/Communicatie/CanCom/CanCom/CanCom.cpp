@@ -22,14 +22,14 @@ Communication::CommunicationController* server_controller;
 
 
 void testFunction(std::vector<uint8_t> data) {
-    printf("[TestFunction] received data: \n");
+    printf("[TestFunction] received CAN data: \n");
 
-    printf("[TestFunction] Data (%zu bytes): ", data.size());
-    for (size_t i = 0; i < data.size(); ++i)
-    {
-        printf("%02X ", data[i]);
+    // printf("[TestFunction] Data (%zu bytes): ", data.size());
+    // for (size_t i = 0; i < data.size(); ++i)
+    // {
+    //     printf("%02X ", data[i]);
 
-    }
+    // }
     canController->transmitData(0x19A, data);
     printf("\n");
 }
@@ -65,7 +65,7 @@ int main()
 
     //BIND FUNCTIES HIERONDER
     canController->logReceived(0x310, *testFunction);
-    server_controller->logReceived(0x100, *testFunction2);
+    server_controller->logReceived(16, *testFunction2);
 
 
     // runService->createTask(*basicTestFunction, 5000);
