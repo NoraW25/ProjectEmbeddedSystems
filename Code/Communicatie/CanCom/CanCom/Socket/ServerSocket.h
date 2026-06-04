@@ -14,7 +14,7 @@
 #define SERVERSOCKET_H
 
 #include "Socket.h"
-#include "..\Translator\MessageTranslator.h"
+#include "../Translator/MessageTranslator.h"
 
 class ServerSocket: public InterfaceSocket {
 public:
