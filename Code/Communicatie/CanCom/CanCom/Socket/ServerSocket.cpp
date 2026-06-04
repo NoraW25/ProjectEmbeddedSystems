@@ -105,8 +105,6 @@ bool ServerSocket::received(int* id, std::vector<uint8_t>* data){
         socklen_t addrlen = sizeof(address);
         int new_socket = accept(server_fd, (struct sockaddr*)&address, &addrlen);
 
-        std::cout<<"nieuwe socket proberen";
-
         if (new_socket >= 0) {
             std::cout << "Nieuwe client verbonden!" << std::endl;
             active_socket = new_socket;
@@ -119,7 +117,7 @@ bool ServerSocket::received(int* id, std::vector<uint8_t>* data){
         }
     } 
 
-    
+
     
     ssize_t bytes = read(active_socket, buffer, sizeof(buffer) - 1);
     //std::cout<<"heeftOntvangen na read()"<<std::endl;
