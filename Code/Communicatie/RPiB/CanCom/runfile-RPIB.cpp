@@ -60,7 +60,7 @@ int main()
     runService->createTask(*transmitFunc, 5000);
 
     while (1) {
-        printf("updating\n");
+        //printf("updating\n");
         scheduler.update();
     }
 
