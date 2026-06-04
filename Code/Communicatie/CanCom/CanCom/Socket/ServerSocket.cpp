@@ -8,7 +8,7 @@ ServerSocket::ServerSocket():
     port(8080),
     active_socket(-1),
     server_fd(-1),
-    translator(Translator::instance()){
+    translator(MessageTranslator::instance()){
     
     tcpStartup();    
 }
@@ -16,7 +16,8 @@ ServerSocket::ServerSocket():
 ServerSocket::ServerSocket(int port):
     port(port),
     active_socket(-1),
-    server_fd(-1){
+    server_fd(-1),
+    translator(MessageTranslator::instance()){
     
     tcpStartup();    
 }
