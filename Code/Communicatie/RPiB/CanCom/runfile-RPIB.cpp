@@ -45,7 +45,7 @@ int main()
     scheduler.initEvent();
 
     ClientGeneraliser generaliser_client;
-    client_Controller = new Communication::CommunicationController(& generaliser_client, & generaliser_client);
+    client_controller = new Communication::CommunicationController(& generaliser_client, & generaliser_client);
 
     client_controller->logReceived(0x10, *testFunction2);
 
