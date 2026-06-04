@@ -117,11 +117,11 @@ bool ServerSocket::received(int* id, std::vector<uint8_t>* data){
         }
     } 
 
-    
+    //std::cout<<"Voor read"<<std::endl;
     
     ssize_t bytes = read(active_socket, buffer, sizeof(buffer) - 1);
     //std::cout<<"heeftOntvangen na read()"<<std::endl;
-
+    //std::cout<<"Na read"<<std::endl;
     if (bytes < 0) {
         if (errno == EAGAIN || errno == EWOULDBLOCK) {
             return false; // geen data beschikbaar
@@ -139,8 +139,9 @@ bool ServerSocket::received(int* id, std::vector<uint8_t>* data){
 
     if(buffer[0] != 0) {        
         if (buffer[0] != '\n'){
-            // translate message to
+            translator->translate(id, data, std::string(buffer));
         }
+         //std::cout<<"In buffer true"<<std::endl;
         return true;
     }
 
