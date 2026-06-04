@@ -44,7 +44,7 @@ int main()
     Scheduling::RunServiceController* runService = Scheduling::RunServiceController::getInstance(&scheduler);
     scheduler.initEvent();
 
-    ClientGeneraliser generaliser_client;
+    ClientGeneraliser generaliser_client("145.52.127.222");
     client_controller = new Communication::CommunicationController(& generaliser_client, & generaliser_client);
 
     client_controller->logReceived(0x10, *testFunction2);
