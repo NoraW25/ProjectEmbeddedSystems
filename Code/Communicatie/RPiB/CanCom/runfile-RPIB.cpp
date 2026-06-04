@@ -53,6 +53,7 @@ int main()
     begin_data.push_back(45);
     begin_data.push_back(85);
 
+    sleep(100);
 
     client_controller->transmitData(0x10, begin_data);
 
