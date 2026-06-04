@@ -66,7 +66,7 @@ ClientSocket::~ClientSocket(){
     }
 }
 
-void ClientSocket::send(int* id, std::vector<uint8_t>* data){
+void ClientSocket::send(int id, std::vector<uint8_t> data){
     if (canSend()) {
         std::string message = translator->translate(id, data);
         int result = ::send(client_fd, message.c_str(), message.size(), 0);
