@@ -15,5 +15,3 @@ namespace Communication {
 		virtual bool receive(int* address, std::vector<uint8_t>* data) = 0;
 	};
 }
-
-#endif
