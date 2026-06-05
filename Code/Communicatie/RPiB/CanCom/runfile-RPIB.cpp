@@ -18,6 +18,7 @@
 
 //Communication::CommunicationController* canController;
 Communication::CommunicationController* client_controller;
+Communication::CommunicationController* client_controller_wemos;
 
 
 void testFunction2(std::vector<uint8_t> data) {
