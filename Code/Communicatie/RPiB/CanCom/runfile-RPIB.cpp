@@ -54,9 +54,11 @@ int main()
     scheduler.initEvent();
 
     ClientGeneraliser generaliser_client("145.52.127.222");
+    ClientGeneraliser generaliser_client_wemos("145.52.127.246");
     client_controller = new Communication::CommunicationController(& generaliser_client, & generaliser_client);
+    client_controller_wemos = new Communication::CommunicationController(& generaliser_client_wemos, & generaliser_client_wemos);
 
-    //client_controller->logReceived(0x10, *testFunction2);
+    client_controller_wemos->logReceived(610, *testFunction2);
 
     runService->createTask(*transmitFunc, 1000);
 
