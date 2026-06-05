@@ -21,13 +21,13 @@ Communication::CommunicationController* client_controller;
 
 
 void testFunction2(std::vector<uint8_t> data) {
-    printf("[TestFunction] Data (%zu bytes): ", data.size());
+    //printf("[TestFunction] Data (%zu bytes): ", data.size());
     for (size_t i = 0; i < data.size(); ++i)
     {
         printf("%02X ", data[i]);
 
     }
-    client_controller->transmitData(0x100, data);
+    client_controller->transmitData(0x10, data);
 }
 
 void basicTestFunction() {
@@ -56,7 +56,7 @@ int main()
     ClientGeneraliser generaliser_client("145.52.127.222");
     client_controller = new Communication::CommunicationController(& generaliser_client, & generaliser_client);
 
-    //client_controller->logReceived(0x10, *testFunction2);
+    client_controller->logReceived(0x10, *testFunction2);
 
     runService->createTask(*transmitFunc, 1000);
 
