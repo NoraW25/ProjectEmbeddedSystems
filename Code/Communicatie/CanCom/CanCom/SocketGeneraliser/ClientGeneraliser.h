@@ -11,7 +11,6 @@ class ClientGeneraliser :
     public Communication::Receiver, public Communication::Transmitter
 {
 public:
-    ClientGeneraliser();
     ClientGeneraliser(std::string);
     virtual ~ClientGeneraliser() = default;
 

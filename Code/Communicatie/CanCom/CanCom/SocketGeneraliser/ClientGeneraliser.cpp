@@ -4,7 +4,6 @@ ClientGeneraliser::ClientGeneraliser(std::string ip):
     socket(ClientSocket(ip)){
 }
 
-
 bool ClientGeneraliser::receive(int* address, std::vector<uint8_t>* data){
     return socket.received(address, data);
 }
