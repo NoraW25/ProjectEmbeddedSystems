@@ -70,6 +70,8 @@ bool MessageTranslator::parseData(const std::string& message, std::vector<uint8_
         }        
     }
 
+    *data = result;
+
     return true;
 }
 
