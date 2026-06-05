@@ -3,11 +3,13 @@
 #include "SensorSHT31.h"
 #include "ServerSocketWemos.h"
 #include "MessageTranslator.h"
+#include "LampPWM.h"
 
 //Adafruit_SGP30 sgp;
 SensorSHT31 sensortemp;
 ServerSocketWemos server(8080);
 MessageTranslator* translator = MessageTranslator::instance();
+LampPWM lamp(14);
 
 const char* ssid = "NSELab";
 const char* password = "NSELabWiFi";
@@ -66,4 +68,18 @@ void loop() {
   String message = String(translator->translate(610, data_to_send).c_str());
   server.versturen(message);
   delay(1000);
+
+  if(server.heeftOntvangen()){
+    String received_message = socket.ontvangst();
+    int address = 0;
+    std::vector<uint8_t> data;
+    translator->translate(&address, &data, std::to_string(received_message));
+
+    if (address == 620) {
+      if (data[0] >= 20){
+        lamp.changeDutycycle(60);
+        lamp.turnOn();
+      }
+    }
+  }
 }
