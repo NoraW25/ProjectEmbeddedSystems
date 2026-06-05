@@ -33,6 +33,7 @@ void MessageTranslator::translate(int* id, std::vector<uint8_t>* data, std::stri
 
 std::string MessageTranslator::translate(int id, std::vector<uint8_t> data){
     std::string text = key_id + stringifyId(id) + ";"+ key_data + stringifyData(data);
+    std::cout<<"Size in translate: "<<std::to_string(data.size())<<std::endl;
     std::cout<<"Text in translate MessageTranslator: id + data naar string:\n"<<text<<"\n"<<std::endl;
     return text;
 }
