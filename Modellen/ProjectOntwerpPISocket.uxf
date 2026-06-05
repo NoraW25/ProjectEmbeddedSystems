@@ -1,0 +1,1218 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>4</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>836</x>
+      <y>208</y>
+      <w>152</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>CommunicationController
+--
+
+--
++ transmitData(const vector&lt;uint8_t&gt; data)
+
++ Connection*:requestData(int address, Function *func)
+
++ Connection*:logReceived(int address, Function *func)
++ void:unbindReceived(RecEvent* event)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1036</x>
+      <y>244</y>
+      <w>148</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Requestor
+--
+- requested:vector&lt;RequestorEvent&gt;
+--
++ Connection*:requestData(int address, Function *func)
++ void:processData(address, vector&lt;uint8_t&gt; data)
++ void:removeEvent(Event event*)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1068</x>
+      <y>472</y>
+      <w>144</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>ReceiveBinder
+--
+- events:vector&lt;ReceiveBinderEvent&gt;
+--
++ Connection*:logReceived(int address, Function *func)
++ void:processData(address, vector&lt;uint8_t&gt; data)
++ void:removeEvent(Event *event)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1236</x>
+      <y>120</y>
+      <w>128</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>Klassen verantwoordelijk voor het
+versturen en ontvangen van data op de canbus
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1080</x>
+      <y>116</y>
+      <w>96</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>Klassen verantwoordelijk voor het
+afhandelen van ontvangen data
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1232</x>
+      <y>184</y>
+      <w>136</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt; Transmitter
+--
+
+--
+/+ void:sendData(int address, vector&lt;uint8_t&gt; data)/
+/+ void:sendRequest(int address)/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1232</x>
+      <y>360</y>
+      <w>136</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt; Receiver
+--
+
+--
+/+ bool:receive(int* address, vector&lt;uint8_t&gt;* data)/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1068</x>
+      <y>360</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>DataProcessor
+--
+- eventConnection: Connection*
+--
++ void:processData()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1116</x>
+      <y>312</y>
+      <w>36</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=1
+r1=requestor</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1116</x>
+      <y>416</y>
+      <w>44</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=1
+r1=receiveBinder</panel_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>200</x>
+      <y>472</y>
+      <w>120</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>Connection
+--
+- function: *void
+- event: Event*
+--
++ ~Connection()
++ Function*:getFunction()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>364</x>
+      <y>472</y>
+      <w>120</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>Event
+--
+# connections: vector&lt;Connection*&gt;
+- flag: bool
+--
++ bool:getFlag()
+/+ void:callConnected()/
++ void: removeConnection(Connection*)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>984</x>
+      <y>260</y>
+      <w>60</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+r2=requestor</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>984</x>
+      <y>340</y>
+      <w>124</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+r2=receiveBinder</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;330.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>984</x>
+      <y>304</y>
+      <w>88</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+r2=processor</panel_attributes>
+    <additional_attributes>10.0;10.0;200.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>984</x>
+      <y>216</y>
+      <w>256</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+m1=1
+m2=1
+r2=transmitter</panel_attributes>
+    <additional_attributes>10.0;20.0;620.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1164</x>
+      <y>384</y>
+      <w>76</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+m1=1
+m2=1
+r2=receiver</panel_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>832</x>
+      <y>120</y>
+      <w>180</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Controller verantwoordelijk voor het aanleveren van datafuncties
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>796</x>
+      <y>80</y>
+      <w>616</w>
+      <h>520</h>
+    </coordinates>
+    <panel_attributes>Communication
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>460</x>
+      <y>176</y>
+      <w>148</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Singleton:RunServiceController
+--
+
+--
++ void:addEvent(Event *event)
++ void:removeEvent(Event *event)
++ Connection:connectToUpdate(Function func*)
++ Connection:delayTask(void std::function(), uint32_t)
++ Connection:repeatTask(void std::function(), uint32_t)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>220</x>
+      <y>176</y>
+      <w>164</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Scheduler
+--
+
+--
++ void:update()
++ void:addEvent(Event *event)
++ void:removeEvent(Event *event)
++ Connection:connectToUpdate(Function func*)
++ Connection:delayTask(void std::function(), uint32_t)
++ Connection:repeatTask(void std::function(), uint32_t)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>160</x>
+      <y>380</y>
+      <w>112</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>UpdateEvent
+--
+
+--
++ void:callConnected()
++ Connection*: connect(void(*func)())</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>268</x>
+      <y>416</y>
+      <w>104</w>
+      <h>92</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;240.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>84</x>
+      <y>244</y>
+      <w>168</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+r2=updateEvent</panel_attributes>
+    <additional_attributes>10.0;10.0;330.0;340.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>380</x>
+      <y>200</y>
+      <w>88</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=1
+m2=1
+r2=scheduler</panel_attributes>
+    <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>0</x>
+      <y>0</y>
+      <w>628</w>
+      <h>296</h>
+    </coordinates>
+    <panel_attributes>Scheduling
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>604</x>
+      <y>200</y>
+      <w>240</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=1
+r1=runService</panel_attributes>
+    <additional_attributes>10.0;20.0;580.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1180</x>
+      <y>240</y>
+      <w>60</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+m1=1
+m2=1
+r1=transmitter</panel_attributes>
+    <additional_attributes>130.0;20.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>460</x>
+      <y>108</y>
+      <w>132</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>Levert functies aan voor het toevoegen van events
+aan het update register en voor het toevoegen van
+functies aan het update event
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>244</y>
+      <w>152</w>
+      <h>236</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=0..*
+r1=runService</panel_attributes>
+    <additional_attributes>300.0;10.0;10.0;570.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>680</x>
+      <y>312</y>
+      <w>364</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+m2=1</panel_attributes>
+    <additional_attributes>10.0;250.0;730.0;250.0;890.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>680</x>
+      <y>492</y>
+      <w>396</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;970.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>316</x>
+      <y>508</y>
+      <w>56</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>376</y>
+      <w>144</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>RequestorEvent
+--
+- requestor: Requestor*
+- dataBuffer:vector&lt; vector&lt;uint8_t&gt; &gt;
+--
++ void:callConnected()
++ void:fire(vector&lt;uint8_t&gt; data)
+- void:removeEvent()
++ Connection*: connect(void(*func)(vector&lt;uint8_t&gt;))</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>472</y>
+      <w>144</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>ReceiveBinderEvent
+--
+- receiveBinder: ReceiveBinder*
+- dataBuffer:vector&lt; vector&lt;uint8_t&gt; &gt;
+--
++ void:callConnected()
++ void:fire(vector&lt;uint8_t&gt; data)
+- void:removeEvent()
++ Connection*: connect(void(*func)(vector&lt;uint8_t&gt;))</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>408</y>
+      <w>68</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>508</y>
+      <w>68</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>316</x>
+      <y>384</y>
+      <w>760</w>
+      <h>196</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+m2=1</panel_attributes>
+    <additional_attributes>10.0;410.0;100.0;470.0;1140.0;470.0;1880.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>148</x>
+      <y>328</y>
+      <w>548</w>
+      <h>276</h>
+    </coordinates>
+    <panel_attributes>Events
+--
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>316</x>
+      <y>520</y>
+      <w>56</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>316</x>
+      <y>352</y>
+      <w>112</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>timedEvent
+--
+- time: uint32_t
+--
++ void:callConnected()
++ Connection*: connect(void(*func)())
++ void: decreaseTimer()
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>372</x>
+      <y>424</y>
+      <w>20</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;30.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>16</x>
+      <y>176</y>
+      <w>144</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Updater
+--
+- events: vector&lt;Event*&gt;
+--
++ void:update()
++ Connection:connectToUpdate(Function func*)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>156</x>
+      <y>204</y>
+      <w>72</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+r2=updater</panel_attributes>
+    <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>16</x>
+      <y>68</y>
+      <w>144</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>TaskScheduler
+--
+- singleTasks: vector&lt;Event&gt;
+- repeatingTasks: vector&lt;Event&gt;
+--
++ void:update()
++ Connection:connectToUpdate(Function func*)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>156</x>
+      <y>136</y>
+      <w>72</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+r2=taskScheduler</panel_attributes>
+    <additional_attributes>160.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>224</x>
+      <y>40</y>
+      <w>144</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>TaskScheduler
+--
+- events: vector&lt;Event*&gt;
+--
++ void:update()
++ void:addEvent(Event *event)
++ void:removeEvent(Event *event)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>292</x>
+      <y>108</y>
+      <w>48</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+r2=taskScheduler</panel_attributes>
+    <additional_attributes>10.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2132</x>
+      <y>164</y>
+      <w>136</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Socket
+--
+
+--
+/+send(int address, vector&lt;uint8_t&gt; data):void/
+/+received(int* address, vector&lt;uint8_t&gt;* data):bool/
+/+canSend():bool/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1912</x>
+      <y>116</y>
+      <w>136</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>CanSocket
+--
+-ifname:char* const 
+-received_frame:can_frame
+-send_frame:can_frame
+-can_fd:int
+-status:int
+_-pointer_instance:CanSocket*_
+-socket_address:sockaddr_can
+--
++send(string):void
++received(int* address, vector&lt;uint8_t&gt;* data):string
++canSend():bool
+
++sendOnCan():bool
+
+-CanSocket()
++~CanSocket()
+
+_+instance():ServerSocket*_
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1912</x>
+      <y>292</y>
+      <w>144</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>ServerSocket
+--
+-port:int
+-buffer:char[1024]
+-server_fd:int
+-active_socket:int
+-address:sockaddr_in
+_-instantieSocket:ServerSocket*_
+--
++send(string):void
++received():string
++canSend():bool
+-ServerSocket()
++~ServerSocket()
+_+instance():ServerSocket*_
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1908</x>
+      <y>452</y>
+      <w>144</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>ClientSocket
+--
+-port:int
+-serverAddress:sockaddr_in
+-buffer:char[1024]
+-status:int
+-client_fd:int
+-server_ip:string
+--
++send(string):void
++received():string
++canSend():bool
++hasConnection():bool
++ClientSocket(string)
++~ClientSocket()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2044</x>
+      <y>164</y>
+      <w>96</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0;90.0;90.0;220.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2052</x>
+      <y>196</y>
+      <w>88</w>
+      <h>156</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+</panel_attributes>
+    <additional_attributes>10.0;370.0;70.0;370.0;70.0;10.0;200.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2048</x>
+      <y>196</y>
+      <w>92</w>
+      <h>292</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+</panel_attributes>
+    <additional_attributes>10.0;710.0;80.0;710.0;80.0;10.0;210.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1776</x>
+      <y>164</y>
+      <w>144</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1=socket</panel_attributes>
+    <additional_attributes>340.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1776</x>
+      <y>344</y>
+      <w>144</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1=socket</panel_attributes>
+    <additional_attributes>340.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1772</x>
+      <y>496</y>
+      <w>144</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1=socket</panel_attributes>
+    <additional_attributes>340.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1644</x>
+      <y>144</y>
+      <w>136</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>CanGeneraliser
+--
+
+--
++ CanGeneraliser()
++ void:sendData(int address, vector&lt;uint8_t&gt; data)
++ void:sendRequest(int address)
++ bool:receive(int* address, vector&lt;uint8_t&gt;* data)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1480</x>
+      <y>308</y>
+      <w>136</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt; SocketGeneraliser
+--
+
+--
+/+ void:sendData(int address, vector&lt;uint8_t&gt; data)/
+/+ void:sendRequest(int address)/
+/+ bool:receive(int* address, vector&lt;uint8_t&gt;* data)/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1644</x>
+      <y>308</y>
+      <w>136</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>SocketGeneraliserServer
+--
+
+--
++ SocketGeneraliserServer(string ip)
++ void:sendData(int address, vector&lt;uint8_t&gt; data)
++ void:sendRequest(int address)
++ bool:receive(int* address, vector&lt;uint8_t&gt;* data)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1640</x>
+      <y>476</y>
+      <w>136</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>SocketGeneraliserClient
+--
+
+--
++ SocketGeneraliserClient(string ip)
++ void:sendData(int address, vector&lt;uint8_t&gt; data)
++ void:sendRequest(int address)
++ bool:receive(int* address, vector&lt;uint8_t&gt;* data)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1364</x>
+      <y>212</y>
+      <w>124</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;290.0;310.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1364</x>
+      <y>352</y>
+      <w>124</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;70.0;290.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1612</x>
+      <y>340</y>
+      <w>40</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1544</x>
+      <y>368</y>
+      <w>104</w>
+      <h>148</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;350.0;240.0;350.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1544</x>
+      <y>172</y>
+      <w>108</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;340.0;10.0;10.0;250.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1464</x>
+      <y>44</y>
+      <w>352</w>
+      <h>592</h>
+    </coordinates>
+    <panel_attributes>SocketGeneraliser
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1880</x>
+      <y>676</y>
+      <w>404</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>MessageTranslator
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLSequenceAllInOne</id>
+    <coordinates>
+      <x>2600</x>
+      <y>4</y>
+      <w>892</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>title=Aanmaken van een socket
+obj=main~main ACTOR EXECUTION
+obj=_receiver:ClientGeneraliser_~generaliser CREATED_LATER
+obj=_socket:ClientSocket_~socket CREATED_LATER
+obj=_translator:MessageTranslator_~translator CREATED_LATER
+obj=CommunicationController~receiver CREATED_LATER
+autoTick=false
+
+tick=
+//id1-&gt;id3: generaliser = ClientGeneraliser()
+id1-&gt;id2
+tick=
+on=generaliser
+id2-&gt;id3: socket = ClientSocket::instance()
+tick=
+on=socket
+tick=
+id3-&gt;id4: translator = MessageTranslator::instance()
+tick=
+off=socket
+tick=
+off=generaliser
+
+tick=
+id1-&gt;id5 : CommunicationController(&amp; generaliser, &amp; generaliser);
+tick=
+on=receiver
+tick=
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLSequenceAllInOne</id>
+    <coordinates>
+      <x>2600</x>
+      <y>240</y>
+      <w>788</w>
+      <h>256</h>
+    </coordinates>
+    <panel_attributes>title=Ontvangen op de TCP socket
+obj=communication~receiver ACTOR EXECUTION
+obj=_receiver:SocketGeneraliserServer_~generaliser 
+obj=_socket:ServerSocket_~socket 
+obj=_translator:MessageTranslator_~translator 
+autoTick=false
+
+receiver-&gt;generaliser:bool receive(int* address, vector&lt;uint_8&gt;* data )
+on=generaliser
+tick=
+generaliser-&gt;socket : received(int* address, vector&lt;uint8_t&gt;* data)
+on=socket
+tick=
+socket-&gt;socket + : bytes = read(..)
+tick=
+tick=
+tick=
+combinedFragment=if [bytes &gt; 0] ~alt1 socket translator
+socket-&gt;translator : translate(int* address, vector&lt;uint8_t&gt;* data, string message)
+on=translator
+tick=
+translator-&gt;translator  + :parseID(int*address,string message)
+tick=
+tick=
+translator-&gt;translator + :parseData(vector&lt;uint8_t&gt;* data, string message)
+tick=
+tick=
+off=translator
+translator.&gt;socket
+--
+tick=
+
+off=socket
+socket.&gt;generaliser : bool
+tick=
+off=generaliser
+generaliser.&gt;receiver : bool
+
+tick=
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1880</x>
+      <y>56</y>
+      <w>404</w>
+      <h>592</h>
+    </coordinates>
+    <panel_attributes>Socket
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1904</x>
+      <y>720</y>
+      <w>180</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>MessageTranslator
+--
+- key_id:string
+- key_data:string
+--
++ translate(int* address, vector&lt;uint8_t&gt;* data, string message):void
++ translate(int address, vector&lt;uint8_t&gt; data):string</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1928</x>
+      <y>552</y>
+      <w>36</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1=translator</panel_attributes>
+    <additional_attributes>10.0;420.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2052</x>
+      <y>372</y>
+      <w>92</w>
+      <h>400</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1=translator</panel_attributes>
+    <additional_attributes>80.0;970.0;210.0;970.0;210.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLSequenceAllInOne</id>
+    <coordinates>
+      <x>2600</x>
+      <y>524</y>
+      <w>748</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>title=Verzenden op de TCP socket
+obj=communication~receiver ACTOR EXECUTION
+obj=_transmitter:SocketGeneraliserServer_~generaliser 
+obj=_socket:ServerSocket_~socket 
+obj=_translator:MessageTranslator_~translator 
+autoTick=false
+
+receiver-&gt;generaliser:bool sendData(int address, vector&lt;uint_8&gt; data )
+on=generaliser
+tick=
+generaliser-&gt;socket : received(int address, vector&lt;uint8_t&gt; data)
+on=socket
+tick=
+socket-&gt;translator : translate(int address, vector&lt;uint8_t&gt; data)
+on=translator
+tick=
+translator-&gt;translator  + :parseID(int address)
+tick=
+tick=
+translator-&gt;translator + :parseData(vector&lt;uint8_t&gt; data)
+tick=
+tick=
+off=translator
+translator.&gt;socket : string
+
+tick=
+
+socket-&gt;socket + :sendOnTCP(string)
+
+tick=
+tick=
+off=socket
+socket.&gt;generaliser
+tick=
+off=generaliser
+generaliser.&gt;receiver
+
+tick=
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

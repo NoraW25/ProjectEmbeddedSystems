@@ -14,22 +14,38 @@
 #include "CommunicationController.h"
 #include "Connection.h"
 
-//#include "CanReceiver.h"
-//#include "CanTransmitter.h"
+#include "SocketGeneraliser/CanGeneraliser.h"
+#include "SocketGeneraliser/ServerGeneraliser.h"
+
+Communication::CommunicationController* canController;
+Communication::CommunicationController* server_controller;
+
 
 void testFunction(std::vector<uint8_t> data) {
-    printf("[TestFunction] received data: \n");
+    printf("[TestFunction] received CAN data: \n");
 
-    printf("[TestFunction] Data (%zu bytes): ", data.size());
-    for (size_t i = 0; i < data.size(); ++i)
-    {
-        printf("%02X ", data[i]);
-    }
+    // printf("[TestFunction] Data (%zu bytes): ", data.size());
+    // for (size_t i = 0; i < data.size(); ++i)
+    // {
+    //     printf("%02X ", data[i]);
+
+    // }
+    canController->transmitData(0x19A, data);
     printf("\n");
 }
 
+void testFunction2(std::vector<uint8_t> data) {
+    printf("[TestFunction] Data (%zu bytes) socket: ", data.size());
+    for (size_t i = 0; i < data.size(); ++i)
+    {
+        printf("%02X ", data[i]);
+
+    }
+    server_controller->transmitData(0x10, data);
+}
+
 void basicTestFunction() {
-    printf("updated\n");
+    printf("[BasicTestFunction] called\n");
 }
 
 void calculate(std::vector<uint8_t>) {
@@ -42,11 +58,28 @@ int main()
     Scheduling::RunServiceController* runService = Scheduling::RunServiceController::getInstance(&scheduler);
     scheduler.initEvent();
 
-    VirtualTransmitter transmitter;
-    VirtualReceiver receiver;
-    Communication::CommunicationController canController(&transmitter, &receiver);
+    CanGeneraliser generaliser;
+    ServerGeneraliser generaliser_server;
+    canController = new Communication::CommunicationController(& generaliser, & generaliser);
+    server_controller = new Communication::CommunicationController(& generaliser_server, & generaliser_server);
 
-    runService->connectToUpdate(*basicTestFunction);
+    //BIND FUNCTIES HIERONDER
+    canController->logReceived(0x310, *testFunction);
+    server_controller->logReceived(16, *testFunction2);
+
+
+    // runService->createTask(*basicTestFunction, 5000);
+    // runService->createTask(*basicTestFunction, 10000);
+    // runService->createTask(*basicTestFunction, 15000);
+    // runService->createTask(*basicTestFunction, 3000);
+    // runService->createTask(*basicTestFunction, 20000);
+    //BIND FUNCTIES HIERBOVEN
+
+    while (1) {
+        scheduler.update();
+    }
+
+    /*runService->connectToUpdate(*basicTestFunction);
     scheduler.update();
 
     std::vector<uint8_t> testData1;
@@ -67,7 +100,7 @@ int main()
     testData3.push_back(0xAA);
     testData3.push_back(0xFF);
     receiver.setBuffer(300, testData3);
-    scheduler.update();
+    scheduler.update();*/
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
