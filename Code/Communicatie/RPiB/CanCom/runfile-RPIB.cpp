@@ -56,7 +56,7 @@ int main()
     ClientGeneraliser generaliser_client("145.52.127.222");
     client_controller = new Communication::CommunicationController(& generaliser_client, & generaliser_client);
 
-    client_controller->logReceived(0x10, *testFunction2);
+    //client_controller->logReceived(0x10, *testFunction2);
 
     runService->createTask(*transmitFunc, 1000);
 
