@@ -63,6 +63,7 @@ void loop() {
   data_to_send.push_back(sensortemp.getTemperature());
   data_to_send.push_back(sensortemp.getHumidity());
   //server.versturen(canidtemp + " " + data1 + " " + data2);
-  translator->translate(610, data_to_send);
+  String message = String(translator->translate(610, data_to_send).c_str());
+  server.versturen(message);
   delay(1000);
 }

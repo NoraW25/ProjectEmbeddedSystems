@@ -22,6 +22,7 @@ MessageTranslator::~MessageTranslator(){
 }
 
 void MessageTranslator::translate(int* id, std::vector<uint8_t>* data, std::string message){
+    std::cout<<"Het ontvangen bericht: " << message << std::endl;
     if (!parseId(message, id)){
         std::cout<<"Error in de parseId"<<std::endl;
     }
