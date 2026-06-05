@@ -79,6 +79,8 @@ std::string MessageTranslator::stringifyId(int id){
 std::string MessageTranslator::stringifyData(std::vector<uint8_t>& data){
     std::string text;
 
+    std::cout<<"Data size: "<<std::to_string(data.size())<<std::endl;
+
     for(int it = 0; it < data.size(); it++){
         text += std::to_string(static_cast<int>(data[it])) + ";";
     }
