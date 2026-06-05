@@ -58,6 +58,7 @@ bool MessageTranslator::parseData(const std::string& message, std::vector<uint8_
     size_t next = message.find(";", position);
 
     while(next != std::string::npos){
+        printf("In while\n");
         try{
             int value = std::stoi(message.substr(position, next-position));
             result.push_back((uint8_t) value);
