@@ -58,6 +58,7 @@ bool MessageTranslator::parseData(const std::string& message, std::vector<uint8_
     size_t next = message.find(";", position);
 
     while(next != std::string::npos){
+        printf("In while\n");
         try{
             int value = std::stoi(message.substr(position, next-position));
             result.push_back((uint8_t) value);
@@ -80,7 +81,7 @@ std::string MessageTranslator::stringifyId(int id){
 std::string MessageTranslator::stringifyData(std::vector<uint8_t>& data){
     std::string text;
 
-    //std::cout<<"Data size: "<<std::to_string(data.size())<<std::endl;
+    std::cout<<"Data size: "<<std::to_string(data.size())<<std::endl;
 
     for(int it = 0; it < data.size(); it++){
         text += std::to_string(static_cast<int>(data[it])) + ";";
