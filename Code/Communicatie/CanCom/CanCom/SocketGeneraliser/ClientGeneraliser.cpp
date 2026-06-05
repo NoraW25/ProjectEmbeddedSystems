@@ -1,5 +1,8 @@
 #include "ClientGeneraliser.h"
 
+ClientGeneraliser::~ClientGeneraliser() = default;
+
+
 ClientGeneraliser::ClientGeneraliser(std::string ip):
     socket(ClientSocket(ip)){
 }
