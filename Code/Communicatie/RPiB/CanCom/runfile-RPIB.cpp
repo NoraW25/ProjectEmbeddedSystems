@@ -14,7 +14,10 @@
 #include "CommunicationController.h"
 #include "Connection.h"
 
-#include "../../CanCom/CanCom/SocketGeneraliser/ClientGeneraliser.h"
+//#include "../../CanCom/CanCom/SocketGeneraliser/ClientGeneraliser.h"
+
+#include "../SocketGeneraliser/ClientGeneraliser.h"
+
 
 //Communication::CommunicationController* canController;
 Communication::CommunicationController* client_controller;
