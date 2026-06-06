@@ -16,19 +16,21 @@
 
 #include "SocketGeneraliser/ClientGeneraliser.h"
 
-//Communication::CommunicationController* canController;
-Communication::CommunicationController* client_controller;
+//Tijdelijke definitie voor client controllers, zodat deze in de testfuncties gebruikt kunnen worden
+Communication::CommunicationController* client_controller_rpia;
 Communication::CommunicationController* client_controller_wemos;
 
-
-void testFunction2(std::vector<uint8_t> data) {
-    //printf("[TestFunction] Data (%zu bytes): ", data.size());
+// Aansturing van het klimaatsysteem
+void klimaatfunctie(std::vector<uint8_t> data) {
+    // Print eerst de data
     for (size_t i = 0; i < data.size(); ++i)
     {
         printf("%02X ", data[i]);
 
     }
-    client_controller->transmitData(0x10, data);
+
+    // Verzend de data terug naar 
+    client_controller_rpia->transmitData(0x10, data);
 }
 
 void basicTestFunction() {
@@ -50,21 +52,26 @@ void calculate(std::vector<uint8_t>) {
 
 int main()
 {
+    // Aanmaken van de planner
     Scheduling::Scheduler scheduler;
     Scheduling::RunServiceController* runService = Scheduling::RunServiceController::getInstance(&scheduler);
     scheduler.initEvent();
 
-    ClientGeneraliser generaliser_client("145.52.127.222");
+    // De sockets aanmaken
+    ClientGeneraliser generaliser_client_rpia("145.52.127.222");
     ClientGeneraliser generaliser_client_wemos("145.52.127.246");
-    client_controller = new Communication::CommunicationController(& generaliser_client, & generaliser_client);
+    // De controllers aanmaken en binden aan de controller
+    client_controller_rpia = new Communication::CommunicationController(& generaliser_client_rpia, & generaliser_client_rpia);
     client_controller_wemos = new Communication::CommunicationController(& generaliser_client_wemos, & generaliser_client_wemos);
 
-    client_controller_wemos->logReceived(610, *testFunction2);
+    // Het uitvoeren van taken en functies op bepaalde momenten
+    client_controller_wemos->logReceived(610, *klimaatfunctie);
 
     runService->createTask(*transmitFunc, 1000);
 
     while (1) {
-        //printf("updating\n");
+        // printf("updating\n");
+        // Kijken of er een nieuwe opdracht klaar staat om uitgevoerd te worden
         scheduler.update();
     }
 
