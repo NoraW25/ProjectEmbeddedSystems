@@ -3,7 +3,7 @@
 #include <vector>
 #include <stdint.h>
 
-namespace Communication {
+namespace Klimaatsysteem {
 	class Transmitter {
 	public:
 		Transmitter() = default;

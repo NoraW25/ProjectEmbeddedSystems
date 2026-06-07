@@ -16,9 +16,11 @@
 
 #include "SocketGeneraliser/ClientGeneraliser.h"
 
+#include "../ClimateSystem/ClimateSystem.h"
+
 //Tijdelijke definitie voor client controllers, zodat deze in de testfuncties gebruikt kunnen worden
 Communication::CommunicationController* client_controller_rpia;
-Communication::CommunicationController* client_controller_wemos;
+//Communication::CommunicationController* client_controller_wemos;
 
 // Aansturing van het klimaatsysteem
 void klimaatfunctie(std::vector<uint8_t> data) {
@@ -42,13 +44,10 @@ void transmitFunc() {
     begin_data.push_back(45);
     begin_data.push_back(85);
     printf("Transmitfunc: %d\n", begin_data.size());
-    client_controller->transmitData(0x10, begin_data);
+    client_controller_rpia->transmitData(0x10, begin_data);
     printf("transmit\n");
 }
 
-void calculate(std::vector<uint8_t>) {
-
-}
 
 int main()
 {
@@ -62,10 +61,17 @@ int main()
     ClientGeneraliser generaliser_client_wemos("145.52.127.246");
     // De controllers aanmaken en binden aan de controller
     client_controller_rpia = new Communication::CommunicationController(& generaliser_client_rpia, & generaliser_client_rpia);
-    client_controller_wemos = new Communication::CommunicationController(& generaliser_client_wemos, & generaliser_client_wemos);
+    
+    std::shared_ptr<Communication::CommunicationController> client_controller_wemos = 
+        std::make_shared<Communication::CommunicationController>(&generaliser_client_wemos, &generaliser_client_wemos);
+
 
     // Het uitvoeren van taken en functies op bepaalde momenten
     client_controller_wemos->logReceived(610, *klimaatfunctie);
+
+    // Aanmaken van een klasse die een proces aanstuurd
+    ClimateSystem climate_system(client_controller_wemos);
+
 
     runService->createTask(*transmitFunc, 1000);
 
