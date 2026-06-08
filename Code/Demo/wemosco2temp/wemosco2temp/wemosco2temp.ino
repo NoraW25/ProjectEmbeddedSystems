@@ -100,6 +100,7 @@ void loop() {
   }
 
   if(server.heeftOntvangen()){
+    Serial.println("Hello in ontvangen");
     String received_message = server.ontvangst();
     int address = 0;
     std::vector<uint8_t> data;
