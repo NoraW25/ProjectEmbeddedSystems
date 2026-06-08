@@ -80,13 +80,13 @@ int main()
 
     // Aanmaken van een klasse die een proces aanstuurd
     ClimateSystem climate_system(client_controller_wemos_klimaat);
-
-    runService->createTask(*transmitFunc, 640);
     std::vector<uint8_t> d1 = {20};
     client_controller_wemos_display->transmitData(710, d1);
 
     std::vector<uint8_t> d2 = {5};
     client_controller_wemos_display->transmitData(720, d2);
+    runService->createTask(*transmitFunc, 640);
+
     while (1)
     {
         // printf("updating\n");
