@@ -30,9 +30,33 @@ void testFunction(std::vector<uint8_t> data) {
     //     printf("%02X ", data[i]);
 
     // }
-    canController->transmitData(0x19A, data);
+    data.push_back(90);
+    canController->transmitData(710, data);
+    sleep(500);
+    canController->transmitData(720, data);
+    sleep(500);
+    
+    canController->transmitData(730, data);
+    sleep(500);
+    
+    canController->transmitData(740, data);
+    sleep(500);
+    
+    canController->transmitData(750, data);
+    sleep(500);
+    
+    canController->transmitData(760, data);
+    sleep(500);
+    
+    canController->transmitData(770, data);
+    sleep(500);
+    
+    canController->transmitData(780, data);
+    sleep(500);
+
     printf("\n");
 }
+
 
 void testFunction2(std::vector<uint8_t> data) {
     printf("[TestFunction] Data (%zu bytes) socket: ", data.size());
@@ -66,6 +90,7 @@ int main()
     //BIND FUNCTIES HIERONDER
     canController->logReceived(0x310, *testFunction);
     server_controller->logReceived(16, *testFunction2);
+    runService->createTask(*transmitFunc, 1000);
 
 
     // runService->createTask(*basicTestFunction, 5000);

@@ -30,9 +30,6 @@ void ClimateSensor::setCurrentValue(std::vector<uint8_t> data){
 
     std::memcpy(&value, &raw, sizeof(double));
 
-    printf("%d\n", raw);
-    printf("%d\n", value);
-
     system->calculateSettings();
 }
 
