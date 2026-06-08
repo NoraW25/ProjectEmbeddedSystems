@@ -4,7 +4,7 @@
 
 #include <memory>
 #include <vector>
-#include "..\..\CommunicationController.h"
+#include "..\CanCom\CommunicationController.h"
 #include "ClimateSystem.h"
 
 
