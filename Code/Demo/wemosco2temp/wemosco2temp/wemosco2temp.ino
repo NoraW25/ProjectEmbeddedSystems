@@ -15,7 +15,7 @@ const char* ssid = "NSELab";
 const char* password = "NSELabWiFi";
 
 unsigned long last_time_send = 0;
-const unsigned long send_interval = 1000; 
+const unsigned long send_interval = 3000; 
 
 void setup() {
   Serial.begin(115200);

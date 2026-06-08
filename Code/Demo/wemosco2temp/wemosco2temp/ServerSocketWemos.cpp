@@ -36,6 +36,6 @@ String ServerSocketWemos::ontvangst() {
 
 void ServerSocketWemos::versturen(const String& msg) {
     if (heeftClient()) {
-        client.println(msg);
+        client.print(msg);
     }
 }
