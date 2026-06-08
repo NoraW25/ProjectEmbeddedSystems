@@ -70,6 +70,7 @@ bool MessageTranslator::parseData(const std::string& message, std::vector<uint8_
             position = next + 1;
             next = message.find(";", position);          
         }catch(...){
+            printf("Error bij verwerking");
             return false;
         }
 
