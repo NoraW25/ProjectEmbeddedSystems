@@ -88,9 +88,9 @@ int main()
     server_controller = new Communication::CommunicationController(& generaliser_server, & generaliser_server);
 
     //BIND FUNCTIES HIERONDER
-    canController->logReceived(0x310, *testFunction);
+    //canController->logReceived(0x310, *testFunction);
     server_controller->logReceived(16, *testFunction2);
-    runService->createTask(*transmitFunc, 1000);
+    runService->createTask(*testFunction, 1000);
 
 
     // runService->createTask(*basicTestFunction, 5000);
