@@ -4,9 +4,9 @@
 
 
 #include <memory>
-//#include "Code\Communicatie\RPiB\CanCom\CommunicationController.h"
+#include "..\CommunicationController.h"
 
-class Communication::CommunicationController;
+
 
 class ClimateActuatorPWM {
 public:
