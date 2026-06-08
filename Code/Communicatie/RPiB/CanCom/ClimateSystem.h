@@ -12,7 +12,7 @@
 #include "ClimateActuatorPWM.h"
 #include "CommunicationController.h"
 
-class Communication::CommunicationController;
+//class Communication::CommunicationController;
 
 class ClimateSystem{
 public:
