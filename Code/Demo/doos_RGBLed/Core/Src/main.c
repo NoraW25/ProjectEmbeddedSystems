@@ -21,9 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -33,16 +31,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define MCP23017_ADDR  (0x21 << 1)  // HAL verwacht 8-bit adres
 
-#define IODIRA   0x00
-#define IODIRB   0x01
-#define GPIOA_REG 0x12
-#define GPIOB_REG 0x13
-
-#define CAN_ID_TEMPERATURE   0xD2
-#define CAN_ID_CO2           0xDC
-#define CAN_ID_HUMIDITY    230 //nog aanpassen
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -53,29 +42,34 @@
 /* Private variables ---------------------------------------------------------*/
 CAN_HandleTypeDef hcan1;
 
-I2C_HandleTypeDef hi2c1;
+TIM_HandleTypeDef htim1;
 
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-CAN_RxHeaderTypeDef rxHeader;//struct met alle instellingen voor de canbus rx header
-uint8_t rxData[8];//Binnenkomende CANBUS data.
-volatile int datacheck = 0;//om te zien of er data binnen is gekomen
+CAN_RxHeaderTypeDef rxHeader;
+//CAN_TxHeaderTypeDef txHeader;
+uint8_t rxData[8];
+int datacheck = 0;
+uint32_t txMailbox;
+uint8_t txData[8];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_I2C1_Init(void);
-static void MX_CAN1_Init(void);
 static void MX_USART2_UART_Init(void);
+static void MX_TIM1_Init(void);
+static void MX_CAN1_Init(void);
 /* USER CODE BEGIN PFP */
-void MCP23017_Init(void);
-void readSensorData();
-void LEDBar_Set();//welke parameter?
-void LEDBar_CO2(int co2);
-void LEDBar_Temp(double temp);
-void LEDBar_CO2(int co2);
+void set_rgbOrange();
+void set_rgbRed();
+void set_rgbGreen();
+void set_rgbBlue();
+void set_rgbPurple();
+void set_rgbYellow();
+void set_rgbCyan();
+void set_rgbWhite();
 
 /* USER CODE END PFP */
 
@@ -113,11 +107,13 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_I2C1_Init();
-  MX_CAN1_Init();
   MX_USART2_UART_Init();
+  MX_TIM1_Init();
+  MX_CAN1_Init();
   /* USER CODE BEGIN 2 */
-  MCP23017_Init();
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);   // CH2 RED
+  HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2); // CH2N BLUE
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);//CH3 GREEN
 
   CAN_FilterTypeDef filter;
 
@@ -126,17 +122,32 @@ int main(void)
   filter.FilterScale = CAN_FILTERSCALE_32BIT;
   filter.FilterIdHigh = 0;
   filter.FilterIdLow = 0;
-  filter.FilterMaskIdHigh = 0;//accepteert momenteel alle CANBUS berichten.
+  filter.FilterMaskIdHigh = 0;
   filter.FilterMaskIdLow = 0;
   filter.FilterFIFOAssignment = CAN_FILTER_FIFO0;
   filter.FilterActivation = ENABLE;
 
   HAL_CAN_ConfigFilter(&hcan1, &filter);
-  HAL_CAN_Start(&hcan1); //start de CANBUS
-  if (HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING) != HAL_OK)
-  {
-	  Error_Handler();
-  }
+  HAL_CAN_Start(&hcan1);
+  if (HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING)
+			!= HAL_OK) {
+		Error_Handler();
+	}
+
+  HAL_UART_Transmit(&huart2, "Voor while", 10, HAL_MAX_DELAY);
+
+  //	  CAN_TxHeaderTypeDef header;
+  //	  uint32_t mailbox;
+  //	    header.StdId = 500;
+  //	    header.IDE = CAN_ID_STD;
+  //	    header.RTR = CAN_RTR_DATA;
+  //	    header.DLC = 2;
+  //	  char txtBuffer[70] = { 0 };
+  //	  HAL_Delay(4000);
+  //
+  //
+  //	  uint8_t data[2] = {0x11, 0x12};
+
 
   /* USER CODE END 2 */
 
@@ -144,41 +155,50 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-//	  LEDBar_AllOn();//Voor Testen
 
 
-	  //VOOR HET TESTEN.
-//	  uint8_t invoer[5] = {0};
-//	    HAL_UART_Transmit(&huart2, (uint8_t*)"Geef CO2 waarde (400-2000): \r\n", 30, 100);
-//	    HAL_UART_Receive(&huart2, invoer, 4, HAL_MAX_DELAY);  // wacht op 4 karakters
-//
-//	    int co2 = atoi((char*)invoer);  // "1500" → 1500
-//
-//	    char terugkoppeling[40];
-//	    sprintf(terugkoppeling, "CO2: %d ppm\r\n", co2);
-//	    HAL_UART_Transmit(&huart2, (uint8_t*)terugkoppeling, strlen(terugkoppeling), 100);
-//	    LEDBar_CO2(co2);
+//	   set_rgbOrange();
+//	   HAL_Delay(2000);
+//	   set_rgbRed();
+//	   HAL_Delay(2000);
+//	   set_rgbGreen();
+//	   HAL_Delay(2000);
+//	   set_rgbBlue();
+//	   HAL_Delay(2000);
+//	   set_rgbPurple();
+//	   HAL_Delay(2000);
+//	   set_rgbYellow();
+//	   HAL_Delay(2000);
+//	   set_rgbCyan();
+//	   HAL_Delay(2000);
+//	   set_rgbWhite();
+//	   HAL_Delay(2000);
 
-
-	  if (datacheck){
-		  datacheck = 0;
-		  if (rxHeader.StdId == CAN_ID_TEMPERATURE) {//Temperatuur
-			  float temp;
-			  memcpy(&temp, rxData, 4);//zet de eerste 4 ontvangen bytes om naar een float
-			  LEDBar_Temp(temp);
-		  }
-		  else if(rxHeader.StdId == CAN_ID_CO2){//CO2
-			  int co2 = (rxData[0] << 8) | rxData[1];//Co2 data past niet in 1 byte.
-			  LEDBar_CO2(co2);
-		  }
-		  else if(rxHeader.StdId == CAN_ID_HUMIDITY){//Humidity
-			  int humidity = rxData[0];
-			  char msg[40];
-			  sprintf(msg, "Humidity ontvangen: %d\r\n", humidity);
-			  HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), 100);
-			  LEDBar_Humidity(humidity);
-		  }
+	  if (datacheck) {
+	      datacheck = 0;
+	      HAL_UART_Transmit(&huart2, "can binnen", 10, HAL_MAX_DELAY);
+	      if (rxHeader.StdId == 501) {
+	          set_rgbOrange();
+	      } else if (rxHeader.StdId == 502) {
+	          set_rgbRed();
+	      } else if (rxHeader.StdId == 503) {
+	          set_rgbGreen();
+	      } else if (rxHeader.StdId == 504) {
+	          set_rgbBlue();
+	      } else if (rxHeader.StdId == 505) {
+	          set_rgbPurple();
+	      } else if (rxHeader.StdId == 506) {
+	          set_rgbYellow();
+	      } else if (rxHeader.StdId == 507) {
+	          set_rgbCyan();
+	      } else if (rxHeader.StdId == 508) {
+	          set_rgbWhite();
+	      }
 	  }
+
+
+
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -262,7 +282,7 @@ static void MX_CAN1_Init(void)
 
   /* USER CODE END CAN1_Init 1 */
   hcan1.Instance = CAN1;
-  hcan1.Init.Prescaler = 10;
+  hcan1.Init.Prescaler = 4;
   hcan1.Init.Mode = CAN_MODE_NORMAL;
   hcan1.Init.SyncJumpWidth = CAN_SJW_1TQ;
   hcan1.Init.TimeSeg1 = CAN_BS1_13TQ;
@@ -284,50 +304,86 @@ static void MX_CAN1_Init(void)
 }
 
 /**
-  * @brief I2C1 Initialization Function
+  * @brief TIM1 Initialization Function
   * @param None
   * @retval None
   */
-static void MX_I2C1_Init(void)
+static void MX_TIM1_Init(void)
 {
 
-  /* USER CODE BEGIN I2C1_Init 0 */
+  /* USER CODE BEGIN TIM1_Init 0 */
 
-  /* USER CODE END I2C1_Init 0 */
+  /* USER CODE END TIM1_Init 0 */
 
-  /* USER CODE BEGIN I2C1_Init 1 */
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+  TIM_OC_InitTypeDef sConfigOC = {0};
+  TIM_BreakDeadTimeConfigTypeDef sBreakDeadTimeConfig = {0};
 
-  /* USER CODE END I2C1_Init 1 */
-  hi2c1.Instance = I2C1;
-  hi2c1.Init.Timing = 0x00B07CB4;
-  hi2c1.Init.OwnAddress1 = 0;
-  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
-  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
-  hi2c1.Init.OwnAddress2 = 0;
-  hi2c1.Init.OwnAddress2Masks = I2C_OA2_NOMASK;
-  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
-  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
-  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+  /* USER CODE BEGIN TIM1_Init 1 */
+
+  /* USER CODE END TIM1_Init 1 */
+  htim1.Instance = TIM1;
+  htim1.Init.Prescaler = 0;
+  htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim1.Init.Period = 255;
+  htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim1.Init.RepetitionCounter = 0;
+  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
   {
     Error_Handler();
   }
-
-  /** Configure Analogue filter
-  */
-  if (HAL_I2CEx_ConfigAnalogFilter(&hi2c1, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
   {
     Error_Handler();
   }
-
-  /** Configure Digital filter
-  */
-  if (HAL_I2CEx_ConfigDigitalFilter(&hi2c1, 0) != HAL_OK)
+  if (HAL_TIM_PWM_Init(&htim1) != HAL_OK)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN I2C1_Init 2 */
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 0;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
+  sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
+  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sBreakDeadTimeConfig.OffStateRunMode = TIM_OSSR_DISABLE;
+  sBreakDeadTimeConfig.OffStateIDLEMode = TIM_OSSI_DISABLE;
+  sBreakDeadTimeConfig.LockLevel = TIM_LOCKLEVEL_OFF;
+  sBreakDeadTimeConfig.DeadTime = 0;
+  sBreakDeadTimeConfig.BreakState = TIM_BREAK_DISABLE;
+  sBreakDeadTimeConfig.BreakPolarity = TIM_BREAKPOLARITY_HIGH;
+  sBreakDeadTimeConfig.BreakFilter = 0;
+  sBreakDeadTimeConfig.Break2State = TIM_BREAK2_DISABLE;
+  sBreakDeadTimeConfig.Break2Polarity = TIM_BREAK2POLARITY_HIGH;
+  sBreakDeadTimeConfig.Break2Filter = 0;
+  sBreakDeadTimeConfig.AutomaticOutput = TIM_AUTOMATICOUTPUT_DISABLE;
+  if (HAL_TIMEx_ConfigBreakDeadTime(&htim1, &sBreakDeadTimeConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM1_Init 2 */
 
-  /* USER CODE END I2C1_Init 2 */
+  /* USER CODE END TIM1_Init 2 */
+  HAL_TIM_MspPostInit(&htim1);
 
 }
 
@@ -386,12 +442,28 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, GPIO_PIN_RESET);
 
+  /*Configure GPIO pin : ButtonRGB_Pin */
+  GPIO_InitStruct.Pin = ButtonRGB_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(ButtonRGB_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PA8 */
+  GPIO_InitStruct.Pin = GPIO_PIN_8;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
   /*Configure GPIO pin : LD3_Pin */
   GPIO_InitStruct.Pin = LD3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LD3_GPIO_Port, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI1_IRQn);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
@@ -400,187 +472,95 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
-void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
-	if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &rxHeader, rxData) != HAL_OK) {
+
+void set_rgbOrange() {
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 255);//rood
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,20);//groen
+}
+
+void set_rgbRed() {
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 255);//rood
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,0);//groen
+}
+
+void set_rgbGreen() {
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);//Anders wordt groen een beetje gelig, want er zit nog rood in.
+	  HAL_TIMEx_PWMN_Stop(&htim1, TIM_CHANNEL_2); // CH2N BLUE stoppen
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,255);//groen
+}
+
+void set_rgbBlue() {
+	HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);//Anders gaat blauw niet meer aan na de vorige functie.
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);//blauw aanzetten
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,0);//groen uit.
+}
+
+void set_rgbPurple(){
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 127);//blauw en rood half aan
+}
+
+void set_rgbYellow(){
+	// Geel = Rood + Groen
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 255);//rood
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,100);//groen
+}
+
+void set_rgbCyan(){
+	// Cyaan = Groen + Blauw
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 100);//blauw
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,255);//groen
+}
+
+
+void set_rgbWhite(){
+	// Wit = Rood + Groen + Blauw
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 200);//paars
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,100);//groen
+}
+
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan1) {
+	 HAL_UART_Transmit(&huart2, "krijgt can", 11, HAL_MAX_DELAY);
+	if (HAL_CAN_GetRxMessage(hcan1, CAN_RX_FIFO0, &rxHeader, rxData) != HAL_OK) {
 		Error_Handler();
-		//leest ontvangen data uit.
 	}
-	if ((rxHeader.StdId == CAN_ID_TEMPERATURE && rxHeader.RTR == 0)||(rxHeader.StdId == CAN_ID_CO2 && rxHeader.RTR == 0)
-			||(rxHeader.StdId == CAN_ID_HUMIDITY && rxHeader.RTR == 0)) {
-		//checkt de message ID.
+	if (rxHeader.StdId == 501 ||rxHeader.StdId == 502 ||rxHeader.StdId == 503 ||rxHeader.StdId == 504 ||rxHeader.StdId == 505
+			||rxHeader.StdId == 506 ||rxHeader.StdId == 507 ||rxHeader.StdId == 508) {
 		datacheck = 1;
+		  HAL_UART_Transmit(&huart2, "geaccepteerd", 13, HAL_MAX_DELAY);
 	}
 }
 
-
-
-void MCP23017_Init(void) {
-    uint8_t data[2];
-
-    // GPIOA: alle 8 pinnen als OUTPUT (PA0-PA7 = LED)
-    data[0] = IODIRA;
-    data[1] = 0x00;  // 0x00 = alles output
-    HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, data, 2, HAL_MAX_DELAY);
-
-    // GPIOB: PB0 en PB1 als OUTPUT (2 LEDs)
-    data[0] = IODIRB;
-    data[1] = 0x00;  // 0x00 = alles output (PB2-PB7 ongebruikt, maakt niet uit)
-    HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, data, 2, HAL_MAX_DELAY);
+void HAL_CAN_TxMailboxCompleteCallback(CAN_HandleTypeDef *hcan1)
+{
+    HAL_UART_Transmit(&huart2, (uint8_t*)"TX DONE\r\n", 9, HAL_MAX_DELAY);
 }
 
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)//interrupt voor de button
+{
+    if (GPIO_Pin == ButtonRGB_Pin)
+    {
+        static uint32_t lastPress = 0;
+        uint32_t now = HAL_GetTick();
 
-
-
-void LEDBar_CO2(int co2){
-	uint8_t co2Data [2];
-
-	if (co2<=400)
-	{
-	    co2Data[1]=0x00;
-	    co2Data[0]=GPIOA_REG;
-	    HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, co2Data, 2, HAL_MAX_DELAY);
-
-	    co2Data[1]=0x00;
-	    co2Data[0]=GPIOB_REG;
-	    HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, co2Data, 2, HAL_MAX_DELAY);
-	}
-	else if(co2>400&&co2<=1760)
-	{
-		co2Data[1]=0xFF;
-		co2Data[0]=GPIOA_REG;
-		HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, co2Data, 2, HAL_MAX_DELAY);
-
-	    co2Data[1]=0x00;
-	    co2Data[0]=GPIOB_REG;
-	    HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, co2Data, 2, HAL_MAX_DELAY);
-	}
-	else if(co2>1760&&co2<=1840)
-	{
-		co2Data[1]=0x00;
-		co2Data[0]=GPIOA_REG;
-		HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, co2Data, 2, HAL_MAX_DELAY);
-
-		co2Data[1]=0x01;
-		co2Data[0]=GPIOB_REG;
-		HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, co2Data, 2, HAL_MAX_DELAY);
-	}
-	else{
-
-		co2Data[1]=0x00;
-		co2Data[0]=GPIOA_REG;
-		HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, co2Data, 2, HAL_MAX_DELAY);
-
-		co2Data[1]=0x02;
-		co2Data[0]=GPIOB_REG;
-		HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, co2Data, 2, HAL_MAX_DELAY);
-	}
+        if (now - lastPress > 200) // 200ms debounce
+        {
+            lastPress = now;
+            HAL_UART_Transmit(&huart2, "Button ingedrukt\r\n", 18, HAL_MAX_DELAY);
+            //	    if (HAL_CAN_AddTxMessage(&hcan1, &header, data, &mailbox) != HAL_OK){
+            //	    	Error_Handler ();
+            //	    	HAL_UART_Transmit(&huart2, "error", 5 , HAL_MAX_DELAY);
+            //	    }
+            //	    else {
+            //	    	char msg[] = "CAN verstuurd!\n\r";
+            //	    	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+            //	    }
+        }
+    }
 }
 
-void LEDBar_Temp(double temp){
-	uint8_t tempData [2];
-
-	if (temp<=16.00)
-	{
-		tempData[1]=0x01;
-		tempData[0]=GPIOA_REG;
-	    HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, tempData, 2, HAL_MAX_DELAY);
-
-	    tempData[1]=0x00;
-	    tempData[0]=GPIOB_REG;
-	    HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, tempData, 2, HAL_MAX_DELAY);
-	}
-	else if(temp>16.00&&temp<=21.00)
-	{
-		tempData[1]=0xFF;
-		tempData[0]=GPIOA_REG;
-		HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, tempData, 2, HAL_MAX_DELAY);
-
-		tempData[1]=0x00;
-		tempData[0]=GPIOB_REG;
-	    HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, tempData, 2, HAL_MAX_DELAY);
-	}
-	else if(temp>21.00&&temp<=23.00)
-	{
-		tempData[1]=0x00;
-		tempData[0]=GPIOA_REG;
-		HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, tempData, 2, HAL_MAX_DELAY);
-
-		tempData[1]=0x01;
-		tempData[0]=GPIOB_REG;
-		HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, tempData, 2, HAL_MAX_DELAY);
-	}
-	else{
-
-		tempData[1]=0x00;
-		tempData[0]=GPIOA_REG;
-		HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, tempData, 2, HAL_MAX_DELAY);
-
-		tempData[1]=0x02;
-		tempData[0]=GPIOB_REG;
-		HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, tempData, 2, HAL_MAX_DELAY);
-	}
-}
-
-void LEDBar_Humidity(int humidity){
-	uint8_t humidityData [2];
-
-	if (humidity<=20)
-	{
-		humidityData[1]=0x00;
-		humidityData[0]=GPIOA_REG;
-	    HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, humidityData, 2, HAL_MAX_DELAY);
-
-	    humidityData[1]=0x00;
-	    humidityData[0]=GPIOB_REG;
-	    HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, humidityData, 2, HAL_MAX_DELAY);
-	}
-	else if(humidity>20&&humidity<=60)
-	{
-		humidityData[1]=0xFF;
-		humidityData[0]=GPIOA_REG;
-		HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, humidityData, 2, HAL_MAX_DELAY);
-
-		humidityData[1]=0x00;
-		humidityData[0]=GPIOB_REG;
-	    HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, humidityData, 2, HAL_MAX_DELAY);
-	}
-	else if(humidity>60&&humidity<=79)
-	{
-		humidityData[1]=0x00;
-		humidityData[0]=GPIOA_REG;
-		HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, humidityData, 2, HAL_MAX_DELAY);
-
-		humidityData[1]=0x01;
-		humidityData[0]=GPIOB_REG;
-		HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, humidityData, 2, HAL_MAX_DELAY);
-	}
-	else{
-
-		humidityData[1]=0x00;
-		humidityData[0]=GPIOA_REG;
-		HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, humidityData, 2, HAL_MAX_DELAY);
-
-		humidityData[1]=0x02;
-		humidityData[0]=GPIOB_REG;
-		HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, humidityData, 2, HAL_MAX_DELAY);
-	}
-}
+//ColorFunc colors[] = { set_rgbOrange, set_rgbRed, set_rgbGreen, set_rgbBlue, set_rgbPurple, set_rgbYellow, set_rgbCyan, set_rgbCyan};
 
 
-
-//void LEDBar_AllOn(void) {
-//    uint8_t data[2];
-//
-//    // Zet PA0-PA7 aan (8 LEDs)
-//    data[0] = GPIOA_REG;
-//    data[1] = 0xFF;  // alle 8 bits HIGH
-//    HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, data, 2, HAL_MAX_DELAY);
-//
-//    // Zet PB0 en PB1 aan (2 LEDs)
-//    data[0] = GPIOB_REG;
-//    data[1] = 0x03;  // bit0 en bit1 HIGH = 0b00000011
-//    HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, data, 2, HAL_MAX_DELAY);
-//}
 
 
 /* USER CODE END 4 */
