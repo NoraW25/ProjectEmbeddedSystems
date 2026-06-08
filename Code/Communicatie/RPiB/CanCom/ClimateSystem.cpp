@@ -66,7 +66,7 @@ void ClimateSystem::calculateSettings(){
             if (sum_type > 1200){
                 vensetting += 4;
                 printf("CO2 1200");
-            }else if (sum_type < 800){
+            }else if (sum_type > 800){
                 vensetting += 3;
                 printf("CO2 800");
             } else if (sum_type > 650){
