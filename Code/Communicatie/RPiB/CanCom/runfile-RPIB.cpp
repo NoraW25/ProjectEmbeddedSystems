@@ -18,35 +18,37 @@
 
 #include "ClimateSystem.h"
 
-//Tijdelijke definitie voor client controllers, zodat deze in de testfuncties gebruikt kunnen worden
-Communication::CommunicationController* client_controller_rpia;
-//std::shared_ptr<Communication::CommunicationController> client_controller_wemos;
+// Tijdelijke definitie voor client controllers, zodat deze in de testfuncties gebruikt kunnen worden
+Communication::CommunicationController *client_controller_rpia;
+// std::shared_ptr<Communication::CommunicationController> client_controller_wemos_klimaat;
 
 // Aansturing van het klimaatsysteem
-void klimaatfunctie(std::vector<uint8_t> data) {
+void klimaatfunctie(std::vector<uint8_t> data)
+{
     // Print eerst de data
     for (size_t i = 0; i < data.size(); ++i)
     {
         printf("%02X ", data[i]);
-
     }
 
-    // Verzend de data terug naar 
-    //client_controller_rpia->transmitData(0x10, data);
+    // Verzend de data terug naar
+    // client_controller_rpia->transmitData(0x10, data);
 }
 
-void basicTestFunction() {
+void basicTestFunction()
+{
     printf("updated\n");
 }
 
-void transmitFunc() {
+void transmitFunc()
+{
     std::vector<uint8_t> begin_data;
     begin_data.push_back(45);
     begin_data.push_back(85);
     begin_data.push_back('\n');
     printf("Transmitfunc: %d\n", begin_data.size());
-    //client_controller_wemos->transmitData(640, begin_data);
-    //client_controller_wemos->transmitData(640, '\n');
+    // client_controller_wemos_klimaat->transmitData(640, begin_data);
+    // client_controller_wemos_klimaat->transmitData(640, '\n');
     printf("transmit\n");
 }
 
@@ -54,29 +56,28 @@ int main()
 {
     // Aanmaken van de planner
     Scheduling::Scheduler scheduler;
-    Scheduling::RunServiceController* runService = Scheduling::RunServiceController::getInstance(&scheduler);
+    Scheduling::RunServiceController *runService = Scheduling::RunServiceController::getInstance(&scheduler);
     scheduler.initEvent();
 
     // De sockets aanmaken
     ClientGeneraliser generaliser_client_rpia("145.52.127.222", false);
-    ClientGeneraliser generaliser_client_wemos("145.52.127.246", true);
+    ClientGeneraliser generaliser_client_wemos_klimaat("145.52.127.246", true);
     // De controllers aanmaken en binden aan de controller
-    client_controller_rpia = new Communication::CommunicationController(& generaliser_client_rpia, & generaliser_client_rpia);
-    
-    std::shared_ptr<Communication::CommunicationController> client_controller_wemos = 
-        std::make_shared<Communication::CommunicationController>(&generaliser_client_wemos, &generaliser_client_wemos);
+    client_controller_rpia = new Communication::CommunicationController(&generaliser_client_rpia, &generaliser_client_rpia);
 
+    std::shared_ptr<Communication::CommunicationController> client_controller_wemos_klimaat =
+        std::make_shared<Communication::CommunicationController>(&generaliser_client_wemos_klimaat, &generaliser_client_wemos_klimaat);
 
     // Het uitvoeren van taken en functies op bepaalde momenten
-    //client_controller_wemos->logReceived(610, *klimaatfunctie);
+    // client_controller_wemos_klimaat->logReceived(610, *klimaatfunctie);
 
     // Aanmaken van een klasse die een proces aanstuurd
-    ClimateSystem climate_system(client_controller_wemos);
-
+    ClimateSystem climate_system(client_controller_wemos_klimaat);
 
     runService->createTask(*transmitFunc, 640);
 
-    while (1) {
+    while (1)
+    {
         // printf("updating\n");
         // Kijken of er een nieuwe opdracht klaar staat om uitgevoerd te worden
         scheduler.update();
@@ -106,12 +107,10 @@ int main()
     scheduler.update();*/
 }
 
-
-
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
-// Tips for Getting Started: 
+// Tips for Getting Started:
 //   1. Use the Solution Explorer window to add/manage files
 //   2. Use the Team Explorer window to connect to source control
 //   3. Use the Output window to see build output and other messages
