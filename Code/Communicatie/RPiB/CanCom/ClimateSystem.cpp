@@ -6,6 +6,8 @@
 #define HUMIDITYSENSORS "humidity_sensors"
 #define VENTILATORS "ventilators"
 
+#include <iostream>
+
 
 
 
@@ -36,10 +38,14 @@ void ClimateSystem::calculateSettings(){
 
         int sum_type = 0;
 
+        
+
         auto sensor = sensors_of_type.begin();
         for (;sensor != sensors_of_type.end(); sensor++) {
             sum_type = (*sensor)->getCurrentValue();   
         }
+
+        std::cout<<"type: "<< type << " Waarde: " << sum_type<<std::endl;
 
         if (type == TEMPERATURESENSORS){
             sum_type /= sensors_of_type.size();
