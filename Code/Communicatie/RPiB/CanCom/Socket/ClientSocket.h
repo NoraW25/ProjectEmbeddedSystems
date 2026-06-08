@@ -41,7 +41,7 @@ public:
     * @param string - IP-adres waarmee verbinding gemaakt moet worden.
     */
     ClientSocket(std::string);    
-    ClientSocket(std::string, int);
+    ClientSocket(std::string, int, bool);
 
     /*!
     * @brief Sluit de ClientSocket.
@@ -54,6 +54,8 @@ private:
     int port;
     char buffer[1024];
     int status; // -1 = Connectie gefaald; 0 = Verbinding; 1 = Bezig met verbinden.
+    
+    bool is_wemos;
 
     void tcpStartup();
     bool hasReceived();
