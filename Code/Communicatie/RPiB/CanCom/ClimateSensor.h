@@ -5,9 +5,8 @@
 #include <memory>
 #include <vector>
 #include "CommunicationController.h"
-#include "ClimateSystem.h"
 
-//class ClimateSystem;
+class ClimateSystem;
 
 class ClimateSensor {
 public:
