@@ -32,28 +32,28 @@ void testFunction(/*std::vector<uint8_t> data*/) {
 
     // }
     data.push_back(90);
-    canController->transmitData(710, data);
-    sleep(500);
+    canController->transmitData(0x30c, data);
+    sleep(5);
     canController->transmitData(720, data);
-    sleep(500);
+    sleep(5);
     
     canController->transmitData(730, data);
-    sleep(500);
+    sleep(5);
     
     canController->transmitData(740, data);
-    sleep(500);
+    sleep(5);
     
     canController->transmitData(750, data);
-    sleep(500);
+    sleep(5);
     
     canController->transmitData(760, data);
-    sleep(500);
+    sleep(5);
     
     canController->transmitData(770, data);
-    sleep(500);
+    sleep(5);
     
     canController->transmitData(780, data);
-    sleep(500);
+    sleep(5);
 
     printf("\n");
 }
