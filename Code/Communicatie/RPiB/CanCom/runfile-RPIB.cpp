@@ -32,7 +32,7 @@ void klimaatfunctie(std::vector<uint8_t> data) {
     }
 
     // Verzend de data terug naar 
-    client_controller_rpia->transmitData(0x10, data);
+    //client_controller_rpia->transmitData(0x10, data);
 }
 
 void basicTestFunction() {
@@ -44,7 +44,7 @@ void transmitFunc() {
     begin_data.push_back(45);
     begin_data.push_back(85);
     printf("Transmitfunc: %d\n", begin_data.size());
-    client_controller_rpia->transmitData(0x10, begin_data);
+    //client_controller_rpia->transmitData(0x10, begin_data);
     printf("transmit\n");
 }
 
