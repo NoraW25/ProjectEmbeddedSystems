@@ -17,7 +17,7 @@
 #include "SocketGeneraliser/CanGeneraliser.h"
 #include "SocketGeneraliser/ServerGeneraliser.h"
 
-Communication::CommunicationController* canController;
+Communication::CommunicationController* can_controller;
 Communication::CommunicationController* server_controller;
 
 
@@ -32,27 +32,27 @@ void testFunction(/*std::vector<uint8_t> data*/) {
 
     // }
     data.push_back(90);
-    canController->transmitData(0x30c, data);
+    can_controller->transmitData(0x30c, data);
     sleep(5);
-    canController->transmitData(720, data);
-    sleep(5);
-    
-    canController->transmitData(730, data);
+    can_controller->transmitData(720, data);
     sleep(5);
     
-    canController->transmitData(740, data);
+    can_controller->transmitData(730, data);
     sleep(5);
     
-    canController->transmitData(750, data);
+    can_controller->transmitData(740, data);
     sleep(5);
     
-    canController->transmitData(760, data);
+    can_controller->transmitData(750, data);
     sleep(5);
     
-    canController->transmitData(770, data);
+    can_controller->transmitData(760, data);
     sleep(5);
     
-    canController->transmitData(780, data);
+    can_controller->transmitData(770, data);
+    sleep(5);
+    
+    can_controller->transmitData(780, data);
     sleep(5);
 
     printf("\n");
@@ -85,13 +85,15 @@ int main()
 
     CanGeneraliser generaliser;
     ServerGeneraliser generaliser_server;
-    canController = new Communication::CommunicationController(& generaliser, & generaliser);
+    can_controller = new Communication::CommunicationController(& generaliser, & generaliser);
     server_controller = new Communication::CommunicationController(& generaliser_server, & generaliser_server);
 
     //BIND FUNCTIES HIERONDER
     //canController->logReceived(0x310, *testFunction);
     server_controller->logReceived(16, *testFunction2);
     runService->createTask(*testFunction, 1000);
+
+    LightingSystem lighting_system(can_controller);
 
 
     // runService->createTask(*basicTestFunction, 5000);
