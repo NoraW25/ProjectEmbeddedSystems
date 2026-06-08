@@ -49,7 +49,9 @@ void loop() {
     lastSend = millis();
 
     if (server.heeftClient()) {
-      server.versturen(String(avg));
+      String canid = "ABC"; 
+      String data = (avg);
+      server.versturen(canid + data);
     }
   }
 }
