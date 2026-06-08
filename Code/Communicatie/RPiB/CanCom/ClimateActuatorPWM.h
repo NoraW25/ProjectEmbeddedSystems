@@ -4,7 +4,7 @@
 
 
 #include <memory>
-#include "..\CommunicationController.h"
+#include "CommunicationController.h"
 
 
 
