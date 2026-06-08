@@ -25,13 +25,13 @@ void ClimateSensor::setCurrentValue(std::vector<uint8_t> data){
 
     // LSB eerst
     for (int i = 0; i < 8; i++) {
-        raw |= (uint64_t)data[i] << (8 * i);  
+        raw |= (uint64_t)(uint8_t)data[i] << (8 * i);
     }
 
     std::memcpy(&value, &raw, sizeof(double));
 
-    printf("%d", raw);
-    printf("%d", value);
+    printf("%d\n", raw);
+    printf("%d\n", value);
 
     system->calculateSettings();
 }
