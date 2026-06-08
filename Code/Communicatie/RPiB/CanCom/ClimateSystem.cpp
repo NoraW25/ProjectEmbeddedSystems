@@ -63,10 +63,12 @@ void ClimateSystem::calculateSettings(){
 
         if (type == CO2SENSORS){
             sum_type /= sensors_of_type.size();
-            if (sum_type > 1500){
+            if (sum_type > 1200){
+                vensetting += 4;
+            }else if (sum_type < 800){
                 vensetting += 3;
-            } else if (sum_type < 1200){
-                vensetting += 1;
+            } else if (sum_type > 650){
+                vensetting += 2;
             }
         }
     }
