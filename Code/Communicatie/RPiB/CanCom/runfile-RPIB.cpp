@@ -20,7 +20,7 @@
 
 //Tijdelijke definitie voor client controllers, zodat deze in de testfuncties gebruikt kunnen worden
 Communication::CommunicationController* client_controller_rpia;
-//std::shared_ptr<Communication::CommunicationController> client_controller_wemos;
+std::shared_ptr<Communication::CommunicationController> client_controller_wemos;
 
 // Aansturing van het klimaatsysteem
 void klimaatfunctie(std::vector<uint8_t> data) {
