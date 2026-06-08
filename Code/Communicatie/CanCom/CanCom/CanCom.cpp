@@ -21,7 +21,7 @@ Communication::CommunicationController* canController;
 Communication::CommunicationController* server_controller;
 
 
-void testFunction(std::vector<uint8_t> data) {
+void testFunction(/*std::vector<uint8_t> data*/) {
     printf("[TestFunction] received CAN data: \n");
 
     // printf("[TestFunction] Data (%zu bytes): ", data.size());
