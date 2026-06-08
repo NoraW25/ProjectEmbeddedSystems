@@ -102,6 +102,7 @@ void transmitFunc() {
     std::vector<uint8_t> begin_data;
     begin_data.push_back(45);
     begin_data.push_back(85);
+    begin_data.psuh_back('\n');
     printf("Transmitfunc: %d\n", begin_data.size());
     client_controller_wemos->transmitData(0x10, begin_data);
     printf("transmit\n");
