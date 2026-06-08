@@ -6,7 +6,7 @@ ClientSocket::ClientSocket(std::string ip):
     client_fd(-1),
     server_ip(ip),
     status(-1),
-    is_wemos(false);
+    is_wemos(false),
     translator(MessageTranslator::instance()){
     
     tcpStartup();
@@ -17,7 +17,7 @@ ClientSocket::ClientSocket(std::string ip, bool wemos):
     client_fd(-1),
     server_ip(ip),
     status(-1),
-    is_wemos(wemos);
+    is_wemos(wemos),
     translator(MessageTranslator::instance()){
     
     tcpStartup();
