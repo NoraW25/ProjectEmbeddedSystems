@@ -12,6 +12,17 @@ ClientSocket::ClientSocket(std::string ip):
     tcpStartup();
 }
 
+ClientSocket::ClientSocket(std::string ip, bool wemos):
+    port(8080),
+    client_fd(-1),
+    server_ip(ip),
+    status(-1),
+    is_wemos(wemos);
+    translator(MessageTranslator::instance()){
+    
+    tcpStartup();
+}
+
 ClientSocket::ClientSocket(std::string ip, int port, bool wemos):
     port(port),
     client_fd(-1),

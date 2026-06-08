@@ -41,6 +41,7 @@ public:
     * @param string - IP-adres waarmee verbinding gemaakt moet worden.
     */
     ClientSocket(std::string);    
+    ClientSocket(std::string, bool);
     ClientSocket(std::string, int, bool);
 
     /*!

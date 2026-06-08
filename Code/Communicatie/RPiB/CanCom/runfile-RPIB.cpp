@@ -58,8 +58,8 @@ int main()
     scheduler.initEvent();
 
     // De sockets aanmaken
-    ClientGeneraliser generaliser_client_rpia("145.52.127.222");
-    ClientGeneraliser generaliser_client_wemos("145.52.127.246");
+    ClientGeneraliser generaliser_client_rpia("145.52.127.222", false);
+    ClientGeneraliser generaliser_client_wemos("145.52.127.246", true);
     // De controllers aanmaken en binden aan de controller
     client_controller_rpia = new Communication::CommunicationController(& generaliser_client_rpia, & generaliser_client_rpia);
     
