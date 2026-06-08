@@ -6,16 +6,29 @@ ClientSocket::ClientSocket(std::string ip):
     client_fd(-1),
     server_ip(ip),
     status(-1),
+    is_wemos(false),
     translator(MessageTranslator::instance()){
     
     tcpStartup();
 }
 
-ClientSocket::ClientSocket(std::string ip, int port):
+ClientSocket::ClientSocket(std::string ip, bool wemos):
+    port(8080),
+    client_fd(-1),
+    server_ip(ip),
+    status(-1),
+    is_wemos(wemos),
+    translator(MessageTranslator::instance()){
+    
+    tcpStartup();
+}
+
+ClientSocket::ClientSocket(std::string ip, int port, bool wemos):
     port(port),
     client_fd(-1),
     server_ip(ip),
     status(-1),
+    is_wemos(wemos),
     translator(MessageTranslator::instance()){
     
     tcpStartup();
@@ -69,12 +82,16 @@ ClientSocket::~ClientSocket(){
 void ClientSocket::send(int id, std::vector<uint8_t> data){
     if (canSend()) {
         std::string message = translator->translate(id, data);
+        
+        if (is_wemos){
+            message += "\n";
+        }
+        
         int result = ::send(client_fd, message.c_str(), message.size(), 0);
         if(result < 0){
             std::cout<<"Error: bericht niet verzonden"<<std::endl;
         } else {
             std::cout << "Aantal verzonden bytes1: " << result << std::endl;
-            message += "Hello";
             std::cout << message  << std::endl;
         }
     }

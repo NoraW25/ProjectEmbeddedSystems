@@ -12,7 +12,7 @@ class ClientGeneraliser :
 {
 public:
     ClientGeneraliser();
-    ClientGeneraliser(std::string);
+    ClientGeneraliser(std::string, bool);
     virtual ~ClientGeneraliser() = default;
 
     virtual void sendData(int, std::vector<uint8_t>) override;

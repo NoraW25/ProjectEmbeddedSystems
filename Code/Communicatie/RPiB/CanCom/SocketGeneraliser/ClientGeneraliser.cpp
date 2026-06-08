@@ -1,7 +1,7 @@
 #include "ClientGeneraliser.h"
 
-ClientGeneraliser::ClientGeneraliser(std::string ip):
-    socket(ClientSocket(ip)){
+ClientGeneraliser::ClientGeneraliser(std::string ip, bool wemos):
+    socket(ClientSocket(ip, wemos)){
 }
 
 

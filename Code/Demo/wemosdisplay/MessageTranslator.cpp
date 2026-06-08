@@ -22,7 +22,6 @@ MessageTranslator::~MessageTranslator(){
 }
 
 void MessageTranslator::translate(int* id, std::vector<uint8_t>* data, std::string message){
-    std::cout<<"Het ontvangen bericht: " << message << std::endl;
     if (!parseId(message, id)){
         std::cout<<"Error in de parseId"<<std::endl;
     }
@@ -43,11 +42,9 @@ bool MessageTranslator::parseId(const std::string& message, int* id){
     size_t key = message.find(key_id) + key_id.length();
     size_t value = message.find(";", key);
 
-    try{
+    
         *id = std::stoi(message.substr(key, value - key));
-    }catch(...){
-        return false;
-    }
+    
     
     return true;
 }
@@ -58,23 +55,15 @@ bool MessageTranslator::parseData(const std::string& message, std::vector<uint8_
     size_t position = message.find(key_data) + key_data.length();
     size_t next = message.find(";", position);
 
-
-    int i = 0;
-    while(next != std::string::npos && i < 8){
+    while(next != std::string::npos){
         printf("In while\n");
-        try{
-            if (next-1 != position){
-                int value = std::stoi(message.substr(position, next-position));
-                result.push_back((uint8_t) value);                
-            }
-            position = next + 1;
-            next = message.find(";", position);          
-        }catch(...){
-            printf("Error bij verwerking");
-            return false;
-        }
+        
+            int value = std::stoi(message.substr(position, next-position));
+            result.push_back((uint8_t) value);
 
-        i++;    
+            position = next + 1;
+            next = message.find(";", position);
+               
     }
 
     *data = result;
