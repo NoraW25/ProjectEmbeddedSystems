@@ -3,6 +3,7 @@
 
 #include "ClimateSystem.h"
 #include <climits>
+#include <cstring>
 
 ClimateSensor::ClimateSensor(int address, std::shared_ptr<Communication::CommunicationController> controller, ClimateSystem* system):
     address(address),
