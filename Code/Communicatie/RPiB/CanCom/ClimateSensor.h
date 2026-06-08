@@ -7,6 +7,7 @@
 #include "CommunicationController.h"
 #include "ClimateSystem.h"
 
+class ClimateSystem;
 
 class ClimateSensor {
 public:
