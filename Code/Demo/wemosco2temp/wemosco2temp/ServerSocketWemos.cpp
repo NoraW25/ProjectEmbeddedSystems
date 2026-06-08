@@ -1,41 +1,46 @@
 #include "ServerSocketWemos.h"
 
 ServerSocketWemos::ServerSocketWemos(int poort)
-    : server(poort), buffer("") {}
+  : server(poort), buffer("") {}
 
 void ServerSocketWemos::begin() {
-    server.begin();
-    server.setNoDelay(true);
+  server.begin();
+  server.setNoDelay(true);
 }
 
 bool ServerSocketWemos::heeftClient() {
-    if (!client || !client.connected()) {
-        client = server.available();
+  if (!client.connected()) {
+    WiFiClient newClient = server.available();
+    if (newClient) {
+      client = newClient;
     }
-    return client && client.connected();
+  }
+  return client.connected();
 }
 
 bool ServerSocketWemos::heeftOntvangen() {
-    if (!heeftClient()) return false;
-
-    while (client.available()) {
-        char c = client.read();
-        if (c == '\n') {
-            return true;
-        }
-        buffer += c;
-    }
+  if (!heeftClient()) {
     return false;
+  }
+
+  while (client.available()) {
+    char c = client.read();
+    if (c == '\n') {
+      return true;
+    }
+    buffer += c;
+  }
+  return false;
 }
 
 String ServerSocketWemos::ontvangst() {
-    String msg = buffer;
-    buffer = "";
-    return msg;
+  String msg = buffer;
+  buffer = "";
+  return msg;
 }
 
 void ServerSocketWemos::versturen(const String& msg) {
-    if (heeftClient()) {
-        client.print(msg);
-    }
+  if (heeftClient()) {
+    client.print(msg);
+  }
 }
