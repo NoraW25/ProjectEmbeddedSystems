@@ -4,8 +4,10 @@
 
 #include <memory>
 #include <vector>
-#include "..\RPiB\CanCom\CommunicationController.h"
+//#include "..\RPiB\CanCom\CommunicationController.h"
 #include "ClimateSystem.h"
+
+class Communication::CommunicationController;
 
 class ClimateSystem;
 
