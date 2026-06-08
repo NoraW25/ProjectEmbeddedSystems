@@ -20,7 +20,7 @@
 
 //Tijdelijke definitie voor client controllers, zodat deze in de testfuncties gebruikt kunnen worden
 Communication::CommunicationController* client_controller_rpia;
-//Communication::CommunicationController* client_controller_wemos;
+std::shared_ptr<Communication::CommunicationController> client_controller_wemos;
 
 // Aansturing van het klimaatsysteem
 void klimaatfunctie(std::vector<uint8_t> data) {
@@ -39,7 +39,16 @@ void basicTestFunction() {
     printf("updated\n");
 }
 
-
+void transmitFunc() {
+    std::vector<uint8_t> begin_data;
+    begin_data.push_back(45);
+    begin_data.push_back(85);
+    begin_data.push_back('\n');
+    printf("Transmitfunc: %d\n", begin_data.size());
+    client_controller_wemos->transmitData(640, begin_data);
+    //client_controller_wemos->transmitData(640, '\n');
+    printf("transmit\n");
+}
 
 
 int main()
@@ -98,16 +107,7 @@ int main()
     scheduler.update();*/
 }
 
-void transmitFunc() {
-    std::vector<uint8_t> begin_data;
-    begin_data.push_back(45);
-    begin_data.push_back(85);
-    begin_data.push_back('\n');
-    printf("Transmitfunc: %d\n", begin_data.size());
-    client_controller_wemos->transmitData(640, begin_data);
-    //client_controller_wemos->transmitData(640, '\n');
-    printf("transmit\n");
-}
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
