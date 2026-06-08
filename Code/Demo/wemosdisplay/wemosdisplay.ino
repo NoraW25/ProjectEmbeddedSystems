@@ -63,7 +63,7 @@ void loop() {
     translator->translate(&address, &data, std::string(received_message.c_str()));
 
 
-    if (address == 720) {
+    if (address == 710) {
       int value = 0;
       for (size_t i = 0; i < data.size(); i++) {
         value |= (uint32_t)data[i] << (8 * i);

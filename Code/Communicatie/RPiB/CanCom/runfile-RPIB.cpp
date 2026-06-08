@@ -62,12 +62,19 @@ int main()
     // De sockets aanmaken
     ClientGeneraliser generaliser_client_rpia("145.52.127.222", false);
     ClientGeneraliser generaliser_client_wemos_klimaat("145.52.127.246", true);
+    ClientGeneraliser generaliser_client_wemos_display("145.52.127.206", true);
+
     // De controllers aanmaken en binden aan de controller
     client_controller_rpia = new Communication::CommunicationController(&generaliser_client_rpia, &generaliser_client_rpia);
 
     std::shared_ptr<Communication::CommunicationController> client_controller_wemos_klimaat =
-        std::make_shared<Communication::CommunicationController>(&generaliser_client_wemos_klimaat, &generaliser_client_wemos_klimaat);
-
+        std::make_shared<Communication::CommunicationController>(
+            &generaliser_client_wemos_klimaat,
+            &generaliser_client_wemos_klimaat);
+    std::shared_ptr<Communication::CommunicationController> client_controller_wemos_display =
+        std::make_shared<Communication::CommunicationController>(
+            &generaliser_client_wemos_display,
+            &generaliser_client_wemos_display);
     // Het uitvoeren van taken en functies op bepaalde momenten
     // client_controller_wemos_klimaat->logReceived(610, *klimaatfunctie);
 
@@ -75,7 +82,11 @@ int main()
     ClimateSystem climate_system(client_controller_wemos_klimaat);
 
     runService->createTask(*transmitFunc, 640);
+    std::vector<uint8_t> d1 = {20};
+    client_controller_wemos_display->transmitData(710, d1);
 
+    std::vector<uint8_t> d2 = {5};
+    client_controller_wemos_display->transmitData(720, d2);
     while (1)
     {
         // printf("updating\n");
