@@ -65,10 +65,13 @@ void ClimateSystem::calculateSettings(){
             sum_type /= sensors_of_type.size();
             if (sum_type > 1200){
                 vensetting += 4;
+                printf("CO2 1200");
             }else if (sum_type < 800){
                 vensetting += 3;
+                printf("CO2 800");
             } else if (sum_type > 650){
                 vensetting += 2;
+                printf("CO2 650");
             }
         }
     }
