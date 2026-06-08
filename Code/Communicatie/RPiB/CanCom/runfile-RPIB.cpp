@@ -78,7 +78,7 @@ int main()
     // client_controller_wemos_klimaat->logReceived(610, *klimaatfunctie);
 
     // Aanmaken van een klasse die een proces aanstuurd
-    ClimateSystem climate_system(client_controller_wemos_klimaat);
+    ClimateSystem climate_system(500, client_controller_wemos_klimaat);
 
     /* waar moet deze functie? Niet vergeten? Werkte nog niet
         std::vector<uint8_t> d1 = {20};

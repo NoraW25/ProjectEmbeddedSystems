@@ -14,6 +14,8 @@
 #include "CommunicationController.h"
 #include "Connection.h"
 
+#include "LightingSystem.h"
+
 #include "SocketGeneraliser/CanGeneraliser.h"
 #include "SocketGeneraliser/ServerGeneraliser.h"
 
