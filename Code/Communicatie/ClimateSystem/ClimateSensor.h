@@ -4,7 +4,7 @@
 
 #include <memory>
 #include <vector>
-#include "Code\Communicatie\RPiB\CanCom\CommunicationController.h"
+#include "..\RPiB\CanCom\CommunicationController.h"
 #include "ClimateSystem.h"
 
 class ClimateSystem;
