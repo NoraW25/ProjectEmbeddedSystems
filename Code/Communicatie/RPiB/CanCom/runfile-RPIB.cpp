@@ -16,7 +16,7 @@
 
 #include "SocketGeneraliser/ClientGeneraliser.h"
 
-#include "../../ClimateSystem/ClimateSystem.h"
+#include "../ClimateSystem/ClimateSystem.h"
 
 //Tijdelijke definitie voor client controllers, zodat deze in de testfuncties gebruikt kunnen worden
 Communication::CommunicationController* client_controller_rpia;
