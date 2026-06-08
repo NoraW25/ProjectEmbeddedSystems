@@ -63,15 +63,16 @@ bool MessageTranslator::parseData(const std::string& message, std::vector<uint8_
     while(next != std::string::npos && i < 8){
         printf("In while\n");
         try{
-            int value = std::stoi(message.substr(position, next-position));
-            result.push_back((uint8_t) value);
-
+            if (next-1 != position){
+                int value = std::stoi(message.substr(position, next-position));
+                result.push_back((uint8_t) value);                
+            }
             position = next + 1;
-            next = message.find(";", position);
+            next = message.find(";", position);          
         }catch(...){
             return false;
         }
-        
+
         i++;    
     }
 
