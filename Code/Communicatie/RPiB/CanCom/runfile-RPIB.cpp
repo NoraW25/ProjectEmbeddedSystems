@@ -39,14 +39,7 @@ void basicTestFunction() {
     printf("updated\n");
 }
 
-void transmitFunc() {
-    std::vector<uint8_t> begin_data;
-    begin_data.push_back(45);
-    begin_data.push_back(85);
-    printf("Transmitfunc: %d\n", begin_data.size());
-    //client_controller_rpia->transmitData(0x10, begin_data);
-    printf("transmit\n");
-}
+
 
 
 int main()
@@ -67,13 +60,13 @@ int main()
 
 
     // Het uitvoeren van taken en functies op bepaalde momenten
-    client_controller_wemos->logReceived(610, *klimaatfunctie);
+    //client_controller_wemos->logReceived(610, *klimaatfunctie);
 
     // Aanmaken van een klasse die een proces aanstuurd
     ClimateSystem climate_system(client_controller_wemos);
 
 
-    runService->createTask(*transmitFunc, 1000);
+    runService->createTask(*transmitFunc, 640);
 
     while (1) {
         // printf("updating\n");
@@ -103,6 +96,15 @@ int main()
     testData3.push_back(0xFF);
     receiver.setBuffer(300, testData3);
     scheduler.update();*/
+}
+
+void transmitFunc() {
+    std::vector<uint8_t> begin_data;
+    begin_data.push_back(45);
+    begin_data.push_back(85);
+    printf("Transmitfunc: %d\n", begin_data.size());
+    client_controller_wemos->transmitData(0x10, begin_data);
+    printf("transmit\n");
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
