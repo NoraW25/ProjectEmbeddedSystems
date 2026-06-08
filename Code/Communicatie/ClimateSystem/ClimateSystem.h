@@ -10,7 +10,7 @@
 
 #include "ClimateSensor.h"
 #include "ClimateActuatorPWM.h"
-#include "..\RPiB\CanCom\CommunicationController.h"
+#include "Communicatie/RPiB/CanCom/CommunicationController.h"
 
 class Communication::CommunicationController;
 
