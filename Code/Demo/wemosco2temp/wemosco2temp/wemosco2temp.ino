@@ -70,13 +70,13 @@ void loop() {
     double temperature = sensortemp.getTemperature();
     double humidity = sensortemp.getHumidity();
     double co2 = sgp.eCO2;
-      Serial.print("co2: ");
+      Serial.println("co2: ");
       Serial.println(sgp.eCO2);
 
     uint64_t raw_temperature;
     uint64_t raw_humidity;
     uint64_t raw_co2;
-    std::memcpy(&raw_co2, &temperature, sizeof(double));
+    std::memcpy(&raw_co2, &co2, sizeof(double));
     std::memcpy(&raw_temperature, &temperature, sizeof(double));
     std::memcpy(&raw_humidity, &humidity, sizeof(double));
 
@@ -84,7 +84,7 @@ void loop() {
     for (int i = 0; i < 8; i++) {
       data_to_send_temperature.push_back((raw_temperature >> (8 * i)) & 0xFF);
       data_to_send_humidity.push_back((raw_humidity >> (8 * i)) & 0xFF);
-      data_to_send_co2.push_back((raw_humidity >> (8 * i)) & 0xFF); 
+      data_to_send_co2.push_back((raw_co2 >> (8 * i)) & 0xFF); 
     }
     String message_temperature = String(translator->translate(610, data_to_send_temperature).c_str());  // Deze addressen moeten hetzelfde zijn als op de RPi in het klimaatproces, 610 voor temperatuursensor1
     String message_humidity = String(translator->translate(630, data_to_send_humidity).c_str());

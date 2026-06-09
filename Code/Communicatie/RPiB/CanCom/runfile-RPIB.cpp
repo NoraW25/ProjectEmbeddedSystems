@@ -63,7 +63,7 @@ int main()
     ClientGeneraliser generaliser_client_rpia("145.52.127.222", false);
     ClientGeneraliser generaliser_client_wemos_klimaat("145.52.127.246", true);
     ClientGeneraliser generaliser_client_wemos_display("145.52.127.206", true);
-
+    ClientGeneraliser generaliser_client_wemos_hartslag("145.52.127.227", true);
     // De controllers aanmaken en binden aan de controller
     client_controller_rpia = new Communication::CommunicationController(&generaliser_client_rpia, &generaliser_client_rpia);
 
@@ -75,6 +75,10 @@ int main()
         std::make_shared<Communication::CommunicationController>(
             &generaliser_client_wemos_display,
             &generaliser_client_wemos_display);
+    std::shared_ptr<Communication::CommunicationController> client_controller_wemos_hartslag =
+        std::make_shared<Communication::CommunicationController>(
+            &generaliser_client_wemos_hartslag,
+            &generaliser_client_wemos_hartslag);
     // Het uitvoeren van taken en functies op bepaalde momenten
     // client_controller_wemos_klimaat->logReceived(610, *klimaatfunctie);
 
