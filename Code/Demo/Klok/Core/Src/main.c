@@ -40,6 +40,7 @@
 #define TIJDSDUUR2 150
 #define TIJDSDUUR3 200
 
+
 //E (150)->A (150)->Fis(100)->Stilte(200)
 
 /* USER CODE END PD */
@@ -172,6 +173,7 @@ int main(void)
 		//tm1637DisplayDecimal(displayValue, showColon);
 
 		//showColon = !showColon;
+    //comment
 
 		if (datacheck) {
 			datacheck = 0;
