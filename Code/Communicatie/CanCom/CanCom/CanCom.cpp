@@ -95,7 +95,7 @@ int main()
     server_controller->logReceived(16, *testFunction2);
     runService->createTask(*testFunction, 1000);
 
-    LightingSystem lighting_system(can_controller);
+    LightingSystem lighting_system(500, can_controller);
 
 
     // runService->createTask(*basicTestFunction, 5000);

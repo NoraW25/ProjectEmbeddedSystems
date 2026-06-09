@@ -45,7 +45,7 @@ void LightingSystem::changeColour(std::vector<uint8_t> data){
     sendNewColour();
 }
 
-void LightingSystem::toggleLight(std::vector<uint8_t> data){
+void LightingSystem::toggleLight(std::vector<uint8_t> d){
     std::vector<uint8_t> data;
     data.push_back(0);
 
