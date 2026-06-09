@@ -56,7 +56,7 @@ void loop() {
   Serial.println(WiFi.localIP());
   if (server.heeftOntvangen()) {
 
-    //Serial.println("Hello in ontvangen");
+    Serial.println("Hello in ontvangen");
     String received_message = server.ontvangst();
     int address = 0;
     std::vector<uint8_t> data;
