@@ -16,8 +16,8 @@
 #define lamp4 12
 #define lamp5 13
 #define lamp6 15
-#define lamp7 A0  //TX
-#define lamp8 A0  //RX
+#define lamp7 TX
+#define lamp8 RX
 #define lamp9 16
 
 const char* ssid = "NSELab";
@@ -28,19 +28,18 @@ MessageTranslator* translator = MessageTranslator::instance();
 
 //lampen
 int lamps[9] = {
-  lamp1, lamp2, lamp3, lamp4, lamp5,
-  lamp6, lamp7, lamp8, lamp9
+  lamp9, lamp8, lamp7, lamp6, lamp5,
+  lamp4, lamp3, lamp2, lamp1
 };
 unsigned long delaytime = 1000;
 TM1637Display segdisplay(TM_CLK, TM_DIO);
 
 void setup() {
-  Serial.begin(115200);
+  //Serial.begin(115200);
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
-    Serial.print(".");
   }
   server.begin();
 
@@ -53,10 +52,10 @@ void setup() {
 
 
 void loop() {
-  Serial.println(WiFi.localIP());
+  //Serial.println(WiFi.localIP());
   if (server.heeftOntvangen()) {
 
-    Serial.println("Hello in ontvangen");
+    //Serial.println("Hello in ontvangen");
     String received_message = server.ontvangst();
     int address = 0;
     std::vector<uint8_t> data;
@@ -80,7 +79,7 @@ void loop() {
         value |= (uint32_t)data[i] << (8 * i);
       }
 
-      if (!(value > 0)) {
+      if (value > 0) {
         for (int i = 0; i < value; i++) {
           digitalWrite(lamps[i], HIGH);
         }
