@@ -19,7 +19,7 @@ public:
     virtual void changeColour(std::vector<uint8_t>);
     virtual void toggleLight(std::vector<uint8_t>);
     virtual void sendNewColour();
-    virtual void addLamp()=0;
+    // virtual void addLamp();
 
 private:
     std::map<std::string, int>::iterator current_colour;
