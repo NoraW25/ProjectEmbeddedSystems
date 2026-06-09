@@ -93,7 +93,7 @@ int main()
     //BIND FUNCTIES HIERONDER
     //canController->logReceived(0x310, *testFunction);
     server_controller->logReceived(16, *testFunction2);
-    runService->createTask(*testFunction, 1000);
+    // runService->createTask(*testFunction, 1000);
 
     LightingSystem lighting_system(500, can_controller);
 
