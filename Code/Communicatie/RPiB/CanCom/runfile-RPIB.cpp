@@ -17,6 +17,7 @@
 #include "SocketGeneraliser/ClientGeneraliser.h"
 
 #include "ClimateSystem.h"
+#include "HeartrateDisplayer.h"
 
 // Tijdelijke definitie voor client controllers, zodat deze in de testfuncties gebruikt kunnen worden
 Communication::CommunicationController *client_controller_rpia;
@@ -79,6 +80,8 @@ int main()
         std::make_shared<Communication::CommunicationController>(
             &generaliser_client_wemos_hartslag,
             &generaliser_client_wemos_hartslag);
+    std::shared_ptr<HeartrateDisplayer> heartrateDisplayer = std::make_shared<HeartrateDisplayer>(
+        client_controller_wemos_display, client_controller_wemos_hartslag);
     // Het uitvoeren van taken en functies op bepaalde momenten
     // client_controller_wemos_klimaat->logReceived(610, *klimaatfunctie);
 
