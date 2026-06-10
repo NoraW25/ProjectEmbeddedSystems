@@ -95,7 +95,7 @@ int main()
     client_controller_wemos_display->transmitData(710, d1);
     sleep(1);
     */
-    std::vector<uint8_t> d2 = {5};
+    std::vector<uint8_t> d2 = {6};
     client_controller_wemos_display->transmitData(720, d2);
     runService->createTask(*transmitFunc, 640);
 

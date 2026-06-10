@@ -20,7 +20,7 @@ void HartslagSensor::update() {
     if (checkForBeat(irValue)) {
         long delta = millis() - lastBeat;
         lastBeat = millis();
-
+        
         bpm = 60 / (delta / 1000.0);
 
         if (bpm > 20 && bpm < 255) {

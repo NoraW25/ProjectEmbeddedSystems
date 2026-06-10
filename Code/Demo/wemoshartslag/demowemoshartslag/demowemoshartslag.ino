@@ -46,7 +46,7 @@ void loop() {
 
 
   if (millis() - lastSend >= 1000) {
-    Serial.printf("IR=%ld, BPM=%.1f, Avg BPM=%d\n", ir, bpm, avg);
+    Serial.printf("IR=%ld, BPM=%.1f, Avg BPM=%.1f\n", ir, bpm, avg);
     Serial.println(WiFi.localIP());
     lastSend = millis();
     std::vector<uint8_t> data_to_send_bpm_avg;
