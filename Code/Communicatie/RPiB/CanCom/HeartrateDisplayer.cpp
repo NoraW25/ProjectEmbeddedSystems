@@ -24,13 +24,16 @@ HeartrateDisplayer::~HeartrateDisplayer()
 
 void HeartrateDisplayer::handleHeart(std::vector<uint8_t> data)
 {
+    std::vector<uint8_t> fixed(8, 0);
 
-    printRawBytes(data);
+    for (size_t i = 0; i < data.size() && i < 8; i++)
+    {
+        fixed[i] = data[i];
+    }
 
-    if (!displayController)
-        return;
+    printRawBytes(fixed);
 
-    displayController->transmitData(710, data);
+    displayController->transmitData(710, fixed);
 }
 
 void HeartrateDisplayer::printRawBytes(const std::vector<uint8_t> &data)
