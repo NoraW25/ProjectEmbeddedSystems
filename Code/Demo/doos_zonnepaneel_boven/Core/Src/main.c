@@ -40,9 +40,9 @@
 #define GPIOA_REG 0x12
 #define GPIOB_REG 0x13
 
-#define CAN_ID_TEMPERATURE   0xD2
-#define CAN_ID_CO2           0xDC
-#define CAN_ID_HUMIDITY    230 //nog aanpassen
+//#define CAN_ID_TEMPERATURE   210
+//#define CAN_ID_CO2           220
+//#define CAN_ID_HUMIDITY    230 //nog aanpassen
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -137,7 +137,7 @@ int main(void)
   {
 	  Error_Handler();
   }
-
+  HAL_UART_Transmit(&huart2, "voor while", 10, HAL_MAX_DELAY);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -162,20 +162,19 @@ int main(void)
 
 	  if (datacheck){
 		  datacheck = 0;
-		  if (rxHeader.StdId == CAN_ID_TEMPERATURE) {//Temperatuur
+		  if (rxHeader.StdId == 210) {//Temperatuur
 			  float temp;
 			  memcpy(&temp, rxData, 4);//zet de eerste 4 ontvangen bytes om naar een float
 			  LEDBar_Temp(temp);
 		  }
-		  else if(rxHeader.StdId == CAN_ID_CO2){//CO2
+		  else if(rxHeader.StdId == 220){//CO2
 			  int co2 = (rxData[0] << 8) | rxData[1];//Co2 data past niet in 1 byte.
 			  LEDBar_CO2(co2);
 		  }
-		  else if(rxHeader.StdId == CAN_ID_HUMIDITY){//Humidity
+		  else if(rxHeader.StdId == 230){//Humidity
 			  int humidity = rxData[0];
 			  char msg[40];
-			  sprintf(msg, "Humidity ontvangen: %d\r\n", humidity);
-			  HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), 100);
+			  HAL_UART_Transmit(&huart2, "humidity ontvangen", 19, HAL_MAX_DELAY);
 			  LEDBar_Humidity(humidity);
 		  }
 	  }
@@ -405,8 +404,9 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
 		Error_Handler();
 		//leest ontvangen data uit.
 	}
-	if ((rxHeader.StdId == CAN_ID_TEMPERATURE && rxHeader.RTR == 0)||(rxHeader.StdId == CAN_ID_CO2 && rxHeader.RTR == 0)
-			||(rxHeader.StdId == CAN_ID_HUMIDITY && rxHeader.RTR == 0)) {
+	if (rxHeader.StdId == 210 ||rxHeader.StdId == 220
+			||rxHeader.StdId == 230) {
+		HAL_UART_Transmit(&huart2, "geaccepteerd", 13, HAL_MAX_DELAY);
 		//checkt de message ID.
 		datacheck = 1;
 	}

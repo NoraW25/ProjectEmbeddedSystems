@@ -168,34 +168,44 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	while (1) {
-		displayValue = 6660;
-		tm1637DisplayDecimal(displayValue, showColon);
-		showColon = !showColon;
-		HAL_Delay(1000);
+		// = 6660;
+		//tm1637DisplayDecimal(displayValue, showColon);
+		//showColon = !showColon;
+		HAL_Delay(500);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		//RTC_TimeTypeDef nowTime;
-		//RTC_DateTypeDef nowDate;
+		HAL_UART_Transmit(&huart2, "test1", 10, HAL_MAX_DELAY);
+		RTC_TimeTypeDef nowTime;
+		RTC_DateTypeDef nowDate;
 
-		//HAL_RTC_GetTime(&hrtc, &nowTime, RTC_FORMAT_BIN);
-		//HAL_RTC_GetDate(&hrtc, &nowDate, RTC_FORMAT_BIN);
+		HAL_RTC_GetTime(&hrtc, &nowTime, RTC_FORMAT_BIN);
+		HAL_RTC_GetDate(&hrtc, &nowDate, RTC_FORMAT_BIN);
 
-		//int hours = nowTime.Hours;
-		//int minutes = nowTime.Minutes;
-		//displayValue = hours * 100 + minutes;
-		//int displayValue = hours * 100 + minutes;
-		//int displayValue = 1234;
-		//tm1637DisplayDecimal(displayValue, showColon);
+		int hours = nowTime.Hours;
+		int minutes = nowTime.Minutes;
+		displayValue = hours * 100 + minutes;
+		int displayValue = hours * 100 + minutes;
+		HAL_UART_Transmit(&huart2, displayValue, 18, HAL_MAX_DELAY);
+		tm1637DisplayDecimal(displayValue, showColon);
 
-		//showColon = !showColon;
+		showColon = !showColon;
     //comment
 
 		if (datacheck) {
 			datacheck = 0;
 			if (rxHeader.StdId == 410) {//Klok
-				//displayValue = rxData[0]*100+rxData[1];
-			} else {
+				RTC_TimeTypeDef setTime = {0};
+
+				setTime.Hours   = rxData[0];
+				setTime.Minutes = rxData[1];
+				setTime.Seconds = 0;
+
+				if (HAL_RTC_SetTime(&hrtc, &setTime, RTC_FORMAT_BIN) != HAL_OK)
+				{
+				    Error_Handler();
+				}
+			} else {//buzzer
 				  speelNoot(NOTE_E,TIJDSDUUR2);
 				  HAL_Delay(TIJDSDUUR3);
 				  speelNoot(NOTE_A,TIJDSDUUR2);
