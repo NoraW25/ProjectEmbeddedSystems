@@ -21,8 +21,9 @@ Communication::CommunicationController* canController;
 Communication::CommunicationController* server_controller;
 
 
-void testFunction(std::vector<uint8_t> data) {
+void testFunction(/*std::vector<uint8_t> data*/) {
     printf("[TestFunction] received CAN data: \n");
+    std::vector<uint8_t> data;
 
     // printf("[TestFunction] Data (%zu bytes): ", data.size());
     // for (size_t i = 0; i < data.size(); ++i)
@@ -30,9 +31,33 @@ void testFunction(std::vector<uint8_t> data) {
     //     printf("%02X ", data[i]);
 
     // }
-    canController->transmitData(0x19A, data);
+    data.push_back(90);
+    canController->transmitData(0x30c, data);
+    sleep(5);
+    canController->transmitData(720, data);
+    sleep(5);
+    
+    canController->transmitData(730, data);
+    sleep(5);
+    
+    canController->transmitData(740, data);
+    sleep(5);
+    
+    canController->transmitData(750, data);
+    sleep(5);
+    
+    canController->transmitData(760, data);
+    sleep(5);
+    
+    canController->transmitData(770, data);
+    sleep(5);
+    
+    canController->transmitData(780, data);
+    sleep(5);
+
     printf("\n");
 }
+
 
 void testFunction2(std::vector<uint8_t> data) {
     printf("[TestFunction] Data (%zu bytes) socket: ", data.size());
@@ -64,8 +89,9 @@ int main()
     server_controller = new Communication::CommunicationController(& generaliser_server, & generaliser_server);
 
     //BIND FUNCTIES HIERONDER
-    canController->logReceived(0x310, *testFunction);
+    //canController->logReceived(0x310, *testFunction);
     server_controller->logReceived(16, *testFunction2);
+    runService->createTask(*testFunction, 1000);
 
 
     // runService->createTask(*basicTestFunction, 5000);

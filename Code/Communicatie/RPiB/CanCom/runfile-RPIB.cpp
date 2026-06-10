@@ -16,52 +16,93 @@
 
 #include "SocketGeneraliser/ClientGeneraliser.h"
 
-//Communication::CommunicationController* canController;
-Communication::CommunicationController* client_controller;
+#include "ClimateSystem.h"
+#include "HeartrateDisplayer.h"
 
+// Tijdelijke definitie voor client controllers, zodat deze in de testfuncties gebruikt kunnen worden
+Communication::CommunicationController *client_controller_rpia;
+// std::shared_ptr<Communication::CommunicationController> client_controller_wemos_klimaat;
 
-void testFunction2(std::vector<uint8_t> data) {
-    //printf("[TestFunction] Data (%zu bytes): ", data.size());
+// Aansturing van het klimaatsysteem
+void klimaatfunctie(std::vector<uint8_t> data)
+{
+    // Print eerst de data
     for (size_t i = 0; i < data.size(); ++i)
     {
         printf("%02X ", data[i]);
-
     }
-    client_controller->transmitData(0x10, data);
+
+    // Verzend de data terug naar
+    // client_controller_rpia->transmitData(0x10, data);
 }
 
-void basicTestFunction() {
+void basicTestFunction()
+{
     printf("updated\n");
 }
 
-void transmitFunc() {
+void transmitFunc()
+{
     std::vector<uint8_t> begin_data;
     begin_data.push_back(45);
     begin_data.push_back(85);
+    begin_data.push_back('\n');
     printf("Transmitfunc: %d\n", begin_data.size());
-    client_controller->transmitData(0x10, begin_data);
+    // client_controller_wemos_klimaat->transmitData(640, begin_data);
+    // client_controller_wemos_klimaat->transmitData(640, '\n');
     printf("transmit\n");
-}
-
-void calculate(std::vector<uint8_t>) {
-
 }
 
 int main()
 {
+    // Aanmaken van de planner
     Scheduling::Scheduler scheduler;
-    Scheduling::RunServiceController* runService = Scheduling::RunServiceController::getInstance(&scheduler);
+    Scheduling::RunServiceController *runService = Scheduling::RunServiceController::getInstance(&scheduler);
     scheduler.initEvent();
 
-    ClientGeneraliser generaliser_client("145.52.127.222");
-    client_controller = new Communication::CommunicationController(& generaliser_client, & generaliser_client);
+    // De sockets aanmaken
+    ClientGeneraliser generaliser_client_rpia("145.52.127.222", false);
+    ClientGeneraliser generaliser_client_wemos_klimaat("145.52.127.246", true);
+    ClientGeneraliser generaliser_client_wemos_display("145.52.127.206", true);
+    ClientGeneraliser generaliser_client_wemos_hartslag("145.52.127.227", true);
+    // De controllers aanmaken en binden aan de controller
+    client_controller_rpia = new Communication::CommunicationController(&generaliser_client_rpia, &generaliser_client_rpia);
 
-    //client_controller->logReceived(0x10, *testFunction2);
+    std::shared_ptr<Communication::CommunicationController> client_controller_wemos_klimaat =
+        std::make_shared<Communication::CommunicationController>(
+            &generaliser_client_wemos_klimaat,
+            &generaliser_client_wemos_klimaat);
+    std::shared_ptr<Communication::CommunicationController> client_controller_wemos_display =
+        std::make_shared<Communication::CommunicationController>(
+            &generaliser_client_wemos_display,
+            &generaliser_client_wemos_display);
+    std::shared_ptr<Communication::CommunicationController> client_controller_wemos_hartslag =
+        std::make_shared<Communication::CommunicationController>(
+            &generaliser_client_wemos_hartslag,
+            &generaliser_client_wemos_hartslag);
+    std::shared_ptr<HeartrateDisplayer> heartrateDisplayer = std::make_shared<HeartrateDisplayer>(
+        client_controller_wemos_display, client_controller_wemos_hartslag);
+    // Het uitvoeren van taken en functies op bepaalde momenten
+    // client_controller_wemos_klimaat->logReceived(610, *klimaatfunctie);
 
-    runService->createTask(*transmitFunc, 1000);
+    // Aanmaken van een klasse die een proces aanstuurd
+    ClimateSystem climate_system(client_controller_wemos_klimaat);
+    /* waar moet deze functie? Niet vergeten? Werkte nog niet*/
+    sleep(1);
+    printf("sleep klaar\n");
+    /*
+    std::vector<uint8_t> d1 = {20};
+    client_controller_wemos_display->transmitData(710, d1);
+    sleep(1);
+    */
+    std::vector<uint8_t> d2 = {6};
+    client_controller_wemos_display->transmitData(720, d2);
+    runService->createTask(*transmitFunc, 640);
 
-    while (1) {
-        //printf("updating\n");
+    while (1)
+    {
+        // printf("updating\n");
+        // Kijken of er een nieuwe opdracht klaar staat om uitgevoerd te worden
         scheduler.update();
     }
 
@@ -92,7 +133,7 @@ int main()
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
-// Tips for Getting Started: 
+// Tips for Getting Started:
 //   1. Use the Solution Explorer window to add/manage files
 //   2. Use the Team Explorer window to connect to source control
 //   3. Use the Output window to see build output and other messages
