@@ -139,7 +139,7 @@ int main(void)
   HAL_UART_Transmit(&huart2, "Voor while", 10, HAL_MAX_DELAY);
 
 
-  	    header.StdId = 510;
+  	    header.StdId = 511;
   	    header.IDE = CAN_ID_STD;
   	    header.RTR = CAN_RTR_DATA;
   	    header.DLC = 2;
