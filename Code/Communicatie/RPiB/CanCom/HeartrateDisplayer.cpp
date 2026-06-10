@@ -25,5 +25,5 @@ void HeartrateDisplayer::handleHeart(std::vector<uint8_t> data)
 {
     if (!displayController)
         return;
-    displayController->transmitData(720, data);
+    displayController->transmitData(710, data);
 }
