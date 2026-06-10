@@ -25,33 +25,10 @@ HeartrateDisplayer::~HeartrateDisplayer()
 void HeartrateDisplayer::handleHeart(std::vector<uint8_t> data)
 {
     std::vector<uint8_t> fixed(8, 0);
-
+    size_t offset = 8 - data.size();
     for (size_t i = 0; i < data.size() && i < 8; i++)
     {
-        fixed[i] = data[i];
+        fixed[offset + i] = data[i];
     }
-
-    printRawBytes(fixed);
-
     displayController->transmitData(710, fixed);
-}
-
-void HeartrateDisplayer::printRawBytes(const std::vector<uint8_t> &data)
-{
-    printf("RAW DATA (%zu bytes): ", data.size());
-
-    for (size_t i = 0; i < data.size(); i++)
-    {
-        printf("%02X ", data[i]);
-    }
-
-    printf("\n");
-
-    printf("AS DEC: ");
-    for (size_t i = 0; i < data.size(); i++)
-    {
-        printf("%u ", data[i]);
-    }
-
-    printf("\n");
 }
