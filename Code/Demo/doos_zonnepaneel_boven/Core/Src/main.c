@@ -42,7 +42,7 @@
 
 #define CAN_ID_TEMPERATURE   0xD2
 #define CAN_ID_CO2           0xDC
-#define CAN_ID_HUMIDITY    0xE6
+#define CAN_ID_HUMIDITY    230 //nog aanpassen
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -51,11 +51,11 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-CAN_HandleTypeDef hcan1;//struct met alle instellingen voor de CANBUS
+CAN_HandleTypeDef hcan1;
 
-I2C_HandleTypeDef hi2c1;//struct met alle instellingen voor de i2c
+I2C_HandleTypeDef hi2c1;
 
-UART_HandleTypeDef huart2; //struct voor alle instellingen voor de huart.
+UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 CAN_RxHeaderTypeDef rxHeader;//struct met alle instellingen voor de canbus rx header
@@ -173,6 +173,9 @@ int main(void)
 		  }
 		  else if(rxHeader.StdId == CAN_ID_HUMIDITY){//Humidity
 			  int humidity = rxData[0];
+			  char msg[40];
+			  sprintf(msg, "Humidity ontvangen: %d\r\n", humidity);
+			  HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), 100);
 			  LEDBar_Humidity(humidity);
 		  }
 	  }
@@ -259,7 +262,7 @@ static void MX_CAN1_Init(void)
 
   /* USER CODE END CAN1_Init 1 */
   hcan1.Instance = CAN1;
-  hcan1.Init.Prescaler = 4;
+  hcan1.Init.Prescaler = 10;
   hcan1.Init.Mode = CAN_MODE_NORMAL;
   hcan1.Init.SyncJumpWidth = CAN_SJW_1TQ;
   hcan1.Init.TimeSeg1 = CAN_BS1_13TQ;
