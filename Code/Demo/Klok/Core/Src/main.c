@@ -22,6 +22,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stm32_tm1637.h"
+#include <stdio.h>
+#include <string.h>
 
 /* USER CODE END Includes */
 
@@ -128,8 +130,8 @@ int main(void)
   MX_CAN1_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
-	tm1637Init();
-	tm1637SetBrightness(8);
+	//tm1637Init(); //DO NOT UNCOMMENT, THIS WILL BREAK THE CLOCK
+	//tm1637SetBrightness(8); //DO NOT THINK ABOUT IT
 
 	HAL_TIM_Base_Start_IT(&htim6);
 
@@ -168,34 +170,46 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	while (1) {
-		displayValue = 6660;
-		tm1637DisplayDecimal(displayValue, showColon);
-		showColon = !showColon;
-		HAL_Delay(1000);
+		// = 6660;
+		//tm1637DisplayDecimal(displayValue, showColon);
+		//showColon = !showColon;
+		HAL_Delay(500);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		//RTC_TimeTypeDef nowTime;
-		//RTC_DateTypeDef nowDate;
+		RTC_TimeTypeDef nowTime;
+		RTC_DateTypeDef nowDate;
 
-		//HAL_RTC_GetTime(&hrtc, &nowTime, RTC_FORMAT_BIN);
-		//HAL_RTC_GetDate(&hrtc, &nowDate, RTC_FORMAT_BIN);
+		HAL_RTC_GetTime(&hrtc, &nowTime, RTC_FORMAT_BIN);
+		HAL_RTC_GetDate(&hrtc, &nowDate, RTC_FORMAT_BIN);
 
-		//int hours = nowTime.Hours;
-		//int minutes = nowTime.Minutes;
-		//displayValue = hours * 100 + minutes;
-		//int displayValue = hours * 100 + minutes;
-		//int displayValue = 1234;
-		//tm1637DisplayDecimal(displayValue, showColon);
+		int hours = nowTime.Hours;
+		int minutes = nowTime.Minutes;
+		displayValue = hours * 100 + minutes;
 
-		//showColon = !showColon;
+		char msg[20] = "";
+		sprintf(msg, "%d\r\n", displayValue);
+
+		HAL_UART_Transmit(&huart2, msg, strlen(msg), HAL_MAX_DELAY);
+		tm1637DisplayDecimal(displayValue, showColon);
+
+		showColon = !showColon;
     //comment
 
 		if (datacheck) {
 			datacheck = 0;
 			if (rxHeader.StdId == 410) {//Klok
-				//displayValue = rxData[0]*100+rxData[1];
-			} else {
+				RTC_TimeTypeDef setTime = {0};
+
+				setTime.Hours   = rxData[0];
+				setTime.Minutes = rxData[1];
+				setTime.Seconds = 0;
+
+				if (HAL_RTC_SetTime(&hrtc, &setTime, RTC_FORMAT_BIN) != HAL_OK)
+				{
+				    Error_Handler();
+				}
+			} else {//buzzer
 				  speelNoot(NOTE_E,TIJDSDUUR2);
 				  HAL_Delay(TIJDSDUUR3);
 				  speelNoot(NOTE_A,TIJDSDUUR2);
