@@ -15,7 +15,7 @@ const char* ssid = "NSELab";
 const char* password = "NSELabWiFi";
 
 unsigned long last_time_send = 0;
-const unsigned long send_interval = 3000;
+const unsigned long send_interval = 8000;
 
 void setup() {
   Serial.begin(115200);
@@ -98,8 +98,11 @@ void loop() {
     //Serial.println("co2: ");
     //Serial.println(message_co2);
     server.versturen(message_co2);
+    delay(100);
     server.versturen(message_temperature);
+    delay(100);
     server.versturen(message_humidity);
+    delay(100);
   }
 
   if (server.heeftOntvangen()) {
