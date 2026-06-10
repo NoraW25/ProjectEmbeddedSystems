@@ -48,11 +48,13 @@ UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 CAN_RxHeaderTypeDef rxHeader;
-//CAN_TxHeaderTypeDef txHeader;
+CAN_TxHeaderTypeDef header; //tx
 uint8_t rxData[8];
 int datacheck = 0;
 uint32_t txMailbox;
 uint8_t txData[8];
+uint32_t mailbox;
+uint8_t data[2];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -136,17 +138,13 @@ int main(void)
 
   HAL_UART_Transmit(&huart2, "Voor while", 10, HAL_MAX_DELAY);
 
-  //	  CAN_TxHeaderTypeDef header;
-  //	  uint32_t mailbox;
-  //	    header.StdId = 500;
-  //	    header.IDE = CAN_ID_STD;
-  //	    header.RTR = CAN_RTR_DATA;
-  //	    header.DLC = 2;
-  //	  char txtBuffer[70] = { 0 };
-  //	  HAL_Delay(4000);
-  //
-  //
-  //	  uint8_t data[2] = {0x11, 0x12};
+
+  	    header.StdId = 510;
+  	    header.IDE = CAN_ID_STD;
+  	    header.RTR = CAN_RTR_DATA;
+  	    header.DLC = 2;
+  	  data[0] = 0x11;
+  	  data[1] = 0x12;
 
 
   /* USER CODE END 2 */
@@ -238,7 +236,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_MSI;
   RCC_OscInitStruct.PLL.PLLM = 1;
-  RCC_OscInitStruct.PLL.PLLN = 16;
+  RCC_OscInitStruct.PLL.PLLN = 40;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV7;
   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
@@ -256,7 +254,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
   {
     Error_Handler();
   }
@@ -282,13 +280,13 @@ static void MX_CAN1_Init(void)
 
   /* USER CODE END CAN1_Init 1 */
   hcan1.Instance = CAN1;
-  hcan1.Init.Prescaler = 4;
+  hcan1.Init.Prescaler = 10;
   hcan1.Init.Mode = CAN_MODE_NORMAL;
   hcan1.Init.SyncJumpWidth = CAN_SJW_1TQ;
   hcan1.Init.TimeSeg1 = CAN_BS1_13TQ;
   hcan1.Init.TimeSeg2 = CAN_BS2_2TQ;
   hcan1.Init.TimeTriggeredMode = DISABLE;
-  hcan1.Init.AutoBusOff = ENABLE;
+  hcan1.Init.AutoBusOff = DISABLE;
   hcan1.Init.AutoWakeUp = DISABLE;
   hcan1.Init.AutoRetransmission = ENABLE;
   hcan1.Init.ReceiveFifoLocked = DISABLE;
@@ -546,14 +544,16 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)//interrupt voor de button
         {
             lastPress = now;
             HAL_UART_Transmit(&huart2, "Button ingedrukt\r\n", 18, HAL_MAX_DELAY);
-            //	    if (HAL_CAN_AddTxMessage(&hcan1, &header, data, &mailbox) != HAL_OK){
-            //	    	Error_Handler ();
-            //	    	HAL_UART_Transmit(&huart2, "error", 5 , HAL_MAX_DELAY);
-            //	    }
-            //	    else {
-            //	    	char msg[] = "CAN verstuurd!\n\r";
-            //	    	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
-            //	    }
+            if (HAL_CAN_GetTxMailboxesFreeLevel(&hcan1) > 0) {
+                if (HAL_CAN_AddTxMessage(&hcan1, &header, data, &mailbox) != HAL_OK) {
+                    Error_Handler();
+                } else {
+                    char msg[] = "CAN verstuurd!\r\n";
+                    HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+                }
+            } else {
+                HAL_UART_Transmit(&huart2, "Mailbox vol!\r\n", 14, HAL_MAX_DELAY);
+            }
         }
     }
 }
