@@ -68,34 +68,63 @@ bool MessageTranslator::parseData(const std::string &message, std::vector<uint8_
 {
     std::vector<uint8_t> result;
 
-    size_t position = message.find(key_data) + key_data.length();
-    size_t next = message.find(";", position);
-
-    int i = 0;
-    while (next != std::string::npos && i < 8)
+    size_t position = message.find(key_data);
+    if (position == std::string::npos)
     {
-        // printf("In while\n");
-        try
+        return false;
+    }
+
+    position += key_data.length();
+
+    while (result.size() < 8)
+    {
+        size_t next = message.find(";", position);
+        if (next == std::string::npos)
         {
-            if (next - 1 != position)
+            if (position >= message.size())
             {
-                int value = std::stoi(message.substr(position, next - position));
+                break;
+            }
+
+            std::string token = message.substr(position);
+            if (!token.empty())
+            {
+                try
+                {
+                    int value = std::stoi(token);
+                    result.push_back((uint8_t)value);
+                }
+                catch (...)
+                {
+                    return false;
+                }
+            }
+            break;
+        }
+
+        if (next > position)
+        {
+            std::string token = message.substr(position, next - position);
+            try
+            {
+                int value = std::stoi(token);
                 result.push_back((uint8_t)value);
             }
-            position = next + 1;
-            next = message.find(";", position);
-        }
-        catch (...)
-        {
-            printf("Error bij verwerking");
-            return false;
+            catch (...)
+            {
+                return false;
+            }
         }
 
-        i++;
+        position = next + 1;
+    }
+
+    if (result.size() != 8)
+    {
+        return false;
     }
 
     *data = result;
-
     return true;
 }
 
