@@ -1,6 +1,7 @@
 #include "HeartrateDisplayer.h"
 #include "CommunicationController.h"
 #include "Connection.h"
+#include <cstdio>
 
 HeartrateDisplayer::HeartrateDisplayer(std::shared_ptr<Communication::CommunicationController> displayCtrl,
                                        std::shared_ptr<Communication::CommunicationController> hartslagCtrl)
