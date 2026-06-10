@@ -22,6 +22,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stm32_tm1637.h"
+#include <stdio.h>
+#include <string.h>
 
 /* USER CODE END Includes */
 
@@ -128,8 +130,8 @@ int main(void)
   MX_CAN1_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
-	tm1637Init();
-	tm1637SetBrightness(8);
+	//tm1637Init(); //DO NOT UNCOMMENT, THIS WILL BREAK THE CLOCK
+	//tm1637SetBrightness(8); //DO NOT THINK ABOUT IT
 
 	HAL_TIM_Base_Start_IT(&htim6);
 
@@ -175,7 +177,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		HAL_UART_Transmit(&huart2, "test1", 10, HAL_MAX_DELAY);
 		RTC_TimeTypeDef nowTime;
 		RTC_DateTypeDef nowDate;
 
@@ -185,8 +186,11 @@ int main(void)
 		int hours = nowTime.Hours;
 		int minutes = nowTime.Minutes;
 		displayValue = hours * 100 + minutes;
-		int displayValue = hours * 100 + minutes;
-		HAL_UART_Transmit(&huart2, displayValue, 18, HAL_MAX_DELAY);
+
+		char msg[20] = "";
+		sprintf(msg, "%d\r\n", displayValue);
+
+		HAL_UART_Transmit(&huart2, msg, strlen(msg), HAL_MAX_DELAY);
 		tm1637DisplayDecimal(displayValue, showColon);
 
 		showColon = !showColon;
