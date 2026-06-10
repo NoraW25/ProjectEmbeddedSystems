@@ -102,17 +102,6 @@ void loop() {
     server.versturen(message_humidity);
   }
 
-
-
-
-
-
-
-
-
-
-
-
   if (server.heeftOntvangen()) {
     //Serial.println("Hello in ontvangen");
     String received_message = server.ontvangst();

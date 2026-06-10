@@ -16,8 +16,8 @@
 #define lamp4 12
 #define lamp5 13
 #define lamp6 15
-#define lamp7 TX
-#define lamp8 RX
+#define lamp7 A0//TX
+#define lamp8 A0//RX
 #define lamp9 16
 
 const char* ssid = "NSELab";
@@ -35,7 +35,7 @@ unsigned long delaytime = 1000;
 TM1637Display segdisplay(TM_CLK, TM_DIO);
 
 void setup() {
-  //Serial.begin(115200);
+  Serial.begin(115200);
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
@@ -55,7 +55,7 @@ void loop() {
   //Serial.println(WiFi.localIP());
   if (server.heeftOntvangen()) {
 
-    //Serial.println("Hello in ontvangen");
+    Serial.println("Hello in ontvangen");
     String received_message = server.ontvangst();
     int address = 0;
     std::vector<uint8_t> data;
@@ -63,12 +63,18 @@ void loop() {
 
 
     if (address == 710) {
-      int value = 0;
-      for (size_t i = 0; i < data.size(); i++) {
-        value |= (uint32_t)data[i] << (8 * i);
-      }
+    uint64_t raw = 0;
+
+    for (size_t i = 0; i < data.size() && i < sizeof(raw); i++) {
+        raw |= (uint64_t)data[i] << (8 * i);
+    }
+
+    double value;
+    std::memcpy(&value, &raw, sizeof(double));
+
+    Serial.println(value);
       if (value < 10000) {
-        segdisplay.showNumberDec(value, false);
+        segdisplay.showNumberDec((int)value, false);
       } else {
         segdisplay.showNumberDec(0, true);
       }

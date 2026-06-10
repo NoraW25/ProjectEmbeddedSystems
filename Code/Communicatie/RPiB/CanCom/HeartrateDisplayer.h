@@ -27,4 +27,5 @@ private:
     Events::Connection *connection = nullptr;
 
     void handleHeart(std::vector<uint8_t> data);
+    void printRawBytes(const std::vector<uint8_t> &data);
 };
