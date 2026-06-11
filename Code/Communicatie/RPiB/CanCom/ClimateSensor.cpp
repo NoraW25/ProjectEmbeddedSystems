@@ -10,7 +10,27 @@ ClimateSensor::ClimateSensor(int address, std::shared_ptr<Communication::Communi
                                                                                                                                        value(20.0),
                                                                                                                                        status(0),
                                                                                                                                        controller(controller),
+                                                                                                                                       controller_rpia(nullptr),
                                                                                                                                        system(system)
+{
+
+    controller->logReceived(address,
+                            [this](std::vector<uint8_t> data)
+                            { setCurrentValue(data); }
+                            // Om this af te vangen en alleen het type void (*)(std::vector<uint8_t>) mee te geven ipv void (ClimateSensor::*)(std::vector<uint8_t>)
+    );
+}
+
+ClimateSensor::ClimateSensor(int address, 
+                            std::shared_ptr<Communication::CommunicationController> controller, 
+                            std::shared_ptr<Communication::CommunicationController> controller_rpia, 
+                            ClimateSystem *system):
+                                address(address),
+                                value(20.0),
+                                status(0),
+                                controller(controller),
+                                controller_rpia(controller_rpia),
+                                system(system)
 {
 
     controller->logReceived(address,

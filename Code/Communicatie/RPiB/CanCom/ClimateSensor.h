@@ -11,6 +11,7 @@ class ClimateSystem;
 class ClimateSensor {
 public:
     ClimateSensor(int, std::shared_ptr<Communication::CommunicationController>, ClimateSystem*);
+    ClimateSensor(int, std::shared_ptr<Communication::CommunicationController>, std::shared_ptr<Communication::CommunicationController>, ClimateSystem*);
 
     virtual ~ClimateSensor() = default;
     virtual void setCurrentValue(std::vector<uint8_t>);
@@ -23,6 +24,7 @@ private:
     double value;
     int status;
     std::shared_ptr<Communication::CommunicationController> controller;
+    std::shared_ptr<Communication::CommunicationController> controller_rpia;
     ClimateSystem* system;		
 };
 
