@@ -58,7 +58,7 @@ void LightingSystem::toggleLight(std::vector<uint8_t> d){
     std::vector<uint8_t> data;
     data.push_back(0);
 
-    if (lights_on){
+    if (!lights_on){
         lights_on = true;
         sendNewColour();
     } else {
