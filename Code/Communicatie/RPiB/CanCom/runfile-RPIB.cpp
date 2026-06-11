@@ -19,6 +19,8 @@
 #include "ClimateSystem.h"
 #include "HeartrateDisplayer.h"
 
+#define BUZZERADDRESS 420
+
 // Tijdelijke definitie voor client controllers, zodat deze in de testfuncties gebruikt kunnen worden
 //Communication::CommunicationController *client_controller_rpia;
 // std::shared_ptr<Communication::CommunicationController> client_controller_wemos_klimaat;
@@ -93,7 +95,7 @@ int main()
     // // client_controller_wemos_klimaat->logReceived(610, *klimaatfunctie);
 
     // Aanmaken van een klasse die een proces aanstuurd
-    ClimateSystem climate_system(client_controller_wemos_klimaat);
+    ClimateSystem climate_system(client_controller_wemos_klimaat, client_controller_rpia, BUZZERADDRESS);
     /* waar moet deze functie? Niet vergeten? Werkte nog niet*/
     sleep(1);
     printf("sleep klaar\n");
