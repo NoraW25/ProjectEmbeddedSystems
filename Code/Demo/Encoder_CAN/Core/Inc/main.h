@@ -49,8 +49,6 @@ extern "C" {
 
 /* USER CODE END EM */
 
-void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
-
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
@@ -69,15 +67,6 @@ void Error_Handler(void);
 #define encoder_Decrease_GPIO_Port GPIOA
 #define encoder_Increase_Pin GPIO_PIN_6
 #define encoder_Increase_GPIO_Port GPIOA
-#define BlueLedCH2N_Pin GPIO_PIN_0
-#define BlueLedCH2N_GPIO_Port GPIOB
-#define ButtonRGB_Pin GPIO_PIN_1
-#define ButtonRGB_GPIO_Port GPIOB
-#define ButtonRGB_EXTI_IRQn EXTI1_IRQn
-#define RedLedCH2_Pin GPIO_PIN_9
-#define RedLedCH2_GPIO_Port GPIOA
-#define GreenLedCH3_Pin GPIO_PIN_10
-#define GreenLedCH3_GPIO_Port GPIOA
 #define SWDIO_Pin GPIO_PIN_13
 #define SWDIO_GPIO_Port GPIOA
 #define SWCLK_Pin GPIO_PIN_14
