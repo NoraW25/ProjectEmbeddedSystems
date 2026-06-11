@@ -82,10 +82,10 @@ int main()
             &generaliser_client_wemos_display,
             &generaliser_client_wemos_display);
 
-    std::shared_ptr<Communication::CommunicationController> client_controller_wemos_hartslag =
-        std::make_shared<Communication::CommunicationController>(
-            &generaliser_client_wemos_hartslag,
-            &generaliser_client_wemos_hartslag);
+    // std::shared_ptr<Communication::CommunicationController> client_controller_wemos_hartslag =
+    //     std::make_shared<Communication::CommunicationController>(
+    //         &generaliser_client_wemos_hartslag,
+    //         &generaliser_client_wemos_hartslag);
 
     // std::shared_ptr<HeartrateDisplayer> heartrateDisplayer = std::make_shared<HeartrateDisplayer>(
     //     client_controller_wemos_display, client_controller_wemos_hartslag, client_controller_rpia);
