@@ -8,10 +8,12 @@
 
 #include <iostream>
 
-ClimateSystem::ClimateSystem(std::shared_ptr<Communication::CommunicationController> controller, std::shared_ptr<Communication::CommunicationController> controller_rpia, int buzzer_address) : 
-    controller(controller),
-    controller_rpia(controller_rpia),
-    buzzer_address(buzzer_address)
+ClimateSystem::ClimateSystem(std::shared_ptr<Communication::CommunicationController> controller, 
+    std::shared_ptr<Communication::CommunicationController> controller_rpia, 
+    int buzzer_address) : 
+        controller(controller),
+        controller_rpia(controller_rpia),
+        buzzer_address(buzzer_address)
 {
 
     // Sensoren aanmaken
@@ -96,6 +98,9 @@ void ClimateSystem::calculateSettings()
                 }
                 printf("Voor verzending\n");
                 controller_rpia->transmitData(buzzer_address, data);
+                std::vector<uint8_t> data2;
+                data2.push_back(0);
+                controller_rpia->transmitData(buzzer_address, data2);
             }
             else if (sum_type > 600)
             {
