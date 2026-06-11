@@ -1,13 +1,13 @@
 
 #include "LightingSystem.h"
 
-#define COLOURORANGE "oranje"
-#define COLOURYELLOW "geel"
 #define COLOURBLUE "blauw"
-#define COLOURRED "rood"
-#define COLOURGREEN "groen"
-#define COLOURPURPLE "paars"
 #define COLOURCYAAN "cyaan"
+#define COLOURYELLOW "geel"
+#define COLOURGREEN "groen"
+#define COLOURORANGE "oranje"
+#define COLOURPURPLE "paars"
+#define COLOURRED "rood"
 #define COLOURWHITE "wit"
 
 
