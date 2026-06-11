@@ -99,10 +99,15 @@ int main()
     /* waar moet deze functie? Niet vergeten? Werkte nog niet*/
     sleep(1);
     printf("sleep klaar\n");
+
+    
     
     std::vector<uint8_t> d1 = {20};
     client_controller_wemos_display->transmitData(710, d1);
     sleep(1);
+
+    client_controller_rpia->transmitData(420, d1);
+    //runService->createTask(*transmitFunc, 1000);
     
     std::vector<uint8_t> d2 = {6};
     //client_controller_wemos_display->transmitData(720, d2);
