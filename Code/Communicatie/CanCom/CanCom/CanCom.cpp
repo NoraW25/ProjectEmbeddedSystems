@@ -15,6 +15,7 @@
 #include "Connection.h"
 
 #include "LightingSystem.h"
+#include "Clock.h"
 
 #include "SocketGeneraliser/CanGeneraliser.h"
 #include "SocketGeneraliser/ServerGeneraliser.h"
@@ -96,6 +97,8 @@ int main()
     // runService->createTask(*testFunction, 1000);
 
     LightingSystem lighting_system(500, 430, can_controller);
+
+    Clock clock_systeem(410, can_controller);
 
 
     // runService->createTask(*basicTestFunction, 5000);
