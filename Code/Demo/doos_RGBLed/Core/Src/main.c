@@ -648,7 +648,30 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)//interrupt voor de button
                 HAL_UART_Transmit(&huart2, "Mailbox vol!\r\n", 14, HAL_MAX_DELAY);
             }
         }
+
     }
+    if (GPIO_Pin == ButtonRGB_Pin)
+    {
+        static uint32_t lastPress = 0;
+        uint32_t now = HAL_GetTick();
+
+        if (now - lastPress > 200) // 200ms debounce
+        {
+            lastPress = now;
+            HAL_UART_Transmit(&huart2, "Button ingedrukt\r\n", 18, HAL_MAX_DELAY);
+            if (HAL_CAN_GetTxMailboxesFreeLevel(&hcan1) > 0) {
+                if (HAL_CAN_AddTxMessage(&hcan1, &header, data, &mailbox) != HAL_OK) {
+                    Error_Handler();
+                } else {
+                    char msg[] = "CAN verstuurd!\r\n";
+                    HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+                }
+            } else {
+                HAL_UART_Transmit(&huart2, "Mailbox vol!\r\n", 14, HAL_MAX_DELAY);
+            }
+        }
+    }
+
 }
 
 
