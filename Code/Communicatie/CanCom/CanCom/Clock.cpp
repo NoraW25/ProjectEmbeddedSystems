@@ -8,7 +8,7 @@ Clock::Clock(int address, std::shared_ptr<Communication::CommunicationController
     address_clock(address),
     controller(controller){
         runservice = Scheduling::RunServiceController::getInstance(nullptr);
-        runservice->createTask([this]() {updateClock();}, 5000);
+        runservice->createTask([this]() {updateClock();}, 5000); // 5 seconden voor het opstarten
 }
 
 void Clock::updateClock(){
@@ -27,5 +27,5 @@ void Clock::updateClock(){
 
     controller->transmitData(address_clock, data);
 
-    runservice->createTask([this]() {updateClock();}, 5000);
+    runservice->createTask([this]() {updateClock();}, 60000); // 60 seconden
 }
