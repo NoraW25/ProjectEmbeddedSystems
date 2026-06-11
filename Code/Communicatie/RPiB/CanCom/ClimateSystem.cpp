@@ -79,6 +79,8 @@ void ClimateSystem::calculateSettings()
 
         if (type == CO2SENSORS)
         {
+            printf("IN CO2 SENSOR DATAVERWERKING");
+            
             sum_type /= sensors_of_type.size();
             if (sum_type > 700)
             {
