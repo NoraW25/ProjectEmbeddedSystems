@@ -90,7 +90,7 @@ int main()
     CanGeneraliser generaliser;
     ServerGeneraliser generaliser_server;
     std::shared_ptr<Communication::CommunicationController> can_controller= std::make_shared<Communication::CommunicationController>(& generaliser, & generaliser);
-    std::shared_ptr<Communication::CommunicationController> server_controller= std::make_shared<Communication::CommunicationController>(& generaliser, & generaliser);
+    std::shared_ptr<Communication::CommunicationController> server_controller= std::make_shared<Communication::CommunicationController>(& generaliser_server, & generaliser_server);
     //server_controller = new Communication::CommunicationController(& generaliser_server, & generaliser_server);
 
     //BIND FUNCTIES HIERONDER
