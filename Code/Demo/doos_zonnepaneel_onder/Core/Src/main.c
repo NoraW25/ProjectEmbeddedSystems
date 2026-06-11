@@ -152,8 +152,18 @@ int main(void)
 	    data[1] = voltage & 0xFF;
 
 	    if (HAL_CAN_AddTxMessage(&hcan1, &header, data, &mailbox) != HAL_OK){
-	    	Error_Handler ();
-	    	HAL_UART_Transmit(&huart2, (uint8_t*) txtBuffer, aantal, HAL_MAX_DELAY);
+	    	HAL_UART_Transmit(&huart2, "shit's fucked\r\n", 15, HAL_MAX_DELAY);
+	    	//Error_Handler ();
+	    	//HAL_UART_Transmit(&huart2, (uint8_t*) txtBuffer, aantal, HAL_MAX_DELAY);
+	    	HAL_Delay(100);
+	    	HAL_CAN_Stop(&hcan1);
+	    	HAL_Delay(100);
+	    	HAL_CAN_DeInit(&hcan1);
+	    	HAL_Delay(100);
+	    	HAL_CAN_Init(&hcan1);
+	    	HAL_Delay(100);
+	    	HAL_CAN_Start(&hcan1);
+	    	HAL_Delay(100);
 	    }
 	    else {
 	    	char msg[] = "CAN verstuurd!\n\r";
@@ -324,11 +334,11 @@ static void MX_CAN1_Init(void)
   hcan1.Instance = CAN1;
   hcan1.Init.Prescaler = 10;
   hcan1.Init.Mode = CAN_MODE_NORMAL;
-  hcan1.Init.SyncJumpWidth = CAN_SJW_1TQ;
+  hcan1.Init.SyncJumpWidth = CAN_SJW_2TQ;
   hcan1.Init.TimeSeg1 = CAN_BS1_13TQ;
   hcan1.Init.TimeSeg2 = CAN_BS2_2TQ;
   hcan1.Init.TimeTriggeredMode = DISABLE;
-  hcan1.Init.AutoBusOff = ENABLE;
+  hcan1.Init.AutoBusOff = DISABLE;
   hcan1.Init.AutoWakeUp = DISABLE;
   hcan1.Init.AutoRetransmission = ENABLE;
   hcan1.Init.ReceiveFifoLocked = DISABLE;
