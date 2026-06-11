@@ -539,7 +539,7 @@ void LEDBar_Humidity(int humidity){//230
 	}
 	else if(humidity>20&&humidity<=60)
 	{
-		humidityData[1]=0xFF;
+		humidityData[1]=0x87;
 		humidityData[0]=GPIOA_REG;
 		HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, humidityData, 2, HAL_MAX_DELAY);
 
@@ -549,7 +549,7 @@ void LEDBar_Humidity(int humidity){//230
 	}
 	else if(humidity>60&&humidity<=79)
 	{
-		humidityData[1]=0x00;
+		humidityData[1]=0x07;
 		humidityData[0]=GPIOA_REG;
 		HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, humidityData, 2, HAL_MAX_DELAY);
 
@@ -559,7 +559,7 @@ void LEDBar_Humidity(int humidity){//230
 	}
 	else{
 
-		humidityData[1]=0x00;
+		humidityData[1]=0x07;
 		humidityData[0]=GPIOA_REG;
 		HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, humidityData, 2, HAL_MAX_DELAY);
 
