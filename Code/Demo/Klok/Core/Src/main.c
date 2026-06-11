@@ -75,7 +75,7 @@ uint32_t mailbox;
 uint8_t data[2];
 
 uint8_t showColon = 1;
-int displayValue = 8888;
+volatile int displayValue = 8888;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -131,7 +131,7 @@ int main(void)
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
 	//tm1637Init(); //DO NOT UNCOMMENT, THIS WILL BREAK THE CLOCK
-	//tm1637SetBrightness(8); //DO NOT THINK ABOUT IT
+	tm1637SetBrightness(8); //DO NOT THINK ABOUT IT
 
 	HAL_TIM_Base_Start_IT(&htim6);
 
@@ -165,11 +165,46 @@ int main(void)
 	  	    header.DLC = 2;
 	  	  data[0] = 0x11;
 	  	  data[1] = 0x12;
+
+	  	/*HAL_Delay(1000);
+	  	HAL_CAN_Stop(&hcan1);
+	  	HAL_Delay(1000);
+	  	HAL_CAN_DeInit(&hcan1);
+	  	HAL_Delay(1000);
+	  	__HAL_RCC_CAN1_FORCE_RESET();
+	  	HAL_Delay(1000);
+	  	__HAL_RCC_CAN1_RELEASE_RESET();
+	  	HAL_Delay(1000);
+	  	HAL_CAN_Init(&hcan1);
+	  	HAL_Delay(1000);
+	  	HAL_CAN_Start(&hcan1);
+	  	HAL_Delay(1000);*/
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	while (1) {
+		/*uint32_t esr = hcan1.Instance->ESR;
+
+		uint8_t tec = (esr >> 16) & 0xFF;  // Transmit Error Counter
+		uint8_t rec = (esr >> 24) & 0xFF;  // Receive Error Counter
+
+		char msg[20] = "";
+		sprintf(msg, "%d\r\n", tec);
+
+		HAL_UART_Transmit(&huart2, msg, strlen(msg), HAL_MAX_DELAY);
+
+		HAL_UART_Transmit(&huart2, "Button ingedrukt\r\n", 18, HAL_MAX_DELAY);
+		            if (HAL_CAN_GetTxMailboxesFreeLevel(&hcan1) > 0) {
+		                if (HAL_CAN_AddTxMessage(&hcan1, &header, data, &mailbox) != HAL_OK) {
+		                    Error_Handler();
+		                } else {
+		                    char msg[] = "CAN verstuurd!\r\n";
+		                    HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+		                }
+		            } else {
+		                HAL_UART_Transmit(&huart2, "Mailbox vol!\r\n", 14, HAL_MAX_DELAY);
+		            }*/
 		// = 6660;
 		//tm1637DisplayDecimal(displayValue, showColon);
 		//showColon = !showColon;
@@ -604,6 +639,8 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
 	if ((rxHeader.StdId == 410 && rxHeader.RTR == 0)||(rxHeader.StdId == 420 && rxHeader.RTR == 0)) {
 		datacheck = 1;
 	}
+	//datacheck = 1;
+	//displayValue = rxHeader.StdId;
 }
 
 void speelNoot(double n,int d)
