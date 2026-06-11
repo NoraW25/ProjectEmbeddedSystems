@@ -16,7 +16,7 @@
 
 class ClimateSystem{
 public:
-    ClimateSystem(std::shared_ptr<Communication::CommunicationController>);
+    ClimateSystem(std::shared_ptr<Communication::CommunicationController>, std::shared_ptr<Communication::CommunicationController>, int);
 
     virtual ~ClimateSystem() = default;
 
@@ -27,11 +27,13 @@ public:
 
 private:
     std::shared_ptr<Communication::CommunicationController> controller;
+    std::shared_ptr<Communication::CommunicationController> controller_rpia;
     std::map<std::string, std::vector<std::shared_ptr<ClimateSensor>>> sensors;
     std::map<std::string, std::vector<std::shared_ptr<ClimateActuatorPWM>>> pwm_actuators;
 
     std::map<uint16_t, std::shared_ptr<ClimateSensor>> sensor_address_map;
 
+    int buzzer_address;
 };
 
 #endif

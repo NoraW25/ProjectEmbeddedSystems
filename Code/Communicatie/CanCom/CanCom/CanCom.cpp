@@ -15,12 +15,14 @@
 #include "Connection.h"
 
 #include "LightingSystem.h"
+#include "Clock.h"
+#include "AlarmSystem.h"
 
 #include "SocketGeneraliser/CanGeneraliser.h"
 #include "SocketGeneraliser/ServerGeneraliser.h"
 
 // Communication::CommunicationController* can_controller;
-Communication::CommunicationController* server_controller;
+//Communication::CommunicationController* server_controller;
 
 
 // void testFunction(/*std::vector<uint8_t> data*/) {
@@ -68,7 +70,7 @@ void testFunction2(std::vector<uint8_t> data) {
         printf("%02X ", data[i]);
 
     }
-    server_controller->transmitData(0x10, data);
+    //server_controller->transmitData(0x10, data);
 }
 
 void basicTestFunction() {
@@ -88,14 +90,19 @@ int main()
     CanGeneraliser generaliser;
     ServerGeneraliser generaliser_server;
     std::shared_ptr<Communication::CommunicationController> can_controller= std::make_shared<Communication::CommunicationController>(& generaliser, & generaliser);
-    server_controller = new Communication::CommunicationController(& generaliser_server, & generaliser_server);
+    std::shared_ptr<Communication::CommunicationController> server_controller= std::make_shared<Communication::CommunicationController>(& generaliser, & generaliser);
+    //server_controller = new Communication::CommunicationController(& generaliser_server, & generaliser_server);
 
     //BIND FUNCTIES HIERONDER
     //canController->logReceived(0x310, *testFunction);
-    server_controller->logReceived(16, *testFunction2);
+    //server_controller->logReceived(16, *testFunction2);
     // runService->createTask(*testFunction, 1000);
 
-    LightingSystem lighting_system(500, can_controller);
+    LightingSystem lighting_system(500, 430, can_controller);
+
+    Clock clock_systeem(410, can_controller);
+
+    AlarmSystem alarm_system(can_controller, server_controller, 420);
 
 
     // runService->createTask(*basicTestFunction, 5000);

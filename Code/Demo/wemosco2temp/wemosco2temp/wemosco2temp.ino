@@ -4,6 +4,8 @@
 #include "ServerSocketWemos.h"
 #include "MessageTranslator.h"
 #include "LampPWM.h"
+#include "wifi.h"
+
 
 Adafruit_SGP30 sgp;
 SensorSHT31 sensortemp;
@@ -11,8 +13,7 @@ ServerSocketWemos server(8080);
 MessageTranslator* translator = MessageTranslator::instance();
 LampPWM lamp(14);
 
-const char* ssid = "NSELab";
-const char* password = "NSELabWiFi";
+
 enum SendState {
   SEND_CO2,
   SEND_TEMP,

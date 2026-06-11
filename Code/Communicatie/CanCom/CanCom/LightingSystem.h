@@ -12,7 +12,7 @@
 
 class LightingSystem {
 public:
-    LightingSystem(int, std::shared_ptr<Communication::CommunicationController>);
+    LightingSystem(int, int, std::shared_ptr<Communication::CommunicationController>);
 
     virtual ~LightingSystem() = default;
 

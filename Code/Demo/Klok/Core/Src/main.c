@@ -244,7 +244,7 @@ int main(void)
 				{
 				    Error_Handler();
 				}
-			} else {//buzzer
+			} else if(rxHeader.StdId == 420) {//buzzer
 				  speelNoot(NOTE_E,TIJDSDUUR2);
 				  HAL_Delay(TIJDSDUUR3);
 				  speelNoot(NOTE_A,TIJDSDUUR2);

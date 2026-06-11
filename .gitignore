@@ -386,3 +386,5 @@ build/
 
 # Logs
 *.lo
+
+wifi.h

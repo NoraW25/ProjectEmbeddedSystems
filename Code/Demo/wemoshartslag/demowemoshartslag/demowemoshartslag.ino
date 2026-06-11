@@ -5,8 +5,7 @@
 #include "ServerSocketWemos.h"
 #include "HartslagSensor.h"
 #include "MessageTranslator.h"
-const char* ssid = "NSELab";
-const char* password = "NSELabWiFi";
+#include "wifi.h"
 
 ServerSocketWemos server(8080);
 HartslagSensor hartslag;

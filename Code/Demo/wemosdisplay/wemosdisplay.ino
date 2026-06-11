@@ -6,6 +6,7 @@
 #include "ServerSocketWemos.h"
 #include "MessageTranslator.h"
 #include <Wire.h>
+#include "wifi.h"
 // TM1637
 #define TM_CLK D1
 #define TM_DIO D2
@@ -20,8 +21,7 @@
 #define lamp8 RX
 #define lamp9 16
 
-const char* ssid = "NSELab";
-const char* password = "NSELabWiFi";
+
 ServerSocketWemos server(8080);
 MessageTranslator* translator = MessageTranslator::instance();
 
@@ -63,22 +63,23 @@ void loop() {
 
 
     if (address == 710) {
-    uint64_t raw = 0;
+      uint64_t raw = 0;
 
-    for (size_t i = 0; i < data.size() && i < sizeof(raw); i++) {
-        raw |= (uint64_t)data[i] << (8 * i);
-    }
-
-    double value;
-    std::memcpy(&value, &raw, sizeof(double));
-
-    //Serial.println(value);
-      if (value < 10000) {
-        segdisplay.showNumberDec((int)value, false);
-      } else {
-        segdisplay.showNumberDec(0, true);
+      for (size_t i = 0; i < data.size() && i < sizeof(raw); i++) {
+          raw |= (uint64_t)data[i] << (8 * i);
       }
+
+      double value;
+      std::memcpy(&value, &raw, sizeof(double));
+
+      //Serial.println(value);
+        if (value < 10000) {
+          segdisplay.showNumberDec((int)value, false);
+        } else {
+          segdisplay.showNumberDec(0, true);
+        }
     }
+
     if (address == 720) {
       int value = 0;
       for (size_t i = 0; i < data.size(); i++) {

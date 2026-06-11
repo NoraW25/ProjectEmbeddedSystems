@@ -8,13 +8,18 @@
 
 #include <iostream>
 
-ClimateSystem::ClimateSystem(std::shared_ptr<Communication::CommunicationController> controller) : controller(controller)
+ClimateSystem::ClimateSystem(std::shared_ptr<Communication::CommunicationController> controller, 
+    std::shared_ptr<Communication::CommunicationController> controller_rpia, 
+    int buzzer_address) : 
+        controller(controller),
+        controller_rpia(controller_rpia),
+        buzzer_address(buzzer_address)
 {
 
     // Sensoren aanmaken
     addSensor(TEMPERATURESENSORS, std::make_shared<ClimateSensor>(610, controller, this));
     addSensor(CO2SENSORS, std::make_shared<ClimateSensor>(620, controller, this));
-    addSensor(HUMIDITYSENSORS, std::make_shared<ClimateSensor>(630, controller, this));
+    addSensor(HUMIDITYSENSORS, std::make_shared<ClimateSensor>(630, controller, controller_rpia, this));
 
     // Actuatoren aanmaken
     addActuatorPWM(VENTILATORS, std::make_shared<ClimateActuatorPWM>(640, controller));
@@ -76,18 +81,33 @@ void ClimateSystem::calculateSettings()
 
         if (type == CO2SENSORS)
         {
+            printf("IN CO2 SENSOR DATAVERWERKING\n");
+
             sum_type /= sensors_of_type.size();
-            if (sum_type > 1200)
+            if (sum_type > 700)
             {
                 vensetting += 4;
                 printf("CO2 1200");
+                std::vector<uint8_t> data;
+                int amount_of_bytes = sizeof(int);
+                
+                // LSB eerst
+                for (int i = 0; i < amount_of_bytes; i++){
+                    uint8_t byte_value = (sum_type >> (8*i)) & 0xFF;
+                    data.push_back(byte_value);
+                }
+                printf("Voor verzending\n");
+                controller_rpia->transmitData(buzzer_address, data);
+                std::vector<uint8_t> data2;
+                data2.push_back(0);
+                controller_rpia->transmitData(buzzer_address, data2);
             }
-            else if (sum_type > 800)
+            else if (sum_type > 600)
             {
                 vensetting += 3;
                 printf("CO2 800");
             }
-            else if (sum_type > 650)
+            else if (sum_type > 500)
             {
                 vensetting += 2;
                 printf("CO2 650");
