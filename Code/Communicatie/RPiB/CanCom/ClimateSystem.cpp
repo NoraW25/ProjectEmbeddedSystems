@@ -79,8 +79,8 @@ void ClimateSystem::calculateSettings()
 
         if (type == CO2SENSORS)
         {
-            printf("IN CO2 SENSOR DATAVERWERKING");
-            
+            printf("IN CO2 SENSOR DATAVERWERKING\n");
+
             sum_type /= sensors_of_type.size();
             if (sum_type > 700)
             {
@@ -94,7 +94,7 @@ void ClimateSystem::calculateSettings()
                     uint8_t byte_value = (sum_type >> (8*i)) & 0xFF;
                     data.push_back(byte_value);
                 }
-                
+                printf("Voor verzending\n");
                 controller_rpia->transmitData(buzzer_address, data);
             }
             else if (sum_type > 600)
