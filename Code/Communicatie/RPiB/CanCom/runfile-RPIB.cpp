@@ -20,7 +20,7 @@
 #include "HeartrateDisplayer.h"
 
 // Tijdelijke definitie voor client controllers, zodat deze in de testfuncties gebruikt kunnen worden
-Communication::CommunicationController *client_controller_rpia;
+//Communication::CommunicationController *client_controller_rpia;
 // std::shared_ptr<Communication::CommunicationController> client_controller_wemos_klimaat;
 
 // Aansturing van het klimaatsysteem
@@ -64,23 +64,31 @@ int main()
     ClientGeneraliser generaliser_client_wemos_klimaat("145.52.127.246", true);
     ClientGeneraliser generaliser_client_wemos_display("145.52.127.206", true);
     ClientGeneraliser generaliser_client_wemos_hartslag("145.52.127.227", true);
+
+
     // De controllers aanmaken en binden aan de controller
-    client_controller_rpia = new Communication::CommunicationController(&generaliser_client_rpia, &generaliser_client_rpia);
+    std::shared_ptr<Communication::CommunicationController> client_controller_rpia = 
+        std::make_shared<Communication::CommunicationController>(
+            &generaliser_client_wemos_rpia,
+            &generaliser_client_wemos_rpia);
 
     std::shared_ptr<Communication::CommunicationController> client_controller_wemos_klimaat =
         std::make_shared<Communication::CommunicationController>(
             &generaliser_client_wemos_klimaat,
             &generaliser_client_wemos_klimaat);
+
     std::shared_ptr<Communication::CommunicationController> client_controller_wemos_display =
         std::make_shared<Communication::CommunicationController>(
             &generaliser_client_wemos_display,
             &generaliser_client_wemos_display);
+
     std::shared_ptr<Communication::CommunicationController> client_controller_wemos_hartslag =
         std::make_shared<Communication::CommunicationController>(
             &generaliser_client_wemos_hartslag,
             &generaliser_client_wemos_hartslag);
+
     std::shared_ptr<HeartrateDisplayer> heartrateDisplayer = std::make_shared<HeartrateDisplayer>(
-        client_controller_wemos_display, client_controller_wemos_hartslag);
+        client_controller_wemos_display, client_controller_wemos_hartslag, client_controller_rpia);
     // Het uitvoeren van taken en functies op bepaalde momenten
     // client_controller_wemos_klimaat->logReceived(610, *klimaatfunctie);
 

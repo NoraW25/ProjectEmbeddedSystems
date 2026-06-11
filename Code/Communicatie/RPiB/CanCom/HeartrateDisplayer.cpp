@@ -4,8 +4,9 @@
 #include <cstdio>
 
 HeartrateDisplayer::HeartrateDisplayer(std::shared_ptr<Communication::CommunicationController> displayCtrl,
-                                       std::shared_ptr<Communication::CommunicationController> hartslagCtrl)
-    : displayController(displayCtrl), hartslagController(hartslagCtrl), connection(nullptr)
+                                       std::shared_ptr<Communication::CommunicationController> hartslagCtrl,
+                                       std::shared_ptr<Communication::CommunicationController> raspberryPiA)
+    : displayController(displayCtrl), hartslagController(hartslagCtrl), rpiAController(raspberryPiA), connection(nullptr)
 {
     if (hartslagController)
     {
@@ -30,5 +31,26 @@ void HeartrateDisplayer::handleHeart(std::vector<uint8_t> data)
     {
         fixed[offset + i] = data[i];
     }
+
     displayController->transmitData(710, fixed);
+
+    if (getHeartrate(data) > 60){
+        std::vector<uint8_t> dataByte;
+        dataByte.push_back(0);
+
+        rpiAController->transmitData(420, dataByte);
+    }
+}
+
+double HeartrateDisplayer::getHeartrate(std::vector<uint8_t> data){
+    uint64_t raw = 0;
+
+    for (size_t i = 0; i < data.size() && i < sizeof(raw); i++) {
+        raw |= (uint64_t)data[i] << (8 * i);
+    }
+
+    double value;
+    std::memcpy(&value, &raw, sizeof(double));
+
+    return value;
 }
