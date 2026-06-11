@@ -22,6 +22,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stm32_tm1637.h"
+#include <stdio.h>
+#include <string.h>
 
 /* USER CODE END Includes */
 
@@ -39,6 +41,7 @@
 #define TIJDSDUUR1 100
 #define TIJDSDUUR2 150
 #define TIJDSDUUR3 200
+
 
 //E (150)->A (150)->Fis(100)->Stilte(200)
 
@@ -64,6 +67,12 @@ uint8_t state = 0;
 CAN_RxHeaderTypeDef rxHeader;
 uint8_t rxData[8];
 volatile int datacheck = 0;
+
+CAN_TxHeaderTypeDef header; //tx
+uint32_t txMailbox;
+uint8_t txData[8];
+uint32_t mailbox;
+uint8_t data[2];
 
 uint8_t showColon = 1;
 int displayValue = 8888;
@@ -121,8 +130,8 @@ int main(void)
   MX_CAN1_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
-	tm1637Init();
-	tm1637SetBrightness(8);
+	//tm1637Init(); //DO NOT UNCOMMENT, THIS WILL BREAK THE CLOCK
+	//tm1637SetBrightness(8); //DO NOT THINK ABOUT IT
 
 	HAL_TIM_Base_Start_IT(&htim6);
 
@@ -146,38 +155,61 @@ int main(void)
 	}
 	HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
 	__HAL_TIM_SET_AUTORELOAD(&htim1, 0);
+
+	  HAL_UART_Transmit(&huart2, "Voor while", 10, HAL_MAX_DELAY);
+
+
+	  	    header.StdId = 430;
+	  	    header.IDE = CAN_ID_STD;
+	  	    header.RTR = CAN_RTR_DATA;
+	  	    header.DLC = 2;
+	  	  data[0] = 0x11;
+	  	  data[1] = 0x12;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	while (1) {
-		displayValue = 6660;
-		tm1637DisplayDecimal(displayValue, showColon);
-		showColon = !showColon;
-		HAL_Delay(1000);
+		// = 6660;
+		//tm1637DisplayDecimal(displayValue, showColon);
+		//showColon = !showColon;
+		HAL_Delay(500);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		//RTC_TimeTypeDef nowTime;
-		//RTC_DateTypeDef nowDate;
+		RTC_TimeTypeDef nowTime;
+		RTC_DateTypeDef nowDate;
 
-		//HAL_RTC_GetTime(&hrtc, &nowTime, RTC_FORMAT_BIN);
-		//HAL_RTC_GetDate(&hrtc, &nowDate, RTC_FORMAT_BIN);
+		HAL_RTC_GetTime(&hrtc, &nowTime, RTC_FORMAT_BIN);
+		HAL_RTC_GetDate(&hrtc, &nowDate, RTC_FORMAT_BIN);
 
-		//int hours = nowTime.Hours;
-		//int minutes = nowTime.Minutes;
-		//displayValue = hours * 100 + minutes;
-		//int displayValue = hours * 100 + minutes;
-		//int displayValue = 1234;
-		//tm1637DisplayDecimal(displayValue, showColon);
+		int hours = nowTime.Hours;
+		int minutes = nowTime.Minutes;
+		displayValue = hours * 100 + minutes;
 
-		//showColon = !showColon;
+		char msg[20] = "";
+		sprintf(msg, "%d\r\n", displayValue);
+
+		HAL_UART_Transmit(&huart2, msg, strlen(msg), HAL_MAX_DELAY);
+		tm1637DisplayDecimal(displayValue, showColon);
+
+		showColon = !showColon;
+    //comment
 
 		if (datacheck) {
 			datacheck = 0;
 			if (rxHeader.StdId == 410) {//Klok
-				//displayValue = rxData[0]*100+rxData[1];
-			} else {
+				RTC_TimeTypeDef setTime = {0};
+
+				setTime.Hours   = rxData[0];
+				setTime.Minutes = rxData[1];
+				setTime.Seconds = 0;
+
+				if (HAL_RTC_SetTime(&hrtc, &setTime, RTC_FORMAT_BIN) != HAL_OK)
+				{
+				    Error_Handler();
+				}
+			} else {//buzzer
 				  speelNoot(NOTE_E,TIJDSDUUR2);
 				  HAL_Delay(TIJDSDUUR3);
 				  speelNoot(NOTE_A,TIJDSDUUR2);
@@ -542,12 +574,22 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, Klok_DIO_Pin|Klok_CLK_Pin, GPIO_PIN_RESET);
 
+  /*Configure GPIO pin : ButtonRGB_Pin */
+  GPIO_InitStruct.Pin = ButtonRGB_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(ButtonRGB_GPIO_Port, &GPIO_InitStruct);
+
   /*Configure GPIO pins : Klok_DIO_Pin Klok_CLK_Pin */
   GPIO_InitStruct.Pin = Klok_DIO_Pin|Klok_CLK_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;   // OPEN DRAIN!
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI1_IRQn);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
@@ -579,6 +621,31 @@ void speelNoot(double n,int d)
 
 	HAL_Delay(d);
 	__HAL_TIM_SET_AUTORELOAD(&htim1, 0);
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)//interrupt voor de button
+{
+    if (GPIO_Pin == ButtonRGB_Pin)
+    {
+        static uint32_t lastPress = 0;
+        uint32_t now = HAL_GetTick();
+
+        if (now - lastPress > 200) // 200ms debounce
+        {
+            lastPress = now;
+            HAL_UART_Transmit(&huart2, "Button ingedrukt\r\n", 18, HAL_MAX_DELAY);
+            if (HAL_CAN_GetTxMailboxesFreeLevel(&hcan1) > 0) {
+                if (HAL_CAN_AddTxMessage(&hcan1, &header, data, &mailbox) != HAL_OK) {
+                    Error_Handler();
+                } else {
+                    char msg[] = "CAN verstuurd!\r\n";
+                    HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+                }
+            } else {
+                HAL_UART_Transmit(&huart2, "Mailbox vol!\r\n", 14, HAL_MAX_DELAY);
+            }
+        }
+    }
 }
 
 /* USER CODE END 4 */

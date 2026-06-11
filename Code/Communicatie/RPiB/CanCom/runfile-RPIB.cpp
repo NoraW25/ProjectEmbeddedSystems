@@ -17,6 +17,7 @@
 #include "SocketGeneraliser/ClientGeneraliser.h"
 
 #include "ClimateSystem.h"
+#include "HeartrateDisplayer.h"
 
 // Tijdelijke definitie voor client controllers, zodat deze in de testfuncties gebruikt kunnen worden
 Communication::CommunicationController *client_controller_rpia;
@@ -62,7 +63,7 @@ int main()
     ClientGeneraliser generaliser_client_rpia("145.52.127.222", false);
     ClientGeneraliser generaliser_client_wemos_klimaat("145.52.127.246", true);
     ClientGeneraliser generaliser_client_wemos_display("145.52.127.206", true);
-
+    ClientGeneraliser generaliser_client_wemos_hartslag("145.52.127.227", true);
     // De controllers aanmaken en binden aan de controller
     client_controller_rpia = new Communication::CommunicationController(&generaliser_client_rpia, &generaliser_client_rpia);
 
@@ -74,23 +75,27 @@ int main()
         std::make_shared<Communication::CommunicationController>(
             &generaliser_client_wemos_display,
             &generaliser_client_wemos_display);
+    std::shared_ptr<Communication::CommunicationController> client_controller_wemos_hartslag =
+        std::make_shared<Communication::CommunicationController>(
+            &generaliser_client_wemos_hartslag,
+            &generaliser_client_wemos_hartslag);
+    std::shared_ptr<HeartrateDisplayer> heartrateDisplayer = std::make_shared<HeartrateDisplayer>(
+        client_controller_wemos_display, client_controller_wemos_hartslag);
     // Het uitvoeren van taken en functies op bepaalde momenten
     // client_controller_wemos_klimaat->logReceived(610, *klimaatfunctie);
 
     // Aanmaken van een klasse die een proces aanstuurd
-    ClimateSystem climate_system(500, client_controller_wemos_klimaat);
-
-    /* waar moet deze functie? Niet vergeten? Werkte nog niet
-        std::vector<uint8_t> d1 = {20};
-        client_controller_wemos_display->transmitData(710, d1);
-
-        std::vector<uint8_t> d2 = {5};
-        client_controller_wemos_display->transmitData(720, d2);
-
-
-
-                */
-
+    ClimateSystem climate_system(client_controller_wemos_klimaat);
+    /* waar moet deze functie? Niet vergeten? Werkte nog niet*/
+    sleep(1);
+    printf("sleep klaar\n");
+    /*
+    std::vector<uint8_t> d1 = {20};
+    client_controller_wemos_display->transmitData(710, d1);
+    sleep(1);
+    */
+    std::vector<uint8_t> d2 = {6};
+    client_controller_wemos_display->transmitData(720, d2);
     runService->createTask(*transmitFunc, 640);
 
     while (1)

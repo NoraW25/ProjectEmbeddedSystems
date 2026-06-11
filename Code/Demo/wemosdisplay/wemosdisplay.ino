@@ -16,8 +16,8 @@
 #define lamp4 12
 #define lamp5 13
 #define lamp6 15
-#define lamp7 A0  //TX
-#define lamp8 A0  //RX
+#define lamp7 TX
+#define lamp8 RX
 #define lamp9 16
 
 const char* ssid = "NSELab";
@@ -28,19 +28,18 @@ MessageTranslator* translator = MessageTranslator::instance();
 
 //lampen
 int lamps[9] = {
-  lamp1, lamp2, lamp3, lamp4, lamp5,
-  lamp6, lamp7, lamp8, lamp9
+  lamp9, lamp8, lamp7, lamp6, lamp5,
+  lamp4, lamp3, lamp2, lamp1
 };
 unsigned long delaytime = 1000;
 TM1637Display segdisplay(TM_CLK, TM_DIO);
 
 void setup() {
-  Serial.begin(115200);
+  //Serial.begin(115200);
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
-    Serial.print(".");
   }
   server.begin();
 
@@ -53,7 +52,7 @@ void setup() {
 
 
 void loop() {
-  Serial.println(WiFi.localIP());
+  //Serial.println(WiFi.localIP());
   if (server.heeftOntvangen()) {
 
     //Serial.println("Hello in ontvangen");
@@ -64,12 +63,18 @@ void loop() {
 
 
     if (address == 710) {
-      int value = 0;
-      for (size_t i = 0; i < data.size(); i++) {
-        value |= (uint32_t)data[i] << (8 * i);
-      }
+    uint64_t raw = 0;
+
+    for (size_t i = 0; i < data.size() && i < sizeof(raw); i++) {
+        raw |= (uint64_t)data[i] << (8 * i);
+    }
+
+    double value;
+    std::memcpy(&value, &raw, sizeof(double));
+
+    //Serial.println(value);
       if (value < 10000) {
-        segdisplay.showNumberDec(value, false);
+        segdisplay.showNumberDec((int)value, false);
       } else {
         segdisplay.showNumberDec(0, true);
       }
@@ -80,7 +85,7 @@ void loop() {
         value |= (uint32_t)data[i] << (8 * i);
       }
 
-      if (!(value > 0)) {
+      if (value > 0) {
         for (int i = 0; i < value; i++) {
           digitalWrite(lamps[i], HIGH);
         }

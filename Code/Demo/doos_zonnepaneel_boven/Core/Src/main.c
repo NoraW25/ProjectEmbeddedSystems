@@ -40,9 +40,9 @@
 #define GPIOA_REG 0x12
 #define GPIOB_REG 0x13
 
-#define CAN_ID_TEMPERATURE   0xD2
-#define CAN_ID_CO2           0xDC
-#define CAN_ID_HUMIDITY    0xE6
+//#define CAN_ID_TEMPERATURE   210
+//#define CAN_ID_CO2           220
+//#define CAN_ID_HUMIDITY    230 //nog aanpassen
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -51,11 +51,11 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-CAN_HandleTypeDef hcan1;//struct met alle instellingen voor de CANBUS
+CAN_HandleTypeDef hcan1;
 
-I2C_HandleTypeDef hi2c1;//struct met alle instellingen voor de i2c
+I2C_HandleTypeDef hi2c1;
 
-UART_HandleTypeDef huart2; //struct voor alle instellingen voor de huart.
+UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 CAN_RxHeaderTypeDef rxHeader;//struct met alle instellingen voor de canbus rx header
@@ -137,7 +137,7 @@ int main(void)
   {
 	  Error_Handler();
   }
-
+  HAL_UART_Transmit(&huart2, "voor while", 10, HAL_MAX_DELAY);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -162,17 +162,19 @@ int main(void)
 
 	  if (datacheck){
 		  datacheck = 0;
-		  if (rxHeader.StdId == CAN_ID_TEMPERATURE) {//Temperatuur
+		  if (rxHeader.StdId == 210) {//Temperatuur
 			  float temp;
 			  memcpy(&temp, rxData, 4);//zet de eerste 4 ontvangen bytes om naar een float
 			  LEDBar_Temp(temp);
 		  }
-		  else if(rxHeader.StdId == CAN_ID_CO2){//CO2
+		  else if(rxHeader.StdId == 220){//CO2
 			  int co2 = (rxData[0] << 8) | rxData[1];//Co2 data past niet in 1 byte.
 			  LEDBar_CO2(co2);
 		  }
-		  else if(rxHeader.StdId == CAN_ID_HUMIDITY){//Humidity
+		  else if(rxHeader.StdId == 230){//Humidity
 			  int humidity = rxData[0];
+			  char msg[40];
+			  HAL_UART_Transmit(&huart2, "humidity ontvangen", 19, HAL_MAX_DELAY);
 			  LEDBar_Humidity(humidity);
 		  }
 	  }
@@ -259,7 +261,7 @@ static void MX_CAN1_Init(void)
 
   /* USER CODE END CAN1_Init 1 */
   hcan1.Instance = CAN1;
-  hcan1.Init.Prescaler = 4;
+  hcan1.Init.Prescaler = 10;
   hcan1.Init.Mode = CAN_MODE_NORMAL;
   hcan1.Init.SyncJumpWidth = CAN_SJW_1TQ;
   hcan1.Init.TimeSeg1 = CAN_BS1_13TQ;
@@ -402,8 +404,9 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
 		Error_Handler();
 		//leest ontvangen data uit.
 	}
-	if ((rxHeader.StdId == CAN_ID_TEMPERATURE && rxHeader.RTR == 0)||(rxHeader.StdId == CAN_ID_CO2 && rxHeader.RTR == 0)
-			||(rxHeader.StdId == CAN_ID_HUMIDITY && rxHeader.RTR == 0)) {
+	if (rxHeader.StdId == 210 ||rxHeader.StdId == 220
+			||rxHeader.StdId == 230) {
+		HAL_UART_Transmit(&huart2, "geaccepteerd", 13, HAL_MAX_DELAY);
 		//checkt de message ID.
 		datacheck = 1;
 	}
