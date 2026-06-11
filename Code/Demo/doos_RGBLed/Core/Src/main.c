@@ -72,6 +72,7 @@ void set_rgbPurple();
 void set_rgbYellow();
 void set_rgbCyan();
 void set_rgbWhite();
+void turn_LedOff();
 
 /* USER CODE END PFP */
 
@@ -171,6 +172,9 @@ int main(void)
 //	   HAL_Delay(2000);
 //	   set_rgbWhite();
 //	   HAL_Delay(2000);
+//	  turn_LedOff();
+//	  HAL_Delay(2000);
+
 
 	  if (datacheck) {
 	      datacheck = 0;
@@ -191,6 +195,9 @@ int main(void)
 	          set_rgbCyan();
 	      } else if (rxHeader.StdId == 508) {
 	          set_rgbWhite();
+	      }
+	      	else if (rxHeader.StdId == 509) {
+	    	  turn_LedOff();
 	      }
 	  }
 
@@ -472,6 +479,7 @@ static void MX_GPIO_Init(void)
 
 
 void set_rgbOrange() {
+	HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);//Anders gaat blauw niet meer aan na de vorige functie.
     __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 255);//rood
     __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,20);//groen
 }
@@ -516,22 +524,26 @@ void set_rgbWhite(){
 	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,100);//groen
 }
 
+void turn_LedOff(){
+	//Alle led gaan uit.
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);//rood uit
+	HAL_TIMEx_PWMN_Stop(&htim1, TIM_CHANNEL_2); // CH2N BLUE stoppen, waardoor rood en blauw uit zijn.
+	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,0);//groen
+}
+
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan1) {
 	 HAL_UART_Transmit(&huart2, "krijgt can", 11, HAL_MAX_DELAY);
 	if (HAL_CAN_GetRxMessage(hcan1, CAN_RX_FIFO0, &rxHeader, rxData) != HAL_OK) {
 		Error_Handler();
 	}
 	if (rxHeader.StdId == 501 ||rxHeader.StdId == 502 ||rxHeader.StdId == 503 ||rxHeader.StdId == 504 ||rxHeader.StdId == 505
-			||rxHeader.StdId == 506 ||rxHeader.StdId == 507 ||rxHeader.StdId == 508) {
+			||rxHeader.StdId == 506 ||rxHeader.StdId == 507 ||rxHeader.StdId == 508||rxHeader.StdId == 509) {
 		datacheck = 1;
-		  HAL_UART_Transmit(&huart2, "geaccepteerd", 13, HAL_MAX_DELAY);
+		  HAL_UART_Transmit(&huart2, "geaccepteerd?", 13, HAL_MAX_DELAY);
 	}
 }
 
-void HAL_CAN_TxMailboxCompleteCallback(CAN_HandleTypeDef *hcan1)
-{
-    HAL_UART_Transmit(&huart2, (uint8_t*)"TX DONE\r\n", 9, HAL_MAX_DELAY);
-}
+
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)//interrupt voor de button
 {
@@ -558,7 +570,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)//interrupt voor de button
     }
 }
 
-//ColorFunc colors[] = { set_rgbOrange, set_rgbRed, set_rgbGreen, set_rgbBlue, set_rgbPurple, set_rgbYellow, set_rgbCyan, set_rgbCyan};
+
 
 
 
