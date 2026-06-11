@@ -74,7 +74,7 @@ void MCP23017_Init(void);
 void readSensorData();
 void LEDBar_Set();//welke parameter?
 void LEDBar_CO2(int co2);
-void LEDBar_Temp(double temp);
+void LEDBar_Temp(float temp);
 void LEDBar_CO2(int co2);
 
 /* USER CODE END PFP */
@@ -144,7 +144,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  LEDBar_AllOn();//Voor Testen
+//	  LEDBar_AllOn();//Voor Testen
 
 
 	  //VOOR HET TESTEN.
@@ -165,6 +165,9 @@ int main(void)
 		  if (rxHeader.StdId == 210) {//Temperatuur
 			  float temp;
 			  memcpy(&temp, rxData, 4);//zet de eerste 4 ontvangen bytes om naar een float
+			  char msg[50];
+			  sprintf(msg, "temp: %d.%02d\r\n", (int)temp, (int)(temp*100)%100);
+			  HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
 			  LEDBar_Temp(temp);
 		  }
 		  else if(rxHeader.StdId == 220){//CO2
@@ -431,7 +434,7 @@ void MCP23017_Init(void) {
 
 
 
-void LEDBar_CO2(int co2){
+void LEDBar_CO2(int co2){//220
 	uint8_t co2Data [2];
 
 	if (co2<=400)
@@ -476,7 +479,7 @@ void LEDBar_CO2(int co2){
 	}
 }
 
-void LEDBar_Temp(double temp){
+void LEDBar_Temp(float temp){ //210
 	uint8_t tempData [2];
 
 	if (temp<=16.00)
@@ -521,12 +524,12 @@ void LEDBar_Temp(double temp){
 	}
 }
 
-void LEDBar_Humidity(int humidity){
+void LEDBar_Humidity(int humidity){//230
 	uint8_t humidityData [2];
 
 	if (humidity<=20)
 	{
-		humidityData[1]=0x00;
+		humidityData[1]=0x07;
 		humidityData[0]=GPIOA_REG;
 	    HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, humidityData, 2, HAL_MAX_DELAY);
 
