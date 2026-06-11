@@ -19,9 +19,9 @@ CanSocket::CanSocket(std::string ifname):
 }
 
 void CanSocket::canStartup(){
-    std::string system_text1 = "ip link set " + ifname + " down";
+    std::string system_text1 = "sudo ip link set " + ifname + " down";
     system(system_text1.c_str());
-    std::string system_text2 = "ip link set " + ifname + " up type can bitrate 500000";
+    std::string system_text2 = "sudo ip link set " + ifname + " up type can bitrate 500000 restart-ms 100";
     int result_settings = system(system_text2.c_str());
     if (result_settings != 0) {
         perror("Fout bij het configureren van systeeminstellingen voor CAN.");
