@@ -116,7 +116,7 @@ bool CanSocket::canSend(){
 bool CanSocket::received(int* address, std::vector<uint8_t>* data){
     // Voor algemeen gebruik in de CanReceiver
     if (can_fd <= 0){
-        std::cout<<"Error: Geen CAN-socket aanwezig."<<std::endl;
+        //std::cout<<"Error: Geen CAN-socket aanwezig."<<std::endl;
         return false;
     }
 
