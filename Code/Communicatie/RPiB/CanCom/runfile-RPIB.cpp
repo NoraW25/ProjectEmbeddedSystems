@@ -63,7 +63,7 @@ int main()
     ClientGeneraliser generaliser_client_rpia("192.168.0.2", false);
     ClientGeneraliser generaliser_client_wemos_klimaat("192.168.0.101", true);
     ClientGeneraliser generaliser_client_wemos_display("192.168.0.103", true);
-    ClientGeneraliser generaliser_client_wemos_hartslag("192.168.0.102", true);
+    //ClientGeneraliser generaliser_client_wemos_hartslag("192.168.0.102", true);
 
 
     // De controllers aanmaken en binden aan de controller
