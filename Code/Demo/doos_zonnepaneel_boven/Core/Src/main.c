@@ -144,7 +144,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-//	  LEDBar_AllOn();//Voor Testen
+	  LEDBar_AllOn();//Voor Testen
 
 
 	  //VOOR HET TESTEN.
@@ -217,7 +217,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_MSI;
   RCC_OscInitStruct.PLL.PLLM = 1;
-  RCC_OscInitStruct.PLL.PLLN = 16;
+  RCC_OscInitStruct.PLL.PLLN = 40;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV7;
   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
@@ -235,7 +235,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
   {
     Error_Handler();
   }
@@ -298,7 +298,7 @@ static void MX_I2C1_Init(void)
 
   /* USER CODE END I2C1_Init 1 */
   hi2c1.Instance = I2C1;
-  hi2c1.Init.Timing = 0x00B07CB4;
+  hi2c1.Init.Timing = 0x10D19CE4;
   hi2c1.Init.OwnAddress1 = 0;
   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
@@ -568,19 +568,19 @@ void LEDBar_Humidity(int humidity){
 
 
 
-//void LEDBar_AllOn(void) {
-//    uint8_t data[2];
-//
-//    // Zet PA0-PA7 aan (8 LEDs)
-//    data[0] = GPIOA_REG;
-//    data[1] = 0xFF;  // alle 8 bits HIGH
-//    HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, data, 2, HAL_MAX_DELAY);
-//
-//    // Zet PB0 en PB1 aan (2 LEDs)
-//    data[0] = GPIOB_REG;
-//    data[1] = 0x03;  // bit0 en bit1 HIGH = 0b00000011
-//    HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, data, 2, HAL_MAX_DELAY);
-//}
+void LEDBar_AllOn() {
+    uint8_t data[2];
+
+    // Zet PA0-PA7 aan (8 LEDs)
+    data[0] = GPIOA_REG;
+    data[1] = 0xFF;  // alle 8 bits HIGH
+    HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, data, 2, HAL_MAX_DELAY);
+
+    // Zet PB0 en PB1 aan (2 LEDs)
+    data[0] = GPIOB_REG;
+    data[1] = 0x03;  // bit0 en bit1 HIGH = 0b00000011
+    HAL_I2C_Master_Transmit(&hi2c1, MCP23017_ADDR, data, 2, HAL_MAX_DELAY);
+}
 
 
 /* USER CODE END 4 */
