@@ -102,7 +102,7 @@ int main()
 
     Clock clock_systeem(410, can_controller);
 
-    AlarmSystem alarm_system(420, can_controller, server_controller);
+    AlarmSystem alarm_system(can_controller, server_controller, 420);
 
 
     // runService->createTask(*basicTestFunction, 5000);
