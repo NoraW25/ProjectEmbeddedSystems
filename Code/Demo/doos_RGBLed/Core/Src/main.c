@@ -31,7 +31,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define STEPS_PER_REV 10
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -55,6 +55,8 @@ uint32_t txMailbox;
 uint8_t txData[8];
 uint32_t mailbox;
 uint8_t data[2];
+int lastReportedSteps = 0;
+int revolutions = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -153,6 +155,70 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  // ── ENCODER DRAAIEN ──────────────────────────────────────
+	  static uint8_t lastState = 0;
+	  uint8_t a = HAL_GPIO_ReadPin(GPIOA, encoder_Increase_Pin);
+	  uint8_t b = HAL_GPIO_ReadPin(GPIOA, encoder_Decrease_Pin);
+	  uint8_t currentState = (a << 1) | b;
+
+	  int8_t delta = 0;
+	  if ((lastState == 0b00 && currentState == 0b01) ||
+	      (lastState == 0b01 && currentState == 0b11) ||
+	      (lastState == 0b11 && currentState == 0b10) ||
+	      (lastState == 0b10 && currentState == 0b00)) { delta = +1; }
+	  else if ((lastState == 0b00 && currentState == 0b10) ||
+	           (lastState == 0b10 && currentState == 0b11) ||
+	           (lastState == 0b11 && currentState == 0b01) ||
+	           (lastState == 0b01 && currentState == 0b00)) { delta = -1; }
+	  lastState = currentState;
+
+	  if (delta != 0) {
+	      lastReportedSteps += delta;
+	      if (lastReportedSteps >= STEPS_PER_REV) {
+	          revolutions++;
+	          lastReportedSteps -= STEPS_PER_REV;
+	          CAN_TxHeaderTypeDef hdrEnc;
+	          uint32_t mbEnc;
+	          uint8_t dEnc[2];
+	          hdrEnc.StdId = 0x1FE;
+	          hdrEnc.IDE   = CAN_ID_STD;
+	          hdrEnc.RTR   = CAN_RTR_DATA;
+	          hdrEnc.DLC   = 2;
+	          dEnc[0] = (revolutions >> 8) & 0xFF;
+	          dEnc[1] =  revolutions & 0xFF;
+	          HAL_CAN_AddTxMessage(&hcan1, &hdrEnc, dEnc, &mbEnc);
+	      } else if (lastReportedSteps <= -STEPS_PER_REV) {
+	          revolutions--;
+	          lastReportedSteps += STEPS_PER_REV;
+	          CAN_TxHeaderTypeDef hdrEnc;
+	          uint32_t mbEnc;
+	          uint8_t dEnc[2];
+	          hdrEnc.StdId = 0x1FE;
+	          hdrEnc.IDE   = CAN_ID_STD;
+	          hdrEnc.RTR   = CAN_RTR_DATA;
+	          hdrEnc.DLC   = 2;
+	          dEnc[0] = (revolutions >> 8) & 0xFF;
+	          dEnc[1] =  revolutions & 0xFF;
+	          HAL_CAN_AddTxMessage(&hcan1, &hdrEnc, dEnc, &mbEnc);
+	      }
+	  }
+
+	  // ── ENCODER KNOP (PA4) ───────────────────────────────────
+	  static GPIO_PinState lastKnopState = GPIO_PIN_SET;
+	  GPIO_PinState knopState = HAL_GPIO_ReadPin(GPIOA, encoder_Knop_Pin);
+
+	  if (knopState == GPIO_PIN_RESET && lastKnopState == GPIO_PIN_SET) {
+	      HAL_Delay(50);
+	      CAN_TxHeaderTypeDef hdrKnop;
+	      uint32_t mbKnop;
+	      uint8_t dKnop[1] = {0x01};
+	      hdrKnop.StdId = 0x1FF;
+	      hdrKnop.IDE   = CAN_ID_STD;
+	      hdrKnop.RTR   = CAN_RTR_DATA;
+	      hdrKnop.DLC   = 1;
+	      HAL_CAN_AddTxMessage(&hcan1, &hdrKnop, dKnop, &mbKnop);
+	  }
+	  lastKnopState = knopState;
 
 
 //	   set_rgbOrange();
@@ -440,6 +506,18 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, GPIO_PIN_RESET);
 
+  /*Configure GPIO pin : encoder_Knop_Pin */
+  GPIO_InitStruct.Pin = encoder_Knop_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(encoder_Knop_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : encoder_Decrease_Pin encoder_Increase_Pin */
+  GPIO_InitStruct.Pin = encoder_Decrease_Pin|encoder_Increase_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
   /*Configure GPIO pin : ButtonRGB_Pin */
   GPIO_InitStruct.Pin = ButtonRGB_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
@@ -535,7 +613,7 @@ void HAL_CAN_TxMailboxCompleteCallback(CAN_HandleTypeDef *hcan1)
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)//interrupt voor de button
 {
-    if (GPIO_Pin == ButtonRGB_Pin)
+    if (GPIO_Pin == encoder_Knop_Pin)
     {
         static uint32_t lastPress = 0;
         uint32_t now = HAL_GetTick();
@@ -543,6 +621,8 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)//interrupt voor de button
         if (now - lastPress > 200) // 200ms debounce
         {
             lastPress = now;
+            header.StdId = 511;
+
             HAL_UART_Transmit(&huart2, "Button ingedrukt\r\n", 18, HAL_MAX_DELAY);
             if (HAL_CAN_GetTxMailboxesFreeLevel(&hcan1) > 0) {
                 if (HAL_CAN_AddTxMessage(&hcan1, &header, data, &mailbox) != HAL_OK) {
@@ -551,6 +631,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)//interrupt voor de button
                     char msg[] = "CAN verstuurd!\r\n";
                     HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
                 }
+                header.StdId = 500;
             } else {
                 HAL_UART_Transmit(&huart2, "Mailbox vol!\r\n", 14, HAL_MAX_DELAY);
             }

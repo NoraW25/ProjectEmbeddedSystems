@@ -63,6 +63,12 @@ void Error_Handler(void);
 #define MCO_GPIO_Port GPIOA
 #define VCP_TX_Pin GPIO_PIN_2
 #define VCP_TX_GPIO_Port GPIOA
+#define encoder_Knop_Pin GPIO_PIN_4
+#define encoder_Knop_GPIO_Port GPIOA
+#define encoder_Decrease_Pin GPIO_PIN_5
+#define encoder_Decrease_GPIO_Port GPIOA
+#define encoder_Increase_Pin GPIO_PIN_6
+#define encoder_Increase_GPIO_Port GPIOA
 #define BlueLedCH2N_Pin GPIO_PIN_0
 #define BlueLedCH2N_GPIO_Port GPIOB
 #define ButtonRGB_Pin GPIO_PIN_1
