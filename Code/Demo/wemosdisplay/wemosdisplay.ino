@@ -6,6 +6,7 @@
 #include "ServerSocketWemos.h"
 #include "MessageTranslator.h"
 #include <Wire.h>
+#include "ww.cpp"
 // TM1637
 #define TM_CLK D1
 #define TM_DIO D2
@@ -20,8 +21,7 @@
 #define lamp8 RX
 #define lamp9 16
 
-const char* ssid = "NSELab";
-const char* password = "NSELabWiFi";
+
 ServerSocketWemos server(8080);
 MessageTranslator* translator = MessageTranslator::instance();
 
@@ -79,7 +79,7 @@ void loop() {
           segdisplay.showNumberDec(0, true);
         }
     }
-    
+
     if (address == 720) {
       int value = 0;
       for (size_t i = 0; i < data.size(); i++) {
