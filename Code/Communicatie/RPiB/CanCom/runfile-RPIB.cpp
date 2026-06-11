@@ -62,8 +62,8 @@ int main()
     // De sockets aanmaken
     ClientGeneraliser generaliser_client_rpia("192.168.0.2", false);
     ClientGeneraliser generaliser_client_wemos_klimaat("192.168.0.101", true);
-    ClientGeneraliser generaliser_client_wemos_display("192.168.0.103", true);
-    ClientGeneraliser generaliser_client_wemos_hartslag("192.168.0.102", true);
+    //ClientGeneraliser generaliser_client_wemos_display("192.168.0.103", true);
+    //ClientGeneraliser generaliser_client_wemos_hartslag("192.168.0.102", true);
 
 
     // De controllers aanmaken en binden aan de controller
@@ -77,20 +77,20 @@ int main()
             &generaliser_client_wemos_klimaat,
             &generaliser_client_wemos_klimaat);
 
-    std::shared_ptr<Communication::CommunicationController> client_controller_wemos_display =
-        std::make_shared<Communication::CommunicationController>(
-            &generaliser_client_wemos_display,
-            &generaliser_client_wemos_display);
+    // std::shared_ptr<Communication::CommunicationController> client_controller_wemos_display =
+    //     std::make_shared<Communication::CommunicationController>(
+    //         &generaliser_client_wemos_display,
+    //         &generaliser_client_wemos_display);
 
-    std::shared_ptr<Communication::CommunicationController> client_controller_wemos_hartslag =
-        std::make_shared<Communication::CommunicationController>(
-            &generaliser_client_wemos_hartslag,
-            &generaliser_client_wemos_hartslag);
+    // std::shared_ptr<Communication::CommunicationController> client_controller_wemos_hartslag =
+    //     std::make_shared<Communication::CommunicationController>(
+    //         &generaliser_client_wemos_hartslag,
+    //         &generaliser_client_wemos_hartslag);
 
-    std::shared_ptr<HeartrateDisplayer> heartrateDisplayer = std::make_shared<HeartrateDisplayer>(
-        client_controller_wemos_display, client_controller_wemos_hartslag, client_controller_rpia);
-    // Het uitvoeren van taken en functies op bepaalde momenten
-    // client_controller_wemos_klimaat->logReceived(610, *klimaatfunctie);
+    // std::shared_ptr<HeartrateDisplayer> heartrateDisplayer = std::make_shared<HeartrateDisplayer>(
+    //     client_controller_wemos_display, client_controller_wemos_hartslag, client_controller_rpia);
+    // // Het uitvoeren van taken en functies op bepaalde momenten
+    // // client_controller_wemos_klimaat->logReceived(610, *klimaatfunctie);
 
     // Aanmaken van een klasse die een proces aanstuurd
     ClimateSystem climate_system(client_controller_wemos_klimaat);
