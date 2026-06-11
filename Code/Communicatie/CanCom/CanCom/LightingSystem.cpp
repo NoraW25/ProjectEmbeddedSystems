@@ -59,10 +59,10 @@ void LightingSystem::toggleLight(std::vector<uint8_t> d){
     data.push_back(0);
 
     if (lights_on){
-        lights_on = false;
+        lights_on = true;
         sendNewColour();
     } else {
-        lights_on = true;
+        lights_on = false;
         controller->transmitData(lights_off_address, data);
     }    
 }
