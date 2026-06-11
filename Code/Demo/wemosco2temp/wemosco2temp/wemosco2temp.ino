@@ -4,7 +4,7 @@
 #include "ServerSocketWemos.h"
 #include "MessageTranslator.h"
 #include "LampPWM.h"
-#include "ww.cpp"
+#include "wifi.h"
 
 
 Adafruit_SGP30 sgp;

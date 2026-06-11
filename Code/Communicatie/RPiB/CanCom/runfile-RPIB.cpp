@@ -60,10 +60,10 @@ int main()
     scheduler.initEvent();
 
     // De sockets aanmaken
-    ClientGeneraliser generaliser_client_rpia("145.52.127.222", false);
-    ClientGeneraliser generaliser_client_wemos_klimaat("145.52.127.246", true);
-    ClientGeneraliser generaliser_client_wemos_display("145.52.127.206", true);
-    ClientGeneraliser generaliser_client_wemos_hartslag("145.52.127.227", true);
+    ClientGeneraliser generaliser_client_rpia("192.168.0.2", false);
+    ClientGeneraliser generaliser_client_wemos_klimaat("192.168.0.101", true);
+    ClientGeneraliser generaliser_client_wemos_display("192.168.0.103", true);
+    ClientGeneraliser generaliser_client_wemos_hartslag("192.168.0.102", true);
 
 
     // De controllers aanmaken en binden aan de controller

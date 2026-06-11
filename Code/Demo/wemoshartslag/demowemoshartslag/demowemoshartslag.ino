@@ -5,7 +5,7 @@
 #include "ServerSocketWemos.h"
 #include "HartslagSensor.h"
 #include "MessageTranslator.h"
-#include "ww.cpp"
+#include "wifi.h"
 
 ServerSocketWemos server(8080);
 HartslagSensor hartslag;

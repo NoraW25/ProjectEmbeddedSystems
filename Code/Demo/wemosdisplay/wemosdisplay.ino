@@ -6,7 +6,7 @@
 #include "ServerSocketWemos.h"
 #include "MessageTranslator.h"
 #include <Wire.h>
-#include "ww.cpp"
+#include "wifi.h"
 // TM1637
 #define TM_CLK D1
 #define TM_DIO D2

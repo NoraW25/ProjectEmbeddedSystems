@@ -387,4 +387,4 @@ build/
 # Logs
 *.lo
 
-ww.cpp
+wifi.h
