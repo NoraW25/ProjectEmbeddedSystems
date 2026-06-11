@@ -41,13 +41,17 @@ LightingSystem::LightingSystem(int button_change_colour_address, int button_off_
 }
 
 void LightingSystem::changeColour(std::vector<uint8_t> data){
-    current_colour++;
 
-    if (current_colour == colours.end()){
-        current_colour = colours.begin();
+    if (lights_on == true){
+        current_colour++;
+
+        if (current_colour == colours.end()){
+            current_colour = colours.begin();
+        }
+
+        sendNewColour();
     }
-
-    sendNewColour();
+    
 }
 
 void LightingSystem::toggleLight(std::vector<uint8_t> d){
