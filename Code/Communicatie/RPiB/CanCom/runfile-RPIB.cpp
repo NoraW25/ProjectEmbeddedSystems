@@ -69,8 +69,8 @@ int main()
     // De controllers aanmaken en binden aan de controller
     std::shared_ptr<Communication::CommunicationController> client_controller_rpia = 
         std::make_shared<Communication::CommunicationController>(
-            &generaliser_client_wemos_rpia,
-            &generaliser_client_wemos_rpia);
+            &generaliser_client_rpia,
+            &generaliser_client_rpia);
 
     std::shared_ptr<Communication::CommunicationController> client_controller_wemos_klimaat =
         std::make_shared<Communication::CommunicationController>(
