@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>272</x>
+      <y>248</y>
+      <w>664</w>
+      <h>464</h>
+    </coordinates>
+    <panel_attributes>ClimateSystem</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>312</x>
+      <y>312</y>
+      <w>280</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>ClimateSensor
+--
+-status:int
+-address:uint
+-value:double
+-controller:std::shared_ptr&lt;CommunicationController&gt;
+--
++setCurrentValue(double value):void
++getCurrentValue():double
++getStatus():int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>616</x>
+      <y>312</y>
+      <w>280</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>ClimateActuatorPWM
+--
+-status:int
+-address:uint
+-controller:std::shared_ptr&lt;CommunicationController&gt;
+--
++setPWM(int dutycycle):void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>376</x>
+      <y>536</y>
+      <w>448</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>ClimateSystem
+--
+-controller:std::shared_ptr&lt;CommunicationController&gt;
+-sensors:map&lt;std::string, vector&lt;std::shared_ptr&lt;ClimateSensor&gt; &gt; &gt;
+-pwm_actuators:map&lt;std::string, vector&lt;std::shared_ptr&lt;ClimateActuatorPWM&gt; &gt; &gt;
+--
++calculateSettings():void
++addSensor(std::string type, std::shared_ptr&lt;ClimateSensor&gt;):void
++addActuatorPWM(std::string type, std::shared_ptr&lt;ClimateActuatorPWM&gt;):void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>432</y>
+      <w>48</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;
+m2=0..10
+m1=0..1
+</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>752</x>
+      <y>432</y>
+      <w>48</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=1
+m2=0..10
+</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>968</x>
+      <y>248</y>
+      <w>296</w>
+      <h>464</h>
+    </coordinates>
+    <panel_attributes>CommunicationController</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>888</x>
+      <y>352</y>
+      <w>184</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>210.0;120.0;210.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>992</x>
+      <y>448</y>
+      <w>248</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>CommunicationController
+--
+...
+--
+...
+
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>816</x>
+      <y>544</y>
+      <w>320</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>380.0;10.0;380.0;80.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>432</x>
+      <y>272</y>
+      <w>768</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>940.0;220.0;940.0;10.0;10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+</diagram>
