@@ -77,7 +77,7 @@ void ClimateSystem::calculateSettings()
                 printf("hum+2\n");
                 vensetting += 2;
             }
-            else if (sum_type < 70)
+            else if (sum_type > 70)
             {
                 printf("hum+1\n");
                 vensetting += 1;

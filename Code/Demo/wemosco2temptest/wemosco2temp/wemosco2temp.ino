@@ -6,10 +6,6 @@
 #include "LampPWM.h"
 #include "wifi.h"
 
-#define TEMPERATURETEST 26.0
-#define HUMIDITYTEST 60.0
-#define CO2TEST 600.0
-
 
 Adafruit_SGP30 sgp;
 SensorSHT31 sensortemp;
@@ -70,7 +66,6 @@ if (time_now - last_time_send >= send_interval) {
   std::vector<uint8_t> data;
 
   if (sendState == SEND_CO2) {
-    co2 = CO2TEST;
 
     uint64_t raw_co2;
     std::memcpy(&raw_co2, &co2, sizeof(double));
@@ -89,8 +84,6 @@ if (time_now - last_time_send >= send_interval) {
 
   else if (sendState == SEND_TEMP) {
 
-    temperature = TEMPERATURETEST;
-
     uint64_t raw_temperature;
     std::memcpy(&raw_temperature, &temperature, sizeof(double));
 
@@ -107,8 +100,6 @@ if (time_now - last_time_send >= send_interval) {
 
 
   else if (sendState == SEND_HUM) {
-
-    humidity = HUMIDITYTEST;
 
     uint64_t raw_humidity;
     std::memcpy(&raw_humidity, &humidity, sizeof(double));
