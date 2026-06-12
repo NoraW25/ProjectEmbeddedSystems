@@ -13,7 +13,6 @@ AlarmSystem::AlarmSystem(std::shared_ptr<Communication::CommunicationController>
             controller_rpib->logReceived(alarm_address,
                             [this](std::vector<uint8_t> data)
                             { soundAlarm(data); }
-                            // Om this af te vangen en alleen het type void (*)(std::vector<uint8_t>) mee te geven ipv void (ClimateSensor::*)(std::vector<uint8_t>)
     );
 }
 

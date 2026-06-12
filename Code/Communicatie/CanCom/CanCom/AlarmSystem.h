@@ -17,7 +17,7 @@ public:
 
     virtual ~AlarmSystem() = default;
 
-    void soundAlarm(std::vector<uint8_t>);
+    virtual void soundAlarm(std::vector<uint8_t>);
 
 private:
     int alarm_address;
