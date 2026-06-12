@@ -115,10 +115,10 @@ bool MessageTranslator::parseData(const std::string &message, std::vector<uint8_
         position = next + 1;
     }
 
-    if (result.size() != 8)
-    {
-        return false;
-    }
+    // if (result.size() != 8)
+    // {
+    //     return false;
+    // }
 
     *data = result;
     return true;
