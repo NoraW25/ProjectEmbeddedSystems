@@ -86,7 +86,7 @@ void loop() {
         value |= (uint32_t)data[i] << (8 * i);
       }
 
-      if (value > 0) {
+      if (value >= 0) {
         for (int i = 0; i < value; i++) {
           digitalWrite(lamps[i], HIGH);
         }
