@@ -1,4 +1,12 @@
 #include <Arduino.h>
+/**
+ * @file wemosdisplay.ino
+ * @brief Hoofdsketch voor de Wemos: initialiseert WiFi, server en display.
+ *
+ * Deze sketch start een `ServerSocketWemos`, gebruikt `MessageTranslator`
+ * om binnenkomende berichten te parsen en bestuurt lampen en een 7-seg
+ * display.
+ */
 #include <TM1637Display.h>
 #include "LedControl.h"
 #include "binary.h"

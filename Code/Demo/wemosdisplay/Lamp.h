@@ -10,18 +10,18 @@
 
 #include "InterfaceActuatorSimple.h"
 
-class Lamp : public InterfaceActuatorSimple {
+class Lamp : public InterfaceActuatorSimple
+{
 public:
     /*!
      * @brief Maakt een Lamp aan.
      *
-     * Maakt een lamp aan op een pinnummer van de WeMos. 
+     * Maakt een lamp aan op een pinnummer van de WeMos.
      * Standaard staat de lamp uit.
-     * 
+     *
      * @param int pin_nr - het pinnummer waar de Lamp op de WeMos zit.
      */
     Lamp(int);
-
 
     void turnOn() override;
     void turnOff() override;
