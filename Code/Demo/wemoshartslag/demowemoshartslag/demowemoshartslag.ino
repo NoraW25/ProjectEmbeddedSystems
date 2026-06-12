@@ -1,11 +1,13 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include <ESP8266WiFi.h>
+#include <RotaryEncoder.h>
 
 #include "ServerSocketWemos.h"
 #include "HartslagSensor.h"
 #include "MessageTranslator.h"
 #include "wifi.h"
+
 
 ServerSocketWemos server(8080);
 HartslagSensor hartslag;
@@ -43,8 +45,7 @@ void loop() {
   float bpm = hartslag.getBPM();
   double avg = hartslag.getAvgBPM();
 
-
-  if (millis() - lastSend >= 1000) {
+  if (millis() - lastSend >= 3000) {
     Serial.printf("IR=%ld, BPM=%.1f, Avg BPM=%.1f\n", ir, bpm, avg);
     Serial.println(WiFi.localIP());
     lastSend = millis();
