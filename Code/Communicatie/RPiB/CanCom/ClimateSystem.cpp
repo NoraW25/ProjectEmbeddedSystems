@@ -82,6 +82,12 @@ void ClimateSystem::calculateSettings()
                 printf("hum+1\n");
                 vensetting += 1;
             }
+
+            std::vector<uint8_t> data;
+            data.push_back(sum_type);
+
+            // Verzend data naar humidity sensor op de STM via RPiA
+            controller_rpia->transmitData(150, data);
         }
 
         if (type == CO2SENSORS)
