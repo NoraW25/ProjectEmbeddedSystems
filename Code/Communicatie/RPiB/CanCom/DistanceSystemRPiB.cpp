@@ -9,7 +9,7 @@ DistanceSystemRPiB::DistanceSystemRPiB(std::shared_ptr<Communication::Communicat
         rpia_controller(rpia_controller),
         wemos_controller_encoder(wemos_controller_encoder),
         address_display(address),
-        address_distance_wemos(512),
+        address_distance_wemos(910),
         address_distance_rpia(512)
     {
     rpia_controller->logReceived(address_display,
