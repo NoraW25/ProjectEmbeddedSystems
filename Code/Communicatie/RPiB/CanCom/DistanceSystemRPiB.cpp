@@ -1,8 +1,8 @@
 
 #include "DistanceSystemRPiB.h"
 
-DistanceSystemRPiB::DistanceSystemRPiB(std::shared_ptr<Communication::CommunicationController> wemos_controller, 
-    std::shared_ptr<Communication::CommunicationController> rpia_controller, 
+DistanceSystemRPiB::DistanceSystemRPiB(std::shared_ptr<Communication::CommunicationController> rpia_controller, 
+    std::shared_ptr<Communication::CommunicationController> wemos_controller, 
     int address):    
         wemos_controller(wemos_controller),
         rpia_controller(rpia_controller),
