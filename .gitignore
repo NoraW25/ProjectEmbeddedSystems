@@ -388,3 +388,5 @@ build/
 *.lo
 
 wifi.h
+wifi.txt
+wifi.h.txt
