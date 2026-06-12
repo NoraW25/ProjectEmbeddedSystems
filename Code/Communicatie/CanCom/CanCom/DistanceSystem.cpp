@@ -11,8 +11,8 @@ DistanceSystem::DistanceSystem(std::shared_ptr<Communication::CommunicationContr
         can_controller(can_controller),
         rpib_controller(rpib_controller),
 
-        address_turns(511),
-        address_reset_button(512),
+        address_turns(512),
+        address_reset_button(511),
         address_display(720)
 {
     can_controller->logReceived(address_turns,
