@@ -18,6 +18,7 @@
 #include "Clock.h"
 #include "AlarmSystem.h"
 #include "DistanceSystem.h"
+#include "ClimateDisplay.h"
 
 #include "SocketGeneraliser/CanGeneraliser.h"
 #include "SocketGeneraliser/ServerGeneraliser.h"
@@ -44,6 +45,7 @@ int main()
     Clock clock_systeem(410, can_controller);
     AlarmSystem alarm_system(can_controller, server_controller, 420);
     DistanceSystem distance_system(can_controller, server_controller);
+    ClimateDisplay climate_system(can_controller, server_controller, 150, 230);
 
 
     while (1) {
