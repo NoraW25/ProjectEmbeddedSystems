@@ -35,7 +35,8 @@ void HeartrateDisplayer::handleHeart(std::vector<uint8_t> data)
 
     displayController->transmitData(710, fixed);
 
-    if (getHeartrate(data) > 60){
+    if (getHeartrate(data) > 80)
+    {
         std::vector<uint8_t> dataByte;
         dataByte.push_back(0);
 
@@ -43,10 +44,12 @@ void HeartrateDisplayer::handleHeart(std::vector<uint8_t> data)
     }
 }
 
-double HeartrateDisplayer::getHeartrate(std::vector<uint8_t> data){
+double HeartrateDisplayer::getHeartrate(std::vector<uint8_t> data)
+{
     uint64_t raw = 0;
 
-    for (size_t i = 0; i < data.size() && i < sizeof(raw); i++) {
+    for (size_t i = 0; i < data.size() && i < sizeof(raw); i++)
+    {
         raw |= (uint64_t)data[i] << (8 * i);
     }
 
