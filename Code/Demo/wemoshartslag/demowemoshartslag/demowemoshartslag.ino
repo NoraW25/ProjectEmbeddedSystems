@@ -8,13 +8,26 @@
 #include "MessageTranslator.h"
 #include "wifi.h"
 
+<<<<<<< Updated upstream
+=======
+/**
+ * @file demowemoshartslag.ino
+ * @brief Demo toepassing voor Wemos met hartslagsensor en server
+ */
+>>>>>>> Stashed changes
 
 ServerSocketWemos server(8080);
 HartslagSensor hartslag;
 MessageTranslator* translator = MessageTranslator::instance();
 
+/** Tijdstempel van de laatste versturing */
 unsigned long lastSend = 0;
 
+/**
+ * @brief Arduino setup-functie
+ *
+ * Initialiseert seriële communicatie, WiFi en sensor.
+ */
 void setup() {
   Serial.begin(115200);
   delay(200);
@@ -39,6 +52,11 @@ void setup() {
   }
 }
 
+/**
+ * @brief Arduino main loop
+ *
+ * Leest sensorwaarden, logt ze en verstuurt periodiek een bericht.
+ */
 void loop() {
   hartslag.update();
   long ir = hartslag.getIR();
