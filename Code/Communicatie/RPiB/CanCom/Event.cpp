@@ -13,7 +13,6 @@ namespace Events {
 	}
 
 	Event::~Event() {
-		printf("[Event] event removing\n");
 		for (int i = 0; i < connections.size(); i++) {
 			connections[0]->Disconnect();
 		}

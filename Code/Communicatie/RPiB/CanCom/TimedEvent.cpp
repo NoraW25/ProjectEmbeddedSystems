@@ -23,7 +23,6 @@ namespace Events {
 			SimpleConnection* connection = dynamic_cast<SimpleConnection*>(connections[i]);
 			connection->getFunction()();
 		}
-		printf("[TimedEvent] called functions, deleting self\n");
 		delete this;
 	}
 
