@@ -36,7 +36,7 @@ int main()
     ClientGeneraliser generaliser_client_wemos_klimaat("192.168.0.101", true);
     ClientGeneraliser generaliser_client_wemos_display("192.168.0.103", true);
     ClientGeneraliser generaliser_client_wemos_hartslag("192.168.0.102", true);
-    ClientGeneraliser generaliser_client_wemos_encoder("", true);
+    ClientGeneraliser generaliser_client_wemos_encoder("192.168.0.104", true);
 
     // De controllers aanmaken en binden aan de controller
     std::shared_ptr<Communication::CommunicationController> client_controller_rpia =
