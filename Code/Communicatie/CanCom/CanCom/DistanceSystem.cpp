@@ -55,9 +55,7 @@ void DistanceSystem::resetDistance(std::vector<uint8_t> data){
 }
 
 void DistanceSystem::addToDistance(std::vector<uint8_t> data){
-    printf("Debug in add to distance\n");
     distance++;
-    printf("Distance: %d\n", distance);
     calculateAmountOfLights();
 }
 
@@ -73,9 +71,6 @@ void DistanceSystem::calculateAmountOfLights(){
         uint8_t byte_value = (amount_of_lights >> (8*i)) & 0xFF;
         data.push_back(byte_value);
     }
-    
-    printf("Distance in calculate: %d\n", distance);
-    printf("Amount of lights: %d\n", amount_of_lights);
 
     rpib_controller->transmitData(address_display, data);
 }
