@@ -27,6 +27,6 @@ void DistanceSystemRPiB::sendToDisplay(std::vector<uint8_t> data){
 }
 
 void DistanceSystemRPiB::sendDistance(std::vector<uint8_t> data){
-    printf("Ga versturen\n");
+    printf("Ga versturen vanaf encoder\n");
     rpia_controller->transmitData(address_distance_rpia, data);
 }

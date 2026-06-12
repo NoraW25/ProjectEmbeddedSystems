@@ -29,7 +29,6 @@ private:
     int address_display;
     int address_distance_wemos;
     int address_distance_rpia;
-
 };
 
 #endif
