@@ -22,65 +22,6 @@
 #include "SocketGeneraliser/CanGeneraliser.h"
 #include "SocketGeneraliser/ServerGeneraliser.h"
 
-// Communication::CommunicationController* can_controller;
-//Communication::CommunicationController* server_controller;
-
-
-// void testFunction(/*std::vector<uint8_t> data*/) {
-//     printf("[TestFunction] received CAN data: \n");
-//     std::vector<uint8_t> data;
-
-//     // printf("[TestFunction] Data (%zu bytes): ", data.size());
-//     // for (size_t i = 0; i < data.size(); ++i)
-//     // {
-//     //     printf("%02X ", data[i]);
-
-//     // }
-//     data.push_back(90);
-//     can_controller->transmitData(0x30c, data);
-//     sleep(5);
-//     can_controller->transmitData(720, data);
-//     sleep(5);
-    
-//     can_controller->transmitData(730, data);
-//     sleep(5);
-    
-//     can_controller->transmitData(740, data);
-//     sleep(5);
-    
-//     can_controller->transmitData(750, data);
-//     sleep(5);
-    
-//     can_controller->transmitData(760, data);
-//     sleep(5);
-    
-//     can_controller->transmitData(770, data);
-//     sleep(5);
-    
-//     can_controller->transmitData(780, data);
-//     sleep(5);
-
-//     printf("\n");
-// }
-
-
-void testFunction2(std::vector<uint8_t> data) {
-    printf("[TestFunction] Data (%zu bytes) socket: ", data.size());
-    for (size_t i = 0; i < data.size(); ++i)
-    {
-        printf("%02X ", data[i]);
-
-    }
-    //server_controller->transmitData(0x10, data);
-}
-
-void basicTestFunction() {
-    printf("[BasicTestFunction] called\n");
-}
-
-void calculate(std::vector<uint8_t>) {
-
-}
 
 int main()
 {
@@ -108,29 +49,6 @@ int main()
     while (1) {
         scheduler.update();
     }
-
-    /*runService->connectToUpdate(*basicTestFunction);
-    scheduler.update();
-
-    std::vector<uint8_t> testData1;
-    testData1.push_back(10);
-    testData1.push_back(20);
-    canController.transmitData(100, testData1);
-
-    canController.requestData(200, *testFunction);
-    std::vector<uint8_t> testData2;
-    testData2.push_back(60);
-    testData2.push_back(44);
-    receiver.setBuffer(200, testData2);
-    scheduler.update();
-
-    canController.logReceived(300, *testFunction);
-    std::vector<uint8_t> testData3;
-    testData3.push_back(0x00);
-    testData3.push_back(0xAA);
-    testData3.push_back(0xFF);
-    receiver.setBuffer(300, testData3);
-    scheduler.update();*/
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
