@@ -17,6 +17,7 @@
 #include "LightingSystem.h"
 #include "Clock.h"
 #include "AlarmSystem.h"
+#include "DistanceSystem.h"
 
 #include "SocketGeneraliser/CanGeneraliser.h"
 #include "SocketGeneraliser/ServerGeneraliser.h"
@@ -104,7 +105,7 @@ int main()
 
     AlarmSystem alarm_system(can_controller, server_controller, 420);
 
-
+    DistanceSystem distance_system(can_controller, server_controller);
     // runService->createTask(*basicTestFunction, 5000);
     // runService->createTask(*basicTestFunction, 10000);
     // runService->createTask(*basicTestFunction, 15000);

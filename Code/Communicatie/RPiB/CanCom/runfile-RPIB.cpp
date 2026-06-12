@@ -18,6 +18,7 @@
 
 #include "ClimateSystem.h"
 #include "HeartrateDisplayer.h"
+#include "DistanceSystemRPiB.h"
 
 #define BUZZERADDRESS 420
 
@@ -97,6 +98,8 @@ int main()
     ClimateSystem climate_system(client_controller_wemos_klimaat, client_controller_rpia, BUZZERADDRESS);
     sleep(1);
     printf("sleep klaar\n");
+
+    DistanceSystemRPiB distance_system(client_controller_rpia, client_controller_wemos_display, 720);
 
     std::vector<uint8_t> d1 = {20};
     client_controller_wemos_display->transmitData(710, d1);
