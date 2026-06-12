@@ -73,5 +73,7 @@ void DistanceSystem::calculateAmountOfLights(){
         data.push_back(byte_value);
     }
 
+    printf("amount of lights: %d\n", amount_of_lights);
+
     rpib_controller->transmitData(address_display, data);
 }
