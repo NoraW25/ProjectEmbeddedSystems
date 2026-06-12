@@ -52,7 +52,7 @@ namespace Scheduling {
 		);
 		deletedEvents += 1;
 
-		printf("[Scheduler] removed events, remaining events: %d, remaining timed events: %d\n", events.size(), timedEvents.size());
+		//printf("[Scheduler] removed events, remaining events: %d, remaining timed events: %d\n", events.size(), timedEvents.size());
 	}
 
 	Events::Connection* Scheduler::connectToUpdate(std::function<void()> func) {
