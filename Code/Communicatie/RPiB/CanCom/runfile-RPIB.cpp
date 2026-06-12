@@ -22,7 +22,7 @@
 #define BUZZERADDRESS 420
 
 // Tijdelijke definitie voor client controllers, zodat deze in de testfuncties gebruikt kunnen worden
-//Communication::CommunicationController *client_controller_rpia;
+// Communication::CommunicationController *client_controller_rpia;
 // std::shared_ptr<Communication::CommunicationController> client_controller_wemos_klimaat;
 
 // Aansturing van het klimaatsysteem
@@ -50,7 +50,7 @@ void transmitFunc()
     begin_data.push_back(85);
     begin_data.push_back('\n');
     printf("Transmitfunc: %d\n", begin_data.size());
-    //client_controller_rpia->transmitData(0x10, begin_data);
+    // client_controller_rpia->transmitData(0x10, begin_data);
     printf("transmit\n");
 }
 
@@ -65,11 +65,10 @@ int main()
     ClientGeneraliser generaliser_client_rpia("192.168.0.2", false);
     ClientGeneraliser generaliser_client_wemos_klimaat("192.168.0.101", true);
     ClientGeneraliser generaliser_client_wemos_display("192.168.0.103", true);
-    //ClientGeneraliser generaliser_client_wemos_hartslag("192.168.0.102", true);
-
+    ClientGeneraliser generaliser_client_wemos_hartslag("192.168.0.102", true);
 
     // De controllers aanmaken en binden aan de controller
-    std::shared_ptr<Communication::CommunicationController> client_controller_rpia = 
+    std::shared_ptr<Communication::CommunicationController> client_controller_rpia =
         std::make_shared<Communication::CommunicationController>(
             &generaliser_client_rpia,
             &generaliser_client_rpia);
@@ -84,33 +83,30 @@ int main()
             &generaliser_client_wemos_display,
             &generaliser_client_wemos_display);
 
-    // std::shared_ptr<Communication::CommunicationController> client_controller_wemos_hartslag =
-    //     std::make_shared<Communication::CommunicationController>(
-    //         &generaliser_client_wemos_hartslag,
-    //         &generaliser_client_wemos_hartslag);
+    std::shared_ptr<Communication::CommunicationController> client_controller_wemos_hartslag =
+        std::make_shared<Communication::CommunicationController>(
+            &generaliser_client_wemos_hartslag,
+            &generaliser_client_wemos_hartslag);
 
-    // std::shared_ptr<HeartrateDisplayer> heartrateDisplayer = std::make_shared<HeartrateDisplayer>(
-    //     client_controller_wemos_display, client_controller_wemos_hartslag, client_controller_rpia);
-    // // Het uitvoeren van taken en functies op bepaalde momenten
-    // // client_controller_wemos_klimaat->logReceived(610, *klimaatfunctie);
+    std::shared_ptr<HeartrateDisplayer> heartrateDisplayer = std::make_shared<HeartrateDisplayer>(
+        client_controller_wemos_display, client_controller_wemos_hartslag, client_controller_rpia);
+    // Het uitvoeren van taken en functies op bepaalde momenten
+    // client_controller_wemos_klimaat->logReceived(610, *klimaatfunctie);
 
     // Aanmaken van een klasse die een proces aanstuurd
     ClimateSystem climate_system(client_controller_wemos_klimaat, client_controller_rpia, BUZZERADDRESS);
-    /* waar moet deze functie? Niet vergeten? Werkte nog niet*/
     sleep(1);
     printf("sleep klaar\n");
 
-    
-    
     std::vector<uint8_t> d1 = {20};
     client_controller_wemos_display->transmitData(710, d1);
     sleep(1);
 
     client_controller_rpia->transmitData(420, d1);
-    //runService->createTask(*transmitFunc, 1000);
-    
+    // runService->createTask(*transmitFunc, 1000);
+
     std::vector<uint8_t> d2 = {6};
-    //client_controller_wemos_display->transmitData(720, d2);
+    // client_controller_wemos_display->transmitData(720, d2);
     runService->createTask(*transmitFunc, 640);
 
     while (1)
