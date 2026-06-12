@@ -63,7 +63,7 @@ void DistanceSystem::addToDistance(std::vector<uint8_t> data){
 
 void DistanceSystem::calculateAmountOfLights(){
 
-    amount_of_lights = distance / finish_distance * amount_of_lights_available;
+    amount_of_lights = (double) (((double) distance / (double) finish_distance)) * amount_of_lights_available;
 
     std::vector<uint8_t> data;
     int amount_of_bytes = sizeof(int);
