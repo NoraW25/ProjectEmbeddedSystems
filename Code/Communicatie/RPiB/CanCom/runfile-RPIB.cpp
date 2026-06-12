@@ -65,7 +65,6 @@ int main()
     ClimateSystem climate_system(client_controller_wemos_klimaat, client_controller_rpia, BUZZERADDRESS);
     DistanceSystemRPiB distance_system(client_controller_rpia, client_controller_wemos_display, LEDBARADDRESS);
 
-    runService->createTask(*transmitFunc, 640);
 
     while (1)
     {
