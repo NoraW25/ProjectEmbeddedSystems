@@ -50,10 +50,12 @@ DistanceSystem::DistanceSystem(std::shared_ptr<Communication::CommunicationContr
 }
 
 void DistanceSystem::resetDistance(std::vector<uint8_t> data){
+    printf("Debug in resetDistance\n");
     distance = 0;
 }
 
 void DistanceSystem::addToDistance(std::vector<uint8_t> data){
+    printf("Debug in add to distance\n");
     distance++;
     calculateAmountOfLights();
 }
