@@ -27,7 +27,8 @@ private:
     std::shared_ptr<Communication::CommunicationController> wemos_controller_encoder;
     std::shared_ptr<Communication::CommunicationController> rpia_controller;
     int address_display;
-    int address_distance;
+    int address_distance_wemos;
+    int address_distance_rpia;
 
 };
 
