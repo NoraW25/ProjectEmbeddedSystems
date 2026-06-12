@@ -90,6 +90,10 @@ void loop() {
         for (int i = 0; i < value; i++) {
           digitalWrite(lamps[i], HIGH);
         }
+        for (int i = value; i < 9; i++){
+          digitalWrite(lamps[i], LOW);
+        }
+
       }
     }
   }
