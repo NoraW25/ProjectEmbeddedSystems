@@ -74,7 +74,7 @@ void ClimateSystem::calculateSettings()
             sum_type /= sensors_of_type.size();
             if (sum_type > 80)
             {
-                printf("hum+1\n");
+                printf("hum+2\n");
                 vensetting += 2;
             }
             else if (sum_type < 70)
