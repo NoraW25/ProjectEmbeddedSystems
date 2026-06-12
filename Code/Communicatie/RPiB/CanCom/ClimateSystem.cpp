@@ -54,14 +54,17 @@ void ClimateSystem::calculateSettings()
             sum_type /= sensors_of_type.size();
             if (sum_type > 25)
             {
+                printf("temp+3\n");
                 vensetting += 3;
             }
             else if (sum_type > 22)
             {
+                printf("temp+2\n");
                 vensetting += 2;
             }
             else if (sum_type > 20)
             {
+                printf("temp+1\n");
                 vensetting += 1;
             }
         }
@@ -71,10 +74,12 @@ void ClimateSystem::calculateSettings()
             sum_type /= sensors_of_type.size();
             if (sum_type > 80)
             {
+                printf("hum+1\n");
                 vensetting += 2;
             }
             else if (sum_type < 70)
             {
+                printf("hum+1\n");
                 vensetting += 1;
             }
         }
@@ -87,7 +92,7 @@ void ClimateSystem::calculateSettings()
             if (sum_type > 1200)
             {
                 vensetting += 4;
-                printf("CO2 1200");
+                printf("CO2 1200 + 4\n");
                 std::vector<uint8_t> data;
                 int amount_of_bytes = sizeof(int);
                 
@@ -105,12 +110,12 @@ void ClimateSystem::calculateSettings()
             else if (sum_type > 800)
             {
                 vensetting += 3;
-                printf("CO2 800");
+                printf("CO2 800 + 3\n");
             }
             else if (sum_type > 650)
             {
                 vensetting += 2;
-                printf("CO2 650");
+                printf("CO2 650 + 2\n");
             }
         }
     }
