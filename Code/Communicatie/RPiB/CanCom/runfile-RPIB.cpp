@@ -36,6 +36,7 @@ int main()
     ClientGeneraliser generaliser_client_wemos_klimaat("192.168.0.101", true);
     ClientGeneraliser generaliser_client_wemos_display("192.168.0.103", true);
     ClientGeneraliser generaliser_client_wemos_hartslag("192.168.0.102", true);
+    ClientGeneraliser generaliser_client_wemos_encoder("", true);
 
     // De controllers aanmaken en binden aan de controller
     std::shared_ptr<Communication::CommunicationController> client_controller_rpia =
@@ -58,12 +59,16 @@ int main()
             &generaliser_client_wemos_hartslag,
             &generaliser_client_wemos_hartslag);
 
-    std::shared_ptr<HeartrateDisplayer> heartrateDisplayer = std::make_shared<HeartrateDisplayer>(
-        client_controller_wemos_display, client_controller_wemos_hartslag, client_controller_rpia);
+    std::shared_ptr<Communication::CommunicationController> client_controller_wemos_encoder =
+        std::make_shared<Communication::CommunicationController>(
+            &generaliser_client_wemos_encoder,
+            &generaliser_client_wemos_encoder);
 
     // Aanmaken van een klasses die een processen aansturen
     ClimateSystem climate_system(client_controller_wemos_klimaat, client_controller_rpia, BUZZERADDRESS);
-    DistanceSystemRPiB distance_system(client_controller_rpia, client_controller_wemos_display, LEDBARADDRESS);
+    DistanceSystemRPiB distance_system(client_controller_rpia, client_controller_wemos_display, client_controller_wemos_encoder, LEDBARADDRESS);
+    std::shared_ptr<HeartrateDisplayer> heartrateDisplayer = std::make_shared<HeartrateDisplayer>(
+        client_controller_wemos_display, client_controller_wemos_hartslag, client_controller_rpia);
 
 
     while (1)
