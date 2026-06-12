@@ -84,7 +84,7 @@ void ClimateSystem::calculateSettings()
             printf("IN CO2 SENSOR DATAVERWERKING\n");
 
             sum_type /= sensors_of_type.size();
-            if (sum_type > 700)
+            if (sum_type > 1200)
             {
                 vensetting += 4;
                 printf("CO2 1200");
@@ -102,12 +102,12 @@ void ClimateSystem::calculateSettings()
                 data2.push_back(0);
                 controller_rpia->transmitData(buzzer_address, data2);
             }
-            else if (sum_type > 600)
+            else if (sum_type > 800)
             {
                 vensetting += 3;
                 printf("CO2 800");
             }
-            else if (sum_type > 500)
+            else if (sum_type > 650)
             {
                 vensetting += 2;
                 printf("CO2 650");
