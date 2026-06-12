@@ -21,39 +21,8 @@
 #include "DistanceSystemRPiB.h"
 
 #define BUZZERADDRESS 420
+#define LEDBARADDRESS 720
 
-// Tijdelijke definitie voor client controllers, zodat deze in de testfuncties gebruikt kunnen worden
-// Communication::CommunicationController *client_controller_rpia;
-// std::shared_ptr<Communication::CommunicationController> client_controller_wemos_klimaat;
-
-// Aansturing van het klimaatsysteem
-void klimaatfunctie(std::vector<uint8_t> data)
-{
-    // Print eerst de data
-    for (size_t i = 0; i < data.size(); ++i)
-    {
-        printf("%02X ", data[i]);
-    }
-
-    // Verzend de data terug naar
-    // client_controller_rpia->transmitData(0x10, data);
-}
-
-void basicTestFunction()
-{
-    printf("updated\n");
-}
-
-void transmitFunc()
-{
-    std::vector<uint8_t> begin_data;
-    begin_data.push_back(45);
-    begin_data.push_back(85);
-    begin_data.push_back('\n');
-    printf("Transmitfunc: %d\n", begin_data.size());
-    // client_controller_rpia->transmitData(0x10, begin_data);
-    printf("transmit\n");
-}
 
 int main()
 {
@@ -91,56 +60,18 @@ int main()
 
     std::shared_ptr<HeartrateDisplayer> heartrateDisplayer = std::make_shared<HeartrateDisplayer>(
         client_controller_wemos_display, client_controller_wemos_hartslag, client_controller_rpia);
-    // Het uitvoeren van taken en functies op bepaalde momenten
-    // client_controller_wemos_klimaat->logReceived(610, *klimaatfunctie);
 
-    // Aanmaken van een klasse die een proces aanstuurd
+    // Aanmaken van een klasses die een processen aansturen
     ClimateSystem climate_system(client_controller_wemos_klimaat, client_controller_rpia, BUZZERADDRESS);
-    sleep(1);
-    printf("sleep klaar\n");
+    DistanceSystemRPiB distance_system(client_controller_rpia, client_controller_wemos_display, LEDBARADDRESS);
 
-    DistanceSystemRPiB distance_system(client_controller_rpia, client_controller_wemos_display, 720);
-
-    std::vector<uint8_t> d1 = {20};
-    client_controller_wemos_display->transmitData(710, d1);
-    sleep(1);
-
-    client_controller_rpia->transmitData(420, d1);
-    // runService->createTask(*transmitFunc, 1000);
-
-    std::vector<uint8_t> d2 = {6};
-    // client_controller_wemos_display->transmitData(720, d2);
     runService->createTask(*transmitFunc, 640);
 
     while (1)
     {
-        // printf("updating\n");
         // Kijken of er een nieuwe opdracht klaar staat om uitgevoerd te worden
         scheduler.update();
     }
-
-    /*runService->connectToUpdate(*basicTestFunction);
-    scheduler.update();
-
-    std::vector<uint8_t> testData1;
-    testData1.push_back(10);
-    testData1.push_back(20);
-    canController.transmitData(100, testData1);
-
-    canController.requestData(200, *testFunction);
-    std::vector<uint8_t> testData2;
-    testData2.push_back(60);
-    testData2.push_back(44);
-    receiver.setBuffer(200, testData2);
-    scheduler.update();
-
-    canController.logReceived(300, *testFunction);
-    std::vector<uint8_t> testData3;
-    testData3.push_back(0x00);
-    testData3.push_back(0xAA);
-    testData3.push_back(0xFF);
-    receiver.setBuffer(300, testData3);
-    scheduler.update();*/
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

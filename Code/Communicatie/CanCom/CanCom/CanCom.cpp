@@ -90,28 +90,20 @@ int main()
 
     CanGeneraliser generaliser;
     ServerGeneraliser generaliser_server;
-    std::shared_ptr<Communication::CommunicationController> can_controller= std::make_shared<Communication::CommunicationController>(& generaliser, & generaliser);
-    std::shared_ptr<Communication::CommunicationController> server_controller= std::make_shared<Communication::CommunicationController>(& generaliser_server, & generaliser_server);
-    //server_controller = new Communication::CommunicationController(& generaliser_server, & generaliser_server);
 
-    //BIND FUNCTIES HIERONDER
-    //canController->logReceived(0x310, *testFunction);
-    //server_controller->logReceived(16, *testFunction2);
-    // runService->createTask(*testFunction, 1000);
+    // De controllers aanmaken en binden aan de controller
+    std::shared_ptr<Communication::CommunicationController> can_controller = 
+        std::make_shared<Communication::CommunicationController>(& generaliser, & generaliser);
+    std::shared_ptr<Communication::CommunicationController> server_controller = 
+        std::make_shared<Communication::CommunicationController>(& generaliser_server, & generaliser_server);
 
+
+    // Aanmaken van een klasses die een processen aansturen
     LightingSystem lighting_system(500, 430, can_controller);
-
     Clock clock_systeem(410, can_controller);
-
     AlarmSystem alarm_system(can_controller, server_controller, 420);
-
     DistanceSystem distance_system(can_controller, server_controller);
-    // runService->createTask(*basicTestFunction, 5000);
-    // runService->createTask(*basicTestFunction, 10000);
-    // runService->createTask(*basicTestFunction, 15000);
-    // runService->createTask(*basicTestFunction, 3000);
-    // runService->createTask(*basicTestFunction, 20000);
-    //BIND FUNCTIES HIERBOVEN
+
 
     while (1) {
         scheduler.update();
