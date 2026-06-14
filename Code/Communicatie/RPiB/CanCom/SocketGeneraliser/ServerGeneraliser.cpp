@@ -11,7 +11,6 @@ ServerGeneraliser::ServerGeneraliser(int port):
 
 }
 
-
 bool ServerGeneraliser::receive(int* address, std::vector<uint8_t>* data){
     return socket->received(address, data);
 }
