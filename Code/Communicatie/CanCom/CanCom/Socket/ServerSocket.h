@@ -33,6 +33,20 @@ public:
      * @return ServerSocket* - Een pointer naar het enige object van ServerSocket.
      */
     static ServerSocket* instance();
+
+    /*!
+     * @brief Haalt het adres van de serversocket op.
+     *
+     * Deze statische methode zorgt ervoor dat er maar 1 instantie bestaat van de serversocket op een apparaat.
+     * Eerst wordt er bekeken of er al een instantie bestaat van ServerSocket.
+     * - Als deze bestaat wordt meteen het adres teruggegeven.
+     * - Als deze niet bestaat wordt er een ServerSocket object aangemaakt. 
+     * Daarvan wordt vervolgens het adres teruggegeven.
+     * 
+     * @param int - Een integer waarbij de portnummer meegegeven kan worden.
+     * 
+     * @return ServerSocket* - Een pointer naar het enige object van ServerSocket.
+     */
     static ServerSocket* instance(int);
 
     /*!
@@ -50,6 +64,16 @@ private:
      * Daarnaast wordt via de static variable aangegeven dat er een instantie van de klasse ServerSocket is, door het adres van het object toe te kennen.
      */
     ServerSocket();
+
+    /*!
+     * @brief Maakt de ServerSocket aan.
+     *
+     * Deze constructor zorgt ervoor dat de basis van de ClientSocket er in ieder geval is. 
+     * Daarnaast wordt via de static variable aangegeven dat er een instantie van de klasse ServerSocket is, 
+     * door het adres van het object toe te kennen.
+     * 
+     * @param int - Een integer waarbij de portnummer meegegeven kan worden waar de server op gaat draaien.
+     */
     ServerSocket(int);
 
     void tcpStartup();
