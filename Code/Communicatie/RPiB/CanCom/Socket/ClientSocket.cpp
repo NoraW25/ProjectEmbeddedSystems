@@ -108,7 +108,7 @@ void ClientSocket::send(int id, std::vector<uint8_t> data)
 
 bool ClientSocket::received(int *id, std::vector<uint8_t> *data)
 {
-    if (status != 0 || client_fd < 0){
+    if (!canSend()){
         return false;
     }
 
