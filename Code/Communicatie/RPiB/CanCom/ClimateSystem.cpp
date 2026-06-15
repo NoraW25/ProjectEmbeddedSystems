@@ -86,7 +86,7 @@ void ClimateSystem::calculateSettings()
             std::vector<uint8_t> data;
             data.push_back(sum_type);
 
-            // Verzend data naar humidity sensor op de STM via RPiA
+            // Verzendt data naar humidity sensor op de STM via RPiA
             controller_rpia->transmitData(150, data);
         }
 
@@ -107,11 +107,9 @@ void ClimateSystem::calculateSettings()
                     uint8_t byte_value = (sum_type >> (8*i)) & 0xFF;
                     data.push_back(byte_value);
                 }
-                printf("Voor verzending\n");
+
+                // Zend een alarm door naar RPiA
                 controller_rpia->transmitData(buzzer_address, data);
-                std::vector<uint8_t> data2;
-                data2.push_back(0);
-                controller_rpia->transmitData(buzzer_address, data2);
             }
             else if (sum_type > 800)
             {
