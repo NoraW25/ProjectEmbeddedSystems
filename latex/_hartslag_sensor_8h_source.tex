@@ -1,0 +1,44 @@
+\doxysection{Hartslag\+Sensor.\+h}
+\hypertarget{_hartslag_sensor_8h_source}{}\label{_hartslag_sensor_8h_source}\index{Code/Demo/wemoshartslag/demowemoshartslag/HartslagSensor.h@{Code/Demo/wemoshartslag/demowemoshartslag/HartslagSensor.h}}
+\doxymbox{\hyperlink{_hartslag_sensor_8h}{Ga naar de documentatie van dit bestand.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ HARTSLAGSENSOR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ HARTSLAGSENSOR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <Wire.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}MAX30105.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}heartRate.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_hartslag_sensor_a9284c941a34b47e60f8843464984cbc9}{HartslagSensor}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \doxymbox{\hyperlink{class_hartslag_sensor_a9284c941a34b47e60f8843464984cbc9}{HartslagSensor}}();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_hartslag_sensor_aa710db2fdfd7dbf4940dce577fd7cc17}{begin}}(TwoWire\ \&wire\ =\ Wire);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_hartslag_sensor_ace5a3ec26aec350fe817357e16533cc6}{update}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_hartslag_sensor_aacd12c17610eaa051f66accae86cd914}{getBPM}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_hartslag_sensor_acb2a86a28481766a2f000010400d22fb}{getAvgBPM}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{long}\ \doxymbox{\hyperlink{class_hartslag_sensor_a1757d6696092369221b8f6a7a2562bf4}{getIR}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00057\ \ \ \ \ MAX30105\ sensor;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{byte}\ RATE\_SIZE\ =\ 4;}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{byte}\ rates[RATE\_SIZE];}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{byte}\ rateSpot\ =\ 0;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{long}\ lastBeat\ =\ 0;}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{float}\ bpm\ =\ 0;}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ avgBPM\ =\ 0;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{long}\ irValue\ =\ 0;}
+\DoxyCodeLine{00067\ \};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

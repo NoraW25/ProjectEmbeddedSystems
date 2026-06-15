@@ -1,0 +1,40 @@
+\doxysection{Climate\+Sensor.\+h}
+\hypertarget{_climate_sensor_8h_source}{}\label{_climate_sensor_8h_source}\index{Code/Communicatie/RPiB/CanCom/ClimateSensor.h@{Code/Communicatie/RPiB/CanCom/ClimateSensor.h}}
+\doxymbox{\hyperlink{_climate_sensor_8h}{Ga naar de documentatie van dit bestand.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifndef\ CLIMATESENSOR\_H}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ CLIMATESENSOR\_H}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}CommunicationController.h"{}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_climate_system}{ClimateSystem}};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_climate_sensor_ae0faca1063aec4457dd78ef45f5ed6a0}{ClimateSensor}}\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \ \ \doxymbox{\hyperlink{class_climate_sensor_ae0faca1063aec4457dd78ef45f5ed6a0}{ClimateSensor}}(\textcolor{keywordtype}{int},\ std::shared\_ptr<Communication::CommunicationController>,\ \doxymbox{\hyperlink{class_climate_system}{ClimateSystem}}*);}
+\DoxyCodeLine{00037\ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{class_climate_sensor_ae0faca1063aec4457dd78ef45f5ed6a0}{\string~ClimateSensor}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_climate_sensor_a9cc293cebd8e0dea62a23d198a553085}{setCurrentValue}}(std::vector<uint8\_t>);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{class_climate_sensor_a9a144cdaad10b53a1ead2431bbaa83d2}{getCurrentValue}}();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_climate_sensor_a8b214e53bd397052da0c0da701ba115a}{getStatus}}();}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00085\ \ \ \ \ uint8\_t\ address;}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{double}\ value;}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{int}\ status;}
+\DoxyCodeLine{00088\ \ \ \ \ std::shared\_ptr<Communication::CommunicationController>\ controller;}
+\DoxyCodeLine{00089\ \ \ \ \ std::shared\_ptr<Communication::CommunicationController>\ controller\_rpia;}
+\DoxyCodeLine{00090\ \ \ \ \ \doxymbox{\hyperlink{class_climate_system}{ClimateSystem}}*\ system;\ \ \ \ \ \ }
+\DoxyCodeLine{00091\ \};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

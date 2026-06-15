@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PES Project Revalidatieverdieping: CanGeneraliser Class Referentie</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PES Project Revalidatieverdieping
+   </div>
+   <div id="projectbrief">Haagse Hogeschool project Embedded Systems</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gegenereerd door Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Zoeken" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_can_generaliser.html','','class_can_generaliser-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Laden...</div>
+<div class="SRStatus" id="Searching">Zoeken...</div>
+<div class="SRStatus" id="NoMatches">Niets gevonden</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">CanGeneraliser Class Referentie</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Maakt een CANbus socket aan of haalt de instantie ervan op en vertaalt de functies van de socket naar functies die gebruikt worden in het communicatie- systeem op de Raspberry Pi.  
+ <a href="#details">Meer...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_can_com_2_can_com_2_socket_generaliser_2_can_generaliser_8h_source.html">CanGeneraliser.h</a>&gt;</code></p>
+<div class="dynheader">
+Klasse diagram voor CanGeneraliser</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_can_generaliser.png" usemap="#CanGeneraliser_map" alt=""/>
+  <map id="CanGeneraliser_map" name="CanGeneraliser_map">
+<area href="class_communication_1_1_receiver.html" alt="Communication::Receiver" shape="rect" coords="0,0,165,24"/>
+<area href="class_communication_1_1_transmitter.html" alt="Communication::Transmitter" shape="rect" coords="175,0,340,24"/>
+<area href="class_communication_1_1_receiver.html" alt="Communication::Receiver" shape="rect" coords="350,0,515,24"/>
+<area href="class_communication_1_1_transmitter.html" alt="Communication::Transmitter" shape="rect" coords="525,0,690,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Members</h2></td></tr>
+<tr class="memitem:a30f4660a1251660e25bed29f9f06988d" id="r_a30f4660a1251660e25bed29f9f06988d"><td class="memItemLeft"><a id="a30f4660a1251660e25bed29f9f06988d" name="a30f4660a1251660e25bed29f9f06988d"></a>
+&#160;</td><td class="memItemRight"><b>CanGeneraliser</b> ()</td></tr>
+<tr class="memdesc:a30f4660a1251660e25bed29f9f06988d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maakt de <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a> aan of haalt de instantie ervan op. <br /></td></tr>
+<tr class="memitem:a5fb3ef6c35194093c45864639cc4c7f7" id="r_a5fb3ef6c35194093c45864639cc4c7f7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5fb3ef6c35194093c45864639cc4c7f7">CanGeneraliser</a> (std::string)</td></tr>
+<tr class="memdesc:a5fb3ef6c35194093c45864639cc4c7f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maakt de <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a> aan of haalt de instantie ervan op.  <br /></td></tr>
+<tr class="memitem:a992e364c95cbe47686576d6ab61a7bae" id="r_a992e364c95cbe47686576d6ab61a7bae"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a992e364c95cbe47686576d6ab61a7bae">sendData</a> (int, std::vector&lt; uint8_t &gt;) override</td></tr>
+<tr class="memitem:a6d0bf3b51fe061332b341717e6607055" id="r_a6d0bf3b51fe061332b341717e6607055"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a6d0bf3b51fe061332b341717e6607055">sendRequest</a> (int) override</td></tr>
+<tr class="memitem:a39adf1017db0d5fb80ac0f758a126b5c" id="r_a39adf1017db0d5fb80ac0f758a126b5c"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a39adf1017db0d5fb80ac0f758a126b5c">receive</a> (int *, std::vector&lt; uint8_t &gt; *) override</td></tr>
+<tr class="memitem:a30f4660a1251660e25bed29f9f06988d" id="r_a30f4660a1251660e25bed29f9f06988d"><td class="memItemLeft"><a id="a30f4660a1251660e25bed29f9f06988d" name="a30f4660a1251660e25bed29f9f06988d"></a>
+&#160;</td><td class="memItemRight"><b>CanGeneraliser</b> ()</td></tr>
+<tr class="memdesc:a30f4660a1251660e25bed29f9f06988d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maakt de <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a> aan of haalt de instantie ervan op. <br /></td></tr>
+<tr class="memitem:a5fb3ef6c35194093c45864639cc4c7f7" id="r_a5fb3ef6c35194093c45864639cc4c7f7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5fb3ef6c35194093c45864639cc4c7f7">CanGeneraliser</a> (std::string)</td></tr>
+<tr class="memdesc:a5fb3ef6c35194093c45864639cc4c7f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maakt de <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a> aan of haalt de instantie ervan op.  <br /></td></tr>
+<tr class="memitem:a20529a7fdee489596bcc64940fa698fa" id="r_a20529a7fdee489596bcc64940fa698fa"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a20529a7fdee489596bcc64940fa698fa">sendData</a> (int, std::vector&lt; uint8_t &gt;) override</td></tr>
+<tr class="memitem:a519cbd64925c65533856b6f97ef960dc" id="r_a519cbd64925c65533856b6f97ef960dc"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a519cbd64925c65533856b6f97ef960dc">sendRequest</a> (int) override</td></tr>
+<tr class="memitem:a30e8d026d3314a616bbe26028357166e" id="r_a30e8d026d3314a616bbe26028357166e"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a30e8d026d3314a616bbe26028357166e">receive</a> (int *, std::vector&lt; uint8_t &gt; *) override</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Gedetailleerde Beschrijving</h2>
+<div class="textblock"><p>Maakt een CANbus socket aan of haalt de instantie ervan op en vertaalt de functies van de socket naar functies die gebruikt worden in het communicatie- systeem op de Raspberry Pi. </p>
+<p>De abstracte methodes uit de klassen <a class="el" href="class_communication_1_1_receiver.html">Communication::Receiver</a> en <a class="el" href="class_communication_1_1_transmitter.html">Communication::Transmitter</a> worden hiervoor overschreven. In de methodes worden <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a> methodes aangeroepen. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentatie</h2>
+<a id="a5fb3ef6c35194093c45864639cc4c7f7" name="a5fb3ef6c35194093c45864639cc4c7f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fb3ef6c35194093c45864639cc4c7f7">&#9670;&#160;</a></span>CanGeneraliser() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CanGeneraliser::CanGeneraliser </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>ifname</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maakt de <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a> aan of haalt de instantie ervan op. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>- std::string de CANbus interface waar een socket op wordt geprobeert te maken </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5fb3ef6c35194093c45864639cc4c7f7" name="a5fb3ef6c35194093c45864639cc4c7f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fb3ef6c35194093c45864639cc4c7f7">&#9670;&#160;</a></span>CanGeneraliser() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CanGeneraliser::CanGeneraliser </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maakt de <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a> aan of haalt de instantie ervan op. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>- std::string de CANbus interface waar een socket op wordt geprobeert te maken </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentatie van functie members</h2>
+<a id="a39adf1017db0d5fb80ac0f758a126b5c" name="a39adf1017db0d5fb80ac0f758a126b5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39adf1017db0d5fb80ac0f758a126b5c">&#9670;&#160;</a></span>receive() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CanGeneraliser::receive </td>
+          <td>(</td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; uint8_t &gt; *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementeert <a class="el" href="class_communication_1_1_receiver.html">Communication::Receiver</a>.</p>
+
+</div>
+</div>
+<a id="a30e8d026d3314a616bbe26028357166e" name="a30e8d026d3314a616bbe26028357166e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30e8d026d3314a616bbe26028357166e">&#9670;&#160;</a></span>receive() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool CanGeneraliser::receive </td>
+          <td>(</td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; uint8_t &gt; *</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementeert <a class="el" href="class_communication_1_1_receiver.html">Communication::Receiver</a>.</p>
+
+</div>
+</div>
+<a id="a992e364c95cbe47686576d6ab61a7bae" name="a992e364c95cbe47686576d6ab61a7bae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a992e364c95cbe47686576d6ab61a7bae">&#9670;&#160;</a></span>sendData() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CanGeneraliser::sendData </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementeert <a class="el" href="class_communication_1_1_transmitter.html">Communication::Transmitter</a>.</p>
+
+</div>
+</div>
+<a id="a20529a7fdee489596bcc64940fa698fa" name="a20529a7fdee489596bcc64940fa698fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20529a7fdee489596bcc64940fa698fa">&#9670;&#160;</a></span>sendData() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CanGeneraliser::sendData </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementeert <a class="el" href="class_communication_1_1_transmitter.html">Communication::Transmitter</a>.</p>
+
+</div>
+</div>
+<a id="a6d0bf3b51fe061332b341717e6607055" name="a6d0bf3b51fe061332b341717e6607055"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d0bf3b51fe061332b341717e6607055">&#9670;&#160;</a></span>sendRequest() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CanGeneraliser::sendRequest </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>address</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementeert <a class="el" href="class_communication_1_1_transmitter.html">Communication::Transmitter</a>.</p>
+
+</div>
+</div>
+<a id="a519cbd64925c65533856b6f97ef960dc" name="a519cbd64925c65533856b6f97ef960dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a519cbd64925c65533856b6f97ef960dc">&#9670;&#160;</a></span>sendRequest() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CanGeneraliser::sendRequest </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementeert <a class="el" href="class_communication_1_1_transmitter.html">Communication::Transmitter</a>.</p>
+
+</div>
+</div>
+<hr/>De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:<ul>
+<li>Code/Communicatie/CanCom/CanCom/SocketGeneraliser/<a class="el" href="_can_com_2_can_com_2_socket_generaliser_2_can_generaliser_8h_source.html">CanGeneraliser.h</a></li>
+<li>Code/Communicatie/RPiB/CanCom/SocketGeneraliser/<a class="el" href="_r_pi_b_2_can_com_2_socket_generaliser_2_can_generaliser_8h_source.html">CanGeneraliser.h</a></li>
+<li>Code/Communicatie/CanCom/CanCom/SocketGeneraliser/<b>CanGeneraliser.cpp</b></li>
+<li>Code/Communicatie/RPiB/CanCom/SocketGeneraliser/<b>CanGeneraliser.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_can_generaliser.html">CanGeneraliser</a></li>
+    <li class="footer">Gegenereerd door <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

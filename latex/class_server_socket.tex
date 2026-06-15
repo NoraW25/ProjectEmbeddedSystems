@@ -1,0 +1,314 @@
+\doxysection{Server\+Socket Class Referentie}
+\hypertarget{class_server_socket}{}\label{class_server_socket}\index{ServerSocket@{ServerSocket}}
+
+
+Maakt een server socket aan en kan daardoor berichten ontvangen en versturen. Met een object van deze klasse wordt er eerst een connectie tussen de sockets opgezet, die non blocking werkt. Daarna kunnen er berichten worden ontvangen en verzonden tussen de sockets.  
+
+
+
+
+{\ttfamily \+\#include $<$Server\+Socket.\+h$>$}
+
+Klasse diagram voor Server\+Socket\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_server_socket}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Members}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \doxymbox{\hyperlink{class_server_socket_aab1bd9a64970616d477c9a4aab1360b2}{send}} (int, std::\+vector$<$ uint8\+\_\+t $>$) override
+\begin{DoxyCompactList}\small\item\em Verstuurd een bericht. \end{DoxyCompactList}\item 
+virtual bool \doxymbox{\hyperlink{class_server_socket_a9441bdb483befb7ffeb29c75ef168b9c}{received}} (int \texorpdfstring{$\ast$}{*}, std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}) override
+\begin{DoxyCompactList}\small\item\em Geeft terug of er wel of niet een bericht is ontvangen. Als er een bericht is ontvangen wordt de inhoud meegegeven. \end{DoxyCompactList}\item 
+virtual bool \doxymbox{\hyperlink{class_server_socket_a20c997e8d735b4ce39f81d6c60b040aa}{can\+Send}} () override
+\begin{DoxyCompactList}\small\item\em Geeft terug of er wel of niet een bericht verstuurd kan worden. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_server_socket_a510674d924c2544e6b0069e39c36516b}{\texorpdfstring{$\sim$}{\string~}\+Server\+Socket}} ()
+\begin{DoxyCompactList}\small\item\em Sluit luisterende en actieve sockets. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_server_socket_ad7b3624d80749f90ff95e2aab2999554}{send}} (int, std::\+vector$<$ uint8\+\_\+t $>$) override
+\begin{DoxyCompactList}\small\item\em Verstuurd een bericht. \end{DoxyCompactList}\item 
+virtual bool \doxymbox{\hyperlink{class_server_socket_a2d959a454a9212b65894e22a030a59d6}{received}} (int \texorpdfstring{$\ast$}{*}, std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}) override
+\begin{DoxyCompactList}\small\item\em Geeft terug of er wel of niet een bericht is ontvangen. Als er een bericht is ontvangen wordt de inhoud meegegeven. \end{DoxyCompactList}\item 
+virtual bool \doxymbox{\hyperlink{class_server_socket_ac7321ef3fb29bd6a5d9e0afb68d4a61e}{can\+Send}} () override
+\begin{DoxyCompactList}\small\item\em Geeft terug of er wel of niet een bericht verstuurd kan worden. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_server_socket_a510674d924c2544e6b0069e39c36516b}{\texorpdfstring{$\sim$}{\string~}\+Server\+Socket}} ()
+\begin{DoxyCompactList}\small\item\em Sluit luisterende en actieve sockets. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Members}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_server_socket}{Server\+Socket}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_server_socket_afe2f27103cfdcad50522023fc10535cf}{instance}} ()
+\begin{DoxyCompactList}\small\item\em Haalt het adres van de serversocket op. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_server_socket}{Server\+Socket}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_server_socket_aedf83efe4e43d764544ada038cbdfe6a}{instance}} (int)
+\begin{DoxyCompactList}\small\item\em Haalt het adres van de serversocket op. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_server_socket}{Server\+Socket}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_server_socket_a22ea9f46f5fec87bf2a154355e22aa7b}{instance}} ()
+\begin{DoxyCompactList}\small\item\em Haalt het adres van de serversocket op. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_server_socket}{Server\+Socket}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_server_socket_ae36fc640baecd4049ac6319ac8865824}{instance}} (int)
+\begin{DoxyCompactList}\small\item\em Haalt het adres van de serversocket op. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Gedetailleerde Beschrijving}
+Maakt een server socket aan en kan daardoor berichten ontvangen en versturen. Met een object van deze klasse wordt er eerst een connectie tussen de sockets opgezet, die non blocking werkt. Daarna kunnen er berichten worden ontvangen en verzonden tussen de sockets. 
+
+Deze klasse is een singleton, er kan dus op een apparataat maar 1 serversocket worden aangemaakt. Als er meerdere clientsockets zijn, zullen die dus via dezelfde serversocket geholpen moeten worden. 
+
+\label{class_server_socket_doc-constructors}
+\Hypertarget{class_server_socket_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentatie}
+\Hypertarget{class_server_socket_a510674d924c2544e6b0069e39c36516b}\index{ServerSocket@{ServerSocket}!````~ServerSocket@{\texorpdfstring{$\sim$}{\string~}ServerSocket}}
+\index{````~ServerSocket@{\texorpdfstring{$\sim$}{\string~}ServerSocket}!ServerSocket@{ServerSocket}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ServerSocket()}{\string~ServerSocket()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_server_socket_a510674d924c2544e6b0069e39c36516b} 
+Server\+Socket::\+\texorpdfstring{$\sim$}{\string~}\+Server\+Socket (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Sluit luisterende en actieve sockets. 
+
+Indien er luisterende en/\+of actieve sockets aangewezig zijn worden deze afgesloten. \Hypertarget{class_server_socket_a510674d924c2544e6b0069e39c36516b}\index{ServerSocket@{ServerSocket}!````~ServerSocket@{\texorpdfstring{$\sim$}{\string~}ServerSocket}}
+\index{````~ServerSocket@{\texorpdfstring{$\sim$}{\string~}ServerSocket}!ServerSocket@{ServerSocket}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ServerSocket()}{\string~ServerSocket()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_server_socket_a510674d924c2544e6b0069e39c36516b} 
+Server\+Socket::\+\texorpdfstring{$\sim$}{\string~}\+Server\+Socket (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Sluit luisterende en actieve sockets. 
+
+Indien er luisterende en/\+of actieve sockets aangewezig zijn worden deze afgesloten. 
+
+\label{class_server_socket_doc-func-members}
+\Hypertarget{class_server_socket_doc-func-members}
+\doxysubsection{Documentatie van functie members}
+\Hypertarget{class_server_socket_a20c997e8d735b4ce39f81d6c60b040aa}\index{ServerSocket@{ServerSocket}!canSend@{canSend}}
+\index{canSend@{canSend}!ServerSocket@{ServerSocket}}
+\doxysubsubsection{\texorpdfstring{canSend()}{canSend()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_server_socket_a20c997e8d735b4ce39f81d6c60b040aa} 
+bool Server\+Socket::\+can\+Send (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Geeft terug of er wel of niet een bericht verstuurd kan worden. 
+
+Eerst wordt er bekeken of de socket een verbinding heeft. Is dat niet het geval, zal de verbinding opnieuw geprobeerd worden op te zetten.
+
+\begin{DoxyReturn}{Retourneert}
+Boolean -\/ Terugkoppeling op of er wel of niet een bericht verstuurd kan worden. Als er verstuurd kan worden:\+ true. 
+\end{DoxyReturn}
+
+
+Implementeert \doxymbox{\hyperlink{class_socket_a6a14b8cd679df09eede72608e14822d3}{Socket}}.
+
+\Hypertarget{class_server_socket_ac7321ef3fb29bd6a5d9e0afb68d4a61e}\index{ServerSocket@{ServerSocket}!canSend@{canSend}}
+\index{canSend@{canSend}!ServerSocket@{ServerSocket}}
+\doxysubsubsection{\texorpdfstring{canSend()}{canSend()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_server_socket_ac7321ef3fb29bd6a5d9e0afb68d4a61e} 
+virtual bool Server\+Socket::\+can\+Send (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Geeft terug of er wel of niet een bericht verstuurd kan worden. 
+
+Eerst wordt er bekeken of de socket een verbinding heeft. Is dat niet het geval, zal de verbinding opnieuw geprobeerd worden op te zetten.
+
+\begin{DoxyReturn}{Retourneert}
+Boolean -\/ Terugkoppeling op of er wel of niet een bericht verstuurd kan worden. Als er verstuurd kan worden:\+ true. 
+\end{DoxyReturn}
+
+
+Implementeert \doxymbox{\hyperlink{class_socket_a6a14b8cd679df09eede72608e14822d3}{Socket}}.
+
+\Hypertarget{class_server_socket_afe2f27103cfdcad50522023fc10535cf}\index{ServerSocket@{ServerSocket}!instance@{instance}}
+\index{instance@{instance}!ServerSocket@{ServerSocket}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_server_socket_afe2f27103cfdcad50522023fc10535cf} 
+\doxymbox{\hyperlink{class_server_socket}{Server\+Socket}} \texorpdfstring{$\ast$}{*} Server\+Socket::\+instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Haalt het adres van de serversocket op. 
+
+Deze statische methode zorgt ervoor dat er maar 1 instantie bestaat van de serversocket op een apparaat. Eerst wordt er bekeken of er al een instantie bestaat van \doxylink{class_server_socket}{Server\+Socket}.
+\begin{DoxyItemize}
+\item Als deze bestaat wordt meteen het adres teruggegeven.
+\item Als deze niet bestaat wordt er een \doxylink{class_server_socket}{Server\+Socket} object aangemaakt. Daarvan wordt vervolgens het adres teruggegeven.
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Retourneert}
+Server\+Socket\texorpdfstring{$\ast$}{*} -\/ Een pointer naar het enige object van \doxylink{class_server_socket}{Server\+Socket}. 
+\end{DoxyReturn}
+\Hypertarget{class_server_socket_a22ea9f46f5fec87bf2a154355e22aa7b}\index{ServerSocket@{ServerSocket}!instance@{instance}}
+\index{instance@{instance}!ServerSocket@{ServerSocket}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_server_socket_a22ea9f46f5fec87bf2a154355e22aa7b} 
+\doxymbox{\hyperlink{class_server_socket}{Server\+Socket}} \texorpdfstring{$\ast$}{*} Server\+Socket::\+instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Haalt het adres van de serversocket op. 
+
+Deze statische methode zorgt ervoor dat er maar 1 instantie bestaat van de serversocket op een apparaat. Eerst wordt er bekeken of er al een instantie bestaat van \doxylink{class_server_socket}{Server\+Socket}.
+\begin{DoxyItemize}
+\item Als deze bestaat wordt meteen het adres teruggegeven.
+\item Als deze niet bestaat wordt er een \doxylink{class_server_socket}{Server\+Socket} object aangemaakt. Daarvan wordt vervolgens het adres teruggegeven.
+\end{DoxyItemize}
+
+Standaard wordt de port 8080 gebruikt om een socket op aan te maken.
+
+\begin{DoxyReturn}{Retourneert}
+Server\+Socket\texorpdfstring{$\ast$}{*} -\/ Een pointer naar het enige object van \doxylink{class_server_socket}{Server\+Socket}. 
+\end{DoxyReturn}
+\Hypertarget{class_server_socket_aedf83efe4e43d764544ada038cbdfe6a}\index{ServerSocket@{ServerSocket}!instance@{instance}}
+\index{instance@{instance}!ServerSocket@{ServerSocket}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_server_socket_aedf83efe4e43d764544ada038cbdfe6a} 
+\doxymbox{\hyperlink{class_server_socket}{Server\+Socket}} \texorpdfstring{$\ast$}{*} Server\+Socket::\+instance (\begin{DoxyParamCaption}\item[{int}]{port}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Haalt het adres van de serversocket op. 
+
+Deze statische methode zorgt ervoor dat er maar 1 instantie bestaat van de serversocket op een apparaat. Eerst wordt er bekeken of er al een instantie bestaat van \doxylink{class_server_socket}{Server\+Socket}.
+\begin{DoxyItemize}
+\item Als deze bestaat wordt meteen het adres teruggegeven.
+\item Als deze niet bestaat wordt er een \doxylink{class_server_socket}{Server\+Socket} object aangemaakt. Daarvan wordt vervolgens het adres teruggegeven.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ Een integer waarbij de portnummer meegegeven kan worden.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retourneert}
+Server\+Socket\texorpdfstring{$\ast$}{*} -\/ Een pointer naar het enige object van \doxylink{class_server_socket}{Server\+Socket}. 
+\end{DoxyReturn}
+\Hypertarget{class_server_socket_ae36fc640baecd4049ac6319ac8865824}\index{ServerSocket@{ServerSocket}!instance@{instance}}
+\index{instance@{instance}!ServerSocket@{ServerSocket}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_server_socket_ae36fc640baecd4049ac6319ac8865824} 
+\doxymbox{\hyperlink{class_server_socket}{Server\+Socket}} \texorpdfstring{$\ast$}{*} Server\+Socket::\+instance (\begin{DoxyParamCaption}\item[{int}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Haalt het adres van de serversocket op. 
+
+Deze statische methode zorgt ervoor dat er maar 1 instantie bestaat van de serversocket op een apparaat. Eerst wordt er bekeken of er al een instantie bestaat van \doxylink{class_server_socket}{Server\+Socket}.
+\begin{DoxyItemize}
+\item Als deze bestaat wordt meteen het adres teruggegeven.
+\item Als deze niet bestaat wordt er een \doxylink{class_server_socket}{Server\+Socket} object aangemaakt. Daarvan wordt vervolgens het adres teruggegeven.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ Een integer waarbij de portnummer meegegeven kan worden.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retourneert}
+Server\+Socket\texorpdfstring{$\ast$}{*} -\/ Een pointer naar het enige object van \doxylink{class_server_socket}{Server\+Socket}. 
+\end{DoxyReturn}
+\Hypertarget{class_server_socket_a9441bdb483befb7ffeb29c75ef168b9c}\index{ServerSocket@{ServerSocket}!received@{received}}
+\index{received@{received}!ServerSocket@{ServerSocket}}
+\doxysubsubsection{\texorpdfstring{received()}{received()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_server_socket_a9441bdb483befb7ffeb29c75ef168b9c} 
+bool Server\+Socket::\+received (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Geeft terug of er wel of niet een bericht is ontvangen. Als er een bericht is ontvangen wordt de inhoud meegegeven. 
+
+Eerst wordt er bekeken of de socket een verbinding heeft. Is dat niet het geval, zal de verbinding opnieuw geprobeerd worden op te zetten. Als er een bericht is ontvangen worden het adres en de data meegegeven in met de pointerparameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & adres of proces id, geeft aan wat voor soort data over de lijn gestuurd wordt en wie erop moet reageren. \\
+\hline
+{\em vector$<$uint8\+\_\+t$>$} & de opslagplaats voor de ontvangen data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retourneert}
+Boolean -\/ Terugkoppeling op of er wel of niet een bericht is ontvangen. Als er is ontvangen:\+ true. 
+\end{DoxyReturn}
+
+
+Implementeert \doxymbox{\hyperlink{class_socket_a415d426fd8f4ee96a6fe441e36072d39}{Socket}}.
+
+\Hypertarget{class_server_socket_a2d959a454a9212b65894e22a030a59d6}\index{ServerSocket@{ServerSocket}!received@{received}}
+\index{received@{received}!ServerSocket@{ServerSocket}}
+\doxysubsubsection{\texorpdfstring{received()}{received()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_server_socket_a2d959a454a9212b65894e22a030a59d6} 
+virtual bool Server\+Socket::\+received (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Geeft terug of er wel of niet een bericht is ontvangen. Als er een bericht is ontvangen wordt de inhoud meegegeven. 
+
+Eerst wordt er bekeken of de socket een verbinding heeft. Is dat niet het geval, zal de verbinding opnieuw geprobeerd worden op te zetten. Als er een bericht is ontvangen worden het adres en de data meegegeven in met de pointerparameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & adres of proces id, geeft aan wat voor soort data over de lijn gestuurd wordt en wie erop moet reageren. \\
+\hline
+{\em vector$<$uint8\+\_\+t$>$} & de opslagplaats voor de ontvangen data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retourneert}
+Boolean -\/ Terugkoppeling op of er wel of niet een bericht is ontvangen. Als er is ontvangen:\+ true. 
+\end{DoxyReturn}
+
+
+Implementeert \doxymbox{\hyperlink{class_socket_a415d426fd8f4ee96a6fe441e36072d39}{Socket}}.
+
+\Hypertarget{class_server_socket_aab1bd9a64970616d477c9a4aab1360b2}\index{ServerSocket@{ServerSocket}!send@{send}}
+\index{send@{send}!ServerSocket@{ServerSocket}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_server_socket_aab1bd9a64970616d477c9a4aab1360b2} 
+void Server\+Socket::\+send (\begin{DoxyParamCaption}\item[{int}]{}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verstuurd een bericht. 
+
+Deze methode bekijkt of er verstuurd kan worden met kan\+Versturen. Als er verstuurd kan worden, wordt de meegegeven string verstuurd.
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & adres of proces id, geeft aan wat voor soort data over de lijn gestuurd wordt en wie erop moet reageren. \\
+\hline
+{\em vector$<$uint8\+\_\+t$>$} & de data die verzonden moet worden. \\
+\hline
+\end{DoxyParams}
+
+
+Implementeert \doxymbox{\hyperlink{class_socket_a99a6bc065ef6c9d3dbbf6a0546ccccbe}{Socket}}.
+
+\Hypertarget{class_server_socket_ad7b3624d80749f90ff95e2aab2999554}\index{ServerSocket@{ServerSocket}!send@{send}}
+\index{send@{send}!ServerSocket@{ServerSocket}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_server_socket_ad7b3624d80749f90ff95e2aab2999554} 
+virtual void Server\+Socket::\+send (\begin{DoxyParamCaption}\item[{int}]{}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verstuurd een bericht. 
+
+Deze methode bekijkt of er verstuurd kan worden met kan\+Versturen. Als er verstuurd kan worden, wordt de meegegeven string verstuurd.
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & adres of proces id, geeft aan wat voor soort data over de lijn gestuurd wordt en wie erop moet reageren. \\
+\hline
+{\em vector$<$uint8\+\_\+t$>$} & de data die verzonden moet worden. \\
+\hline
+\end{DoxyParams}
+
+
+Implementeert \doxymbox{\hyperlink{class_socket_a99a6bc065ef6c9d3dbbf6a0546ccccbe}{Socket}}.
+
+
+
+De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:\+\begin{DoxyCompactItemize}
+\item 
+Code/\+\+Communicatie/\+\+Can\+Com/\+\+Can\+Com/\+\+Socket/\+\doxymbox{\hyperlink{_can_com_2_can_com_2_socket_2_server_socket_8h}{Server\+Socket.\+h}}\item 
+Code/\+\+Communicatie/\+\+RPi\+B/\+\+Can\+Com/\+\+Socket/\+\doxymbox{\hyperlink{_r_pi_b_2_can_com_2_socket_2_server_socket_8h}{Server\+Socket.\+h}}\item 
+Code/\+\+Communicatie/\+\+Can\+Com/\+\+Can\+Com/\+\+Socket/\+Server\+Socket.\+cpp\item 
+Code/\+\+Communicatie/\+\+RPi\+B/\+\+Can\+Com/\+\+Socket/\+Server\+Socket.\+cpp\end{DoxyCompactItemize}

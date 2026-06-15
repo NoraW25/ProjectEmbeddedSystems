@@ -1,0 +1,52 @@
+\doxysection{Client\+Socket.\+h}
+\hypertarget{_can_com_2_can_com_2_socket_2_client_socket_8h_source}{}\label{_can_com_2_can_com_2_socket_2_client_socket_8h_source}\index{Code/Communicatie/CanCom/CanCom/Socket/ClientSocket.h@{Code/Communicatie/CanCom/CanCom/Socket/ClientSocket.h}}
+\doxymbox{\hyperlink{_can_com_2_can_com_2_socket_2_client_socket_8h}{Ga naar de documentatie van dit bestand.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ CLIENTSOCKET\_H}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ CLIENTSOCKET\_H}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}Socket.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_communicatie_2_can_com_2_can_com_2_translator_2_message_translator_8h}{../Translator/MessageTranslator.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_client_socket_a739d55ba4fbc4c7b60e06d8c1577d696}{ClientSocket}}:\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_socket}{Socket}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_client_socket_a1eb9ab96f83599a3da72ec05c062377f}{send}}(\textcolor{keywordtype}{int},\ std::vector<uint8\_t>)\ \textcolor{keyword}{override};\ \ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_client_socket_a034f4251ff63459ca3622dd3623f6350}{received}}(\textcolor{keywordtype}{int}*,\ std::vector<uint8\_t>*)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_client_socket_a18d23fa044c59ee01f5e1a98b43c47f3}{canSend}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00037\ \ \ \ \ \doxymbox{\hyperlink{class_client_socket_a739d55ba4fbc4c7b60e06d8c1577d696}{ClientSocket}}(std::string);\ \ \ \ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00052\ \ \ \ \ \doxymbox{\hyperlink{class_client_socket_a739d55ba4fbc4c7b60e06d8c1577d696}{ClientSocket}}(std::string,\ \textcolor{keywordtype}{bool});}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00066\ \ \ \ \ \doxymbox{\hyperlink{class_client_socket_a739d55ba4fbc4c7b60e06d8c1577d696}{ClientSocket}}(std::string,\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{bool});}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{class_client_socket_aef5d9c1c9b443124b820521276b175ca}{\string~ClientSocket}}();}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{int}\ port;}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{char}\ buffer[1024];}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{int}\ status;\ \textcolor{comment}{//\ -\/1\ =\ Connectie\ gefaald;\ 0\ =\ Verbinding;\ 1\ =\ Bezig\ met\ verbinden.}}
+\DoxyCodeLine{00079\ \ \ \ \ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_wemos;}
+\DoxyCodeLine{00081\ \ \ \ \ std::time\_t\ last\_reconnection\_time;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ tcpStartup();}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ reconnect();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{int}\ client\_fd;}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{struct\ }sockaddr\_in\ server\_address;}
+\DoxyCodeLine{00107\ \ \ \ \ std::string\ server\_ip;\ \textcolor{comment}{//\ Vul\ voor\ het\ ip-\/adres\ het\ adres\ in\ wat\ je\ via\ dhcp\ voor\ de\ server\ hebt\ gekregen}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \doxymbox{\hyperlink{class_message_translator}{MessageTranslator}}*\ translator;}
+\DoxyCodeLine{00110\ \};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

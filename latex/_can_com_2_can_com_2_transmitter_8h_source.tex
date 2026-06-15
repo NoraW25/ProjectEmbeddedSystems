@@ -1,0 +1,20 @@
+\doxysection{Transmitter.\+h}
+\hypertarget{_can_com_2_can_com_2_transmitter_8h_source}{}\label{_can_com_2_can_com_2_transmitter_8h_source}\index{Code/Communicatie/CanCom/CanCom/Transmitter.h@{Code/Communicatie/CanCom/CanCom/Transmitter.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }Communication\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{class\ }Transmitter\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ Transmitter()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \string~Transmitter()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ sendData(\textcolor{keywordtype}{int}\ address,\ std::vector<uint8\_t>\ data)\ =\ 0;}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ sendRequest(\textcolor{keywordtype}{int}\ address)\ =\ 0;}
+\DoxyCodeLine{00013\ \ \ \ \ \};}
+\DoxyCodeLine{00014\ \}}
+
+\end{DoxyCode}

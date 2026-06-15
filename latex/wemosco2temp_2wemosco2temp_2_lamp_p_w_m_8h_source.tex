@@ -1,0 +1,32 @@
+\doxysection{Lamp\+PWM.\+h}
+\hypertarget{wemosco2temp_2wemosco2temp_2_lamp_p_w_m_8h_source}{}\label{wemosco2temp_2wemosco2temp_2_lamp_p_w_m_8h_source}\index{Code/Demo/wemosco2temp/wemosco2temp/LampPWM.h@{Code/Demo/wemosco2temp/wemosco2temp/LampPWM.h}}
+\doxymbox{\hyperlink{wemosco2temp_2wemosco2temp_2_lamp_p_w_m_8h}{Ga naar de documentatie van dit bestand.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ LAMPPWM\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ LAMPPWM\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{wemosco2temp_2wemosco2temp_2_interface_actuator_p_w_m_8h}{InterfaceActuatorPWM.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_lamp_p_w_m_a197224e832b6e52b0014c7c01f7ce088}{LampPWM}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_interface_actuator_p_w_m}{InterfaceActuatorPWM}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \doxymbox{\hyperlink{class_lamp_p_w_m_a197224e832b6e52b0014c7c01f7ce088}{LampPWM}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_lamp_p_w_m_a3f438176eb41a8b072ab6c8668f96351}{turnOn}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_lamp_p_w_m_a3f438176eb41a8b072ab6c8668f96351}{turnOn}}(\textcolor{keywordtype}{int})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_lamp_p_w_m_a1af31dca568b32ca4d0ee6b2a2fca33c}{turnOff}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_lamp_p_w_m_ad6f6a6f3992e28728f4f02fd366c69e0}{changeDutycycle}}(\textcolor{keywordtype}{int})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ pin\_nr;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{bool}\ status;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ dutycycle;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ createPWM();}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

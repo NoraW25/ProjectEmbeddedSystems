@@ -1,0 +1,116 @@
+\doxysection{Climate\+System Class Referentie}
+\hypertarget{class_climate_system}{}\label{class_climate_system}\index{ClimateSystem@{ClimateSystem}}
+
+
+De controlle klasse van het klimaatsysteem op de RPiB.  
+
+
+
+
+{\ttfamily \+\#include $<$Climate\+System.\+h$>$}
+
+\doxysubsubsection*{Public Members}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_climate_system_add5322c821ac52474ad6548bf0b485d6}{Climate\+System}} (std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$, std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$, int)
+\begin{DoxyCompactList}\small\item\em Constructor \doxylink{class_climate_system}{Climate\+System}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_climate_system_ab3ce50c7936d45f12065ce833869a3c0}{calculate\+Settings}} ()
+\begin{DoxyCompactList}\small\item\em Berekent de standen van de actuatoren. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_climate_system_a4ebfe93ceb995d17f02104bca85bd12b}{add\+Sensor}} (std::\+string, std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_climate_sensor}{Climate\+Sensor}} $>$)
+\begin{DoxyCompactList}\small\item\em Voegt een sensor toe aan het klimaatsysteem. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_climate_system_a33b1973fd2f0c022f365906e55bf2b95}{add\+Actuator\+PWM}} (std::\+string, std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_climate_actuator_p_w_m}{Climate\+Actuator\+PWM}} $>$)
+\begin{DoxyCompactList}\small\item\em Voegt een actuator toe aan het klimaatsysteem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Gedetailleerde Beschrijving}
+De controlle klasse van het klimaatsysteem op de RPiB. 
+
+Deze klasse zorgt ervoor dat het klimaatsysteem op de RPiB wordt opgezet. Het maakt daarbij alle sensoren en actuatoren die het klimaat beïnvloeden aan, en slaat ze op in een map. Daar staan ze gesorteerd in op type.
+
+Daarnaast voert deze klasse de berekening uit, hoe de actuatoren aangestuurd moeten worden op basis van de sensorwaardes. 
+
+\label{class_climate_system_doc-constructors}
+\Hypertarget{class_climate_system_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentatie}
+\Hypertarget{class_climate_system_add5322c821ac52474ad6548bf0b485d6}\index{ClimateSystem@{ClimateSystem}!ClimateSystem@{ClimateSystem}}
+\index{ClimateSystem@{ClimateSystem}!ClimateSystem@{ClimateSystem}}
+\doxysubsubsection{\texorpdfstring{ClimateSystem()}{ClimateSystem()}}
+{\footnotesize\ttfamily \label{class_climate_system_add5322c821ac52474ad6548bf0b485d6} 
+Climate\+System::\+\+Climate\+System (\begin{DoxyParamCaption}\item[{std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$}]{controller}{, }\item[{std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$}]{controller\+\_\+rpia}{, }\item[{int}]{buzzer\+\_\+address}{}\end{DoxyParamCaption})}
+
+
+
+Constructor \doxylink{class_climate_system}{Climate\+System}. 
+
+De bekende sensoren en actuatoren worden hier toegevoegd aan het systeem.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shared\+\_\+ptr$<$\+Communication::\+\+Communication\+Controller$>$} & -\/ De communicatiecontroller van de Wemos. \\
+\hline
+{\em shared\+\_\+ptr$<$\+Communication::\+\+Communication\+Controller$>$} & -\/ De communicatiecontroller van de RPiA. \\
+\hline
+{\em int} & -\/ Het adres waarop het alarm te bereiken is. \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_climate_system_doc-func-members}
+\Hypertarget{class_climate_system_doc-func-members}
+\doxysubsection{Documentatie van functie members}
+\Hypertarget{class_climate_system_a33b1973fd2f0c022f365906e55bf2b95}\index{ClimateSystem@{ClimateSystem}!addActuatorPWM@{addActuatorPWM}}
+\index{addActuatorPWM@{addActuatorPWM}!ClimateSystem@{ClimateSystem}}
+\doxysubsubsection{\texorpdfstring{addActuatorPWM()}{addActuatorPWM()}}
+{\footnotesize\ttfamily \label{class_climate_system_a33b1973fd2f0c022f365906e55bf2b95} 
+void Climate\+System::\+add\+Actuator\+PWM (\begin{DoxyParamCaption}\item[{std::\+string}]{type}{, }\item[{std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_climate_actuator_p_w_m}{Climate\+Actuator\+PWM}} $>$}]{actuator}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Voegt een actuator toe aan het klimaatsysteem. 
+
+Voegt een klimaatactuator toe aan het klimaatsysteem. De actuator wordt netjes in de goede catagorie geplaatst.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & -\/ std::\+string die het type sensor aangeeft. \\
+\hline
+{\em shared\+\_\+ptr$<$\+Climate\+Actuator\+PWM$>$} & -\/ Een std::\+shared\+\_\+ptr die de toe te voegen klimaatactuator meegeeft. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_climate_system_a4ebfe93ceb995d17f02104bca85bd12b}\index{ClimateSystem@{ClimateSystem}!addSensor@{addSensor}}
+\index{addSensor@{addSensor}!ClimateSystem@{ClimateSystem}}
+\doxysubsubsection{\texorpdfstring{addSensor()}{addSensor()}}
+{\footnotesize\ttfamily \label{class_climate_system_a4ebfe93ceb995d17f02104bca85bd12b} 
+void Climate\+System::\+add\+Sensor (\begin{DoxyParamCaption}\item[{std::\+string}]{type}{, }\item[{std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_climate_sensor}{Climate\+Sensor}} $>$}]{sensor}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Voegt een sensor toe aan het klimaatsysteem. 
+
+Voegt een klimaatsensor toe aan het klimaatsysteem. De sensor wordt netjes in de goede catagorie geplaatst.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & -\/ std::\+string die het type sensor aangeeft. \\
+\hline
+{\em shared\+\_\+ptr$<$\+Climate\+Sensor$>$} & -\/ Een std::\+shared\+\_\+ptr die de toe te voegen klimaatsensor meegeeft. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_climate_system_ab3ce50c7936d45f12065ce833869a3c0}\index{ClimateSystem@{ClimateSystem}!calculateSettings@{calculateSettings}}
+\index{calculateSettings@{calculateSettings}!ClimateSystem@{ClimateSystem}}
+\doxysubsubsection{\texorpdfstring{calculateSettings()}{calculateSettings()}}
+{\footnotesize\ttfamily \label{class_climate_system_ab3ce50c7936d45f12065ce833869a3c0} 
+void Climate\+System::\+calculate\+Settings (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Berekent de standen van de actuatoren. 
+
+Van alle sensoren wordt de recentste waarde opgevraagd. De waardes van sensoren van hetzelfde type wordt het gemiddelde van genomen. Per gemiddelde wordt een waarde van een actuator toegekend. Vervolgens wordt de load voor de actuatoren berekend. Als er meer van hetzelfde soort type ventilatoren zijn, wordt de load gedeelt door het aantal ventilatoren.
+
+Als de waarde van CO2 te hoog wordt wordt er een waarschuwing afgegeven. De gemiddelde luchtvochtigheid wordt verstuurd naar RPiA om daar gedisplayt te worden. 
+
+De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:\+\begin{DoxyCompactItemize}
+\item 
+Code/\+\+Communicatie/\+\+RPi\+B/\+\+Can\+Com/\+\doxymbox{\hyperlink{_climate_system_8h}{Climate\+System.\+h}}\item 
+Code/\+\+Communicatie/\+\+RPi\+B/\+\+Can\+Com/\+Climate\+System.\+cpp\end{DoxyCompactItemize}

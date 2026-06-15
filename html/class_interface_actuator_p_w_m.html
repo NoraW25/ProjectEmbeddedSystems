@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PES Project Revalidatieverdieping: InterfaceActuatorPWM Class Referentie</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PES Project Revalidatieverdieping
+   </div>
+   <div id="projectbrief">Haagse Hogeschool project Embedded Systems</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gegenereerd door Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Zoeken" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_interface_actuator_p_w_m.html','','class_interface_actuator_p_w_m-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Laden...</div>
+<div class="SRStatus" id="Searching">Zoeken...</div>
+<div class="SRStatus" id="NoMatches">Niets gevonden</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">InterfaceActuatorPWM Class Referentie<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Een interface voor WeMos om een PWM signaal te creëren op een actuator.  
+ <a href="#details">Meer...</a></p>
+
+<p><code>#include &lt;<a class="el" href="wemosco2temp_2wemosco2temp_2_interface_actuator_p_w_m_8h_source.html">InterfaceActuatorPWM.h</a>&gt;</code></p>
+<div class="dynheader">
+Klasse diagram voor InterfaceActuatorPWM</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_interface_actuator_p_w_m.png" usemap="#InterfaceActuatorPWM_map" alt=""/>
+  <map id="InterfaceActuatorPWM_map" name="InterfaceActuatorPWM_map">
+<area href="class_lamp_p_w_m.html" title="Een lamp die werkt op een PWM signaal en dus kan dimmen." alt="LampPWM" shape="rect" coords="0,56,140,80"/>
+<area href="class_lamp_p_w_m.html" title="Een lamp die werkt op een PWM signaal en dus kan dimmen." alt="LampPWM" shape="rect" coords="150,56,290,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Members</h2></td></tr>
+<tr class="memitem:aef5481c400706081e11c1f51dc96cfa8" id="r_aef5481c400706081e11c1f51dc96cfa8"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#aef5481c400706081e11c1f51dc96cfa8">turnOn</a> ()=0</td></tr>
+<tr class="memdesc:aef5481c400706081e11c1f51dc96cfa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zet de actuator aan.  <br /></td></tr>
+<tr class="memitem:a290a798e08164ad7d6f5999c2d63b069" id="r_a290a798e08164ad7d6f5999c2d63b069"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a290a798e08164ad7d6f5999c2d63b069">turnOn</a> (int)=0</td></tr>
+<tr class="memdesc:a290a798e08164ad7d6f5999c2d63b069"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zet de actuator aan.  <br /></td></tr>
+<tr class="memitem:a3ca3a3fd2a1c881bb355fbe918f3b04e" id="r_a3ca3a3fd2a1c881bb355fbe918f3b04e"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a3ca3a3fd2a1c881bb355fbe918f3b04e">turnOff</a> ()=0</td></tr>
+<tr class="memdesc:a3ca3a3fd2a1c881bb355fbe918f3b04e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zet de actuator uit.  <br /></td></tr>
+<tr class="memitem:aa44ae2512b5b5290a203ae9d2c418805" id="r_aa44ae2512b5b5290a203ae9d2c418805"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#aa44ae2512b5b5290a203ae9d2c418805">changeDutycycle</a> (int)=0</td></tr>
+<tr class="memdesc:aa44ae2512b5b5290a203ae9d2c418805"><td class="mdescLeft">&#160;</td><td class="mdescRight">Veranderd de dutycycle.  <br /></td></tr>
+<tr class="memitem:aef5481c400706081e11c1f51dc96cfa8" id="r_aef5481c400706081e11c1f51dc96cfa8"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#aef5481c400706081e11c1f51dc96cfa8">turnOn</a> ()=0</td></tr>
+<tr class="memdesc:aef5481c400706081e11c1f51dc96cfa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zet de actuator aan.  <br /></td></tr>
+<tr class="memitem:a290a798e08164ad7d6f5999c2d63b069" id="r_a290a798e08164ad7d6f5999c2d63b069"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a290a798e08164ad7d6f5999c2d63b069">turnOn</a> (int)=0</td></tr>
+<tr class="memdesc:a290a798e08164ad7d6f5999c2d63b069"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zet de actuator aan.  <br /></td></tr>
+<tr class="memitem:a3ca3a3fd2a1c881bb355fbe918f3b04e" id="r_a3ca3a3fd2a1c881bb355fbe918f3b04e"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a3ca3a3fd2a1c881bb355fbe918f3b04e">turnOff</a> ()=0</td></tr>
+<tr class="memdesc:a3ca3a3fd2a1c881bb355fbe918f3b04e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zet de actuator uit.  <br /></td></tr>
+<tr class="memitem:aa44ae2512b5b5290a203ae9d2c418805" id="r_aa44ae2512b5b5290a203ae9d2c418805"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#aa44ae2512b5b5290a203ae9d2c418805">changeDutycycle</a> (int)=0</td></tr>
+<tr class="memdesc:aa44ae2512b5b5290a203ae9d2c418805"><td class="mdescLeft">&#160;</td><td class="mdescRight">Veranderd de dutycycle.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Gedetailleerde Beschrijving</h2>
+<div class="textblock"><p>Een interface voor WeMos om een PWM signaal te creëren op een actuator. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentatie van functie members</h2>
+<a id="aa44ae2512b5b5290a203ae9d2c418805" name="aa44ae2512b5b5290a203ae9d2c418805"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa44ae2512b5b5290a203ae9d2c418805">&#9670;&#160;</a></span>changeDutycycle() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void InterfaceActuatorPWM::changeDutycycle </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Veranderd de dutycycle. </p>
+<p>Veranderd de dutycycle, deze wordt in het object opgeslagen. Als de actuator aan staat wordt de dutycycle meteen ingeladen, anders blijft de actuator uit en wordt het alleen opgeslagen in het object voor als de actuator weer ingeschakeld wordt.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>- Dutycycle, kan een waarde hebben van 0 t/m 100. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Wordt geïmplementeerd door <a class="el" href="class_lamp_p_w_m.html#ad6f6a6f3992e28728f4f02fd366c69e0">LampPWM</a> en <a class="el" href="class_lamp_p_w_m.html#ad6f6a6f3992e28728f4f02fd366c69e0">LampPWM</a>.</p>
+
+</div>
+</div>
+<a id="aa44ae2512b5b5290a203ae9d2c418805" name="aa44ae2512b5b5290a203ae9d2c418805"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa44ae2512b5b5290a203ae9d2c418805">&#9670;&#160;</a></span>changeDutycycle() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void InterfaceActuatorPWM::changeDutycycle </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Veranderd de dutycycle. </p>
+<p>Veranderd de dutycycle, deze wordt in het object opgeslagen. Als de actuator aan staat wordt de dutycycle meteen ingeladen, anders blijft de actuator uit en wordt het alleen opgeslagen in het object voor als de actuator weer ingeschakeld wordt.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>- Dutycycle, kan een waarde hebben van 0 t/m 100. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Wordt geïmplementeerd door <a class="el" href="class_lamp_p_w_m.html#ad6f6a6f3992e28728f4f02fd366c69e0">LampPWM</a> en <a class="el" href="class_lamp_p_w_m.html#ad6f6a6f3992e28728f4f02fd366c69e0">LampPWM</a>.</p>
+
+</div>
+</div>
+<a id="a3ca3a3fd2a1c881bb355fbe918f3b04e" name="a3ca3a3fd2a1c881bb355fbe918f3b04e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ca3a3fd2a1c881bb355fbe918f3b04e">&#9670;&#160;</a></span>turnOff() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void InterfaceActuatorPWM::turnOff </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Zet de actuator uit. </p>
+<p>Zet de actuator uit zonder de dutycycle te veranderen. </p>
+
+<p>Wordt geïmplementeerd door <a class="el" href="class_lamp_p_w_m.html#a1af31dca568b32ca4d0ee6b2a2fca33c">LampPWM</a> en <a class="el" href="class_lamp_p_w_m.html#a1af31dca568b32ca4d0ee6b2a2fca33c">LampPWM</a>.</p>
+
+</div>
+</div>
+<a id="a3ca3a3fd2a1c881bb355fbe918f3b04e" name="a3ca3a3fd2a1c881bb355fbe918f3b04e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ca3a3fd2a1c881bb355fbe918f3b04e">&#9670;&#160;</a></span>turnOff() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void InterfaceActuatorPWM::turnOff </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Zet de actuator uit. </p>
+<p>Zet de actuator uit zonder de dutycycle te veranderen. </p>
+
+<p>Wordt geïmplementeerd door <a class="el" href="class_lamp_p_w_m.html#a1af31dca568b32ca4d0ee6b2a2fca33c">LampPWM</a> en <a class="el" href="class_lamp_p_w_m.html#a1af31dca568b32ca4d0ee6b2a2fca33c">LampPWM</a>.</p>
+
+</div>
+</div>
+<a id="aef5481c400706081e11c1f51dc96cfa8" name="aef5481c400706081e11c1f51dc96cfa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef5481c400706081e11c1f51dc96cfa8">&#9670;&#160;</a></span>turnOn() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void InterfaceActuatorPWM::turnOn </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Zet de actuator aan. </p>
+<p>Als deze functie aangeroepen wordt, gaat de actuator aan op de dutycycle die onthouden staat in het object. </p>
+
+<p>Wordt geïmplementeerd door <a class="el" href="class_lamp_p_w_m.html#a3f438176eb41a8b072ab6c8668f96351">LampPWM</a> en <a class="el" href="class_lamp_p_w_m.html#a3f438176eb41a8b072ab6c8668f96351">LampPWM</a>.</p>
+
+</div>
+</div>
+<a id="aef5481c400706081e11c1f51dc96cfa8" name="aef5481c400706081e11c1f51dc96cfa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef5481c400706081e11c1f51dc96cfa8">&#9670;&#160;</a></span>turnOn() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void InterfaceActuatorPWM::turnOn </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Zet de actuator aan. </p>
+<p>Als deze functie aangeroepen wordt, gaat de actuator aan op de dutycycle die onthouden staat in het object. </p>
+
+<p>Wordt geïmplementeerd door <a class="el" href="class_lamp_p_w_m.html#a3f438176eb41a8b072ab6c8668f96351">LampPWM</a> en <a class="el" href="class_lamp_p_w_m.html#a3f438176eb41a8b072ab6c8668f96351">LampPWM</a>.</p>
+
+</div>
+</div>
+<a id="a290a798e08164ad7d6f5999c2d63b069" name="a290a798e08164ad7d6f5999c2d63b069"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a290a798e08164ad7d6f5999c2d63b069">&#9670;&#160;</a></span>turnOn() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void InterfaceActuatorPWM::turnOn </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Zet de actuator aan. </p>
+<p>Zet de actuator aan op de dutycycle die wordt meegegeven.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>- Dutycycle, kan een waarde hebben van 0 t/m 100. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Wordt geïmplementeerd door <a class="el" href="class_lamp_p_w_m.html#ad5b3d5dc14f7946de63dda177c3351e8">LampPWM</a> en <a class="el" href="class_lamp_p_w_m.html#ad5b3d5dc14f7946de63dda177c3351e8">LampPWM</a>.</p>
+
+</div>
+</div>
+<a id="a290a798e08164ad7d6f5999c2d63b069" name="a290a798e08164ad7d6f5999c2d63b069"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a290a798e08164ad7d6f5999c2d63b069">&#9670;&#160;</a></span>turnOn() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void InterfaceActuatorPWM::turnOn </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Zet de actuator aan. </p>
+<p>Zet de actuator aan op de dutycycle die wordt meegegeven.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>- Dutycycle, kan een waarde hebben van 0 t/m 100. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Wordt geïmplementeerd door <a class="el" href="class_lamp_p_w_m.html#ad5b3d5dc14f7946de63dda177c3351e8">LampPWM</a> en <a class="el" href="class_lamp_p_w_m.html#ad5b3d5dc14f7946de63dda177c3351e8">LampPWM</a>.</p>
+
+</div>
+</div>
+<hr/>De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:<ul>
+<li>Code/Demo/wemosco2temp/wemosco2temp/<a class="el" href="wemosco2temp_2wemosco2temp_2_interface_actuator_p_w_m_8h_source.html">InterfaceActuatorPWM.h</a></li>
+<li>Code/Demo/wemosdisplay/<a class="el" href="wemosdisplay_2_interface_actuator_p_w_m_8h_source.html">InterfaceActuatorPWM.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_interface_actuator_p_w_m.html">InterfaceActuatorPWM</a></li>
+    <li class="footer">Gegenereerd door <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

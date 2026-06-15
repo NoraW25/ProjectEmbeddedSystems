@@ -1,0 +1,128 @@
+\doxysection{Hartslag\+Sensor Class Referentie}
+\hypertarget{class_hartslag_sensor}{}\label{class_hartslag_sensor}\index{HartslagSensor@{HartslagSensor}}
+
+
+Hanteert de MAX30105 sensor en berekent hartslagwaarden.  
+
+
+
+
+{\ttfamily \+\#include $<$Hartslag\+Sensor.\+h$>$}
+
+\doxysubsubsection*{Public Members}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_hartslag_sensor_a9284c941a34b47e60f8843464984cbc9}\label{class_hartslag_sensor_a9284c941a34b47e60f8843464984cbc9} 
+{\bfseries Hartslag\+Sensor} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_hartslag_sensor_aa710db2fdfd7dbf4940dce577fd7cc17}{begin}} (Two\+Wire \&wire=Wire)
+\begin{DoxyCompactList}\small\item\em Initialiseert de sensor. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_hartslag_sensor_ace5a3ec26aec350fe817357e16533cc6}{update}} ()
+\begin{DoxyCompactList}\small\item\em Lees nieuwe waarden van de sensor en update interne staten. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_hartslag_sensor_aacd12c17610eaa051f66accae86cd914}{get\+BPM}} () const
+\begin{DoxyCompactList}\small\item\em Retourneer de laatst berekende BPM (float). \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_hartslag_sensor_acb2a86a28481766a2f000010400d22fb}{get\+Avg\+BPM}} () const
+\begin{DoxyCompactList}\small\item\em Retourneer het gemiddelde BPM over de buffer. \end{DoxyCompactList}\item 
+long \doxymbox{\hyperlink{class_hartslag_sensor_a1757d6696092369221b8f6a7a2562bf4}{get\+IR}} () const
+\begin{DoxyCompactList}\small\item\em Retourneer de laatst gelezen IR-\/waarde. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Gedetailleerde Beschrijving}
+Hanteert de MAX30105 sensor en berekent hartslagwaarden. 
+
+\label{class_hartslag_sensor_doc-func-members}
+\Hypertarget{class_hartslag_sensor_doc-func-members}
+\doxysubsection{Documentatie van functie members}
+\Hypertarget{class_hartslag_sensor_aa710db2fdfd7dbf4940dce577fd7cc17}\index{HartslagSensor@{HartslagSensor}!begin@{begin}}
+\index{begin@{begin}!HartslagSensor@{HartslagSensor}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{class_hartslag_sensor_aa710db2fdfd7dbf4940dce577fd7cc17} 
+bool Hartslag\+Sensor::\+begin (\begin{DoxyParamCaption}\item[{Two\+Wire \&}]{wire}{ = {\ttfamily Wire}}\end{DoxyParamCaption})}
+
+
+
+Initialiseert de sensor. 
+
+Initialiseert de sensor hardware.
+
+
+\begin{DoxyParams}{Parameters}
+{\em wire} & I2C bus (standaard {\ttfamily Wire}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retourneert}
+true als initialisatie gelukt is
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em wire} & I2C bus om te gebruiken \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retourneert}
+true als de sensor succesvol is geïnitialiseerd 
+\end{DoxyReturn}
+\Hypertarget{class_hartslag_sensor_acb2a86a28481766a2f000010400d22fb}\index{HartslagSensor@{HartslagSensor}!getAvgBPM@{getAvgBPM}}
+\index{getAvgBPM@{getAvgBPM}!HartslagSensor@{HartslagSensor}}
+\doxysubsubsection{\texorpdfstring{getAvgBPM()}{getAvgBPM()}}
+{\footnotesize\ttfamily \label{class_hartslag_sensor_acb2a86a28481766a2f000010400d22fb} 
+int Hartslag\+Sensor::\+get\+Avg\+BPM (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retourneer het gemiddelde BPM over de buffer. 
+
+Verkrijg het gemiddelde BPM over de buffer.
+
+\begin{DoxyReturn}{Retourneert}
+gemiddelde BPM
+
+Gemiddelde BPM als int 
+\end{DoxyReturn}
+\Hypertarget{class_hartslag_sensor_aacd12c17610eaa051f66accae86cd914}\index{HartslagSensor@{HartslagSensor}!getBPM@{getBPM}}
+\index{getBPM@{getBPM}!HartslagSensor@{HartslagSensor}}
+\doxysubsubsection{\texorpdfstring{getBPM()}{getBPM()}}
+{\footnotesize\ttfamily \label{class_hartslag_sensor_aacd12c17610eaa051f66accae86cd914} 
+float Hartslag\+Sensor::\+get\+BPM (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retourneer de laatst berekende BPM (float). 
+
+Verkrijg de laatst berekende BPM.
+
+\begin{DoxyReturn}{Retourneert}
+BPM
+
+BPM waarde als float 
+\end{DoxyReturn}
+\Hypertarget{class_hartslag_sensor_a1757d6696092369221b8f6a7a2562bf4}\index{HartslagSensor@{HartslagSensor}!getIR@{getIR}}
+\index{getIR@{getIR}!HartslagSensor@{HartslagSensor}}
+\doxysubsubsection{\texorpdfstring{getIR()}{getIR()}}
+{\footnotesize\ttfamily \label{class_hartslag_sensor_a1757d6696092369221b8f6a7a2562bf4} 
+long Hartslag\+Sensor::\+get\+IR (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retourneer de laatst gelezen IR-\/waarde. 
+
+Verkrijg de laatst gelezen IR-\/waarde.
+
+\begin{DoxyReturn}{Retourneert}
+IR waarde 
+\end{DoxyReturn}
+\Hypertarget{class_hartslag_sensor_ace5a3ec26aec350fe817357e16533cc6}\index{HartslagSensor@{HartslagSensor}!update@{update}}
+\index{update@{update}!HartslagSensor@{HartslagSensor}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_hartslag_sensor_ace5a3ec26aec350fe817357e16533cc6} 
+void Hartslag\+Sensor::\+update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Lees nieuwe waarden van de sensor en update interne staten. 
+
+Lees sensorwaarden en bereken BPM indien beat gedetecteerd. 
+
+De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:\+\begin{DoxyCompactItemize}
+\item 
+Code/\+\+Demo/\+wemoshartslag/\+demowemoshartslag/\+\doxymbox{\hyperlink{_hartslag_sensor_8h}{Hartslag\+Sensor.\+h}}\item 
+Code/\+\+Demo/\+wemoshartslag/\+demowemoshartslag/\+Hartslag\+Sensor.\+cpp\end{DoxyCompactItemize}

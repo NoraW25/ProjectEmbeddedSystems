@@ -1,0 +1,48 @@
+\doxysection{Run\+Service\+Controller.\+h}
+\hypertarget{_r_pi_b_2_can_com_2_run_service_controller_8h_source}{}\label{_r_pi_b_2_can_com_2_run_service_controller_8h_source}\index{Code/Communicatie/RPiB/CanCom/RunServiceController.h@{Code/Communicatie/RPiB/CanCom/RunServiceController.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }Events\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_events_1_1_event}{Event}};}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_events_1_1_timed_event}{TimedEvent}};}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_events_1_1_connection}{Connection}};}
+\DoxyCodeLine{00010\ \}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }Scheduling\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_scheduling_1_1_scheduler}{Scheduler}};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_scheduling_1_1_run_service_controller}{RunServiceController}}}
+\DoxyCodeLine{00016\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Access\ the\ singleton\ instance}}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ RunServiceController*\ getInstance(Scheduler*);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Delete\ copy/move\ semantics}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ RunServiceController(\textcolor{keyword}{const}\ RunServiceController\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ RunServiceController\&\ operator=(\textcolor{keyword}{const}\ RunServiceController\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ RunServiceController(RunServiceController\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ RunServiceController\&\ operator=(RunServiceController\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ addEvent(Events::Event*\ event);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ removeEvent(Events::Event*\ event);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ removeTimedEvent(Events::TimedEvent*);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ Events::Connection*\ connectToUpdate(std::function<\textcolor{keywordtype}{void}()>);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ Events::Connection*\ createTask(std::function<\textcolor{keywordtype}{void}()>,\ uint32\_t\ delay);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Private\ constructor/destructor}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ RunServiceController(Scheduler*);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \string~RunServiceController()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ Scheduler*\ scheduler;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ RunServiceController*\ \_instance;}
+\DoxyCodeLine{00040\ \ \ \ \ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,107 @@
+\doxysection{Distance\+System\+RPiB Class Referentie}
+\hypertarget{class_distance_system_r_pi_b}{}\label{class_distance_system_r_pi_b}\index{DistanceSystemRPiB@{DistanceSystemRPiB}}
+
+
+Zorgt dat de afstand wordt weergegeven.  
+
+
+
+
+{\ttfamily \+\#include $<$Distance\+System\+RPi\+B.\+h$>$}
+
+\doxysubsubsection*{Public Members}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_distance_system_r_pi_b_aca9ecadf024a708357f39c37d8547afa}{Distance\+System\+RPiB}} (std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$, std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$, std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$, int)
+\begin{DoxyCompactList}\small\item\em Constructor \doxylink{class_distance_system_r_pi_b}{Distance\+System\+RPiB}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_distance_system_r_pi_b_a149f4529d1c506d2d3663a7ea4d167eb}{send\+To\+Display}} (std::\+vector$<$ uint8\+\_\+t $>$)
+\begin{DoxyCompactList}\small\item\em Verzend de ontvangen data voor de display door naar de display. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_distance_system_r_pi_b_aeabd57ae58a02cbe0da3edabf5af06f4}{send\+Distance}} (std::\+vector$<$ uint8\+\_\+t $>$)
+\begin{DoxyCompactList}\small\item\em Verzend de ontvangen data van de encoder door naar het hoofdsysteem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Gedetailleerde Beschrijving}
+Zorgt dat de afstand wordt weergegeven. 
+
+De aansturing van het display, dat berekend wordt op het hoofd \doxylink{class_distance_system}{Distance\+System} op RPiB, wordt door verstuurd op het adres van de displays die de afstand weergeven.
+
+Daarnaast wordt inkomende afstanddata doorgestuurd naar RPiA om te verwerken. 
+
+\label{class_distance_system_r_pi_b_doc-constructors}
+\Hypertarget{class_distance_system_r_pi_b_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentatie}
+\Hypertarget{class_distance_system_r_pi_b_aca9ecadf024a708357f39c37d8547afa}\index{DistanceSystemRPiB@{DistanceSystemRPiB}!DistanceSystemRPiB@{DistanceSystemRPiB}}
+\index{DistanceSystemRPiB@{DistanceSystemRPiB}!DistanceSystemRPiB@{DistanceSystemRPiB}}
+\doxysubsubsection{\texorpdfstring{DistanceSystemRPiB()}{DistanceSystemRPiB()}}
+{\footnotesize\ttfamily \label{class_distance_system_r_pi_b_aca9ecadf024a708357f39c37d8547afa} 
+Distance\+System\+RPi\+B::\+\+Distance\+System\+RPiB (\begin{DoxyParamCaption}\item[{std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$}]{rpia\+\_\+controller}{, }\item[{std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$}]{wemos\+\_\+controller}{, }\item[{std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$}]{wemos\+\_\+controller\+\_\+encoder}{, }\item[{int}]{address}{}\end{DoxyParamCaption})}
+
+
+
+Constructor \doxylink{class_distance_system_r_pi_b}{Distance\+System\+RPiB}. 
+
+De standard en meegegeven waarden worden meegegeven in de attributen.
+
+De meegegeven controllers worden gekoppeld aan de ontvangst op:\+ De berichten met adres/\+\+ID = het meegegeven adres op controller RPiB ~\newline
+ De berichten met adres/\+\+ID = 910 op de controller van de Wemos met de encoder
+
+
+\begin{DoxyParams}{Parameters}
+{\em shared\+\_\+ptr$<$\+Communication::\+\+Communication\+Controller$>$} & -\/ De communicatiecontroller van de RPiA. \\
+\hline
+{\em shared\+\_\+ptr$<$\+Communication::\+\+Communication\+Controller$>$} & -\/ De communicatiecontroller van de Wemos met de display. \\
+\hline
+{\em shared\+\_\+ptr$<$\+Communication::\+\+Communication\+Controller$>$} & -\/ De communicatiecontroller van de Wemos met de encoder. \\
+\hline
+{\em int} & -\/ Het adres waar de data voor de display van het hoofdsysteem binnenkomt. \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_distance_system_r_pi_b_doc-func-members}
+\Hypertarget{class_distance_system_r_pi_b_doc-func-members}
+\doxysubsection{Documentatie van functie members}
+\Hypertarget{class_distance_system_r_pi_b_aeabd57ae58a02cbe0da3edabf5af06f4}\index{DistanceSystemRPiB@{DistanceSystemRPiB}!sendDistance@{sendDistance}}
+\index{sendDistance@{sendDistance}!DistanceSystemRPiB@{DistanceSystemRPiB}}
+\doxysubsubsection{\texorpdfstring{sendDistance()}{sendDistance()}}
+{\footnotesize\ttfamily \label{class_distance_system_r_pi_b_aeabd57ae58a02cbe0da3edabf5af06f4} 
+void Distance\+System\+RPi\+B::\+send\+Distance (\begin{DoxyParamCaption}\item[{std::\+vector$<$ uint8\+\_\+t $>$}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Verzend de ontvangen data van de encoder door naar het hoofdsysteem. 
+
+Wordt aangeroepen als er een bericht met adres/\+\+ID 910 binnenkomt op de controller gekoppeld aan de Wemos met encoder.
+
+Stuurt het bericht door via de controller van de RPiA.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector$<$uint9\+\_\+t$>$} & -\/ De data die door gestuurd moet worden. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_distance_system_r_pi_b_a149f4529d1c506d2d3663a7ea4d167eb}\index{DistanceSystemRPiB@{DistanceSystemRPiB}!sendToDisplay@{sendToDisplay}}
+\index{sendToDisplay@{sendToDisplay}!DistanceSystemRPiB@{DistanceSystemRPiB}}
+\doxysubsubsection{\texorpdfstring{sendToDisplay()}{sendToDisplay()}}
+{\footnotesize\ttfamily \label{class_distance_system_r_pi_b_a149f4529d1c506d2d3663a7ea4d167eb} 
+void Distance\+System\+RPi\+B::\+send\+To\+Display (\begin{DoxyParamCaption}\item[{std::\+vector$<$ uint8\+\_\+t $>$}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Verzend de ontvangen data voor de display door naar de display. 
+
+Wordt aangeroepen als er een bericht met adres/\+\+ID dat meegegeven wordt als parameter voor het ontvangst op de display en binnenkomt op de controller gekoppeld aan de Wemos met RPiB.
+
+Stuurt het bericht door via de controller van de Wemos met de display.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector$<$uint9\+\_\+t$>$} & -\/ De data die door gestuurd moet worden. \\
+\hline
+\end{DoxyParams}
+
+
+De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:\+\begin{DoxyCompactItemize}
+\item 
+Code/\+\+Communicatie/\+\+RPi\+B/\+\+Can\+Com/\+\doxymbox{\hyperlink{_distance_system_r_pi_b_8h}{Distance\+System\+RPi\+B.\+h}}\item 
+Code/\+\+Communicatie/\+\+RPi\+B/\+\+Can\+Com/\+Distance\+System\+RPi\+B.\+cpp\end{DoxyCompactItemize}

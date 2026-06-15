@@ -1,0 +1,26 @@
+\doxysection{Data\+Connection.\+h}
+\hypertarget{_r_pi_b_2_can_com_2_data_connection_8h_source}{}\label{_r_pi_b_2_can_com_2_data_connection_8h_source}\index{Code/Communicatie/RPiB/CanCom/DataConnection.h@{Code/Communicatie/RPiB/CanCom/DataConnection.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Connection.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }Events\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_events_1_1_event}{Event}};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_events_1_1_data_connection}{DataConnection}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_events_1_1_connection}{Connection}}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ std::function<void(std::vector<uint8\_t>)>\ func;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ DataConnection(Event*,\ std::function<\textcolor{keywordtype}{void}(std::vector<uint8\_t>)>);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ std::function<void(std::vector<uint8\_t>)>\ getFunction();}
+\DoxyCodeLine{00018\ \ \ \ \ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \}}
+
+\end{DoxyCode}

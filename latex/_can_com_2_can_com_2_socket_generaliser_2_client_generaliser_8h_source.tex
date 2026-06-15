@@ -1,0 +1,34 @@
+\doxysection{Client\+Generaliser.\+h}
+\hypertarget{_can_com_2_can_com_2_socket_generaliser_2_client_generaliser_8h_source}{}\label{_can_com_2_can_com_2_socket_generaliser_2_client_generaliser_8h_source}\index{Code/Communicatie/CanCom/CanCom/SocketGeneraliser/ClientGeneraliser.h@{Code/Communicatie/CanCom/CanCom/SocketGeneraliser/ClientGeneraliser.h}}
+\doxymbox{\hyperlink{_can_com_2_can_com_2_socket_generaliser_2_client_generaliser_8h}{Ga naar de documentatie van dit bestand.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ CLIENTGENERALISER\_H}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ CLIENTGENERALISER\_H}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}../Receiver.h"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}../Transmitter.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_can_com_2_can_com_2_socket_2_client_socket_8h}{../Socket/ClientSocket.h}}"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_client_generaliser_a34151424ef064aa5c9f677b31142324a}{ClientGeneraliser}}\ :\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_communication_1_1_receiver}{Communication::Receiver}},\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_communication_1_1_transmitter}{Communication::Transmitter}}}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \doxymbox{\hyperlink{class_client_generaliser_a34151424ef064aa5c9f677b31142324a}{ClientGeneraliser}}(std::string,\ \textcolor{keywordtype}{bool});}
+\DoxyCodeLine{00032\ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{class_client_generaliser_a34151424ef064aa5c9f677b31142324a}{\string~ClientGeneraliser}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ sendData(\textcolor{keywordtype}{int},\ std::vector<uint8\_t>)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ sendRequest(\textcolor{keywordtype}{int})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ receive(\textcolor{keywordtype}{int}*,\ std::vector<uint8\_t>*)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00040\ \ \ \ \ \doxymbox{\hyperlink{class_client_socket}{ClientSocket}}\ socket;\ \ \ \ }
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

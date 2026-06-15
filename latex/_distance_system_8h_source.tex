@@ -1,0 +1,52 @@
+\doxysection{Distance\+System.\+h}
+\hypertarget{_distance_system_8h_source}{}\label{_distance_system_8h_source}\index{Code/Communicatie/CanCom/CanCom/DistanceSystem.h@{Code/Communicatie/CanCom/CanCom/DistanceSystem.h}}
+\doxymbox{\hyperlink{_distance_system_8h}{Ga naar de documentatie van dit bestand.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifndef\ DISTANCESYSTEM\_H}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ DISTANCESYSTEM\_H}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}CommunicationController.h"{}}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_distance_system_abdca9978ed19cca11a75585fdc5d4139}{DistanceSystem}}\{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00045\ \ \ \ \ \doxymbox{\hyperlink{class_distance_system_abdca9978ed19cca11a75585fdc5d4139}{DistanceSystem}}(std::shared\_ptr<Communication::CommunicationController>,\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ std::shared\_ptr<Communication::CommunicationController>);}
+\DoxyCodeLine{00047\ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ \doxymbox{\hyperlink{class_distance_system_abdca9978ed19cca11a75585fdc5d4139}{DistanceSystem}}(std::shared\_ptr<Communication::CommunicationController>,\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ std::shared\_ptr<Communication::CommunicationController>,\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{class_distance_system_abdca9978ed19cca11a75585fdc5d4139}{\string~DistanceSystem}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00068\ \ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_distance_system_a52d36ea0226beefc35b816dcf1cd38b4}{addToDistance}}(std::vector<uint8\_t>);}
+\DoxyCodeLine{00081\ \ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_distance_system_a71291d23c0d166506088a612e47665ff}{resetDistance}}(std::vector<uint8\_t>);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_distance_system_ab7aa1046316eb09f05681b6064bf5462}{calculateAmountOfLights}}();}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{int}\ distance;}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{int}\ amount\_of\_lights;}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{int}\ finish\_distance;}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{int}\ amount\_of\_lights\_available;}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{int}\ address\_display;}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{int}\ address\_reset\_button;}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{int}\ address\_turns;}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ std::shared\_ptr<Communication::CommunicationController>\ can\_controller;}
+\DoxyCodeLine{00114\ \ \ \ \ std::shared\_ptr<Communication::CommunicationController>\ rpib\_controller;}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \};}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

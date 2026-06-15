@@ -1,0 +1,118 @@
+\doxysection{Lighting\+System Class Referentie}
+\hypertarget{class_lighting_system}{}\label{class_lighting_system}\index{LightingSystem@{LightingSystem}}
+
+
+Regelt de verlichting.  
+
+
+
+
+{\ttfamily \+\#include $<$Lighting\+System.\+h$>$}
+
+\doxysubsubsection*{Public Members}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_lighting_system_a4d9238819a0a4743c47413748e12e004}{Lighting\+System}} (int, int, std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$)
+\begin{DoxyCompactList}\small\item\em Constructor \doxylink{class_lighting_system}{Lighting\+System}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_lighting_system_ac598d291da8ad7d56de9e2272d39f68c}{change\+Colour}} (std::\+vector$<$ uint8\+\_\+t $>$)
+\begin{DoxyCompactList}\small\item\em Verandert de kleur van het licht. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_lighting_system_ab6ea63b2299ae444cef472e4e50e3b45}{toggle\+Light}} (std::\+vector$<$ uint8\+\_\+t $>$)
+\begin{DoxyCompactList}\small\item\em Zet het licht aan/\+uit. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_lighting_system_a0880c17cfd8d61e41695627a9d31325b}{send\+New\+Colour}} ()
+\begin{DoxyCompactList}\small\item\em Verzend een bericht om een kleur aan te zetten. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Gedetailleerde Beschrijving}
+Regelt de verlichting. 
+
+Zorgt ervoor dat de verlichting aan/\+uit gezet kan worden. Daarnaast kan de kleur van het licht worden aangepast. 
+
+\label{class_lighting_system_doc-constructors}
+\Hypertarget{class_lighting_system_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentatie}
+\Hypertarget{class_lighting_system_a4d9238819a0a4743c47413748e12e004}\index{LightingSystem@{LightingSystem}!LightingSystem@{LightingSystem}}
+\index{LightingSystem@{LightingSystem}!LightingSystem@{LightingSystem}}
+\doxysubsubsection{\texorpdfstring{LightingSystem()}{LightingSystem()}}
+{\footnotesize\ttfamily \label{class_lighting_system_a4d9238819a0a4743c47413748e12e004} 
+Lighting\+System::\+\+Lighting\+System (\begin{DoxyParamCaption}\item[{int}]{button\+\_\+change\+\_\+colour\+\_\+address}{, }\item[{int}]{button\+\_\+off\+\_\+address}{, }\item[{std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$}]{controller}{}\end{DoxyParamCaption})}
+
+
+
+Constructor \doxylink{class_lighting_system}{Lighting\+System}. 
+
+De standard en meegegeven waarden worden meegegeven in de attributen.
+
+De meegegeven controllers worden gekoppeld aan de ontvangst op:\+ De berichten met adres/\+\+ID = standaard op int parameter 1, \doxylink{class_lighting_system_ac598d291da8ad7d56de9e2272d39f68c}{change\+Colour()}, de cancontroller voor de verander kleur knop. De berichten met adres/\+\+ID = standaard op int parameter 2, \doxylink{class_lighting_system_ab6ea63b2299ae444cef472e4e50e3b45}{toggle\+Light()}, de cancontroller voor de aan/\+uit knop.
+
+Daarnaast worden alle kleuren in een map geplaatst en de iterator op de eeste plek in de map gezet.
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ Het adres waar veranderingen voor de kleur van het licht op binnenkomen. \\
+\hline
+{\em int} & -\/ Het adres waar veranderingen van de status van het licht op binnenkomen. \\
+\hline
+{\em shared\+\_\+ptr$<$\+Communication::\+\+Communication\+Controller$>$} & -\/ De communicatiecontroller van de CANbus. \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_lighting_system_doc-func-members}
+\Hypertarget{class_lighting_system_doc-func-members}
+\doxysubsection{Documentatie van functie members}
+\Hypertarget{class_lighting_system_ac598d291da8ad7d56de9e2272d39f68c}\index{LightingSystem@{LightingSystem}!changeColour@{changeColour}}
+\index{changeColour@{changeColour}!LightingSystem@{LightingSystem}}
+\doxysubsubsection{\texorpdfstring{changeColour()}{changeColour()}}
+{\footnotesize\ttfamily \label{class_lighting_system_ac598d291da8ad7d56de9e2272d39f68c} 
+void Lighting\+System::\+change\+Colour (\begin{DoxyParamCaption}\item[{std::\+vector$<$ uint8\+\_\+t $>$}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Verandert de kleur van het licht. 
+
+Checkt eerst of het licht aanstaat, zo ja volgt de rest:\+
+
+Schuift de iterator van de map 1 plek op en checkt of die opnieuw door de map moet loopen om naar de volgende kleur te gaan.
+
+Roept daarna \doxylink{class_lighting_system_a0880c17cfd8d61e41695627a9d31325b}{send\+New\+Colour()} aan om de nieuwe kleur ook echt te versturen.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector$<$uint8\+\_\+t$>$} & -\/ De meegegeven data, wordt nu niks meegedaan alleen meegegeven. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_lighting_system_a0880c17cfd8d61e41695627a9d31325b}\index{LightingSystem@{LightingSystem}!sendNewColour@{sendNewColour}}
+\index{sendNewColour@{sendNewColour}!LightingSystem@{LightingSystem}}
+\doxysubsubsection{\texorpdfstring{sendNewColour()}{sendNewColour()}}
+{\footnotesize\ttfamily \label{class_lighting_system_a0880c17cfd8d61e41695627a9d31325b} 
+void Lighting\+System::\+send\+New\+Colour (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Verzend een bericht om een kleur aan te zetten. 
+
+Elke kleur luistert naar zijn eigen adres, deze staan vast in de map De iterator geeft aan welke kleur aan de beurt is, als value heeft de kleur een adres.
+
+Op dat adres wordt in deze methode een bericht verstuurd op de CANbus via de cancontroller. \Hypertarget{class_lighting_system_ab6ea63b2299ae444cef472e4e50e3b45}\index{LightingSystem@{LightingSystem}!toggleLight@{toggleLight}}
+\index{toggleLight@{toggleLight}!LightingSystem@{LightingSystem}}
+\doxysubsubsection{\texorpdfstring{toggleLight()}{toggleLight()}}
+{\footnotesize\ttfamily \label{class_lighting_system_ab6ea63b2299ae444cef472e4e50e3b45} 
+void Lighting\+System::\+toggle\+Light (\begin{DoxyParamCaption}\item[{std::\+vector$<$ uint8\+\_\+t $>$}]{d}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Zet het licht aan/\+uit. 
+
+Zet de lichten uit wanner ze aan zijn, en zet de lichten aan wanneer ze uit zijn. Wanneer er de lichten aan gezet worden, wordt de methode \doxylink{class_lighting_system_a0880c17cfd8d61e41695627a9d31325b}{send\+New\+Colour()} aangeroepen. Anders verzend deze methode zelf een bericht op de CANbus op het adres waar het licht naar luistert als het uit gezet moet worden.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector$<$uint8\+\_\+t$>$} & -\/ De meegegeven data, wordt nu niks meegedaan alleen meegegeven. \\
+\hline
+\end{DoxyParams}
+
+
+De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:\+\begin{DoxyCompactItemize}
+\item 
+Code/\+\+Communicatie/\+\+Can\+Com/\+\+Can\+Com/\+\doxymbox{\hyperlink{_lighting_system_8h}{Lighting\+System.\+h}}\item 
+Code/\+\+Communicatie/\+\+Can\+Com/\+\+Can\+Com/\+Lighting\+System.\+cpp\end{DoxyCompactItemize}

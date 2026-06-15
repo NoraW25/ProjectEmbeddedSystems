@@ -1,0 +1,294 @@
+\doxysection{Can\+Socket Class Referentie}
+\hypertarget{class_can_socket}{}\label{class_can_socket}\index{CanSocket@{CanSocket}}
+
+
+Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus. Met een object van deze klasse, kunnen berichten worden gelezen van de CANbus en verstuurd worden op de CANbus op een non blocking manier.  
+
+
+
+
+{\ttfamily \+\#include $<$Can\+Socket.\+h$>$}
+
+Klasse diagram voor Can\+Socket\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_can_socket}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Members}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_can_socket_ae69dbdd0884d322e0f53092e2e399436}{\texorpdfstring{$\sim$}{\string~}\+Can\+Socket}} ()
+\begin{DoxyCompactList}\small\item\em Sluit de \doxylink{class_can_socket}{Can\+Socket}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_can_socket_a9d8b907a7bc7f9aaea785a03e887b26b}{send}} (int, std::\+vector$<$ uint8\+\_\+t $>$) override
+\begin{DoxyCompactList}\small\item\em Verstuurd een bericht. \end{DoxyCompactList}\item 
+virtual bool \doxymbox{\hyperlink{class_can_socket_ab2e7423fbe5c85faee8254ae5f7ff42f}{received}} (int \texorpdfstring{$\ast$}{*}, std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}) override
+\begin{DoxyCompactList}\small\item\em Geeft terug of er wel of niet een bericht is ontvangen. Als er een bericht is ontvangen wordt de inhoud meegegeven. \end{DoxyCompactList}\item 
+virtual bool \doxymbox{\hyperlink{class_can_socket_a134ecdb6f4fb64df234b85dd72f3c9b1}{can\+Send}} () override
+\begin{DoxyCompactList}\small\item\em Geeft terug of er wel of niet een bericht verstuurd kan worden. \end{DoxyCompactList}\item 
+virtual \doxymbox{\hyperlink{class_can_socket_ae1abeec5ecf9bdf92433e9b29ebd8dda}{\texorpdfstring{$\sim$}{\string~}\+Can\+Socket}} ()
+\begin{DoxyCompactList}\small\item\em Sluit de \doxylink{class_can_socket}{Can\+Socket}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_can_socket_aa2d54755f1b797b9d56c2bdcda019131}{send}} (int, std::\+vector$<$ uint8\+\_\+t $>$) override
+\begin{DoxyCompactList}\small\item\em Verstuurd een bericht. \end{DoxyCompactList}\item 
+virtual bool \doxymbox{\hyperlink{class_can_socket_ae340fc4b994a6c49f219c6de0d9ca077}{received}} (int \texorpdfstring{$\ast$}{*}, std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}) override
+\begin{DoxyCompactList}\small\item\em Geeft terug of er wel of niet een bericht is ontvangen. Als er een bericht is ontvangen wordt de inhoud meegegeven. \end{DoxyCompactList}\item 
+virtual bool \doxymbox{\hyperlink{class_can_socket_af35f1cf067ae44304d0972068a47a826}{can\+Send}} () override
+\begin{DoxyCompactList}\small\item\em Geeft terug of er wel of niet een bericht verstuurd kan worden. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Members}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_can_socket}{Can\+Socket}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_can_socket_a70847e53810868ea0b0870fc42449644}{instance}} ()
+\begin{DoxyCompactList}\small\item\em Geeft de instance van de \doxylink{class_can_socket}{Can\+Socket} terug. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_can_socket}{Can\+Socket}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_can_socket_aa8770db19e061d254d8f01cbecba34ad}{instance}} (std::\+string)
+\begin{DoxyCompactList}\small\item\em Geeft de instance van de \doxylink{class_can_socket}{Can\+Socket} terug. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_can_socket}{Can\+Socket}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_can_socket_ad766394856989c092a250a9be9fcaa99}{instance}} ()
+\begin{DoxyCompactList}\small\item\em Geeft de instance van de \doxylink{class_can_socket}{Can\+Socket} terug. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_can_socket}{Can\+Socket}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_can_socket_a7894542d278ee49d6c62c6a308ab1912}{instance}} (std::\+string)
+\begin{DoxyCompactList}\small\item\em Geeft de instance van de \doxylink{class_can_socket}{Can\+Socket} terug. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Gedetailleerde Beschrijving}
+Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus. Met een object van deze klasse, kunnen berichten worden gelezen van de CANbus en verstuurd worden op de CANbus op een non blocking manier. 
+
+\label{class_can_socket_doc-constructors}
+\Hypertarget{class_can_socket_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentatie}
+\Hypertarget{class_can_socket_ae69dbdd0884d322e0f53092e2e399436}\index{CanSocket@{CanSocket}!````~CanSocket@{\texorpdfstring{$\sim$}{\string~}CanSocket}}
+\index{````~CanSocket@{\texorpdfstring{$\sim$}{\string~}CanSocket}!CanSocket@{CanSocket}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}CanSocket()}{\string~CanSocket()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_can_socket_ae69dbdd0884d322e0f53092e2e399436} 
+Can\+Socket::\+\texorpdfstring{$\sim$}{\string~}\+Can\+Socket (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Sluit de \doxylink{class_can_socket}{Can\+Socket}. 
+
+Als de \doxylink{class_can_socket}{Can\+Socket} nog actief is, zal deze worden afgesloten. \Hypertarget{class_can_socket_ae1abeec5ecf9bdf92433e9b29ebd8dda}\index{CanSocket@{CanSocket}!````~CanSocket@{\texorpdfstring{$\sim$}{\string~}CanSocket}}
+\index{````~CanSocket@{\texorpdfstring{$\sim$}{\string~}CanSocket}!CanSocket@{CanSocket}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}CanSocket()}{\string~CanSocket()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_can_socket_ae1abeec5ecf9bdf92433e9b29ebd8dda} 
+virtual Can\+Socket::\+\texorpdfstring{$\sim$}{\string~}\+Can\+Socket (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Sluit de \doxylink{class_can_socket}{Can\+Socket}. 
+
+Als de \doxylink{class_can_socket}{Can\+Socket} nog actief is, zal deze worden afgesloten. 
+
+\label{class_can_socket_doc-func-members}
+\Hypertarget{class_can_socket_doc-func-members}
+\doxysubsection{Documentatie van functie members}
+\Hypertarget{class_can_socket_a134ecdb6f4fb64df234b85dd72f3c9b1}\index{CanSocket@{CanSocket}!canSend@{canSend}}
+\index{canSend@{canSend}!CanSocket@{CanSocket}}
+\doxysubsubsection{\texorpdfstring{canSend()}{canSend()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_can_socket_a134ecdb6f4fb64df234b85dd72f3c9b1} 
+bool Can\+Socket::\+can\+Send (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Geeft terug of er wel of niet een bericht verstuurd kan worden. 
+
+Eerst wordt er bekeken of de socket een verbinding heeft. Is dat niet het geval, zal de verbinding opnieuw geprobeerd worden op te zetten.
+
+\begin{DoxyReturn}{Retourneert}
+Boolean -\/ Terugkoppeling op of er wel of niet een bericht verstuurd kan worden. Als er verstuurd kan worden:\+ true. 
+\end{DoxyReturn}
+
+
+Implementeert \doxymbox{\hyperlink{class_socket_a6a14b8cd679df09eede72608e14822d3}{Socket}}.
+
+\Hypertarget{class_can_socket_af35f1cf067ae44304d0972068a47a826}\index{CanSocket@{CanSocket}!canSend@{canSend}}
+\index{canSend@{canSend}!CanSocket@{CanSocket}}
+\doxysubsubsection{\texorpdfstring{canSend()}{canSend()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_can_socket_af35f1cf067ae44304d0972068a47a826} 
+virtual bool Can\+Socket::\+can\+Send (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Geeft terug of er wel of niet een bericht verstuurd kan worden. 
+
+Eerst wordt er bekeken of de socket een verbinding heeft. Is dat niet het geval, zal de verbinding opnieuw geprobeerd worden op te zetten.
+
+\begin{DoxyReturn}{Retourneert}
+Boolean -\/ Terugkoppeling op of er wel of niet een bericht verstuurd kan worden. Als er verstuurd kan worden:\+ true. 
+\end{DoxyReturn}
+
+
+Implementeert \doxymbox{\hyperlink{class_socket_a6a14b8cd679df09eede72608e14822d3}{Socket}}.
+
+\Hypertarget{class_can_socket_a70847e53810868ea0b0870fc42449644}\index{CanSocket@{CanSocket}!instance@{instance}}
+\index{instance@{instance}!CanSocket@{CanSocket}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_can_socket_a70847e53810868ea0b0870fc42449644} 
+\doxymbox{\hyperlink{class_can_socket}{Can\+Socket}} \texorpdfstring{$\ast$}{*} Can\+Socket::\+instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Geeft de instance van de \doxylink{class_can_socket}{Can\+Socket} terug. 
+
+Deze methode geeft een \doxylink{class_can_socket}{Can\+Socket} terug, als deze nog niet bestaat wordt er standaard op interface can0 een socket geprobeert aan te maken.
+
+\begin{DoxyReturn}{Retourneert}
+Can\+Socket\texorpdfstring{$\ast$}{*} -\/ Een pointer naar de bestaande \doxylink{class_can_socket}{Can\+Socket}. 
+\end{DoxyReturn}
+\Hypertarget{class_can_socket_ad766394856989c092a250a9be9fcaa99}\index{CanSocket@{CanSocket}!instance@{instance}}
+\index{instance@{instance}!CanSocket@{CanSocket}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_can_socket_ad766394856989c092a250a9be9fcaa99} 
+\doxymbox{\hyperlink{class_can_socket}{Can\+Socket}} \texorpdfstring{$\ast$}{*} Can\+Socket::\+instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Geeft de instance van de \doxylink{class_can_socket}{Can\+Socket} terug. 
+
+Deze methode geeft een \doxylink{class_can_socket}{Can\+Socket} terug, als deze nog niet bestaat wordt er standaard op interface can0 een socket geprobeert aan te maken.
+
+\begin{DoxyReturn}{Retourneert}
+Can\+Socket\texorpdfstring{$\ast$}{*} -\/ Een pointer naar de bestaande \doxylink{class_can_socket}{Can\+Socket}. 
+\end{DoxyReturn}
+\Hypertarget{class_can_socket_aa8770db19e061d254d8f01cbecba34ad}\index{CanSocket@{CanSocket}!instance@{instance}}
+\index{instance@{instance}!CanSocket@{CanSocket}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_can_socket_aa8770db19e061d254d8f01cbecba34ad} 
+\doxymbox{\hyperlink{class_can_socket}{Can\+Socket}} \texorpdfstring{$\ast$}{*} Can\+Socket::\+instance (\begin{DoxyParamCaption}\item[{std::\+string}]{ifname}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Geeft de instance van de \doxylink{class_can_socket}{Can\+Socket} terug. 
+
+Deze methode geeft een \doxylink{class_can_socket}{Can\+Socket} terug, als deze nog niet bestaat wordt er op de meegegeven interface een socket geprobeert aan te maken.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & -\/ std::\+string waar een andere interface dan de standaard can0 meegegeven kan worden.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retourneert}
+Can\+Socket\texorpdfstring{$\ast$}{*} -\/ Een pointer naar de bestaande \doxylink{class_can_socket}{Can\+Socket}. 
+\end{DoxyReturn}
+\Hypertarget{class_can_socket_a7894542d278ee49d6c62c6a308ab1912}\index{CanSocket@{CanSocket}!instance@{instance}}
+\index{instance@{instance}!CanSocket@{CanSocket}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_can_socket_a7894542d278ee49d6c62c6a308ab1912} 
+\doxymbox{\hyperlink{class_can_socket}{Can\+Socket}} \texorpdfstring{$\ast$}{*} Can\+Socket::\+instance (\begin{DoxyParamCaption}\item[{std::\+string}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Geeft de instance van de \doxylink{class_can_socket}{Can\+Socket} terug. 
+
+Deze methode geeft een \doxylink{class_can_socket}{Can\+Socket} terug, als deze nog niet bestaat wordt er op de meegegeven interface een socket geprobeert aan te maken.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & -\/ std::\+string waar een andere interface dan de standaard can0 meegegeven kan worden.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retourneert}
+Can\+Socket\texorpdfstring{$\ast$}{*} -\/ Een pointer naar de bestaande \doxylink{class_can_socket}{Can\+Socket}. 
+\end{DoxyReturn}
+\Hypertarget{class_can_socket_ab2e7423fbe5c85faee8254ae5f7ff42f}\index{CanSocket@{CanSocket}!received@{received}}
+\index{received@{received}!CanSocket@{CanSocket}}
+\doxysubsubsection{\texorpdfstring{received()}{received()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_can_socket_ab2e7423fbe5c85faee8254ae5f7ff42f} 
+bool Can\+Socket::\+received (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Geeft terug of er wel of niet een bericht is ontvangen. Als er een bericht is ontvangen wordt de inhoud meegegeven. 
+
+Eerst wordt er bekeken of de socket een verbinding heeft. Is dat niet het geval, zal de verbinding opnieuw geprobeerd worden op te zetten. Als er een bericht is ontvangen worden het adres en de data meegegeven in met de pointerparameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & adres of proces id, geeft aan wat voor soort data over de lijn gestuurd wordt en wie erop moet reageren. \\
+\hline
+{\em vector$<$uint8\+\_\+t$>$} & de opslagplaats voor de ontvangen data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retourneert}
+Boolean -\/ Terugkoppeling op of er wel of niet een bericht is ontvangen. Als er is ontvangen:\+ true. 
+\end{DoxyReturn}
+
+
+Implementeert \doxymbox{\hyperlink{class_socket_a415d426fd8f4ee96a6fe441e36072d39}{Socket}}.
+
+\Hypertarget{class_can_socket_ae340fc4b994a6c49f219c6de0d9ca077}\index{CanSocket@{CanSocket}!received@{received}}
+\index{received@{received}!CanSocket@{CanSocket}}
+\doxysubsubsection{\texorpdfstring{received()}{received()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_can_socket_ae340fc4b994a6c49f219c6de0d9ca077} 
+virtual bool Can\+Socket::\+received (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Geeft terug of er wel of niet een bericht is ontvangen. Als er een bericht is ontvangen wordt de inhoud meegegeven. 
+
+Eerst wordt er bekeken of de socket een verbinding heeft. Is dat niet het geval, zal de verbinding opnieuw geprobeerd worden op te zetten. Als er een bericht is ontvangen worden het adres en de data meegegeven in met de pointerparameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & adres of proces id, geeft aan wat voor soort data over de lijn gestuurd wordt en wie erop moet reageren. \\
+\hline
+{\em vector$<$uint8\+\_\+t$>$} & de opslagplaats voor de ontvangen data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retourneert}
+Boolean -\/ Terugkoppeling op of er wel of niet een bericht is ontvangen. Als er is ontvangen:\+ true. 
+\end{DoxyReturn}
+
+
+Implementeert \doxymbox{\hyperlink{class_socket_a415d426fd8f4ee96a6fe441e36072d39}{Socket}}.
+
+\Hypertarget{class_can_socket_a9d8b907a7bc7f9aaea785a03e887b26b}\index{CanSocket@{CanSocket}!send@{send}}
+\index{send@{send}!CanSocket@{CanSocket}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_can_socket_a9d8b907a7bc7f9aaea785a03e887b26b} 
+void Can\+Socket::\+send (\begin{DoxyParamCaption}\item[{int}]{}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verstuurd een bericht. 
+
+Deze methode bekijkt of er verstuurd kan worden met kan\+Versturen. Als er verstuurd kan worden, wordt de meegegeven string verstuurd.
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & adres of proces id, geeft aan wat voor soort data over de lijn gestuurd wordt en wie erop moet reageren. \\
+\hline
+{\em vector$<$uint8\+\_\+t$>$} & de data die verzonden moet worden. \\
+\hline
+\end{DoxyParams}
+
+
+Implementeert \doxymbox{\hyperlink{class_socket_a99a6bc065ef6c9d3dbbf6a0546ccccbe}{Socket}}.
+
+\Hypertarget{class_can_socket_aa2d54755f1b797b9d56c2bdcda019131}\index{CanSocket@{CanSocket}!send@{send}}
+\index{send@{send}!CanSocket@{CanSocket}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_can_socket_aa2d54755f1b797b9d56c2bdcda019131} 
+virtual void Can\+Socket::\+send (\begin{DoxyParamCaption}\item[{int}]{}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verstuurd een bericht. 
+
+Deze methode bekijkt of er verstuurd kan worden met kan\+Versturen. Als er verstuurd kan worden, wordt de meegegeven string verstuurd.
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & adres of proces id, geeft aan wat voor soort data over de lijn gestuurd wordt en wie erop moet reageren. \\
+\hline
+{\em vector$<$uint8\+\_\+t$>$} & de data die verzonden moet worden. \\
+\hline
+\end{DoxyParams}
+
+
+Implementeert \doxymbox{\hyperlink{class_socket_a99a6bc065ef6c9d3dbbf6a0546ccccbe}{Socket}}.
+
+
+
+De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:\+\begin{DoxyCompactItemize}
+\item 
+Code/\+\+Communicatie/\+\+Can\+Com/\+\+Can\+Com/\+\+Socket/\+\doxymbox{\hyperlink{_can_com_2_can_com_2_socket_2_can_socket_8h}{Can\+Socket.\+h}}\item 
+Code/\+\+Communicatie/\+\+RPi\+B/\+\+Can\+Com/\+\+Socket/\+\doxymbox{\hyperlink{_r_pi_b_2_can_com_2_socket_2_can_socket_8h}{Can\+Socket.\+h}}\item 
+Code/\+\+Communicatie/\+\+Can\+Com/\+\+Can\+Com/\+\+Socket/\+Can\+Socket.\+cpp\item 
+Code/\+\+Communicatie/\+\+RPi\+B/\+\+Can\+Com/\+\+Socket/\+Can\+Socket.\+cpp\end{DoxyCompactItemize}

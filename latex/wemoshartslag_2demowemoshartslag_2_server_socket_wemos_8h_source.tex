@@ -1,0 +1,30 @@
+\doxysection{Server\+Socket\+Wemos.\+h}
+\hypertarget{wemoshartslag_2demowemoshartslag_2_server_socket_wemos_8h_source}{}\label{wemoshartslag_2demowemoshartslag_2_server_socket_wemos_8h_source}\index{Code/Demo/wemoshartslag/demowemoshartslag/ServerSocketWemos.h@{Code/Demo/wemoshartslag/demowemoshartslag/ServerSocketWemos.h}}
+\doxymbox{\hyperlink{wemoshartslag_2demowemoshartslag_2_server_socket_wemos_8h}{Ga naar de documentatie van dit bestand.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <ESP8266WiFi.h>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_server_socket_wemos}{ServerSocketWemos}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \doxymbox{\hyperlink{class_server_socket_wemos_a4a7b08c629b633b26fc66324f198ecdb}{ServerSocketWemos}}(\textcolor{keywordtype}{int}\ poort);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_server_socket_wemos_a11406cb8d0f988087bdcc216c15ec464}{begin}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_server_socket_wemos_a577077acad583b4c01f39c0e92aaf9c1}{heeftClient}}();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_server_socket_wemos_a732bbc1269e29676e7791fa785dd03be}{heeftOntvangen}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ \ \ \ \ String\ \doxymbox{\hyperlink{class_server_socket_wemos_a5049e246458c3195a2134c95d5eb1f15}{ontvangst}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_server_socket_wemos_aee3382504b5ab99d100ef1b74027a73f}{versturen}}(\textcolor{keyword}{const}\ String\ \&msg);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00052\ \ \ \ \ WiFiServer\ server;}
+\DoxyCodeLine{00053\ \ \ \ \ WiFiClient\ client;}
+\DoxyCodeLine{00054\ \ \ \ \ String\ buffer;}
+\DoxyCodeLine{00055\ \};}
+
+\end{DoxyCode}

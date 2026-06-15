@@ -1,0 +1,49 @@
+\doxysection{Communication::\+Receiver Class Referentie}
+\hypertarget{class_communication_1_1_receiver}{}\label{class_communication_1_1_receiver}\index{Communication::Receiver@{Communication::Receiver}}
+Klasse diagram voor Communication::\+Receiver\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=9.000000cm]{class_communication_1_1_receiver}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Members}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_communication_1_1_receiver_ae338565d32a09ffc209dd1ded3f9cef6}\label{class_communication_1_1_receiver_ae338565d32a09ffc209dd1ded3f9cef6} 
+virtual bool {\bfseries receive} (int \texorpdfstring{$\ast$}{*}address, std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}data)=0
+\item 
+virtual bool \doxymbox{\hyperlink{class_communication_1_1_receiver_ae338565d32a09ffc209dd1ded3f9cef6}{receive}} (int \texorpdfstring{$\ast$}{*}address, std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}data)=0
+\begin{DoxyCompactList}\small\item\em Checkt of er een bericht is ontvangen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{class_communication_1_1_receiver_doc-func-members}
+\Hypertarget{class_communication_1_1_receiver_doc-func-members}
+\doxysubsection{Documentatie van functie members}
+\Hypertarget{class_communication_1_1_receiver_ae338565d32a09ffc209dd1ded3f9cef6}\index{Communication::Receiver@{Communication::Receiver}!receive@{receive}}
+\index{receive@{receive}!Communication::Receiver@{Communication::Receiver}}
+\doxysubsubsection{\texorpdfstring{receive()}{receive()}}
+{\footnotesize\ttfamily \label{class_communication_1_1_receiver_ae338565d32a09ffc209dd1ded3f9cef6} 
+virtual bool Communication::\+\+Receiver::\+receive (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{address}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Checkt of er een bericht is ontvangen. 
+
+Checkt of er een bericht is ontvangen, zo ja wordt de data opgeslagen in de pointers die meegegeven worden als parameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em int\texorpdfstring{$\ast$}{*}} & -\/ Een pointer naar een plaats waar het adres van het ontvangen bericht opgeslagen kan worden. \\
+\hline
+{\em vector$<$uint8\+\_\+t$>$\texorpdfstring{$\ast$}{*}} & -\/ Een pointer naar een plaats waar de data van het ontvangen bericht opgeslagen kan worden.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retourneert}
+bool -\/ Geeft terug of er een bericht is ontvangen. True, als er een bericht is ontvangen. False, als er GEEN bericht is ontvangen. 
+\end{DoxyReturn}
+
+
+De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:\+\begin{DoxyCompactItemize}
+\item 
+Code/\+\+Communicatie/\+\+Can\+Com/\+\+Can\+Com/\+Receiver.\+h\item 
+Code/\+\+Communicatie/\+\+RPi\+B/\+\+Can\+Com/\+\doxymbox{\hyperlink{_r_pi_b_2_can_com_2_receiver_8h}{Receiver.\+h}}\end{DoxyCompactItemize}

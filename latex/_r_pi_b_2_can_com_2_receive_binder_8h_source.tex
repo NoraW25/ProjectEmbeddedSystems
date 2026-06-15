@@ -1,0 +1,31 @@
+\doxysection{Receive\+Binder.\+h}
+\hypertarget{_r_pi_b_2_can_com_2_receive_binder_8h_source}{}\label{_r_pi_b_2_can_com_2_receive_binder_8h_source}\index{Code/Communicatie/RPiB/CanCom/ReceiveBinder.h@{Code/Communicatie/RPiB/CanCom/ReceiveBinder.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }Events\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_events_1_1_receive_binder_event}{ReceiveBinderEvent}};}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_events_1_1_connection}{Connection}};}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_events_1_1_event}{Event}};}
+\DoxyCodeLine{00011\ \}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }Communication\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_communication_1_1_receive_binder}{ReceiveBinder}}}
+\DoxyCodeLine{00015\ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ std::vector<Events::ReceiveBinderEvent*>\ events;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ ReceiveBinder();}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \string~ReceiveBinder();}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ Events::Connection*\ logReceived(\textcolor{keywordtype}{int}\ address,\ std::function<\textcolor{keywordtype}{void}(std::vector<uint8\_t>)>);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ processData(\textcolor{keywordtype}{int}\ address,\ std::vector<uint8\_t>\ data);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ removeEvent(Events::Event*\ event);}
+\DoxyCodeLine{00024\ \ \ \ \ \};}
+\DoxyCodeLine{00025\ \}}
+
+\end{DoxyCode}

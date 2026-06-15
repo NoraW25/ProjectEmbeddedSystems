@@ -1,0 +1,53 @@
+\doxysection{Can\+Socket.\+h}
+\hypertarget{_can_com_2_can_com_2_socket_2_can_socket_8h_source}{}\label{_can_com_2_can_com_2_socket_2_can_socket_8h_source}\index{Code/Communicatie/CanCom/CanCom/Socket/CanSocket.h@{Code/Communicatie/CanCom/CanCom/Socket/CanSocket.h}}
+\doxymbox{\hyperlink{_can_com_2_can_com_2_socket_2_can_socket_8h}{Ga naar de documentatie van dit bestand.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ CANSOCKET\_H}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ CANSOCKET\_H}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}Socket.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <net/if.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <linux/can.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <linux/can/raw.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <signal.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <sys/ioctl.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }CanSocket\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_socket}{Socket}}\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{class_can_socket_ae69dbdd0884d322e0f53092e2e399436}{\string~CanSocket}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_can_socket_a9d8b907a7bc7f9aaea785a03e887b26b}{send}}(\textcolor{keywordtype}{int},\ std::vector<uint8\_t>)\ \textcolor{keyword}{override};\ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_can_socket_ab2e7423fbe5c85faee8254ae5f7ff42f}{received}}(\textcolor{keywordtype}{int}*,\ std::vector<uint8\_t>*)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_can_socket_a134ecdb6f4fb64df234b85dd72f3c9b1}{canSend}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{static}\ CanSocket*\ \doxymbox{\hyperlink{class_can_socket_a70847e53810868ea0b0870fc42449644}{instance}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{static}\ CanSocket*\ \doxymbox{\hyperlink{class_can_socket_a70847e53810868ea0b0870fc42449644}{instance}}(std::string);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00059\ \ \ \ \ CanSocket();}
+\DoxyCodeLine{00060\ \ \ \ \ CanSocket(std::string);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ canStartup();}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{static}\ CanSocket*\ pointer\_instance;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{struct\ }sockaddr\_can\ socket\_address;}
+\DoxyCodeLine{00066\ \ \ \ \ std::string\ ifname\ \textcolor{comment}{/*default\ =\ "{}can0"{}*/};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{int}\ can\_fd;}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{int}\ status;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{struct\ }can\_frame\ received\_frame;}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{struct\ }can\_frame\ send\_frame;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{bool}\ sendOnCan();}
+\DoxyCodeLine{00075\ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,40 @@
+\doxysection{Message\+Translator.\+h}
+\hypertarget{_demo_2wemosco2temp_2wemosco2temp_2_message_translator_8h_source}{}\label{_demo_2wemosco2temp_2wemosco2temp_2_message_translator_8h_source}\index{Code/Demo/wemosco2temp/wemosco2temp/MessageTranslator.h@{Code/Demo/wemosco2temp/wemosco2temp/MessageTranslator.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ MESSAGETRANSLATOR\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ MESSAGETRANSLATOR\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_message_translator}{MessageTranslator}}\{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{class_message_translator_a22b8a98b196a91a57697257d8649f2bf}{\string~MessageTranslator}}();}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{static}\ MessageTranslator*\ \doxymbox{\hyperlink{class_message_translator_adf3499d4bcf0acc4dfc2cda929224b04}{instance}}();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_message_translator_a3d0a701344449c60211346c6c5d7905b}{translate}}(\textcolor{keywordtype}{int}*,\ std::vector<uint8\_t>*,\ std::string);}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{class_message_translator_a3d0a701344449c60211346c6c5d7905b}{translate}}(\textcolor{keywordtype}{int},\ std::vector<uint8\_t>);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ MessageTranslator();}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{static}\ MessageTranslator*\ pointer\_instance;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{bool}\ parseId(\textcolor{keyword}{const}\ std::string\&,\ \textcolor{keywordtype}{int}*);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ parseData(\textcolor{keyword}{const}\ std::string\&,\ std::vector<uint8\_t>*);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ std::string\ stringifyId(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00028\ \ \ \ \ std::string\ stringifyData(std::vector<uint8\_t>\&);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ std::string\ key\_id;}
+\DoxyCodeLine{00031\ \ \ \ \ std::string\ key\_data;}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

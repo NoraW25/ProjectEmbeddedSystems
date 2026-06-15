@@ -1,0 +1,18 @@
+\doxysection{Virtual\+Transmitter.\+h}
+\hypertarget{_can_com_2_can_com_2_virtual_transmitter_8h_source}{}\label{_can_com_2_can_com_2_virtual_transmitter_8h_source}\index{Code/Communicatie/CanCom/CanCom/VirtualTransmitter.h@{Code/Communicatie/CanCom/CanCom/VirtualTransmitter.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Transmitter.h"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{class\ }VirtualTransmitter:\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_communication_1_1_transmitter}{Communication::Transmitter}}}
+\DoxyCodeLine{00005\ \{}
+\DoxyCodeLine{00006\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00007\ \ \ \ \ VirtualTransmitter();}
+\DoxyCodeLine{00008\ \ \ \ \ \string~VirtualTransmitter();}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{void}\ sendData(\textcolor{keywordtype}{int}\ address,\ std::vector<uint8\_t>\ data);}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{void}\ sendRequest(\textcolor{keywordtype}{int}\ address);}
+\DoxyCodeLine{00011\ \};}
+\DoxyCodeLine{00012\ }
+
+\end{DoxyCode}
