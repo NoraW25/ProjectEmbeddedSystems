@@ -1,0 +1,34 @@
+\doxysection{Clock.\+h}
+\hypertarget{_clock_8h_source}{}\label{_clock_8h_source}\index{Code/Communicatie/CanCom/CanCom/Clock.h@{Code/Communicatie/CanCom/CanCom/Clock.h}}
+\doxymbox{\hyperlink{_clock_8h}{Ga naar de documentatie van dit bestand.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ CLOCK\_H}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ CLOCK\_H}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}CommunicationController.h"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_clock_a373c94e48d12e752ca21a37d20f88e2f}{Clock}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \doxymbox{\hyperlink{class_clock_a373c94e48d12e752ca21a37d20f88e2f}{Clock}}(\textcolor{keywordtype}{int},\ std::shared\_ptr<Communication::CommunicationController>);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{class_clock_a373c94e48d12e752ca21a37d20f88e2f}{\string~Clock}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_clock_aad55ef662b53025b9053b80689b5c375}{updateClock}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{int}\ address\_clock;}
+\DoxyCodeLine{00052\ \ \ \ \ std::shared\_ptr<Communication::CommunicationController>\ controller;}
+\DoxyCodeLine{00053\ \ \ \ \ \doxymbox{\hyperlink{class_scheduling_1_1_run_service_controller}{Scheduling::RunServiceController}}*\ runservice;}
+\DoxyCodeLine{00054\ \};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

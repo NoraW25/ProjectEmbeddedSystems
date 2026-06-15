@@ -1,0 +1,81 @@
+\doxysection{Climate\+Display Class Referentie}
+\hypertarget{class_climate_display}{}\label{class_climate_display}\index{ClimateDisplay@{ClimateDisplay}}
+
+
+Stuurt klimaatwaarde door naar display.  
+
+
+
+
+{\ttfamily \+\#include $<$Climate\+Display.\+h$>$}
+
+\doxysubsubsection*{Public Members}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_climate_display_ac91522594e023948814626e109e8a0cc}{Climate\+Display}} (std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$, std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$, int, int)
+\begin{DoxyCompactList}\small\item\em Constructor \doxylink{class_climate_display}{Climate\+Display}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_climate_display_a3fa7d5510555e7c3a5045f4caea16056}{display\+Value}} (std::\+vector$<$ uint8\+\_\+t $>$)
+\begin{DoxyCompactList}\small\item\em Stuurt de ontvangen klimaatwaarde door naar de display. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Gedetailleerde Beschrijving}
+Stuurt klimaatwaarde door naar display. 
+
+Ontvangt de waarde van de RPiB en stuurt deze door over de CANbus. 
+
+\label{class_climate_display_doc-constructors}
+\Hypertarget{class_climate_display_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentatie}
+\Hypertarget{class_climate_display_ac91522594e023948814626e109e8a0cc}\index{ClimateDisplay@{ClimateDisplay}!ClimateDisplay@{ClimateDisplay}}
+\index{ClimateDisplay@{ClimateDisplay}!ClimateDisplay@{ClimateDisplay}}
+\doxysubsubsection{\texorpdfstring{ClimateDisplay()}{ClimateDisplay()}}
+{\footnotesize\ttfamily \label{class_climate_display_ac91522594e023948814626e109e8a0cc} 
+Climate\+Display::\+\+Climate\+Display (\begin{DoxyParamCaption}\item[{std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$}]{controller\+\_\+can}{, }\item[{std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$}]{controller\+\_\+rpib}{, }\item[{int}]{address\+\_\+from}{, }\item[{int}]{address\+\_\+10led}{}\end{DoxyParamCaption})}
+
+
+
+Constructor \doxylink{class_climate_display}{Climate\+Display}. 
+
+De standard en meegegeven waarden worden meegegeven in de attributen.
+
+De meegegeven controllers worden gekoppeld aan de ontvangst op:\+ De berichten met adres/\+\+ID = standaard op int parameter 1, address\+\_\+from, de RPiB voor de afstand. Gekoppelde methode:\+ \doxylink{class_climate_display_a3fa7d5510555e7c3a5045f4caea16056}{display\+Value(std::\+vector$<$uint8\+\_\+t$>$)}
+
+
+\begin{DoxyParams}{Parameters}
+{\em shared\+\_\+ptr$<$\+Communication::\+\+Communication\+Controller$>$} & -\/ De communicatiecontroller van de CANbus. \\
+\hline
+{\em shared\+\_\+ptr$<$\+Communication::\+\+Communication\+Controller$>$} & -\/ De communicatiecontroller van de RPiB. \\
+\hline
+{\em int} & -\/ Het adres waar data van RPiB op wordt ontvangen voor het aansturen van de display. \\
+\hline
+{\em int} & -\/ Het adres waar de display naar luistert om de data weer te geven. \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_climate_display_doc-func-members}
+\Hypertarget{class_climate_display_doc-func-members}
+\doxysubsection{Documentatie van functie members}
+\Hypertarget{class_climate_display_a3fa7d5510555e7c3a5045f4caea16056}\index{ClimateDisplay@{ClimateDisplay}!displayValue@{displayValue}}
+\index{displayValue@{displayValue}!ClimateDisplay@{ClimateDisplay}}
+\doxysubsubsection{\texorpdfstring{displayValue()}{displayValue()}}
+{\footnotesize\ttfamily \label{class_climate_display_a3fa7d5510555e7c3a5045f4caea16056} 
+void Climate\+Display::\+display\+Value (\begin{DoxyParamCaption}\item[{std::\+vector$<$ uint8\+\_\+t $>$}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Stuurt de ontvangen klimaatwaarde door naar de display. 
+
+Ontvangt data op een adres met data, en stuurt de data door naar het display op de CANbus.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector$<$uint8\+\_\+t$>$} & -\/ De data die doorgestuurd wordt. \\
+\hline
+\end{DoxyParams}
+
+
+De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:\+\begin{DoxyCompactItemize}
+\item 
+Code/\+\+Communicatie/\+\+Can\+Com/\+\+Can\+Com/\+\doxymbox{\hyperlink{_climate_display_8h}{Climate\+Display.\+h}}\item 
+Code/\+\+Communicatie/\+\+Can\+Com/\+\+Can\+Com/\+Climate\+Display.\+cpp\end{DoxyCompactItemize}

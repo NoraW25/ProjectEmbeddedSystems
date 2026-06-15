@@ -1,0 +1,22 @@
+\doxysection{Virtual\+Receiver.\+h}
+\hypertarget{_r_pi_b_2_can_com_2_virtual_receiver_8h_source}{}\label{_r_pi_b_2_can_com_2_virtual_receiver_8h_source}\index{Code/Communicatie/RPiB/CanCom/VirtualReceiver.h@{Code/Communicatie/RPiB/CanCom/VirtualReceiver.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_r_pi_b_2_can_com_2_receiver_8h}{Receiver.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_virtual_receiver}{VirtualReceiver}}:\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_communication_1_1_receiver}{Communication::Receiver}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00008\ \ \ \ \ VirtualReceiver();}
+\DoxyCodeLine{00009\ \ \ \ \ \string~VirtualReceiver();}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{bool}\ receive(\textcolor{keywordtype}{int}*\ address,\ std::vector<uint8\_t>*\ data);}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{void}\ setBuffer(\textcolor{keywordtype}{int}\ address,\ std::vector<uint8\_t>\ data);}
+\DoxyCodeLine{00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ addressBuffer;}
+\DoxyCodeLine{00014\ \ \ \ \ std::vector<uint8\_t>\ dataBuffer;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{bool}\ flag;}
+\DoxyCodeLine{00016\ \};}
+
+\end{DoxyCode}

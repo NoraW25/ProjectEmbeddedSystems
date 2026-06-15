@@ -1,0 +1,21 @@
+\doxysection{Update\+Event.\+h}
+\hypertarget{_r_pi_b_2_can_com_2_update_event_8h_source}{}\label{_r_pi_b_2_can_com_2_update_event_8h_source}\index{Code/Communicatie/RPiB/CanCom/UpdateEvent.h@{Code/Communicatie/RPiB/CanCom/UpdateEvent.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Event.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }Events\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_events_1_1_update_event}{UpdateEvent}}:\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_events_1_1_event}{Event}}}
+\DoxyCodeLine{00008\ \ \ \ \ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ UpdateEvent();}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ callConnected();}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ Connection*\ Connect(std::function<\textcolor{keywordtype}{void}()>);}
+\DoxyCodeLine{00013\ \ \ \ \ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,77 @@
+\doxysection{Climate\+Actuator\+PWM Class Referentie}
+\hypertarget{class_climate_actuator_p_w_m}{}\label{class_climate_actuator_p_w_m}\index{ClimateActuatorPWM@{ClimateActuatorPWM}}
+
+
+De actuator klasse van het klimaatsysteem op de RPiB.  
+
+
+
+
+{\ttfamily \+\#include $<$Climate\+Actuator\+PWM.\+h$>$}
+
+\doxysubsubsection*{Public Members}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_climate_actuator_p_w_m_a38497ecaad0502b7c17e4d7d1ee2a3e4}{Climate\+Actuator\+PWM}} (int address, std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$)
+\begin{DoxyCompactList}\small\item\em Constructor \doxylink{class_climate_actuator_p_w_m}{Climate\+Actuator\+PWM}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_climate_actuator_p_w_m_a235e5f2d5888fc8b8c7085ea59646688}{set\+PWM}} (int)
+\begin{DoxyCompactList}\small\item\em Verstuurd het PWM signaal naar de. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Gedetailleerde Beschrijving}
+De actuator klasse van het klimaatsysteem op de RPiB. 
+
+Deze klasse zorgt ervoor dat de berekende actuatorstanden in de klimaatsysteem klasse worden doorgevoerd naar de klimaatactuatoren.
+
+In de klasse wordt er een bericht verstuurd naar het adres waar de actuator op gekoppeld zit. Dit wordt met de controller gedaan die bij het aanmaken van de klimaatactuator meegegeven is. 
+
+\label{class_climate_actuator_p_w_m_doc-constructors}
+\Hypertarget{class_climate_actuator_p_w_m_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentatie}
+\Hypertarget{class_climate_actuator_p_w_m_a38497ecaad0502b7c17e4d7d1ee2a3e4}\index{ClimateActuatorPWM@{ClimateActuatorPWM}!ClimateActuatorPWM@{ClimateActuatorPWM}}
+\index{ClimateActuatorPWM@{ClimateActuatorPWM}!ClimateActuatorPWM@{ClimateActuatorPWM}}
+\doxysubsubsection{\texorpdfstring{ClimateActuatorPWM()}{ClimateActuatorPWM()}}
+{\footnotesize\ttfamily \label{class_climate_actuator_p_w_m_a38497ecaad0502b7c17e4d7d1ee2a3e4} 
+Climate\+Actuator\+PWM::\+\+Climate\+Actuator\+PWM (\begin{DoxyParamCaption}\item[{int}]{address}{, }\item[{std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$}]{controller}{}\end{DoxyParamCaption})}
+
+
+
+Constructor \doxylink{class_climate_actuator_p_w_m}{Climate\+Actuator\+PWM}. 
+
+Het standaard aanmaken van de klasse. Attributen krijgen de meegegeven of standaard waarden. Voor de rest gebeurd er niks.
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ Het adres waar de actuator op te benaderen is. \\
+\hline
+{\em shared\+\_\+ptr$<$\+Communication::\+\+Communication\+Controller$>$} & -\/ De communicatiecontroller waar de actuator achter zit. \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_climate_actuator_p_w_m_doc-func-members}
+\Hypertarget{class_climate_actuator_p_w_m_doc-func-members}
+\doxysubsection{Documentatie van functie members}
+\Hypertarget{class_climate_actuator_p_w_m_a235e5f2d5888fc8b8c7085ea59646688}\index{ClimateActuatorPWM@{ClimateActuatorPWM}!setPWM@{setPWM}}
+\index{setPWM@{setPWM}!ClimateActuatorPWM@{ClimateActuatorPWM}}
+\doxysubsubsection{\texorpdfstring{setPWM()}{setPWM()}}
+{\footnotesize\ttfamily \label{class_climate_actuator_p_w_m_a235e5f2d5888fc8b8c7085ea59646688} 
+void Climate\+Actuator\+PWM::\+set\+PWM (\begin{DoxyParamCaption}\item[{int}]{dutycycle}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Verstuurd het PWM signaal naar de. 
+
+Deze methode verstuurd een array met unsigned integers van 8 bits. De grootte van de vector is gelijk aan het aantal bytes in een int. Per 8 bits uit de integer gehaald, en verschoven zodat het bericht LSB first in de vector komt te staan. In de Wemos wordt de vector ontleed met LSB first, zodat de juiste dutycycle er weer uitkomt.
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ De dutycycle waarde waar de actuator op moet draaien. \\
+\hline
+\end{DoxyParams}
+
+
+De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:\+\begin{DoxyCompactItemize}
+\item 
+Code/\+\+Communicatie/\+\+RPi\+B/\+\+Can\+Com/\+\doxymbox{\hyperlink{_climate_actuator_p_w_m_8h}{Climate\+Actuator\+PWM.\+h}}\item 
+Code/\+\+Communicatie/\+\+RPi\+B/\+\+Can\+Com/\+Climate\+Actuator\+PWM.\+cpp\end{DoxyCompactItemize}

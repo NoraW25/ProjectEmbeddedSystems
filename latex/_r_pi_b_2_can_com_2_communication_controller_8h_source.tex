@@ -1,0 +1,44 @@
+\doxysection{Communication\+Controller.\+h}
+\hypertarget{_r_pi_b_2_can_com_2_communication_controller_8h_source}{}\label{_r_pi_b_2_can_com_2_communication_controller_8h_source}\index{Code/Communicatie/RPiB/CanCom/CommunicationController.h@{Code/Communicatie/RPiB/CanCom/CommunicationController.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Requestor.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}DataProcessor.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}ReceiveBinder.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }Scheduling\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_scheduling_1_1_run_service_controller}{RunServiceController}};}
+\DoxyCodeLine{00012\ \}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }Events\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_events_1_1_connection}{Connection}};}
+\DoxyCodeLine{00016\ \}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }Communication\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_communication_1_1_transmitter}{Transmitter}};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_communication_1_1_receiver}{Receiver}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_communication_1_1_communication_controller}{CommunicationController}}}
+\DoxyCodeLine{00023\ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ CommunicationController(Transmitter*\ transmitter,\ Receiver*\ receiver);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \string~CommunicationController();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ transmitData(\textcolor{keywordtype}{int}\ address,\ std::vector<uint8\_t>);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ Events::Connection*\ requestData(\textcolor{keywordtype}{int}\ address,\ std::function<\textcolor{keywordtype}{void}(std::vector<uint8\_t>)>);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ Events::Connection*\ logReceived(\textcolor{keywordtype}{int}\ address,\ std::function<\textcolor{keywordtype}{void}(std::vector<uint8\_t>)>);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ Requestor\ requestor;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ DataProcessor\ processor;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ ReceiveBinder\ binder;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ Transmitter*\ transmitter;}
+\DoxyCodeLine{00037\ \ \ \ \ \};}
+\DoxyCodeLine{00038\ \}}
+
+\end{DoxyCode}

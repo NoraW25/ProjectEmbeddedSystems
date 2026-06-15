@@ -1,0 +1,173 @@
+\doxysection{Server\+Generaliser Class Referentie}
+\hypertarget{class_server_generaliser}{}\label{class_server_generaliser}\index{ServerGeneraliser@{ServerGeneraliser}}
+
+
+Maakt een \doxylink{class_server_socket}{Server\+Socket} aan of haalt de instantie ervan op en vertaalt de methodes van de socket naar methodes die gebruikt worden in het communicatie-\/ systeem op de Raspberry Pi.  
+
+
+
+
+{\ttfamily \+\#include $<$Server\+Generaliser.\+h$>$}
+
+Klasse diagram voor Server\+Generaliser\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.618497cm]{class_server_generaliser}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Members}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_server_generaliser_a039fcec249775162df7ffdd44737d047}{Server\+Generaliser}} ()
+\begin{DoxyCompactList}\small\item\em Maakt de \doxylink{class_server_socket}{Server\+Socket} aan of haalt de instantie ervan op. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_server_generaliser_a8d05b0de0b2638a108816ce0fde7909c}{Server\+Generaliser}} (int)
+\begin{DoxyCompactList}\small\item\em Maakt de \doxylink{class_server_socket}{Server\+Socket} aan of haalt de instantie ervan op. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_server_generaliser_a353a0e5e77f5b65db4effbfa5a6e4665}{send\+Data}} (int, std::\+vector$<$ uint8\+\_\+t $>$) override
+\item 
+virtual void \doxymbox{\hyperlink{class_server_generaliser_afa1a3a6c949777e54076ed63a775b65e}{send\+Request}} (int) override
+\item 
+virtual bool \doxymbox{\hyperlink{class_server_generaliser_a5249b7fea03b75268fa9f465e298fb4a}{receive}} (int \texorpdfstring{$\ast$}{*}, std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}) override
+\item 
+\doxymbox{\hyperlink{class_server_generaliser_a039fcec249775162df7ffdd44737d047}{Server\+Generaliser}} ()
+\begin{DoxyCompactList}\small\item\em Maakt de \doxylink{class_server_socket}{Server\+Socket} aan of haalt de instantie ervan op. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_server_generaliser_a8d05b0de0b2638a108816ce0fde7909c}{Server\+Generaliser}} (int)
+\begin{DoxyCompactList}\small\item\em Maakt de \doxylink{class_server_socket}{Server\+Socket} aan of haalt de instantie ervan op. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_server_generaliser_aa36dcd0297bdc06208873e8879315f0b}{send\+Data}} (int, std::\+vector$<$ uint8\+\_\+t $>$) override
+\item 
+virtual void \doxymbox{\hyperlink{class_server_generaliser_ad9ecc3f955d61935088e96aa58294e6a}{send\+Request}} (int) override
+\item 
+virtual bool \doxymbox{\hyperlink{class_server_generaliser_a9e2045e14dd1cd849a1b5d2b83861ea0}{receive}} (int \texorpdfstring{$\ast$}{*}, std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}) override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Gedetailleerde Beschrijving}
+Maakt een \doxylink{class_server_socket}{Server\+Socket} aan of haalt de instantie ervan op en vertaalt de methodes van de socket naar methodes die gebruikt worden in het communicatie-\/ systeem op de Raspberry Pi. 
+
+De abstracte methodes uit de klassen \doxylink{class_communication_1_1_receiver}{Communication::\+\+Receiver} en \doxylink{class_communication_1_1_transmitter}{Communication::\+\+Transmitter} worden hiervoor overschreven. In de methodes worden \doxylink{class_server_socket}{Server\+Socket} methodes aangeroepen. 
+
+\label{class_server_generaliser_doc-constructors}
+\Hypertarget{class_server_generaliser_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentatie}
+\Hypertarget{class_server_generaliser_a039fcec249775162df7ffdd44737d047}\index{ServerGeneraliser@{ServerGeneraliser}!ServerGeneraliser@{ServerGeneraliser}}
+\index{ServerGeneraliser@{ServerGeneraliser}!ServerGeneraliser@{ServerGeneraliser}}
+\doxysubsubsection{\texorpdfstring{ServerGeneraliser()}{ServerGeneraliser()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_server_generaliser_a039fcec249775162df7ffdd44737d047} 
+Server\+Generaliser::\+\+Server\+Generaliser (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Maakt de \doxylink{class_server_socket}{Server\+Socket} aan of haalt de instantie ervan op. 
+
+Het portnummer waar de server voor clients op te bereiken zal zijn, staat standaard op 8080. \Hypertarget{class_server_generaliser_a8d05b0de0b2638a108816ce0fde7909c}\index{ServerGeneraliser@{ServerGeneraliser}!ServerGeneraliser@{ServerGeneraliser}}
+\index{ServerGeneraliser@{ServerGeneraliser}!ServerGeneraliser@{ServerGeneraliser}}
+\doxysubsubsection{\texorpdfstring{ServerGeneraliser()}{ServerGeneraliser()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_server_generaliser_a8d05b0de0b2638a108816ce0fde7909c} 
+Server\+Generaliser::\+\+Server\+Generaliser (\begin{DoxyParamCaption}\item[{int}]{port}{}\end{DoxyParamCaption})}
+
+
+
+Maakt de \doxylink{class_server_socket}{Server\+Socket} aan of haalt de instantie ervan op. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ het portnummer waar de server op te bereiken zal zijn. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_server_generaliser_a039fcec249775162df7ffdd44737d047}\index{ServerGeneraliser@{ServerGeneraliser}!ServerGeneraliser@{ServerGeneraliser}}
+\index{ServerGeneraliser@{ServerGeneraliser}!ServerGeneraliser@{ServerGeneraliser}}
+\doxysubsubsection{\texorpdfstring{ServerGeneraliser()}{ServerGeneraliser()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_server_generaliser_a039fcec249775162df7ffdd44737d047} 
+Server\+Generaliser::\+\+Server\+Generaliser (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Maakt de \doxylink{class_server_socket}{Server\+Socket} aan of haalt de instantie ervan op. 
+
+Het portnummer waar de server voor clients op te bereiken zal zijn, staat standaard op 8080. \Hypertarget{class_server_generaliser_a8d05b0de0b2638a108816ce0fde7909c}\index{ServerGeneraliser@{ServerGeneraliser}!ServerGeneraliser@{ServerGeneraliser}}
+\index{ServerGeneraliser@{ServerGeneraliser}!ServerGeneraliser@{ServerGeneraliser}}
+\doxysubsubsection{\texorpdfstring{ServerGeneraliser()}{ServerGeneraliser()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_server_generaliser_a8d05b0de0b2638a108816ce0fde7909c} 
+Server\+Generaliser::\+\+Server\+Generaliser (\begin{DoxyParamCaption}\item[{int}]{}{}\end{DoxyParamCaption})}
+
+
+
+Maakt de \doxylink{class_server_socket}{Server\+Socket} aan of haalt de instantie ervan op. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ het portnummer waar de server op te bereiken zal zijn. \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_server_generaliser_doc-func-members}
+\Hypertarget{class_server_generaliser_doc-func-members}
+\doxysubsection{Documentatie van functie members}
+\Hypertarget{class_server_generaliser_a5249b7fea03b75268fa9f465e298fb4a}\index{ServerGeneraliser@{ServerGeneraliser}!receive@{receive}}
+\index{receive@{receive}!ServerGeneraliser@{ServerGeneraliser}}
+\doxysubsubsection{\texorpdfstring{receive()}{receive()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_server_generaliser_a5249b7fea03b75268fa9f465e298fb4a} 
+bool Server\+Generaliser::\+receive (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{address}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementeert \doxymbox{\hyperlink{class_communication_1_1_receiver}{Communication::\+\+Receiver}}.
+
+\Hypertarget{class_server_generaliser_a9e2045e14dd1cd849a1b5d2b83861ea0}\index{ServerGeneraliser@{ServerGeneraliser}!receive@{receive}}
+\index{receive@{receive}!ServerGeneraliser@{ServerGeneraliser}}
+\doxysubsubsection{\texorpdfstring{receive()}{receive()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_server_generaliser_a9e2045e14dd1cd849a1b5d2b83861ea0} 
+virtual bool Server\+Generaliser::\+receive (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementeert \doxymbox{\hyperlink{class_communication_1_1_receiver}{Communication::\+\+Receiver}}.
+
+\Hypertarget{class_server_generaliser_a353a0e5e77f5b65db4effbfa5a6e4665}\index{ServerGeneraliser@{ServerGeneraliser}!sendData@{sendData}}
+\index{sendData@{sendData}!ServerGeneraliser@{ServerGeneraliser}}
+\doxysubsubsection{\texorpdfstring{sendData()}{sendData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_server_generaliser_a353a0e5e77f5b65db4effbfa5a6e4665} 
+void Server\+Generaliser::\+send\+Data (\begin{DoxyParamCaption}\item[{int}]{address}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementeert \doxymbox{\hyperlink{class_communication_1_1_transmitter}{Communication::\+\+Transmitter}}.
+
+\Hypertarget{class_server_generaliser_aa36dcd0297bdc06208873e8879315f0b}\index{ServerGeneraliser@{ServerGeneraliser}!sendData@{sendData}}
+\index{sendData@{sendData}!ServerGeneraliser@{ServerGeneraliser}}
+\doxysubsubsection{\texorpdfstring{sendData()}{sendData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_server_generaliser_aa36dcd0297bdc06208873e8879315f0b} 
+virtual void Server\+Generaliser::\+send\+Data (\begin{DoxyParamCaption}\item[{int}]{}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementeert \doxymbox{\hyperlink{class_communication_1_1_transmitter}{Communication::\+\+Transmitter}}.
+
+\Hypertarget{class_server_generaliser_afa1a3a6c949777e54076ed63a775b65e}\index{ServerGeneraliser@{ServerGeneraliser}!sendRequest@{sendRequest}}
+\index{sendRequest@{sendRequest}!ServerGeneraliser@{ServerGeneraliser}}
+\doxysubsubsection{\texorpdfstring{sendRequest()}{sendRequest()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_server_generaliser_afa1a3a6c949777e54076ed63a775b65e} 
+void Server\+Generaliser::\+send\+Request (\begin{DoxyParamCaption}\item[{int}]{address}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementeert \doxymbox{\hyperlink{class_communication_1_1_transmitter}{Communication::\+\+Transmitter}}.
+
+\Hypertarget{class_server_generaliser_ad9ecc3f955d61935088e96aa58294e6a}\index{ServerGeneraliser@{ServerGeneraliser}!sendRequest@{sendRequest}}
+\index{sendRequest@{sendRequest}!ServerGeneraliser@{ServerGeneraliser}}
+\doxysubsubsection{\texorpdfstring{sendRequest()}{sendRequest()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_server_generaliser_ad9ecc3f955d61935088e96aa58294e6a} 
+virtual void Server\+Generaliser::\+send\+Request (\begin{DoxyParamCaption}\item[{int}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementeert \doxymbox{\hyperlink{class_communication_1_1_transmitter}{Communication::\+\+Transmitter}}.
+
+
+
+De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:\+\begin{DoxyCompactItemize}
+\item 
+Code/\+\+Communicatie/\+\+Can\+Com/\+\+Can\+Com/\+\+Socket\+Generaliser/\+\doxymbox{\hyperlink{_can_com_2_can_com_2_socket_generaliser_2_server_generaliser_8h}{Server\+Generaliser.\+h}}\item 
+Code/\+\+Communicatie/\+\+RPi\+B/\+\+Can\+Com/\+\+Socket\+Generaliser/\+\doxymbox{\hyperlink{_r_pi_b_2_can_com_2_socket_generaliser_2_server_generaliser_8h}{Server\+Generaliser.\+h}}\item 
+Code/\+\+Communicatie/\+\+Can\+Com/\+\+Can\+Com/\+\+Socket\+Generaliser/\+Server\+Generaliser.\+cpp\item 
+Code/\+\+Communicatie/\+\+RPi\+B/\+\+Can\+Com/\+\+Socket\+Generaliser/\+Server\+Generaliser.\+cpp\end{DoxyCompactItemize}

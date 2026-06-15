@@ -1,0 +1,46 @@
+\doxysection{Server\+Socket.\+h}
+\hypertarget{_can_com_2_can_com_2_socket_2_server_socket_8h_source}{}\label{_can_com_2_can_com_2_socket_2_server_socket_8h_source}\index{Code/Communicatie/CanCom/CanCom/Socket/ServerSocket.h@{Code/Communicatie/CanCom/CanCom/Socket/ServerSocket.h}}
+\doxymbox{\hyperlink{_can_com_2_can_com_2_socket_2_server_socket_8h}{Ga naar de documentatie van dit bestand.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ SERVERSOCKET\_H}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ SERVERSOCKET\_H}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}Socket.h"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_communicatie_2_can_com_2_can_com_2_translator_2_message_translator_8h}{../Translator/MessageTranslator.h}}"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }ServerSocket:\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_socket}{Socket}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_server_socket_aab1bd9a64970616d477c9a4aab1360b2}{send}}(\textcolor{keywordtype}{int},\ std::vector<uint8\_t>)\ \textcolor{keyword}{override};\ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_server_socket_a9441bdb483befb7ffeb29c75ef168b9c}{received}}(\textcolor{keywordtype}{int}*,\ std::vector<uint8\_t>*)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_server_socket_a20c997e8d735b4ce39f81d6c60b040aa}{canSend}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{static}\ ServerSocket*\ \doxymbox{\hyperlink{class_server_socket_afe2f27103cfdcad50522023fc10535cf}{instance}}();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{static}\ ServerSocket*\ \doxymbox{\hyperlink{class_server_socket_afe2f27103cfdcad50522023fc10535cf}{instance}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00057\ \ \ \ \ \doxymbox{\hyperlink{class_server_socket_a510674d924c2544e6b0069e39c36516b}{\string~ServerSocket}}();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00066\ \ \ \ \ ServerSocket();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00077\ \ \ \ \ ServerSocket(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ tcpStartup();}
+\DoxyCodeLine{00080\ \ \ \ \ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{int}\ port;}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{char}\ buffer[1024];}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{int}\ server\_fd;}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{int}\ active\_socket;}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{struct\ }sockaddr\_in\ address;}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \doxymbox{\hyperlink{class_message_translator}{MessageTranslator}}*\ translator;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{static}\ ServerSocket*\ pointerInstance;}
+\DoxyCodeLine{00091\ \};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

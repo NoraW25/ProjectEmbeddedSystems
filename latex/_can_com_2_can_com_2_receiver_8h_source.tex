@@ -1,0 +1,20 @@
+\doxysection{Receiver.\+h}
+\hypertarget{_can_com_2_can_com_2_receiver_8h_source}{}\label{_can_com_2_can_com_2_receiver_8h_source}\index{Code/Communicatie/CanCom/CanCom/Receiver.h@{Code/Communicatie/CanCom/CanCom/Receiver.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }Communication\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{class\ }Receiver\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ Receiver()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \string~Receiver()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ receive(\textcolor{keywordtype}{int}*\ address,\ std::vector<uint8\_t>*\ data)\ =\ 0;}
+\DoxyCodeLine{00013\ \ \ \ \ \};}
+\DoxyCodeLine{00014\ \}}
+
+\end{DoxyCode}

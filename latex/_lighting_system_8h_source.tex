@@ -1,0 +1,43 @@
+\doxysection{Lighting\+System.\+h}
+\hypertarget{_lighting_system_8h_source}{}\label{_lighting_system_8h_source}\index{Code/Communicatie/CanCom/CanCom/LightingSystem.h@{Code/Communicatie/CanCom/CanCom/LightingSystem.h}}
+\doxymbox{\hyperlink{_lighting_system_8h}{Ga naar de documentatie van dit bestand.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ LIGHTING\_H}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ LIGHTING\_H}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}CommunicationController.h"{}}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_lighting_system_a4d9238819a0a4743c47413748e12e004}{LightingSystem}}\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ \ \ \ \ \doxymbox{\hyperlink{class_lighting_system_a4d9238819a0a4743c47413748e12e004}{LightingSystem}}(\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ std::shared\_ptr<Communication::CommunicationController>);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{class_lighting_system_a4d9238819a0a4743c47413748e12e004}{\string~LightingSystem}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_lighting_system_ac598d291da8ad7d56de9e2272d39f68c}{changeColour}}(std::vector<uint8\_t>);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_lighting_system_ab6ea63b2299ae444cef472e4e50e3b45}{toggleLight}}(std::vector<uint8\_t>);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_lighting_system_a0880c17cfd8d61e41695627a9d31325b}{sendNewColour}}();}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00086\ \ \ \ \ std::map<std::string,\ int>::iterator\ current\_colour;}
+\DoxyCodeLine{00087\ \ \ \ \ std::shared\_ptr<Communication::CommunicationController>\ controller;}
+\DoxyCodeLine{00088\ \ \ \ \ std::map<std::string,\ int>\ colours;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}\ button\_address;}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{int}\ lights\_off\_address;}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{bool}\ lights\_on;}
+\DoxyCodeLine{00093\ \};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

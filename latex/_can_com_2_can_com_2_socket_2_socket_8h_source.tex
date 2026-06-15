@@ -1,0 +1,35 @@
+\doxysection{Socket.\+h}
+\hypertarget{_can_com_2_can_com_2_socket_2_socket_8h_source}{}\label{_can_com_2_can_com_2_socket_2_socket_8h_source}\index{Code/Communicatie/CanCom/CanCom/Socket/Socket.h@{Code/Communicatie/CanCom/CanCom/Socket/Socket.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ INTERFACESOCKET\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ INTERFACESOCKET\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <netinet/in.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <sys/socket.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <fcntl.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <arpa/inet.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_socket}{Socket}}\{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_socket_a99a6bc065ef6c9d3dbbf6a0546ccccbe}{send}}(\textcolor{keywordtype}{int},\ std::vector<uint8\_t>)\ =\ 0;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_socket_a6a14b8cd679df09eede72608e14822d3}{canSend}}()\ =\ 0;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_socket_a415d426fd8f4ee96a6fe441e36072d39}{received}}(\textcolor{keywordtype}{int}*,\ std::vector<uint8\_t>*)\ =\ 0;}
+\DoxyCodeLine{00057\ \};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

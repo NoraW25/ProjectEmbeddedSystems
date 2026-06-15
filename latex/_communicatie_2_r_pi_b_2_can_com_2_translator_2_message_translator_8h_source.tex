@@ -1,0 +1,44 @@
+\doxysection{Message\+Translator.\+h}
+\hypertarget{_communicatie_2_r_pi_b_2_can_com_2_translator_2_message_translator_8h_source}{}\label{_communicatie_2_r_pi_b_2_can_com_2_translator_2_message_translator_8h_source}\index{Code/Communicatie/RPiB/CanCom/Translator/MessageTranslator.h@{Code/Communicatie/RPiB/CanCom/Translator/MessageTranslator.h}}
+\doxymbox{\hyperlink{_communicatie_2_r_pi_b_2_can_com_2_translator_2_message_translator_8h}{Ga naar de documentatie van dit bestand.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ MESSAGETRANSLATOR\_H}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ MESSAGETRANSLATOR\_H}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_message_translator}{MessageTranslator}}\{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{class_message_translator_a22b8a98b196a91a57697257d8649f2bf}{\string~MessageTranslator}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{static}\ MessageTranslator*\ \doxymbox{\hyperlink{class_message_translator_a0c7a1aa01eb8a8b8bd47c6c0e81ad189}{instance}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_message_translator_a8d8d8667b9715843183ab870215aca5b}{translate}}(\textcolor{keywordtype}{int}*,\ std::vector<uint8\_t>*,\ std::string);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{class_message_translator_a4e84bd276f7fa2051782cd04ec503d68}{translate}}(\textcolor{keywordtype}{int},\ std::vector<uint8\_t>);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00067\ \ \ \ \ MessageTranslator();}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{static}\ MessageTranslator*\ pointer\_instance;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{bool}\ parseId(\textcolor{keyword}{const}\ std::string\&,\ \textcolor{keywordtype}{int}*);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{bool}\ parseData(\textcolor{keyword}{const}\ std::string\&,\ std::vector<uint8\_t>*);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00097\ \ \ \ \ std::string\ stringifyId(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00106\ \ \ \ \ std::string\ stringifyData(std::vector<uint8\_t>\&);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ std::string\ key\_id;}
+\DoxyCodeLine{00109\ \ \ \ \ std::string\ key\_data;}
+\DoxyCodeLine{00110\ \};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

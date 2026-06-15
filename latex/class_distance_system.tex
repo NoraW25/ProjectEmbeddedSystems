@@ -1,0 +1,135 @@
+\doxysection{Distance\+System Class Referentie}
+\hypertarget{class_distance_system}{}\label{class_distance_system}\index{DistanceSystem@{DistanceSystem}}
+
+
+Zorgt dat de afstand wordt verwerkt en weergegeven.  
+
+
+
+
+{\ttfamily \+\#include $<$Distance\+System.\+h$>$}
+
+\doxysubsubsection*{Public Members}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_distance_system_abdca9978ed19cca11a75585fdc5d4139}{Distance\+System}} (std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$, std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$)
+\begin{DoxyCompactList}\small\item\em Constructor \doxylink{class_distance_system}{Distance\+System}. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_distance_system_a2750d775d03ae7f302d6080337227896}{Distance\+System}} (std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$, std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$, int, int, int)
+\begin{DoxyCompactList}\small\item\em Constructor \doxylink{class_distance_system}{Distance\+System}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_distance_system_a52d36ea0226beefc35b816dcf1cd38b4}{add\+To\+Distance}} (std::\+vector$<$ uint8\+\_\+t $>$)
+\begin{DoxyCompactList}\small\item\em Voegt afstand toe aan de afstandteller. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_distance_system_a71291d23c0d166506088a612e47665ff}{reset\+Distance}} (std::\+vector$<$ uint8\+\_\+t $>$)
+\begin{DoxyCompactList}\small\item\em Reset de afstand. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_distance_system_ab7aa1046316eb09f05681b6064bf5462}{calculate\+Amount\+Of\+Lights}} ()
+\begin{DoxyCompactList}\small\item\em Berekent hoeveel lampjes van het display aan moeten. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Gedetailleerde Beschrijving}
+Zorgt dat de afstand wordt verwerkt en weergegeven. 
+
+De aansturing van het display van de afstand, het ontvangt om de zoveel afstand een bericht van de afstandmeter. Deze telt die bij elkaar op en rekent uit wat er op de display moet komen en stuurt dit vervolgens door naar het display.
+
+Als er op de resetknop wordt gedrukt wordt de afstand op 0 gezet. En wordt de display ook daartoe aangepast. 
+
+\label{class_distance_system_doc-constructors}
+\Hypertarget{class_distance_system_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentatie}
+\Hypertarget{class_distance_system_abdca9978ed19cca11a75585fdc5d4139}\index{DistanceSystem@{DistanceSystem}!DistanceSystem@{DistanceSystem}}
+\index{DistanceSystem@{DistanceSystem}!DistanceSystem@{DistanceSystem}}
+\doxysubsubsection{\texorpdfstring{DistanceSystem()}{DistanceSystem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_distance_system_abdca9978ed19cca11a75585fdc5d4139} 
+Distance\+System::\+\+Distance\+System (\begin{DoxyParamCaption}\item[{std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$}]{can\+\_\+controller}{, }\item[{std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$}]{rpib\+\_\+controller}{}\end{DoxyParamCaption})}
+
+
+
+Constructor \doxylink{class_distance_system}{Distance\+System}. 
+
+De standard en meegegeven waarden worden meegegeven in de attributen.
+
+De meegegeven controllers worden gekoppeld aan de ontvangst op:\+ De berichten met adres/\+\+ID = standaard op 512, de cancontroller voor de afstand. De berichten met adres/\+\+ID = standaard op 511, de cancontroller voor de resetknop. De berichten met adres/\+\+ID = standaard op 512, de RPi\+Bcontroller voor de afstand.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shared\+\_\+ptr$<$\+Communication::\+\+Communication\+Controller$>$} & -\/ De communicatiecontroller van de CANbus. \\
+\hline
+{\em shared\+\_\+ptr$<$\+Communication::\+\+Communication\+Controller$>$} & -\/ De communicatiecontroller van de RPiB. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_distance_system_a2750d775d03ae7f302d6080337227896}\index{DistanceSystem@{DistanceSystem}!DistanceSystem@{DistanceSystem}}
+\index{DistanceSystem@{DistanceSystem}!DistanceSystem@{DistanceSystem}}
+\doxysubsubsection{\texorpdfstring{DistanceSystem()}{DistanceSystem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_distance_system_a2750d775d03ae7f302d6080337227896} 
+Distance\+System::\+\+Distance\+System (\begin{DoxyParamCaption}\item[{std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$}]{can\+\_\+controller}{, }\item[{std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$}]{rpib\+\_\+controller}{, }\item[{int}]{address\+\_\+turns}{, }\item[{int}]{address\+\_\+reset\+\_\+button}{, }\item[{int}]{address\+\_\+display}{}\end{DoxyParamCaption})}
+
+
+
+Constructor \doxylink{class_distance_system}{Distance\+System}. 
+
+De standard en meegegeven waarden worden meegegeven in de attributen.
+
+De meegegeven controllers worden gekoppeld aan de ontvangst op:\+ De berichten met adres/\+\+ID = standaard op int parameter 1, turns, de cancontroller voor de afstand. De berichten met adres/\+\+ID = standaard op int parameter 2, reset\+\_\+button, de cancontroller voor de resetknop. De berichten met adres/\+\+ID = standaard op int parameter 1, turns, de RPi\+Bcontroller voor de afstand.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shared\+\_\+ptr$<$\+Communication::\+\+Communication\+Controller$>$} & -\/ De communicatiecontroller van de CANbus. \\
+\hline
+{\em shared\+\_\+ptr$<$\+Communication::\+\+Communication\+Controller$>$} & -\/ De communicatiecontroller van de RPiB. \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_distance_system_doc-func-members}
+\Hypertarget{class_distance_system_doc-func-members}
+\doxysubsection{Documentatie van functie members}
+\Hypertarget{class_distance_system_a52d36ea0226beefc35b816dcf1cd38b4}\index{DistanceSystem@{DistanceSystem}!addToDistance@{addToDistance}}
+\index{addToDistance@{addToDistance}!DistanceSystem@{DistanceSystem}}
+\doxysubsubsection{\texorpdfstring{addToDistance()}{addToDistance()}}
+{\footnotesize\ttfamily \label{class_distance_system_a52d36ea0226beefc35b816dcf1cd38b4} 
+void Distance\+System::\+add\+To\+Distance (\begin{DoxyParamCaption}\item[{std::\+vector$<$ uint8\+\_\+t $>$}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Voegt afstand toe aan de afstandteller. 
+
+Krijgt via de controller een bericht dat de afstand is vergroot. Telt het aantal keer dat de controller zo\textquotesingle{}n bericht geeft.
+
+Laat het aantal lampjes dat aan moet berekenen en verzonden met de \doxylink{class_distance_system_ab7aa1046316eb09f05681b6064bf5462}{calculate\+Amount\+Of\+Lights()} methode.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector$<$uint8\+\_\+t$>$} & -\/ De meegegeven data, wordt nu niks meegedaan. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_distance_system_ab7aa1046316eb09f05681b6064bf5462}\index{DistanceSystem@{DistanceSystem}!calculateAmountOfLights@{calculateAmountOfLights}}
+\index{calculateAmountOfLights@{calculateAmountOfLights}!DistanceSystem@{DistanceSystem}}
+\doxysubsubsection{\texorpdfstring{calculateAmountOfLights()}{calculateAmountOfLights()}}
+{\footnotesize\ttfamily \label{class_distance_system_ab7aa1046316eb09f05681b6064bf5462} 
+void Distance\+System::\+calculate\+Amount\+Of\+Lights (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Berekent hoeveel lampjes van het display aan moeten. 
+
+Er wordt een berekening gedaan hoeveel lampjes van de progressiebar aangezet moeten worden, dit wordt in een bericht verstuurd naar de RPiB om het daar op een display te laten vertonen. \Hypertarget{class_distance_system_a71291d23c0d166506088a612e47665ff}\index{DistanceSystem@{DistanceSystem}!resetDistance@{resetDistance}}
+\index{resetDistance@{resetDistance}!DistanceSystem@{DistanceSystem}}
+\doxysubsubsection{\texorpdfstring{resetDistance()}{resetDistance()}}
+{\footnotesize\ttfamily \label{class_distance_system_a71291d23c0d166506088a612e47665ff} 
+void Distance\+System::\+reset\+Distance (\begin{DoxyParamCaption}\item[{std::\+vector$<$ uint8\+\_\+t $>$}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reset de afstand. 
+
+De afstand wordt gelijk gezet aan 0; De hoeveelheid lampjes die aanmoeten wordt weer berekent en verzonden via de methode \doxylink{class_distance_system_ab7aa1046316eb09f05681b6064bf5462}{calculate\+Amount\+Of\+Lights()}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector$<$uint8\+\_\+t$>$} & -\/ De meegegeven data, wordt nu niks meegedaan. \\
+\hline
+\end{DoxyParams}
+
+
+De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:\+\begin{DoxyCompactItemize}
+\item 
+Code/\+\+Communicatie/\+\+Can\+Com/\+\+Can\+Com/\+\doxymbox{\hyperlink{_distance_system_8h}{Distance\+System.\+h}}\item 
+Code/\+\+Communicatie/\+\+Can\+Com/\+\+Can\+Com/\+Distance\+System.\+cpp\end{DoxyCompactItemize}

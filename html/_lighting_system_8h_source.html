@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PES Project Revalidatieverdieping: Code/Communicatie/CanCom/CanCom/LightingSystem.h Bron Bestand</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PES Project Revalidatieverdieping
+   </div>
+   <div id="projectbrief">Haagse Hogeschool project Embedded Systems</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gegenereerd door Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Zoeken" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_lighting_system_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Laden...</div>
+<div class="SRStatus" id="Searching">Zoeken...</div>
+<div class="SRStatus" id="NoMatches">Niets gevonden</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">LightingSystem.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_lighting_system_8h.html">Ga naar de documentatie van dit bestand.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifndef LIGHTING_H</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define LIGHTING_H</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;CommunicationController.h&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_lighting_system.html">   22</a></span><span class="keyword">class </span><a class="code hl_function" href="class_lighting_system.html#a4d9238819a0a4743c47413748e12e004">LightingSystem</a> {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_function" href="class_lighting_system.html#a4d9238819a0a4743c47413748e12e004">LightingSystem</a>(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>, std::shared_ptr&lt;Communication::CommunicationController&gt;);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">virtual</span> <a class="code hl_function" href="class_lighting_system.html#a4d9238819a0a4743c47413748e12e004">~LightingSystem</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_lighting_system.html#ac598d291da8ad7d56de9e2272d39f68c">changeColour</a>(std::vector&lt;uint8_t&gt;);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_lighting_system.html#ab6ea63b2299ae444cef472e4e50e3b45">toggleLight</a>(std::vector&lt;uint8_t&gt;);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_lighting_system.html#a0880c17cfd8d61e41695627a9d31325b">sendNewColour</a>();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    std::map&lt;std::string, int&gt;::iterator current_colour;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    std::shared_ptr&lt;Communication::CommunicationController&gt; controller;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    std::map&lt;std::string, int&gt; colours;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">int</span> button_address;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">int</span> lights_off_address;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">bool</span> lights_on;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>};</div>
+</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_lighting_system_html_a0880c17cfd8d61e41695627a9d31325b"><div class="ttname"><a href="class_lighting_system.html#a0880c17cfd8d61e41695627a9d31325b">LightingSystem::sendNewColour</a></div><div class="ttdeci">virtual void sendNewColour()</div><div class="ttdoc">Verzend een bericht om een kleur aan te zetten.</div><div class="ttdef"><b>Definitie</b> LightingSystem.cpp:70</div></div>
+<div class="ttc" id="aclass_lighting_system_html_a4d9238819a0a4743c47413748e12e004"><div class="ttname"><a href="class_lighting_system.html#a4d9238819a0a4743c47413748e12e004">LightingSystem::LightingSystem</a></div><div class="ttdeci">LightingSystem(int, int, std::shared_ptr&lt; Communication::CommunicationController &gt;)</div><div class="ttdoc">Constructor LightingSystem.</div><div class="ttdef"><b>Definitie</b> LightingSystem.cpp:14</div></div>
+<div class="ttc" id="aclass_lighting_system_html_ab6ea63b2299ae444cef472e4e50e3b45"><div class="ttname"><a href="class_lighting_system.html#ab6ea63b2299ae444cef472e4e50e3b45">LightingSystem::toggleLight</a></div><div class="ttdeci">virtual void toggleLight(std::vector&lt; uint8_t &gt;)</div><div class="ttdoc">Zet het licht aan/uit.</div><div class="ttdef"><b>Definitie</b> LightingSystem.cpp:57</div></div>
+<div class="ttc" id="aclass_lighting_system_html_ac598d291da8ad7d56de9e2272d39f68c"><div class="ttname"><a href="class_lighting_system.html#ac598d291da8ad7d56de9e2272d39f68c">LightingSystem::changeColour</a></div><div class="ttdeci">virtual void changeColour(std::vector&lt; uint8_t &gt;)</div><div class="ttdoc">Verandert de kleur van het licht.</div><div class="ttdef"><b>Definitie</b> LightingSystem.cpp:43</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Code</b></li><li class="navelem"><b>Communicatie</b></li><li class="navelem"><b>CanCom</b></li><li class="navelem"><b>CanCom</b></li><li class="navelem"><a href="_lighting_system_8h.html">LightingSystem.h</a></li>
+    <li class="footer">Gegenereerd door <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

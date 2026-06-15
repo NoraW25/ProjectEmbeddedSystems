@@ -1,0 +1,608 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PES Project Revalidatieverdieping: CanSocket Class Referentie</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PES Project Revalidatieverdieping
+   </div>
+   <div id="projectbrief">Haagse Hogeschool project Embedded Systems</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gegenereerd door Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Zoeken" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_can_socket.html','','class_can_socket-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Laden...</div>
+<div class="SRStatus" id="Searching">Zoeken...</div>
+<div class="SRStatus" id="NoMatches">Niets gevonden</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">CanSocket Class Referentie</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus. Met een object van deze klasse, kunnen berichten worden gelezen van de CANbus en verstuurd worden op de CANbus op een non blocking manier.  
+ <a href="#details">Meer...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_can_com_2_can_com_2_socket_2_can_socket_8h_source.html">CanSocket.h</a>&gt;</code></p>
+<div class="dynheader">
+Klasse diagram voor CanSocket</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_can_socket.png" usemap="#CanSocket_map" alt=""/>
+  <map id="CanSocket_map" name="CanSocket_map">
+<area href="class_socket.html" alt="Socket" shape="rect" coords="0,0,73,24"/>
+<area href="class_socket.html" alt="Socket" shape="rect" coords="83,0,156,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Members</h2></td></tr>
+<tr class="memitem:ae69dbdd0884d322e0f53092e2e399436" id="r_ae69dbdd0884d322e0f53092e2e399436"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="#ae69dbdd0884d322e0f53092e2e399436">~CanSocket</a> ()</td></tr>
+<tr class="memdesc:ae69dbdd0884d322e0f53092e2e399436"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sluit de <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a>.  <br /></td></tr>
+<tr class="memitem:a9d8b907a7bc7f9aaea785a03e887b26b" id="r_a9d8b907a7bc7f9aaea785a03e887b26b"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a9d8b907a7bc7f9aaea785a03e887b26b">send</a> (int, std::vector&lt; uint8_t &gt;) override</td></tr>
+<tr class="memdesc:a9d8b907a7bc7f9aaea785a03e887b26b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verstuurd een bericht.  <br /></td></tr>
+<tr class="memitem:ab2e7423fbe5c85faee8254ae5f7ff42f" id="r_ab2e7423fbe5c85faee8254ae5f7ff42f"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#ab2e7423fbe5c85faee8254ae5f7ff42f">received</a> (int *, std::vector&lt; uint8_t &gt; *) override</td></tr>
+<tr class="memdesc:ab2e7423fbe5c85faee8254ae5f7ff42f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Geeft terug of er wel of niet een bericht is ontvangen. Als er een bericht is ontvangen wordt de inhoud meegegeven.  <br /></td></tr>
+<tr class="memitem:a134ecdb6f4fb64df234b85dd72f3c9b1" id="r_a134ecdb6f4fb64df234b85dd72f3c9b1"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a134ecdb6f4fb64df234b85dd72f3c9b1">canSend</a> () override</td></tr>
+<tr class="memdesc:a134ecdb6f4fb64df234b85dd72f3c9b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Geeft terug of er wel of niet een bericht verstuurd kan worden.  <br /></td></tr>
+<tr class="memitem:ae1abeec5ecf9bdf92433e9b29ebd8dda" id="r_ae1abeec5ecf9bdf92433e9b29ebd8dda"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="#ae1abeec5ecf9bdf92433e9b29ebd8dda">~CanSocket</a> ()</td></tr>
+<tr class="memdesc:ae1abeec5ecf9bdf92433e9b29ebd8dda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sluit de <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a>.  <br /></td></tr>
+<tr class="memitem:aa2d54755f1b797b9d56c2bdcda019131" id="r_aa2d54755f1b797b9d56c2bdcda019131"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#aa2d54755f1b797b9d56c2bdcda019131">send</a> (int, std::vector&lt; uint8_t &gt;) override</td></tr>
+<tr class="memdesc:aa2d54755f1b797b9d56c2bdcda019131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verstuurd een bericht.  <br /></td></tr>
+<tr class="memitem:ae340fc4b994a6c49f219c6de0d9ca077" id="r_ae340fc4b994a6c49f219c6de0d9ca077"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#ae340fc4b994a6c49f219c6de0d9ca077">received</a> (int *, std::vector&lt; uint8_t &gt; *) override</td></tr>
+<tr class="memdesc:ae340fc4b994a6c49f219c6de0d9ca077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Geeft terug of er wel of niet een bericht is ontvangen. Als er een bericht is ontvangen wordt de inhoud meegegeven.  <br /></td></tr>
+<tr class="memitem:af35f1cf067ae44304d0972068a47a826" id="r_af35f1cf067ae44304d0972068a47a826"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#af35f1cf067ae44304d0972068a47a826">canSend</a> () override</td></tr>
+<tr class="memdesc:af35f1cf067ae44304d0972068a47a826"><td class="mdescLeft">&#160;</td><td class="mdescRight">Geeft terug of er wel of niet een bericht verstuurd kan worden.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Members</h2></td></tr>
+<tr class="memitem:a70847e53810868ea0b0870fc42449644" id="r_a70847e53810868ea0b0870fc42449644"><td class="memItemLeft">static <a class="el" href="class_can_socket.html">CanSocket</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a70847e53810868ea0b0870fc42449644">instance</a> ()</td></tr>
+<tr class="memdesc:a70847e53810868ea0b0870fc42449644"><td class="mdescLeft">&#160;</td><td class="mdescRight">Geeft de instance van de <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a> terug.  <br /></td></tr>
+<tr class="memitem:aa8770db19e061d254d8f01cbecba34ad" id="r_aa8770db19e061d254d8f01cbecba34ad"><td class="memItemLeft">static <a class="el" href="class_can_socket.html">CanSocket</a> *&#160;</td><td class="memItemRight"><a class="el" href="#aa8770db19e061d254d8f01cbecba34ad">instance</a> (std::string)</td></tr>
+<tr class="memdesc:aa8770db19e061d254d8f01cbecba34ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Geeft de instance van de <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a> terug.  <br /></td></tr>
+<tr class="memitem:ad766394856989c092a250a9be9fcaa99" id="r_ad766394856989c092a250a9be9fcaa99"><td class="memItemLeft">static <a class="el" href="class_can_socket.html">CanSocket</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ad766394856989c092a250a9be9fcaa99">instance</a> ()</td></tr>
+<tr class="memdesc:ad766394856989c092a250a9be9fcaa99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Geeft de instance van de <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a> terug.  <br /></td></tr>
+<tr class="memitem:a7894542d278ee49d6c62c6a308ab1912" id="r_a7894542d278ee49d6c62c6a308ab1912"><td class="memItemLeft">static <a class="el" href="class_can_socket.html">CanSocket</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a7894542d278ee49d6c62c6a308ab1912">instance</a> (std::string)</td></tr>
+<tr class="memdesc:a7894542d278ee49d6c62c6a308ab1912"><td class="mdescLeft">&#160;</td><td class="mdescRight">Geeft de instance van de <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a> terug.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Gedetailleerde Beschrijving</h2>
+<div class="textblock"><p>Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus. Met een object van deze klasse, kunnen berichten worden gelezen van de CANbus en verstuurd worden op de CANbus op een non blocking manier. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentatie</h2>
+<a id="ae69dbdd0884d322e0f53092e2e399436" name="ae69dbdd0884d322e0f53092e2e399436"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae69dbdd0884d322e0f53092e2e399436">&#9670;&#160;</a></span>~CanSocket() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CanSocket::~CanSocket </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sluit de <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a>. </p>
+<p>Als de <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a> nog actief is, zal deze worden afgesloten. </p>
+
+</div>
+</div>
+<a id="ae1abeec5ecf9bdf92433e9b29ebd8dda" name="ae1abeec5ecf9bdf92433e9b29ebd8dda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1abeec5ecf9bdf92433e9b29ebd8dda">&#9670;&#160;</a></span>~CanSocket() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual CanSocket::~CanSocket </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sluit de <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a>. </p>
+<p>Als de <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a> nog actief is, zal deze worden afgesloten. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentatie van functie members</h2>
+<a id="a134ecdb6f4fb64df234b85dd72f3c9b1" name="a134ecdb6f4fb64df234b85dd72f3c9b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a134ecdb6f4fb64df234b85dd72f3c9b1">&#9670;&#160;</a></span>canSend() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CanSocket::canSend </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Geeft terug of er wel of niet een bericht verstuurd kan worden. </p>
+<p>Eerst wordt er bekeken of de socket een verbinding heeft. Is dat niet het geval, zal de verbinding opnieuw geprobeerd worden op te zetten.</p>
+<dl class="section return"><dt>Retourneert</dt><dd>Boolean - Terugkoppeling op of er wel of niet een bericht verstuurd kan worden. Als er verstuurd kan worden: true. </dd></dl>
+
+<p>Implementeert <a class="el" href="class_socket.html#a6a14b8cd679df09eede72608e14822d3">Socket</a>.</p>
+
+</div>
+</div>
+<a id="af35f1cf067ae44304d0972068a47a826" name="af35f1cf067ae44304d0972068a47a826"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af35f1cf067ae44304d0972068a47a826">&#9670;&#160;</a></span>canSend() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool CanSocket::canSend </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Geeft terug of er wel of niet een bericht verstuurd kan worden. </p>
+<p>Eerst wordt er bekeken of de socket een verbinding heeft. Is dat niet het geval, zal de verbinding opnieuw geprobeerd worden op te zetten.</p>
+<dl class="section return"><dt>Retourneert</dt><dd>Boolean - Terugkoppeling op of er wel of niet een bericht verstuurd kan worden. Als er verstuurd kan worden: true. </dd></dl>
+
+<p>Implementeert <a class="el" href="class_socket.html#a6a14b8cd679df09eede72608e14822d3">Socket</a>.</p>
+
+</div>
+</div>
+<a id="a70847e53810868ea0b0870fc42449644" name="a70847e53810868ea0b0870fc42449644"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70847e53810868ea0b0870fc42449644">&#9670;&#160;</a></span>instance() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_can_socket.html">CanSocket</a> * CanSocket::instance </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Geeft de instance van de <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a> terug. </p>
+<p>Deze methode geeft een <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a> terug, als deze nog niet bestaat wordt er standaard op interface can0 een socket geprobeert aan te maken.</p>
+<dl class="section return"><dt>Retourneert</dt><dd>CanSocket* - Een pointer naar de bestaande <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a>. </dd></dl>
+
+</div>
+</div>
+<a id="ad766394856989c092a250a9be9fcaa99" name="ad766394856989c092a250a9be9fcaa99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad766394856989c092a250a9be9fcaa99">&#9670;&#160;</a></span>instance() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_can_socket.html">CanSocket</a> * CanSocket::instance </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Geeft de instance van de <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a> terug. </p>
+<p>Deze methode geeft een <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a> terug, als deze nog niet bestaat wordt er standaard op interface can0 een socket geprobeert aan te maken.</p>
+<dl class="section return"><dt>Retourneert</dt><dd>CanSocket* - Een pointer naar de bestaande <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a>. </dd></dl>
+
+</div>
+</div>
+<a id="aa8770db19e061d254d8f01cbecba34ad" name="aa8770db19e061d254d8f01cbecba34ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8770db19e061d254d8f01cbecba34ad">&#9670;&#160;</a></span>instance() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_can_socket.html">CanSocket</a> * CanSocket::instance </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>ifname</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Geeft de instance van de <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a> terug. </p>
+<p>Deze methode geeft een <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a> terug, als deze nog niet bestaat wordt er op de meegegeven interface een socket geprobeert aan te maken.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>- std::string waar een andere interface dan de standaard can0 meegegeven kan worden.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retourneert</dt><dd>CanSocket* - Een pointer naar de bestaande <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a7894542d278ee49d6c62c6a308ab1912" name="a7894542d278ee49d6c62c6a308ab1912"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7894542d278ee49d6c62c6a308ab1912">&#9670;&#160;</a></span>instance() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_can_socket.html">CanSocket</a> * CanSocket::instance </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Geeft de instance van de <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a> terug. </p>
+<p>Deze methode geeft een <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a> terug, als deze nog niet bestaat wordt er op de meegegeven interface een socket geprobeert aan te maken.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>- std::string waar een andere interface dan de standaard can0 meegegeven kan worden.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retourneert</dt><dd>CanSocket* - Een pointer naar de bestaande <a class="el" href="class_can_socket.html" title="Maakt een CANbus socket aan, kan daardoor berichten ontvangen en versturen op de CANbus....">CanSocket</a>. </dd></dl>
+
+</div>
+</div>
+<a id="ab2e7423fbe5c85faee8254ae5f7ff42f" name="ab2e7423fbe5c85faee8254ae5f7ff42f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2e7423fbe5c85faee8254ae5f7ff42f">&#9670;&#160;</a></span>received() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CanSocket::received </td>
+          <td>(</td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; uint8_t &gt; *</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Geeft terug of er wel of niet een bericht is ontvangen. Als er een bericht is ontvangen wordt de inhoud meegegeven. </p>
+<p>Eerst wordt er bekeken of de socket een verbinding heeft. Is dat niet het geval, zal de verbinding opnieuw geprobeerd worden op te zetten. Als er een bericht is ontvangen worden het adres en de data meegegeven in met de pointerparameters.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>adres of proces id, geeft aan wat voor soort data over de lijn gestuurd wordt en wie erop moet reageren. </td></tr>
+    <tr><td class="paramname">vector&lt;uint8_t&gt;</td><td>de opslagplaats voor de ontvangen data. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retourneert</dt><dd>Boolean - Terugkoppeling op of er wel of niet een bericht is ontvangen. Als er is ontvangen: true. </dd></dl>
+
+<p>Implementeert <a class="el" href="class_socket.html#a415d426fd8f4ee96a6fe441e36072d39">Socket</a>.</p>
+
+</div>
+</div>
+<a id="ae340fc4b994a6c49f219c6de0d9ca077" name="ae340fc4b994a6c49f219c6de0d9ca077"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae340fc4b994a6c49f219c6de0d9ca077">&#9670;&#160;</a></span>received() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool CanSocket::received </td>
+          <td>(</td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; uint8_t &gt; *</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Geeft terug of er wel of niet een bericht is ontvangen. Als er een bericht is ontvangen wordt de inhoud meegegeven. </p>
+<p>Eerst wordt er bekeken of de socket een verbinding heeft. Is dat niet het geval, zal de verbinding opnieuw geprobeerd worden op te zetten. Als er een bericht is ontvangen worden het adres en de data meegegeven in met de pointerparameters.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>adres of proces id, geeft aan wat voor soort data over de lijn gestuurd wordt en wie erop moet reageren. </td></tr>
+    <tr><td class="paramname">vector&lt;uint8_t&gt;</td><td>de opslagplaats voor de ontvangen data. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retourneert</dt><dd>Boolean - Terugkoppeling op of er wel of niet een bericht is ontvangen. Als er is ontvangen: true. </dd></dl>
+
+<p>Implementeert <a class="el" href="class_socket.html#a415d426fd8f4ee96a6fe441e36072d39">Socket</a>.</p>
+
+</div>
+</div>
+<a id="a9d8b907a7bc7f9aaea785a03e887b26b" name="a9d8b907a7bc7f9aaea785a03e887b26b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d8b907a7bc7f9aaea785a03e887b26b">&#9670;&#160;</a></span>send() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CanSocket::send </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Verstuurd een bericht. </p>
+<p>Deze methode bekijkt of er verstuurd kan worden met kanVersturen. Als er verstuurd kan worden, wordt de meegegeven string verstuurd.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>adres of proces id, geeft aan wat voor soort data over de lijn gestuurd wordt en wie erop moet reageren. </td></tr>
+    <tr><td class="paramname">vector&lt;uint8_t&gt;</td><td>de data die verzonden moet worden. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implementeert <a class="el" href="class_socket.html#a99a6bc065ef6c9d3dbbf6a0546ccccbe">Socket</a>.</p>
+
+</div>
+</div>
+<a id="aa2d54755f1b797b9d56c2bdcda019131" name="aa2d54755f1b797b9d56c2bdcda019131"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2d54755f1b797b9d56c2bdcda019131">&#9670;&#160;</a></span>send() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CanSocket::send </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Verstuurd een bericht. </p>
+<p>Deze methode bekijkt of er verstuurd kan worden met kanVersturen. Als er verstuurd kan worden, wordt de meegegeven string verstuurd.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>adres of proces id, geeft aan wat voor soort data over de lijn gestuurd wordt en wie erop moet reageren. </td></tr>
+    <tr><td class="paramname">vector&lt;uint8_t&gt;</td><td>de data die verzonden moet worden. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implementeert <a class="el" href="class_socket.html#a99a6bc065ef6c9d3dbbf6a0546ccccbe">Socket</a>.</p>
+
+</div>
+</div>
+<hr/>De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:<ul>
+<li>Code/Communicatie/CanCom/CanCom/Socket/<a class="el" href="_can_com_2_can_com_2_socket_2_can_socket_8h_source.html">CanSocket.h</a></li>
+<li>Code/Communicatie/RPiB/CanCom/Socket/<a class="el" href="_r_pi_b_2_can_com_2_socket_2_can_socket_8h_source.html">CanSocket.h</a></li>
+<li>Code/Communicatie/CanCom/CanCom/Socket/<b>CanSocket.cpp</b></li>
+<li>Code/Communicatie/RPiB/CanCom/Socket/<b>CanSocket.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_can_socket.html">CanSocket</a></li>
+    <li class="footer">Gegenereerd door <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

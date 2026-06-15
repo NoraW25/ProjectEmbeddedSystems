@@ -1,0 +1,40 @@
+\doxysection{Heartrate\+Displayer.\+h}
+\hypertarget{_heartrate_displayer_8h_source}{}\label{_heartrate_displayer_8h_source}\index{Code/Communicatie/RPiB/CanCom/HeartrateDisplayer.h@{Code/Communicatie/RPiB/CanCom/HeartrateDisplayer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }Communication}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_communication_1_1_communication_controller}{CommunicationController}};}
+\DoxyCodeLine{00010\ \}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }Events}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_events_1_1_connection}{Connection}};}
+\DoxyCodeLine{00015\ \}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }HeartrateDisplayer}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ HeartrateDisplayer(std::shared\_ptr<Communication::CommunicationController>\ displayCtrl,}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<Communication::CommunicationController>\ hartslagCtrl,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<Communication::CommunicationController>);}
+\DoxyCodeLine{00023\ \ \ \ \ \string~HeartrateDisplayer();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00026\ \ \ \ \ std::shared\_ptr<Communication::CommunicationController>\ displayController;}
+\DoxyCodeLine{00027\ \ \ \ \ std::shared\_ptr<Communication::CommunicationController>\ hartslagController;}
+\DoxyCodeLine{00028\ \ \ \ \ std::shared\_ptr<Communication::CommunicationController>\ rpiAController;}
+\DoxyCodeLine{00029\ \ \ \ \ \doxymbox{\hyperlink{class_events_1_1_connection}{Events::Connection}}\ *connection\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ handleHeart(std::vector<uint8\_t>\ data);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{double}\ getHeartrate(std::vector<uint8\_t>);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ printRawBytes(\textcolor{keyword}{const}\ std::vector<uint8\_t>\ \&data);}
+\DoxyCodeLine{00034\ \};}
+
+\end{DoxyCode}

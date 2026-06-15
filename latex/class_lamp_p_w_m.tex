@@ -1,0 +1,235 @@
+\doxysection{Lamp\+PWM Class Referentie}
+\hypertarget{class_lamp_p_w_m}{}\label{class_lamp_p_w_m}\index{LampPWM@{LampPWM}}
+
+
+Een lamp die werkt op een PWM signaal en dus kan dimmen.  
+
+
+
+
+{\ttfamily \+\#include $<$Lamp\+PWM.\+h$>$}
+
+Klasse diagram voor Lamp\+PWM\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_lamp_p_w_m}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Members}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_lamp_p_w_m_a197224e832b6e52b0014c7c01f7ce088}{Lamp\+PWM}} (int)
+\begin{DoxyCompactList}\small\item\em Maakt een \doxylink{class_lamp_p_w_m}{Lamp\+PWM} aan. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_lamp_p_w_m_a3f438176eb41a8b072ab6c8668f96351}{turn\+On}} () override
+\begin{DoxyCompactList}\small\item\em Zet de lamp aan met de huidige dutycycle. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_lamp_p_w_m_ad5b3d5dc14f7946de63dda177c3351e8}{turn\+On}} (int) override
+\begin{DoxyCompactList}\small\item\em Zet de lamp aan en stel een nieuwe dutycycle in (0-\/100\%). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_lamp_p_w_m_a1af31dca568b32ca4d0ee6b2a2fca33c}{turn\+Off}} () override
+\begin{DoxyCompactList}\small\item\em Zet de lamp uit en stopt PWM. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_lamp_p_w_m_ad6f6a6f3992e28728f4f02fd366c69e0}{change\+Dutycycle}} (int) override
+\begin{DoxyCompactList}\small\item\em Wijzigt de dutycycle; past directe PWM aan als lamp aan is. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_lamp_p_w_m_a197224e832b6e52b0014c7c01f7ce088}{Lamp\+PWM}} (int)
+\begin{DoxyCompactList}\small\item\em Maakt een \doxylink{class_lamp_p_w_m}{Lamp\+PWM} aan. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_lamp_p_w_m_a3f438176eb41a8b072ab6c8668f96351}{turn\+On}} () override
+\begin{DoxyCompactList}\small\item\em Zet de actuator aan. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_lamp_p_w_m_ad5b3d5dc14f7946de63dda177c3351e8}{turn\+On}} (int) override
+\begin{DoxyCompactList}\small\item\em Zet de actuator aan. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_lamp_p_w_m_a1af31dca568b32ca4d0ee6b2a2fca33c}{turn\+Off}} () override
+\begin{DoxyCompactList}\small\item\em Zet de actuator uit. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_lamp_p_w_m_ad6f6a6f3992e28728f4f02fd366c69e0}{change\+Dutycycle}} (int) override
+\begin{DoxyCompactList}\small\item\em Veranderd de dutycycle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Gedetailleerde Beschrijving}
+Een lamp die werkt op een PWM signaal en dus kan dimmen. 
+
+\label{class_lamp_p_w_m_doc-constructors}
+\Hypertarget{class_lamp_p_w_m_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentatie}
+\Hypertarget{class_lamp_p_w_m_a197224e832b6e52b0014c7c01f7ce088}\index{LampPWM@{LampPWM}!LampPWM@{LampPWM}}
+\index{LampPWM@{LampPWM}!LampPWM@{LampPWM}}
+\doxysubsubsection{\texorpdfstring{LampPWM()}{LampPWM()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_lamp_p_w_m_a197224e832b6e52b0014c7c01f7ce088} 
+Lamp\+PWM::\+\+Lamp\+PWM (\begin{DoxyParamCaption}\item[{int}]{pin\+Nr}{}\end{DoxyParamCaption})}
+
+
+
+Maakt een \doxylink{class_lamp_p_w_m}{Lamp\+PWM} aan. 
+
+Constructor:\+ initialiseert het pin-\/nummer en zet lamp uit.
+
+Maakt een lamp aan op een pinnummer van de We\+Mos. Standaard staat de lamp uit en de dutycycle op 0.
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & pin\+\_\+nr -\/ het pinnummer waar de \doxylink{class_lamp}{Lamp} op de We\+Mos zit.\\
+\hline
+{\em pin\+Nr} & Pinnummer van de \doxylink{class_lamp}{Lamp} op de Wemos \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_lamp_p_w_m_a197224e832b6e52b0014c7c01f7ce088}\index{LampPWM@{LampPWM}!LampPWM@{LampPWM}}
+\index{LampPWM@{LampPWM}!LampPWM@{LampPWM}}
+\doxysubsubsection{\texorpdfstring{LampPWM()}{LampPWM()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_lamp_p_w_m_a197224e832b6e52b0014c7c01f7ce088} 
+Lamp\+PWM::\+\+Lamp\+PWM (\begin{DoxyParamCaption}\item[{int}]{}{}\end{DoxyParamCaption})}
+
+
+
+Maakt een \doxylink{class_lamp_p_w_m}{Lamp\+PWM} aan. 
+
+Maakt een lamp aan op een pinnummer van de We\+Mos. Standaard staat de lamp uit en de dutycycle op 0.
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & pin\+\_\+nr -\/ het pinnummer waar de \doxylink{class_lamp}{Lamp} op de We\+Mos zit. \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_lamp_p_w_m_doc-func-members}
+\Hypertarget{class_lamp_p_w_m_doc-func-members}
+\doxysubsection{Documentatie van functie members}
+\Hypertarget{class_lamp_p_w_m_ad6f6a6f3992e28728f4f02fd366c69e0}\index{LampPWM@{LampPWM}!changeDutycycle@{changeDutycycle}}
+\index{changeDutycycle@{changeDutycycle}!LampPWM@{LampPWM}}
+\doxysubsubsection{\texorpdfstring{changeDutycycle()}{changeDutycycle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_lamp_p_w_m_ad6f6a6f3992e28728f4f02fd366c69e0} 
+void Lamp\+PWM::\+change\+Dutycycle (\begin{DoxyParamCaption}\item[{int}]{new\+\_\+dutycycle}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Wijzigt de dutycycle; past directe PWM aan als lamp aan is. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+dutycycle} & Percentage dimniveau (0-\/100) \\
+\hline
+\end{DoxyParams}
+
+
+Implementeert \doxymbox{\hyperlink{class_interface_actuator_p_w_m_aa44ae2512b5b5290a203ae9d2c418805}{Interface\+Actuator\+PWM}}.
+
+\Hypertarget{class_lamp_p_w_m_ad6f6a6f3992e28728f4f02fd366c69e0}\index{LampPWM@{LampPWM}!changeDutycycle@{changeDutycycle}}
+\index{changeDutycycle@{changeDutycycle}!LampPWM@{LampPWM}}
+\doxysubsubsection{\texorpdfstring{changeDutycycle()}{changeDutycycle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_lamp_p_w_m_ad6f6a6f3992e28728f4f02fd366c69e0} 
+void Lamp\+PWM::\+change\+Dutycycle (\begin{DoxyParamCaption}\item[{int}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Veranderd de dutycycle. 
+
+Veranderd de dutycycle, deze wordt in het object opgeslagen. Als de actuator aan staat wordt de dutycycle meteen ingeladen, anders blijft de actuator uit en wordt het alleen opgeslagen in het object voor als de actuator weer ingeschakeld wordt.
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ Dutycycle, kan een waarde hebben van 0 t/\+m 100. \\
+\hline
+\end{DoxyParams}
+
+
+Implementeert \doxymbox{\hyperlink{class_interface_actuator_p_w_m_aa44ae2512b5b5290a203ae9d2c418805}{Interface\+Actuator\+PWM}}.
+
+\Hypertarget{class_lamp_p_w_m_a1af31dca568b32ca4d0ee6b2a2fca33c}\index{LampPWM@{LampPWM}!turnOff@{turnOff}}
+\index{turnOff@{turnOff}!LampPWM@{LampPWM}}
+\doxysubsubsection{\texorpdfstring{turnOff()}{turnOff()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_lamp_p_w_m_a1af31dca568b32ca4d0ee6b2a2fca33c} 
+void Lamp\+PWM::\+turn\+Off (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Zet de lamp uit en stopt PWM. 
+
+
+
+Implementeert \doxymbox{\hyperlink{class_interface_actuator_p_w_m_a3ca3a3fd2a1c881bb355fbe918f3b04e}{Interface\+Actuator\+PWM}}.
+
+\Hypertarget{class_lamp_p_w_m_a1af31dca568b32ca4d0ee6b2a2fca33c}\index{LampPWM@{LampPWM}!turnOff@{turnOff}}
+\index{turnOff@{turnOff}!LampPWM@{LampPWM}}
+\doxysubsubsection{\texorpdfstring{turnOff()}{turnOff()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_lamp_p_w_m_a1af31dca568b32ca4d0ee6b2a2fca33c} 
+void Lamp\+PWM::\+turn\+Off (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Zet de actuator uit. 
+
+Zet de actuator uit zonder de dutycycle te veranderen. 
+
+Implementeert \doxymbox{\hyperlink{class_interface_actuator_p_w_m_a3ca3a3fd2a1c881bb355fbe918f3b04e}{Interface\+Actuator\+PWM}}.
+
+\Hypertarget{class_lamp_p_w_m_a3f438176eb41a8b072ab6c8668f96351}\index{LampPWM@{LampPWM}!turnOn@{turnOn}}
+\index{turnOn@{turnOn}!LampPWM@{LampPWM}}
+\doxysubsubsection{\texorpdfstring{turnOn()}{turnOn()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_lamp_p_w_m_a3f438176eb41a8b072ab6c8668f96351} 
+void Lamp\+PWM::\+turn\+On (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Zet de lamp aan met de huidige dutycycle. 
+
+
+
+Implementeert \doxymbox{\hyperlink{class_interface_actuator_p_w_m_aef5481c400706081e11c1f51dc96cfa8}{Interface\+Actuator\+PWM}}.
+
+\Hypertarget{class_lamp_p_w_m_a3f438176eb41a8b072ab6c8668f96351}\index{LampPWM@{LampPWM}!turnOn@{turnOn}}
+\index{turnOn@{turnOn}!LampPWM@{LampPWM}}
+\doxysubsubsection{\texorpdfstring{turnOn()}{turnOn()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_lamp_p_w_m_a3f438176eb41a8b072ab6c8668f96351} 
+void Lamp\+PWM::\+turn\+On (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Zet de actuator aan. 
+
+Als deze functie aangeroepen wordt, gaat de actuator aan op de dutycycle die onthouden staat in het object. 
+
+Implementeert \doxymbox{\hyperlink{class_interface_actuator_p_w_m_aef5481c400706081e11c1f51dc96cfa8}{Interface\+Actuator\+PWM}}.
+
+\Hypertarget{class_lamp_p_w_m_ad5b3d5dc14f7946de63dda177c3351e8}\index{LampPWM@{LampPWM}!turnOn@{turnOn}}
+\index{turnOn@{turnOn}!LampPWM@{LampPWM}}
+\doxysubsubsection{\texorpdfstring{turnOn()}{turnOn()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_lamp_p_w_m_ad5b3d5dc14f7946de63dda177c3351e8} 
+void Lamp\+PWM::\+turn\+On (\begin{DoxyParamCaption}\item[{int}]{new\+\_\+dutycycle}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Zet de lamp aan en stel een nieuwe dutycycle in (0-\/100\%). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+dutycycle} & Percentage dimniveau (0-\/100) \\
+\hline
+\end{DoxyParams}
+
+
+Implementeert \doxymbox{\hyperlink{class_interface_actuator_p_w_m_a290a798e08164ad7d6f5999c2d63b069}{Interface\+Actuator\+PWM}}.
+
+\Hypertarget{class_lamp_p_w_m_ad5b3d5dc14f7946de63dda177c3351e8}\index{LampPWM@{LampPWM}!turnOn@{turnOn}}
+\index{turnOn@{turnOn}!LampPWM@{LampPWM}}
+\doxysubsubsection{\texorpdfstring{turnOn()}{turnOn()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_lamp_p_w_m_ad5b3d5dc14f7946de63dda177c3351e8} 
+void Lamp\+PWM::\+turn\+On (\begin{DoxyParamCaption}\item[{int}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Zet de actuator aan. 
+
+Zet de actuator aan op de dutycycle die wordt meegegeven.
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ Dutycycle, kan een waarde hebben van 0 t/\+m 100. \\
+\hline
+\end{DoxyParams}
+
+
+Implementeert \doxymbox{\hyperlink{class_interface_actuator_p_w_m_a290a798e08164ad7d6f5999c2d63b069}{Interface\+Actuator\+PWM}}.
+
+
+
+De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:\+\begin{DoxyCompactItemize}
+\item 
+Code/\+\+Demo/\+wemosco2temp/\+wemosco2temp/\+\doxymbox{\hyperlink{wemosco2temp_2wemosco2temp_2_lamp_p_w_m_8h}{Lamp\+PWM.\+h}}\item 
+Code/\+\+Demo/\+wemosdisplay/\+\doxymbox{\hyperlink{wemosdisplay_2_lamp_p_w_m_8h}{Lamp\+PWM.\+h}}\item 
+Code/\+\+Demo/\+wemosco2temp/\+wemosco2temp/\+Lamp\+PWM.\+cpp\item 
+Code/\+\+Demo/\+wemosdisplay/\+\doxymbox{\hyperlink{wemosdisplay_2_lamp_p_w_m_8cpp}{Lamp\+PWM.\+cpp}}\end{DoxyCompactItemize}

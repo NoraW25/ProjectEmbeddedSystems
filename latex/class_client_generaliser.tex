@@ -1,0 +1,153 @@
+\doxysection{Client\+Generaliser Class Referentie}
+\hypertarget{class_client_generaliser}{}\label{class_client_generaliser}\index{ClientGeneraliser@{ClientGeneraliser}}
+
+
+Maakt een \doxylink{class_client_socket}{Client\+Socket} aan en vertaalt de functies van de socket naar functies die gebruikt worden in het communicatiesysteem op de Raspberry Pi.  
+
+
+
+
+{\ttfamily \+\#include $<$Client\+Generaliser.\+h$>$}
+
+Klasse diagram voor Client\+Generaliser\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.618497cm]{class_client_generaliser}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Members}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_client_generaliser_a34151424ef064aa5c9f677b31142324a}{Client\+Generaliser}} (std::\+string, bool)
+\begin{DoxyCompactList}\small\item\em Maakt de \doxylink{class_client_socket}{Client\+Socket} aan. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_client_generaliser_a2ef5208477fbc30ef7004d0820a90759}{send\+Data}} (int, std::\+vector$<$ uint8\+\_\+t $>$) override
+\item 
+virtual void \doxymbox{\hyperlink{class_client_generaliser_adf4e8d6a1948801445ca5c9ec183ce81}{send\+Request}} (int) override
+\item 
+virtual bool \doxymbox{\hyperlink{class_client_generaliser_a37e6795785c8a34c58ba8580fec79de2}{receive}} (int \texorpdfstring{$\ast$}{*}, std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}) override
+\item 
+\doxymbox{\hyperlink{class_client_generaliser_a34151424ef064aa5c9f677b31142324a}{Client\+Generaliser}} (std::\+string, bool)
+\begin{DoxyCompactList}\small\item\em Maakt de \doxylink{class_client_socket}{Client\+Socket} aan. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_client_generaliser_a9a48b2534aa5322fc8d4fe2ca0c068b0}{send\+Data}} (int, std::\+vector$<$ uint8\+\_\+t $>$) override
+\item 
+virtual void \doxymbox{\hyperlink{class_client_generaliser_a54b5111fb6dcd8844d3c49a451c7d03d}{send\+Request}} (int) override
+\item 
+virtual bool \doxymbox{\hyperlink{class_client_generaliser_a0a56f451a2a9fa4fd559659c7d67814b}{receive}} (int \texorpdfstring{$\ast$}{*}, std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}) override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Gedetailleerde Beschrijving}
+Maakt een \doxylink{class_client_socket}{Client\+Socket} aan en vertaalt de functies van de socket naar functies die gebruikt worden in het communicatiesysteem op de Raspberry Pi. 
+
+De abstracte methodes uit de klassen \doxylink{class_communication_1_1_receiver}{Communication::\+\+Receiver} en \doxylink{class_communication_1_1_transmitter}{Communication::\+\+Transmitter} worden hiervoor overschreven. In de methodes worden \doxylink{class_client_socket}{Client\+Socket} methodes aangeroepen. 
+
+\label{class_client_generaliser_doc-constructors}
+\Hypertarget{class_client_generaliser_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentatie}
+\Hypertarget{class_client_generaliser_a34151424ef064aa5c9f677b31142324a}\index{ClientGeneraliser@{ClientGeneraliser}!ClientGeneraliser@{ClientGeneraliser}}
+\index{ClientGeneraliser@{ClientGeneraliser}!ClientGeneraliser@{ClientGeneraliser}}
+\doxysubsubsection{\texorpdfstring{ClientGeneraliser()}{ClientGeneraliser()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_client_generaliser_a34151424ef064aa5c9f677b31142324a} 
+Client\+Generaliser::\+\+Client\+Generaliser (\begin{DoxyParamCaption}\item[{std::\+string}]{ip}{, }\item[{bool}]{wemos}{}\end{DoxyParamCaption})}
+
+
+
+Maakt de \doxylink{class_client_socket}{Client\+Socket} aan. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & -\/ std::\+string hier wordt het ipadres van de server waar contact mee wordt gezocht in megegeven. \\
+\hline
+{\em bool} & -\/ geeft aan of de client een Wemos is of niet, True voor wel een Wemos, False voor geen Wemos. Standaard wordt er geen Wemos verwacht. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_generaliser_a34151424ef064aa5c9f677b31142324a}\index{ClientGeneraliser@{ClientGeneraliser}!ClientGeneraliser@{ClientGeneraliser}}
+\index{ClientGeneraliser@{ClientGeneraliser}!ClientGeneraliser@{ClientGeneraliser}}
+\doxysubsubsection{\texorpdfstring{ClientGeneraliser()}{ClientGeneraliser()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_client_generaliser_a34151424ef064aa5c9f677b31142324a} 
+Client\+Generaliser::\+\+Client\+Generaliser (\begin{DoxyParamCaption}\item[{std::\+string}]{}{, }\item[{bool}]{}{}\end{DoxyParamCaption})}
+
+
+
+Maakt de \doxylink{class_client_socket}{Client\+Socket} aan. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & -\/ std::\+string hier wordt het ipadres van de server waar contact mee wordt gezocht in megegeven. \\
+\hline
+{\em bool} & -\/ geeft aan of de client een Wemos is of niet, True voor wel een Wemos, False voor geen Wemos. Standaard wordt er geen Wemos verwacht. \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_client_generaliser_doc-func-members}
+\Hypertarget{class_client_generaliser_doc-func-members}
+\doxysubsection{Documentatie van functie members}
+\Hypertarget{class_client_generaliser_a37e6795785c8a34c58ba8580fec79de2}\index{ClientGeneraliser@{ClientGeneraliser}!receive@{receive}}
+\index{receive@{receive}!ClientGeneraliser@{ClientGeneraliser}}
+\doxysubsubsection{\texorpdfstring{receive()}{receive()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_client_generaliser_a37e6795785c8a34c58ba8580fec79de2} 
+bool Client\+Generaliser::\+receive (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{address}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementeert \doxymbox{\hyperlink{class_communication_1_1_receiver}{Communication::\+\+Receiver}}.
+
+\Hypertarget{class_client_generaliser_a0a56f451a2a9fa4fd559659c7d67814b}\index{ClientGeneraliser@{ClientGeneraliser}!receive@{receive}}
+\index{receive@{receive}!ClientGeneraliser@{ClientGeneraliser}}
+\doxysubsubsection{\texorpdfstring{receive()}{receive()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_client_generaliser_a0a56f451a2a9fa4fd559659c7d67814b} 
+virtual bool Client\+Generaliser::\+receive (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementeert \doxymbox{\hyperlink{class_communication_1_1_receiver}{Communication::\+\+Receiver}}.
+
+\Hypertarget{class_client_generaliser_a2ef5208477fbc30ef7004d0820a90759}\index{ClientGeneraliser@{ClientGeneraliser}!sendData@{sendData}}
+\index{sendData@{sendData}!ClientGeneraliser@{ClientGeneraliser}}
+\doxysubsubsection{\texorpdfstring{sendData()}{sendData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_client_generaliser_a2ef5208477fbc30ef7004d0820a90759} 
+void Client\+Generaliser::\+send\+Data (\begin{DoxyParamCaption}\item[{int}]{address}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementeert \doxymbox{\hyperlink{class_communication_1_1_transmitter}{Communication::\+\+Transmitter}}.
+
+\Hypertarget{class_client_generaliser_a9a48b2534aa5322fc8d4fe2ca0c068b0}\index{ClientGeneraliser@{ClientGeneraliser}!sendData@{sendData}}
+\index{sendData@{sendData}!ClientGeneraliser@{ClientGeneraliser}}
+\doxysubsubsection{\texorpdfstring{sendData()}{sendData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_client_generaliser_a9a48b2534aa5322fc8d4fe2ca0c068b0} 
+virtual void Client\+Generaliser::\+send\+Data (\begin{DoxyParamCaption}\item[{int}]{}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementeert \doxymbox{\hyperlink{class_communication_1_1_transmitter}{Communication::\+\+Transmitter}}.
+
+\Hypertarget{class_client_generaliser_adf4e8d6a1948801445ca5c9ec183ce81}\index{ClientGeneraliser@{ClientGeneraliser}!sendRequest@{sendRequest}}
+\index{sendRequest@{sendRequest}!ClientGeneraliser@{ClientGeneraliser}}
+\doxysubsubsection{\texorpdfstring{sendRequest()}{sendRequest()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_client_generaliser_adf4e8d6a1948801445ca5c9ec183ce81} 
+void Client\+Generaliser::\+send\+Request (\begin{DoxyParamCaption}\item[{int}]{address}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementeert \doxymbox{\hyperlink{class_communication_1_1_transmitter}{Communication::\+\+Transmitter}}.
+
+\Hypertarget{class_client_generaliser_a54b5111fb6dcd8844d3c49a451c7d03d}\index{ClientGeneraliser@{ClientGeneraliser}!sendRequest@{sendRequest}}
+\index{sendRequest@{sendRequest}!ClientGeneraliser@{ClientGeneraliser}}
+\doxysubsubsection{\texorpdfstring{sendRequest()}{sendRequest()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_client_generaliser_a54b5111fb6dcd8844d3c49a451c7d03d} 
+virtual void Client\+Generaliser::\+send\+Request (\begin{DoxyParamCaption}\item[{int}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementeert \doxymbox{\hyperlink{class_communication_1_1_transmitter}{Communication::\+\+Transmitter}}.
+
+
+
+De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:\+\begin{DoxyCompactItemize}
+\item 
+Code/\+\+Communicatie/\+\+Can\+Com/\+\+Can\+Com/\+\+Socket\+Generaliser/\+\doxymbox{\hyperlink{_can_com_2_can_com_2_socket_generaliser_2_client_generaliser_8h}{Client\+Generaliser.\+h}}\item 
+Code/\+\+Communicatie/\+\+RPi\+B/\+\+Can\+Com/\+\+Socket\+Generaliser/\+\doxymbox{\hyperlink{_r_pi_b_2_can_com_2_socket_generaliser_2_client_generaliser_8h}{Client\+Generaliser.\+h}}\item 
+Code/\+\+Communicatie/\+\+Can\+Com/\+\+Can\+Com/\+\+Socket\+Generaliser/\+Client\+Generaliser.\+cpp\item 
+Code/\+\+Communicatie/\+\+RPi\+B/\+\+Can\+Com/\+\+Socket\+Generaliser/\+Client\+Generaliser.\+cpp\end{DoxyCompactItemize}

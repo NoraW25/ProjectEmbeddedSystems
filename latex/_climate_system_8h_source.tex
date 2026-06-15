@@ -1,0 +1,46 @@
+\doxysection{Climate\+System.\+h}
+\hypertarget{_climate_system_8h_source}{}\label{_climate_system_8h_source}\index{Code/Communicatie/RPiB/CanCom/ClimateSystem.h@{Code/Communicatie/RPiB/CanCom/ClimateSystem.h}}
+\doxymbox{\hyperlink{_climate_system_8h}{Ga naar de documentatie van dit bestand.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ CLIMATESYSTEM\_H}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ CLIMATESYSTEM\_H}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_climate_sensor_8h}{ClimateSensor.h}}"{}}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_climate_actuator_p_w_m_8h}{ClimateActuatorPWM.h}}"{}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}CommunicationController.h"{}}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_climate_system_add5322c821ac52474ad6548bf0b485d6}{ClimateSystem}}\{}
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00041\ \ \ \ \ \doxymbox{\hyperlink{class_climate_system_add5322c821ac52474ad6548bf0b485d6}{ClimateSystem}}(std::shared\_ptr<Communication::CommunicationController>,\ std::shared\_ptr<Communication::CommunicationController>,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{class_climate_system_add5322c821ac52474ad6548bf0b485d6}{\string~ClimateSystem}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_climate_system_ab3ce50c7936d45f12065ce833869a3c0}{calculateSettings}}();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_climate_system_a4ebfe93ceb995d17f02104bca85bd12b}{addSensor}}(std::string,\ std::shared\_ptr<ClimateSensor>);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_climate_system_a33b1973fd2f0c022f365906e55bf2b95}{addActuatorPWM}}(std::string,\ std::shared\_ptr<ClimateActuatorPWM>);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00083\ \ \ \ \ std::shared\_ptr<Communication::CommunicationController>\ controller;}
+\DoxyCodeLine{00084\ \ \ \ \ std::shared\_ptr<Communication::CommunicationController>\ controller\_rpia;}
+\DoxyCodeLine{00085\ \ \ \ \ std::map<std::string,\ std::vector<std::shared\_ptr<ClimateSensor>>>\ sensors;}
+\DoxyCodeLine{00086\ \ \ \ \ std::map<std::string,\ std::vector<std::shared\_ptr<ClimateActuatorPWM>>>\ pwm\_actuators;}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ std::map<uint16\_t,\ std::shared\_ptr<ClimateSensor>>\ sensor\_address\_map;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}\ buzzer\_address;}
+\DoxyCodeLine{00091\ \};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

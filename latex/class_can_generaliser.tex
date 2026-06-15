@@ -1,0 +1,155 @@
+\doxysection{Can\+Generaliser Class Referentie}
+\hypertarget{class_can_generaliser}{}\label{class_can_generaliser}\index{CanGeneraliser@{CanGeneraliser}}
+
+
+Maakt een CANbus socket aan of haalt de instantie ervan op en vertaalt de functies van de socket naar functies die gebruikt worden in het communicatie-\/ systeem op de Raspberry Pi.  
+
+
+
+
+{\ttfamily \+\#include $<$Can\+Generaliser.\+h$>$}
+
+Klasse diagram voor Can\+Generaliser\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.618497cm]{class_can_generaliser}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Members}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_can_generaliser_a30f4660a1251660e25bed29f9f06988d}\label{class_can_generaliser_a30f4660a1251660e25bed29f9f06988d} 
+{\bfseries Can\+Generaliser} ()
+\begin{DoxyCompactList}\small\item\em Maakt de \doxylink{class_can_socket}{Can\+Socket} aan of haalt de instantie ervan op. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_can_generaliser_a5fb3ef6c35194093c45864639cc4c7f7}{Can\+Generaliser}} (std::\+string)
+\begin{DoxyCompactList}\small\item\em Maakt de \doxylink{class_can_socket}{Can\+Socket} aan of haalt de instantie ervan op. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_can_generaliser_a992e364c95cbe47686576d6ab61a7bae}{send\+Data}} (int, std::\+vector$<$ uint8\+\_\+t $>$) override
+\item 
+virtual void \doxymbox{\hyperlink{class_can_generaliser_a6d0bf3b51fe061332b341717e6607055}{send\+Request}} (int) override
+\item 
+virtual bool \doxymbox{\hyperlink{class_can_generaliser_a39adf1017db0d5fb80ac0f758a126b5c}{receive}} (int \texorpdfstring{$\ast$}{*}, std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}) override
+\item 
+\Hypertarget{class_can_generaliser_a30f4660a1251660e25bed29f9f06988d}\label{class_can_generaliser_a30f4660a1251660e25bed29f9f06988d} 
+{\bfseries Can\+Generaliser} ()
+\begin{DoxyCompactList}\small\item\em Maakt de \doxylink{class_can_socket}{Can\+Socket} aan of haalt de instantie ervan op. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_can_generaliser_a5fb3ef6c35194093c45864639cc4c7f7}{Can\+Generaliser}} (std::\+string)
+\begin{DoxyCompactList}\small\item\em Maakt de \doxylink{class_can_socket}{Can\+Socket} aan of haalt de instantie ervan op. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_can_generaliser_a20529a7fdee489596bcc64940fa698fa}{send\+Data}} (int, std::\+vector$<$ uint8\+\_\+t $>$) override
+\item 
+virtual void \doxymbox{\hyperlink{class_can_generaliser_a519cbd64925c65533856b6f97ef960dc}{send\+Request}} (int) override
+\item 
+virtual bool \doxymbox{\hyperlink{class_can_generaliser_a30e8d026d3314a616bbe26028357166e}{receive}} (int \texorpdfstring{$\ast$}{*}, std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}) override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Gedetailleerde Beschrijving}
+Maakt een CANbus socket aan of haalt de instantie ervan op en vertaalt de functies van de socket naar functies die gebruikt worden in het communicatie-\/ systeem op de Raspberry Pi. 
+
+De abstracte methodes uit de klassen \doxylink{class_communication_1_1_receiver}{Communication::\+\+Receiver} en \doxylink{class_communication_1_1_transmitter}{Communication::\+\+Transmitter} worden hiervoor overschreven. In de methodes worden \doxylink{class_can_socket}{Can\+Socket} methodes aangeroepen. 
+
+\label{class_can_generaliser_doc-constructors}
+\Hypertarget{class_can_generaliser_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentatie}
+\Hypertarget{class_can_generaliser_a5fb3ef6c35194093c45864639cc4c7f7}\index{CanGeneraliser@{CanGeneraliser}!CanGeneraliser@{CanGeneraliser}}
+\index{CanGeneraliser@{CanGeneraliser}!CanGeneraliser@{CanGeneraliser}}
+\doxysubsubsection{\texorpdfstring{CanGeneraliser()}{CanGeneraliser()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_can_generaliser_a5fb3ef6c35194093c45864639cc4c7f7} 
+Can\+Generaliser::\+\+Can\+Generaliser (\begin{DoxyParamCaption}\item[{std::\+string}]{ifname}{}\end{DoxyParamCaption})}
+
+
+
+Maakt de \doxylink{class_can_socket}{Can\+Socket} aan of haalt de instantie ervan op. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & -\/ std::\+string de CANbus interface waar een socket op wordt geprobeert te maken \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_can_generaliser_a5fb3ef6c35194093c45864639cc4c7f7}\index{CanGeneraliser@{CanGeneraliser}!CanGeneraliser@{CanGeneraliser}}
+\index{CanGeneraliser@{CanGeneraliser}!CanGeneraliser@{CanGeneraliser}}
+\doxysubsubsection{\texorpdfstring{CanGeneraliser()}{CanGeneraliser()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_can_generaliser_a5fb3ef6c35194093c45864639cc4c7f7} 
+Can\+Generaliser::\+\+Can\+Generaliser (\begin{DoxyParamCaption}\item[{std::\+string}]{}{}\end{DoxyParamCaption})}
+
+
+
+Maakt de \doxylink{class_can_socket}{Can\+Socket} aan of haalt de instantie ervan op. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & -\/ std::\+string de CANbus interface waar een socket op wordt geprobeert te maken \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_can_generaliser_doc-func-members}
+\Hypertarget{class_can_generaliser_doc-func-members}
+\doxysubsection{Documentatie van functie members}
+\Hypertarget{class_can_generaliser_a39adf1017db0d5fb80ac0f758a126b5c}\index{CanGeneraliser@{CanGeneraliser}!receive@{receive}}
+\index{receive@{receive}!CanGeneraliser@{CanGeneraliser}}
+\doxysubsubsection{\texorpdfstring{receive()}{receive()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_can_generaliser_a39adf1017db0d5fb80ac0f758a126b5c} 
+bool Can\+Generaliser::\+receive (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{address}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementeert \doxymbox{\hyperlink{class_communication_1_1_receiver}{Communication::\+\+Receiver}}.
+
+\Hypertarget{class_can_generaliser_a30e8d026d3314a616bbe26028357166e}\index{CanGeneraliser@{CanGeneraliser}!receive@{receive}}
+\index{receive@{receive}!CanGeneraliser@{CanGeneraliser}}
+\doxysubsubsection{\texorpdfstring{receive()}{receive()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_can_generaliser_a30e8d026d3314a616bbe26028357166e} 
+virtual bool Can\+Generaliser::\+receive (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementeert \doxymbox{\hyperlink{class_communication_1_1_receiver}{Communication::\+\+Receiver}}.
+
+\Hypertarget{class_can_generaliser_a992e364c95cbe47686576d6ab61a7bae}\index{CanGeneraliser@{CanGeneraliser}!sendData@{sendData}}
+\index{sendData@{sendData}!CanGeneraliser@{CanGeneraliser}}
+\doxysubsubsection{\texorpdfstring{sendData()}{sendData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_can_generaliser_a992e364c95cbe47686576d6ab61a7bae} 
+void Can\+Generaliser::\+send\+Data (\begin{DoxyParamCaption}\item[{int}]{address}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementeert \doxymbox{\hyperlink{class_communication_1_1_transmitter}{Communication::\+\+Transmitter}}.
+
+\Hypertarget{class_can_generaliser_a20529a7fdee489596bcc64940fa698fa}\index{CanGeneraliser@{CanGeneraliser}!sendData@{sendData}}
+\index{sendData@{sendData}!CanGeneraliser@{CanGeneraliser}}
+\doxysubsubsection{\texorpdfstring{sendData()}{sendData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_can_generaliser_a20529a7fdee489596bcc64940fa698fa} 
+virtual void Can\+Generaliser::\+send\+Data (\begin{DoxyParamCaption}\item[{int}]{}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementeert \doxymbox{\hyperlink{class_communication_1_1_transmitter}{Communication::\+\+Transmitter}}.
+
+\Hypertarget{class_can_generaliser_a6d0bf3b51fe061332b341717e6607055}\index{CanGeneraliser@{CanGeneraliser}!sendRequest@{sendRequest}}
+\index{sendRequest@{sendRequest}!CanGeneraliser@{CanGeneraliser}}
+\doxysubsubsection{\texorpdfstring{sendRequest()}{sendRequest()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_can_generaliser_a6d0bf3b51fe061332b341717e6607055} 
+void Can\+Generaliser::\+send\+Request (\begin{DoxyParamCaption}\item[{int}]{address}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementeert \doxymbox{\hyperlink{class_communication_1_1_transmitter}{Communication::\+\+Transmitter}}.
+
+\Hypertarget{class_can_generaliser_a519cbd64925c65533856b6f97ef960dc}\index{CanGeneraliser@{CanGeneraliser}!sendRequest@{sendRequest}}
+\index{sendRequest@{sendRequest}!CanGeneraliser@{CanGeneraliser}}
+\doxysubsubsection{\texorpdfstring{sendRequest()}{sendRequest()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_can_generaliser_a519cbd64925c65533856b6f97ef960dc} 
+virtual void Can\+Generaliser::\+send\+Request (\begin{DoxyParamCaption}\item[{int}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementeert \doxymbox{\hyperlink{class_communication_1_1_transmitter}{Communication::\+\+Transmitter}}.
+
+
+
+De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:\+\begin{DoxyCompactItemize}
+\item 
+Code/\+\+Communicatie/\+\+Can\+Com/\+\+Can\+Com/\+\+Socket\+Generaliser/\+\doxymbox{\hyperlink{_can_com_2_can_com_2_socket_generaliser_2_can_generaliser_8h}{Can\+Generaliser.\+h}}\item 
+Code/\+\+Communicatie/\+\+RPi\+B/\+\+Can\+Com/\+\+Socket\+Generaliser/\+\doxymbox{\hyperlink{_r_pi_b_2_can_com_2_socket_generaliser_2_can_generaliser_8h}{Can\+Generaliser.\+h}}\item 
+Code/\+\+Communicatie/\+\+Can\+Com/\+\+Can\+Com/\+\+Socket\+Generaliser/\+Can\+Generaliser.\+cpp\item 
+Code/\+\+Communicatie/\+\+RPi\+B/\+\+Can\+Com/\+\+Socket\+Generaliser/\+Can\+Generaliser.\+cpp\end{DoxyCompactItemize}

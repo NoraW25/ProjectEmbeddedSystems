@@ -1,0 +1,39 @@
+\doxysection{Climate\+Display.\+h}
+\hypertarget{_climate_display_8h_source}{}\label{_climate_display_8h_source}\index{Code/Communicatie/CanCom/CanCom/ClimateDisplay.h@{Code/Communicatie/CanCom/CanCom/ClimateDisplay.h}}
+\doxymbox{\hyperlink{_climate_display_8h}{Ga naar de documentatie van dit bestand.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ CLIMATEDISPLAY\_H}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ CLIMATEDISPLAY\_H}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}CommunicationController.h"{}}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_climate_display_ac91522594e023948814626e109e8a0cc}{ClimateDisplay}}\{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ \ \ \doxymbox{\hyperlink{class_climate_display_ac91522594e023948814626e109e8a0cc}{ClimateDisplay}}(std::shared\_ptr<Communication::CommunicationController>,\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ std::shared\_ptr<Communication::CommunicationController>,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{class_climate_display_ac91522594e023948814626e109e8a0cc}{\string~ClimateDisplay}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_climate_display_a3fa7d5510555e7c3a5045f4caea16056}{displayValue}}(std::vector<uint8\_t>);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ address\_from;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ address\_10led;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ std::shared\_ptr<Communication::CommunicationController>\ controller\_can;}
+\DoxyCodeLine{00060\ \ \ \ \ std::shared\_ptr<Communication::CommunicationController>\ controller\_rpib;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

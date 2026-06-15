@@ -1,0 +1,31 @@
+\doxysection{Data\+Processor.\+h}
+\hypertarget{_can_com_2_can_com_2_data_processor_8h_source}{}\label{_can_com_2_can_com_2_data_processor_8h_source}\index{Code/Communicatie/CanCom/CanCom/DataProcessor.h@{Code/Communicatie/CanCom/CanCom/DataProcessor.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Receiver.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }Events\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_events_1_1_connection}{Connection}};}
+\DoxyCodeLine{00007\ \}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }Communication\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_communication_1_1_requestor}{Requestor}};}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_communication_1_1_receive_binder}{ReceiveBinder}};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{class\ }DataProcessor}
+\DoxyCodeLine{00014\ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ DataProcessor(\doxymbox{\hyperlink{class_communication_1_1_receiver}{Receiver}}*,\ \doxymbox{\hyperlink{class_communication_1_1_requestor}{Requestor}}*,\ \doxymbox{\hyperlink{class_communication_1_1_receive_binder}{ReceiveBinder}}*);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ processData();}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_events_1_1_connection}{Events::Connection}}*\ eventConnection;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_communication_1_1_receiver}{Receiver}}*\ receiver;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_communication_1_1_requestor}{Requestor}}*\ requestor;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_communication_1_1_receive_binder}{ReceiveBinder}}*\ binder;}
+\DoxyCodeLine{00023\ \ \ \ \ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \}}
+
+\end{DoxyCode}

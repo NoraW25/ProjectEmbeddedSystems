@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PES Project Revalidatieverdieping: Code/Communicatie/RPiB/CanCom/ClimateSystem.h Bron Bestand</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PES Project Revalidatieverdieping
+   </div>
+   <div id="projectbrief">Haagse Hogeschool project Embedded Systems</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gegenereerd door Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Zoeken" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_climate_system_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Laden...</div>
+<div class="SRStatus" id="Searching">Zoeken...</div>
+<div class="SRStatus" id="NoMatches">Niets gevonden</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ClimateSystem.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_climate_system_8h.html">Ga naar de documentatie van dit bestand.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#ifndef CLIMATESYSTEM_H</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#define CLIMATESYSTEM_H</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="_climate_sensor_8h.html">ClimateSensor.h</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;<a class="code" href="_climate_actuator_p_w_m_8h.html">ClimateActuatorPWM.h</a>&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;CommunicationController.h&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_climate_system.html">   29</a></span><span class="keyword">class </span><a class="code hl_function" href="class_climate_system.html#add5322c821ac52474ad6548bf0b485d6">ClimateSystem</a>{</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_function" href="class_climate_system.html#add5322c821ac52474ad6548bf0b485d6">ClimateSystem</a>(std::shared_ptr&lt;Communication::CommunicationController&gt;, std::shared_ptr&lt;Communication::CommunicationController&gt;, <span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">virtual</span> <a class="code hl_function" href="class_climate_system.html#add5322c821ac52474ad6548bf0b485d6">~ClimateSystem</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_climate_system.html#ab3ce50c7936d45f12065ce833869a3c0">calculateSettings</a>();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_climate_system.html#a4ebfe93ceb995d17f02104bca85bd12b">addSensor</a>(std::string, std::shared_ptr&lt;ClimateSensor&gt;);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_climate_system.html#a33b1973fd2f0c022f365906e55bf2b95">addActuatorPWM</a>(std::string, std::shared_ptr&lt;ClimateActuatorPWM&gt;);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    std::shared_ptr&lt;Communication::CommunicationController&gt; controller;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    std::shared_ptr&lt;Communication::CommunicationController&gt; controller_rpia;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    std::map&lt;std::string, std::vector&lt;std::shared_ptr&lt;ClimateSensor&gt;&gt;&gt; sensors;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    std::map&lt;std::string, std::vector&lt;std::shared_ptr&lt;ClimateActuatorPWM&gt;&gt;&gt; pwm_actuators;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    std::map&lt;uint16_t, std::shared_ptr&lt;ClimateSensor&gt;&gt; sensor_address_map;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">int</span> buzzer_address;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>};</div>
+</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_climate_actuator_p_w_m_8h_html"><div class="ttname"><a href="_climate_actuator_p_w_m_8h.html">ClimateActuatorPWM.h</a></div></div>
+<div class="ttc" id="a_climate_sensor_8h_html"><div class="ttname"><a href="_climate_sensor_8h.html">ClimateSensor.h</a></div></div>
+<div class="ttc" id="aclass_climate_system_html_a33b1973fd2f0c022f365906e55bf2b95"><div class="ttname"><a href="class_climate_system.html#a33b1973fd2f0c022f365906e55bf2b95">ClimateSystem::addActuatorPWM</a></div><div class="ttdeci">virtual void addActuatorPWM(std::string, std::shared_ptr&lt; ClimateActuatorPWM &gt;)</div><div class="ttdoc">Voegt een actuator toe aan het klimaatsysteem.</div><div class="ttdef"><b>Definitie</b> ClimateSystem.cpp:152</div></div>
+<div class="ttc" id="aclass_climate_system_html_a4ebfe93ceb995d17f02104bca85bd12b"><div class="ttname"><a href="class_climate_system.html#a4ebfe93ceb995d17f02104bca85bd12b">ClimateSystem::addSensor</a></div><div class="ttdeci">virtual void addSensor(std::string, std::shared_ptr&lt; ClimateSensor &gt;)</div><div class="ttdoc">Voegt een sensor toe aan het klimaatsysteem.</div><div class="ttdef"><b>Definitie</b> ClimateSystem.cpp:169</div></div>
+<div class="ttc" id="aclass_climate_system_html_ab3ce50c7936d45f12065ce833869a3c0"><div class="ttname"><a href="class_climate_system.html#ab3ce50c7936d45f12065ce833869a3c0">ClimateSystem::calculateSettings</a></div><div class="ttdeci">virtual void calculateSettings()</div><div class="ttdoc">Berekent de standen van de actuatoren.</div><div class="ttdef"><b>Definitie</b> ClimateSystem.cpp:28</div></div>
+<div class="ttc" id="aclass_climate_system_html_add5322c821ac52474ad6548bf0b485d6"><div class="ttname"><a href="class_climate_system.html#add5322c821ac52474ad6548bf0b485d6">ClimateSystem::ClimateSystem</a></div><div class="ttdeci">ClimateSystem(std::shared_ptr&lt; Communication::CommunicationController &gt;, std::shared_ptr&lt; Communication::CommunicationController &gt;, int)</div><div class="ttdoc">Constructor ClimateSystem.</div><div class="ttdef"><b>Definitie</b> ClimateSystem.cpp:11</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Code</b></li><li class="navelem"><b>Communicatie</b></li><li class="navelem"><b>RPiB</b></li><li class="navelem"><b>CanCom</b></li><li class="navelem"><a href="_climate_system_8h.html">ClimateSystem.h</a></li>
+    <li class="footer">Gegenereerd door <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

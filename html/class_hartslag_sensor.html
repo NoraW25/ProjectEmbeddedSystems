@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PES Project Revalidatieverdieping: HartslagSensor Class Referentie</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PES Project Revalidatieverdieping
+   </div>
+   <div id="projectbrief">Haagse Hogeschool project Embedded Systems</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gegenereerd door Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Zoeken" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_hartslag_sensor.html','','class_hartslag_sensor-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Laden...</div>
+<div class="SRStatus" id="Searching">Zoeken...</div>
+<div class="SRStatus" id="NoMatches">Niets gevonden</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">HartslagSensor Class Referentie</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Hanteert de MAX30105 sensor en berekent hartslagwaarden.  
+ <a href="#details">Meer...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_hartslag_sensor_8h_source.html">HartslagSensor.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Members</h2></td></tr>
+<tr class="memitem:a9284c941a34b47e60f8843464984cbc9" id="r_a9284c941a34b47e60f8843464984cbc9"><td class="memItemLeft"><a id="a9284c941a34b47e60f8843464984cbc9" name="a9284c941a34b47e60f8843464984cbc9"></a>
+&#160;</td><td class="memItemRight"><b>HartslagSensor</b> ()</td></tr>
+<tr class="memdesc:a9284c941a34b47e60f8843464984cbc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
+<tr class="memitem:aa710db2fdfd7dbf4940dce577fd7cc17" id="r_aa710db2fdfd7dbf4940dce577fd7cc17"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa710db2fdfd7dbf4940dce577fd7cc17">begin</a> (TwoWire &amp;wire=Wire)</td></tr>
+<tr class="memdesc:aa710db2fdfd7dbf4940dce577fd7cc17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialiseert de sensor.  <br /></td></tr>
+<tr class="memitem:ace5a3ec26aec350fe817357e16533cc6" id="r_ace5a3ec26aec350fe817357e16533cc6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ace5a3ec26aec350fe817357e16533cc6">update</a> ()</td></tr>
+<tr class="memdesc:ace5a3ec26aec350fe817357e16533cc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lees nieuwe waarden van de sensor en update interne staten.  <br /></td></tr>
+<tr class="memitem:aacd12c17610eaa051f66accae86cd914" id="r_aacd12c17610eaa051f66accae86cd914"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#aacd12c17610eaa051f66accae86cd914">getBPM</a> () const</td></tr>
+<tr class="memdesc:aacd12c17610eaa051f66accae86cd914"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourneer de laatst berekende BPM (float).  <br /></td></tr>
+<tr class="memitem:acb2a86a28481766a2f000010400d22fb" id="r_acb2a86a28481766a2f000010400d22fb"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#acb2a86a28481766a2f000010400d22fb">getAvgBPM</a> () const</td></tr>
+<tr class="memdesc:acb2a86a28481766a2f000010400d22fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourneer het gemiddelde BPM over de buffer.  <br /></td></tr>
+<tr class="memitem:a1757d6696092369221b8f6a7a2562bf4" id="r_a1757d6696092369221b8f6a7a2562bf4"><td class="memItemLeft">long&#160;</td><td class="memItemRight"><a class="el" href="#a1757d6696092369221b8f6a7a2562bf4">getIR</a> () const</td></tr>
+<tr class="memdesc:a1757d6696092369221b8f6a7a2562bf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourneer de laatst gelezen IR-waarde.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Gedetailleerde Beschrijving</h2>
+<div class="textblock"><p>Hanteert de MAX30105 sensor en berekent hartslagwaarden. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentatie van functie members</h2>
+<a id="aa710db2fdfd7dbf4940dce577fd7cc17" name="aa710db2fdfd7dbf4940dce577fd7cc17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa710db2fdfd7dbf4940dce577fd7cc17">&#9670;&#160;</a></span>begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HartslagSensor::begin </td>
+          <td>(</td>
+          <td class="paramtype">TwoWire &amp;</td>          <td class="paramname"><span class="paramname"><em>wire</em></span><span class="paramdefsep"> = </span><span class="paramdefval">Wire</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialiseert de sensor. </p>
+<p>Initialiseert de sensor hardware.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">wire</td><td>I2C bus (standaard <span class="tt">Wire</span>) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retourneert</dt><dd>true als initialisatie gelukt is</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">wire</td><td>I2C bus om te gebruiken </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retourneert</dt><dd>true als de sensor succesvol is geïnitialiseerd </dd></dl>
+
+</div>
+</div>
+<a id="acb2a86a28481766a2f000010400d22fb" name="acb2a86a28481766a2f000010400d22fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb2a86a28481766a2f000010400d22fb">&#9670;&#160;</a></span>getAvgBPM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HartslagSensor::getAvgBPM </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourneer het gemiddelde BPM over de buffer. </p>
+<p>Verkrijg het gemiddelde BPM over de buffer.</p>
+<dl class="section return"><dt>Retourneert</dt><dd>gemiddelde BPM</dd>
+<dd>
+Gemiddelde BPM als int </dd></dl>
+
+</div>
+</div>
+<a id="aacd12c17610eaa051f66accae86cd914" name="aacd12c17610eaa051f66accae86cd914"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacd12c17610eaa051f66accae86cd914">&#9670;&#160;</a></span>getBPM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float HartslagSensor::getBPM </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourneer de laatst berekende BPM (float). </p>
+<p>Verkrijg de laatst berekende BPM.</p>
+<dl class="section return"><dt>Retourneert</dt><dd>BPM</dd>
+<dd>
+BPM waarde als float </dd></dl>
+
+</div>
+</div>
+<a id="a1757d6696092369221b8f6a7a2562bf4" name="a1757d6696092369221b8f6a7a2562bf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1757d6696092369221b8f6a7a2562bf4">&#9670;&#160;</a></span>getIR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long HartslagSensor::getIR </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourneer de laatst gelezen IR-waarde. </p>
+<p>Verkrijg de laatst gelezen IR-waarde.</p>
+<dl class="section return"><dt>Retourneert</dt><dd>IR waarde </dd></dl>
+
+</div>
+</div>
+<a id="ace5a3ec26aec350fe817357e16533cc6" name="ace5a3ec26aec350fe817357e16533cc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace5a3ec26aec350fe817357e16533cc6">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HartslagSensor::update </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lees nieuwe waarden van de sensor en update interne staten. </p>
+<p>Lees sensorwaarden en bereken BPM indien beat gedetecteerd. </p>
+
+</div>
+</div>
+<hr/>De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:<ul>
+<li>Code/Demo/wemoshartslag/demowemoshartslag/<a class="el" href="_hartslag_sensor_8h_source.html">HartslagSensor.h</a></li>
+<li>Code/Demo/wemoshartslag/demowemoshartslag/<b>HartslagSensor.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_hartslag_sensor.html">HartslagSensor</a></li>
+    <li class="footer">Gegenereerd door <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

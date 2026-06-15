@@ -1,0 +1,37 @@
+\doxysection{Can\+Generaliser.\+h}
+\hypertarget{_can_com_2_can_com_2_socket_generaliser_2_can_generaliser_8h_source}{}\label{_can_com_2_can_com_2_socket_generaliser_2_can_generaliser_8h_source}\index{Code/Communicatie/CanCom/CanCom/SocketGeneraliser/CanGeneraliser.h@{Code/Communicatie/CanCom/CanCom/SocketGeneraliser/CanGeneraliser.h}}
+\doxymbox{\hyperlink{_can_com_2_can_com_2_socket_generaliser_2_can_generaliser_8h}{Ga naar de documentatie van dit bestand.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ CANGENERALISER\_H}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ CANGENERALISER\_H}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}../Receiver.h"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}../Transmitter.h"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_can_com_2_can_com_2_socket_2_can_socket_8h}{../Socket/CanSocket.h}}"{}}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_can_generaliser_a30f4660a1251660e25bed29f9f06988d}{CanGeneraliser}}\ :\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_communication_1_1_receiver}{Communication::Receiver}},\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_communication_1_1_transmitter}{Communication::Transmitter}}}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \doxymbox{\hyperlink{class_can_generaliser_a30f4660a1251660e25bed29f9f06988d}{CanGeneraliser}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00037\ \ \ \ \ \doxymbox{\hyperlink{class_can_generaliser_a30f4660a1251660e25bed29f9f06988d}{CanGeneraliser}}(std::string);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{class_can_generaliser_a30f4660a1251660e25bed29f9f06988d}{\string~CanGeneraliser}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ sendData(\textcolor{keywordtype}{int},\ std::vector<uint8\_t>)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ sendRequest(\textcolor{keywordtype}{int})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ receive(\textcolor{keywordtype}{int}*,\ std::vector<uint8\_t>*)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00046\ \ \ \ \ \doxymbox{\hyperlink{class_can_socket}{CanSocket}}*\ socket;\ \ \ \ }
+\DoxyCodeLine{00047\ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

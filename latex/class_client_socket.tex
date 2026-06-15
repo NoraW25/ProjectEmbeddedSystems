@@ -1,0 +1,347 @@
+\doxysection{Client\+Socket Class Referentie}
+\hypertarget{class_client_socket}{}\label{class_client_socket}\index{ClientSocket@{ClientSocket}}
+
+
+Maakt een client socket aan, kan daardoor berichten ontvangen en versturen. Met een object van deze klasse, wordt er eerst een connectie tussen de sockets opgezet, die non blocking werkt. Daarna kunnen er berichten worden ontvangen en verzonden.  
+
+
+
+
+{\ttfamily \+\#include $<$Client\+Socket.\+h$>$}
+
+Klasse diagram voor Client\+Socket\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_client_socket}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Members}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \doxymbox{\hyperlink{class_client_socket_a1eb9ab96f83599a3da72ec05c062377f}{send}} (int, std::\+vector$<$ uint8\+\_\+t $>$) override
+\begin{DoxyCompactList}\small\item\em Verstuurd een bericht. \end{DoxyCompactList}\item 
+virtual bool \doxymbox{\hyperlink{class_client_socket_a034f4251ff63459ca3622dd3623f6350}{received}} (int \texorpdfstring{$\ast$}{*}, std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}) override
+\begin{DoxyCompactList}\small\item\em Geeft terug of er wel of niet een bericht is ontvangen. Als er een bericht is ontvangen wordt de inhoud meegegeven. \end{DoxyCompactList}\item 
+virtual bool \doxymbox{\hyperlink{class_client_socket_a18d23fa044c59ee01f5e1a98b43c47f3}{can\+Send}} () override
+\begin{DoxyCompactList}\small\item\em Geeft terug of er wel of niet een bericht verstuurd kan worden. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_client_socket_a739d55ba4fbc4c7b60e06d8c1577d696}{Client\+Socket}} (std::\+string)
+\begin{DoxyCompactList}\small\item\em Maakt de \doxylink{class_client_socket}{Client\+Socket} aan. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_client_socket_af99cadafe2d1f0dbd97ac2768e000199}{Client\+Socket}} (std::\+string, bool)
+\begin{DoxyCompactList}\small\item\em Maakt de \doxylink{class_client_socket}{Client\+Socket} aan. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_client_socket_a8a0bfcad25c2a20c75008bdb746589ab}{Client\+Socket}} (std::\+string, int, bool)
+\begin{DoxyCompactList}\small\item\em Maakt de \doxylink{class_client_socket}{Client\+Socket} aan. \end{DoxyCompactList}\item 
+virtual \doxymbox{\hyperlink{class_client_socket_aef5d9c1c9b443124b820521276b175ca}{\texorpdfstring{$\sim$}{\string~}\+Client\+Socket}} ()
+\begin{DoxyCompactList}\small\item\em Sluit de \doxylink{class_client_socket}{Client\+Socket}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_client_socket_a8c6ab3e053c4afd713bd053b363f55ed}{send}} (int, std::\+vector$<$ uint8\+\_\+t $>$) override
+\begin{DoxyCompactList}\small\item\em Verstuurd een bericht. \end{DoxyCompactList}\item 
+virtual bool \doxymbox{\hyperlink{class_client_socket_aa15183a41057a2bfa3404219f679fcbd}{received}} (int \texorpdfstring{$\ast$}{*}, std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}) override
+\begin{DoxyCompactList}\small\item\em Geeft terug of er wel of niet een bericht is ontvangen. Als er een bericht is ontvangen wordt de inhoud meegegeven. \end{DoxyCompactList}\item 
+virtual bool \doxymbox{\hyperlink{class_client_socket_abe285c42d65e906e4c7d22f04e8f5158}{can\+Send}} () override
+\begin{DoxyCompactList}\small\item\em Geeft terug of er wel of niet een bericht verstuurd kan worden. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_client_socket_a739d55ba4fbc4c7b60e06d8c1577d696}{Client\+Socket}} (std::\+string)
+\begin{DoxyCompactList}\small\item\em Maakt de \doxylink{class_client_socket}{Client\+Socket} aan. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_client_socket_af99cadafe2d1f0dbd97ac2768e000199}{Client\+Socket}} (std::\+string, bool)
+\begin{DoxyCompactList}\small\item\em Maakt de \doxylink{class_client_socket}{Client\+Socket} aan. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_client_socket_a8a0bfcad25c2a20c75008bdb746589ab}{Client\+Socket}} (std::\+string, int, bool)
+\begin{DoxyCompactList}\small\item\em Maakt de \doxylink{class_client_socket}{Client\+Socket} aan. \end{DoxyCompactList}\item 
+virtual \doxymbox{\hyperlink{class_client_socket_a9c8af4fc4f56b62ef0ff7d67037f65a3}{\texorpdfstring{$\sim$}{\string~}\+Client\+Socket}} ()
+\begin{DoxyCompactList}\small\item\em Sluit de \doxylink{class_client_socket}{Client\+Socket}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Gedetailleerde Beschrijving}
+Maakt een client socket aan, kan daardoor berichten ontvangen en versturen. Met een object van deze klasse, wordt er eerst een connectie tussen de sockets opgezet, die non blocking werkt. Daarna kunnen er berichten worden ontvangen en verzonden. 
+
+\label{class_client_socket_doc-constructors}
+\Hypertarget{class_client_socket_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentatie}
+\Hypertarget{class_client_socket_a739d55ba4fbc4c7b60e06d8c1577d696}\index{ClientSocket@{ClientSocket}!ClientSocket@{ClientSocket}}
+\index{ClientSocket@{ClientSocket}!ClientSocket@{ClientSocket}}
+\doxysubsubsection{\texorpdfstring{ClientSocket()}{ClientSocket()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily \label{class_client_socket_a739d55ba4fbc4c7b60e06d8c1577d696} 
+Client\+Socket::\+\+Client\+Socket (\begin{DoxyParamCaption}\item[{std::\+string}]{ip}{}\end{DoxyParamCaption})}
+
+
+
+Maakt de \doxylink{class_client_socket}{Client\+Socket} aan. 
+
+Deze constructor zorgt ervoor dat de basis van de \doxylink{class_client_socket}{Client\+Socket} er in ieder geval is. Door de nonblocking structuur van de code, kunnen er andere werkzaamheden snel na elkaar verlopen, maar dat zorgt er ook voor dat de constructor de kans loopt dat de verbinding nog niet volledig is opgezet als de constructor zijn werk heeft gedaan.
+
+Standaard wordt er met portnummer 8080 verbinding geprobeert te maken. Daarnaast wordt er standaard vanuitgegaan dat de client GEEN Wemos is.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & -\/ IP-\/adres waarmee verbinding gemaakt moet worden. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_socket_af99cadafe2d1f0dbd97ac2768e000199}\index{ClientSocket@{ClientSocket}!ClientSocket@{ClientSocket}}
+\index{ClientSocket@{ClientSocket}!ClientSocket@{ClientSocket}}
+\doxysubsubsection{\texorpdfstring{ClientSocket()}{ClientSocket()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily \label{class_client_socket_af99cadafe2d1f0dbd97ac2768e000199} 
+Client\+Socket::\+\+Client\+Socket (\begin{DoxyParamCaption}\item[{std::\+string}]{ip}{, }\item[{bool}]{wemos}{}\end{DoxyParamCaption})}
+
+
+
+Maakt de \doxylink{class_client_socket}{Client\+Socket} aan. 
+
+Deze constructor zorgt ervoor dat de basis van de \doxylink{class_client_socket}{Client\+Socket} er in ieder geval is. Door de nonblocking structuur van de code, kunnen er andere werkzaamheden snel na elkaar verlopen, maar dat zorgt er ook voor dat de constructor de kans loopt dat de verbinding nog niet volledig is opgezet als de constructor zijn werk heeft gedaan.
+
+Standaard wordt er met portnummer 8080 verbinding geprobeert te maken.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & -\/ IP-\/adres waarmee verbinding gemaakt moet worden. \\
+\hline
+{\em bool} & -\/ Geeft aan of de clientsocket verbinding maakt met een Wemos server. True voor met de Wemos, False voor geen Wemos. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_socket_a8a0bfcad25c2a20c75008bdb746589ab}\index{ClientSocket@{ClientSocket}!ClientSocket@{ClientSocket}}
+\index{ClientSocket@{ClientSocket}!ClientSocket@{ClientSocket}}
+\doxysubsubsection{\texorpdfstring{ClientSocket()}{ClientSocket()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily \label{class_client_socket_a8a0bfcad25c2a20c75008bdb746589ab} 
+Client\+Socket::\+\+Client\+Socket (\begin{DoxyParamCaption}\item[{std::\+string}]{ip}{, }\item[{int}]{port}{, }\item[{bool}]{wemos}{}\end{DoxyParamCaption})}
+
+
+
+Maakt de \doxylink{class_client_socket}{Client\+Socket} aan. 
+
+Deze constructor zorgt ervoor dat de basis van de \doxylink{class_client_socket}{Client\+Socket} er in ieder geval is. Door de nonblocking structuur van de code, kunnen er andere werkzaamheden snel na elkaar verlopen, maar dat zorgt er ook voor dat de constructor de kans loopt dat de verbinding nog niet volledig is opgezet als de constructor zijn werk heeft gedaan.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & -\/ IP-\/adres waarmee verbinding gemaakt moet worden. \\
+\hline
+{\em int} & -\/ Poortnummer waarmee verbinding gemaakt moet worden. \\
+\hline
+{\em bool} & -\/ Geeft aan of de clientsocket verbinding maakt met een Wemos server. True voor met de Wemos, False voor geen Wemos. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_socket_aef5d9c1c9b443124b820521276b175ca}\index{ClientSocket@{ClientSocket}!````~ClientSocket@{\texorpdfstring{$\sim$}{\string~}ClientSocket}}
+\index{````~ClientSocket@{\texorpdfstring{$\sim$}{\string~}ClientSocket}!ClientSocket@{ClientSocket}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ClientSocket()}{\string~ClientSocket()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_client_socket_aef5d9c1c9b443124b820521276b175ca} 
+Client\+Socket::\+\texorpdfstring{$\sim$}{\string~}\+Client\+Socket (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Sluit de \doxylink{class_client_socket}{Client\+Socket}. 
+
+Als de \doxylink{class_client_socket}{Client\+Socket} nog actief is, zal deze worden afgesloten. \Hypertarget{class_client_socket_a739d55ba4fbc4c7b60e06d8c1577d696}\index{ClientSocket@{ClientSocket}!ClientSocket@{ClientSocket}}
+\index{ClientSocket@{ClientSocket}!ClientSocket@{ClientSocket}}
+\doxysubsubsection{\texorpdfstring{ClientSocket()}{ClientSocket()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily \label{class_client_socket_a739d55ba4fbc4c7b60e06d8c1577d696} 
+Client\+Socket::\+\+Client\+Socket (\begin{DoxyParamCaption}\item[{std::\+string}]{}{}\end{DoxyParamCaption})}
+
+
+
+Maakt de \doxylink{class_client_socket}{Client\+Socket} aan. 
+
+Deze constructor zorgt ervoor dat de basis van de \doxylink{class_client_socket}{Client\+Socket} er in ieder geval is. Door de nonblocking structuur van de code, kunnen er andere werkzaamheden snel na elkaar verlopen, maar dat zorgt er ook voor dat de constructor de kans loopt dat de verbinding nog niet volledig is opgezet als de constructor zijn werk heeft gedaan.
+
+Standaard wordt er met portnummer 8080 verbinding geprobeert te maken. Daarnaast wordt er standaard vanuitgegaan dat de client GEEN Wemos is.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & -\/ IP-\/adres waarmee verbinding gemaakt moet worden. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_socket_af99cadafe2d1f0dbd97ac2768e000199}\index{ClientSocket@{ClientSocket}!ClientSocket@{ClientSocket}}
+\index{ClientSocket@{ClientSocket}!ClientSocket@{ClientSocket}}
+\doxysubsubsection{\texorpdfstring{ClientSocket()}{ClientSocket()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily \label{class_client_socket_af99cadafe2d1f0dbd97ac2768e000199} 
+Client\+Socket::\+\+Client\+Socket (\begin{DoxyParamCaption}\item[{std::\+string}]{}{, }\item[{bool}]{}{}\end{DoxyParamCaption})}
+
+
+
+Maakt de \doxylink{class_client_socket}{Client\+Socket} aan. 
+
+Deze constructor zorgt ervoor dat de basis van de \doxylink{class_client_socket}{Client\+Socket} er in ieder geval is. Door de nonblocking structuur van de code, kunnen er andere werkzaamheden snel na elkaar verlopen, maar dat zorgt er ook voor dat de constructor de kans loopt dat de verbinding nog niet volledig is opgezet als de constructor zijn werk heeft gedaan.
+
+Standaard wordt er met portnummer 8080 verbinding geprobeert te maken.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & -\/ IP-\/adres waarmee verbinding gemaakt moet worden. \\
+\hline
+{\em bool} & -\/ Geeft aan of de clientsocket verbinding maakt met een Wemos server. True voor met de Wemos, False voor geen Wemos. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_socket_a8a0bfcad25c2a20c75008bdb746589ab}\index{ClientSocket@{ClientSocket}!ClientSocket@{ClientSocket}}
+\index{ClientSocket@{ClientSocket}!ClientSocket@{ClientSocket}}
+\doxysubsubsection{\texorpdfstring{ClientSocket()}{ClientSocket()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily \label{class_client_socket_a8a0bfcad25c2a20c75008bdb746589ab} 
+Client\+Socket::\+\+Client\+Socket (\begin{DoxyParamCaption}\item[{std::\+string}]{}{, }\item[{int}]{}{, }\item[{bool}]{}{}\end{DoxyParamCaption})}
+
+
+
+Maakt de \doxylink{class_client_socket}{Client\+Socket} aan. 
+
+Deze constructor zorgt ervoor dat de basis van de \doxylink{class_client_socket}{Client\+Socket} er in ieder geval is. Door de nonblocking structuur van de code, kunnen er andere werkzaamheden snel na elkaar verlopen, maar dat zorgt er ook voor dat de constructor de kans loopt dat de verbinding nog niet volledig is opgezet als de constructor zijn werk heeft gedaan.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & -\/ IP-\/adres waarmee verbinding gemaakt moet worden. \\
+\hline
+{\em int} & -\/ Poortnummer waarmee verbinding gemaakt moet worden. \\
+\hline
+{\em bool} & -\/ Geeft aan of de clientsocket verbinding maakt met een Wemos server. True voor met de Wemos, False voor geen Wemos. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_socket_a9c8af4fc4f56b62ef0ff7d67037f65a3}\index{ClientSocket@{ClientSocket}!````~ClientSocket@{\texorpdfstring{$\sim$}{\string~}ClientSocket}}
+\index{````~ClientSocket@{\texorpdfstring{$\sim$}{\string~}ClientSocket}!ClientSocket@{ClientSocket}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ClientSocket()}{\string~ClientSocket()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_client_socket_a9c8af4fc4f56b62ef0ff7d67037f65a3} 
+virtual Client\+Socket::\+\texorpdfstring{$\sim$}{\string~}\+Client\+Socket (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Sluit de \doxylink{class_client_socket}{Client\+Socket}. 
+
+Als de \doxylink{class_client_socket}{Client\+Socket} nog actief is, zal deze worden afgesloten. 
+
+\label{class_client_socket_doc-func-members}
+\Hypertarget{class_client_socket_doc-func-members}
+\doxysubsection{Documentatie van functie members}
+\Hypertarget{class_client_socket_a18d23fa044c59ee01f5e1a98b43c47f3}\index{ClientSocket@{ClientSocket}!canSend@{canSend}}
+\index{canSend@{canSend}!ClientSocket@{ClientSocket}}
+\doxysubsubsection{\texorpdfstring{canSend()}{canSend()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_client_socket_a18d23fa044c59ee01f5e1a98b43c47f3} 
+bool Client\+Socket::\+can\+Send (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Geeft terug of er wel of niet een bericht verstuurd kan worden. 
+
+Eerst wordt er bekeken of de socket een verbinding heeft. Is dat niet het geval, zal de verbinding opnieuw geprobeerd worden op te zetten.
+
+\begin{DoxyReturn}{Retourneert}
+Boolean -\/ Terugkoppeling op of er wel of niet een bericht verstuurd kan worden. Als er verstuurd kan worden:\+ true. 
+\end{DoxyReturn}
+
+
+Implementeert \doxymbox{\hyperlink{class_socket_a6a14b8cd679df09eede72608e14822d3}{Socket}}.
+
+\Hypertarget{class_client_socket_abe285c42d65e906e4c7d22f04e8f5158}\index{ClientSocket@{ClientSocket}!canSend@{canSend}}
+\index{canSend@{canSend}!ClientSocket@{ClientSocket}}
+\doxysubsubsection{\texorpdfstring{canSend()}{canSend()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_client_socket_abe285c42d65e906e4c7d22f04e8f5158} 
+virtual bool Client\+Socket::\+can\+Send (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Geeft terug of er wel of niet een bericht verstuurd kan worden. 
+
+Eerst wordt er bekeken of de socket een verbinding heeft. Is dat niet het geval, zal de verbinding opnieuw geprobeerd worden op te zetten.
+
+\begin{DoxyReturn}{Retourneert}
+Boolean -\/ Terugkoppeling op of er wel of niet een bericht verstuurd kan worden. Als er verstuurd kan worden:\+ true. 
+\end{DoxyReturn}
+
+
+Implementeert \doxymbox{\hyperlink{class_socket_a6a14b8cd679df09eede72608e14822d3}{Socket}}.
+
+\Hypertarget{class_client_socket_a034f4251ff63459ca3622dd3623f6350}\index{ClientSocket@{ClientSocket}!received@{received}}
+\index{received@{received}!ClientSocket@{ClientSocket}}
+\doxysubsubsection{\texorpdfstring{received()}{received()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_client_socket_a034f4251ff63459ca3622dd3623f6350} 
+bool Client\+Socket::\+received (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Geeft terug of er wel of niet een bericht is ontvangen. Als er een bericht is ontvangen wordt de inhoud meegegeven. 
+
+Eerst wordt er bekeken of de socket een verbinding heeft. Is dat niet het geval, zal de verbinding opnieuw geprobeerd worden op te zetten. Als er een bericht is ontvangen worden het adres en de data meegegeven in met de pointerparameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & adres of proces id, geeft aan wat voor soort data over de lijn gestuurd wordt en wie erop moet reageren. \\
+\hline
+{\em vector$<$uint8\+\_\+t$>$} & de opslagplaats voor de ontvangen data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retourneert}
+Boolean -\/ Terugkoppeling op of er wel of niet een bericht is ontvangen. Als er is ontvangen:\+ true. 
+\end{DoxyReturn}
+
+
+Implementeert \doxymbox{\hyperlink{class_socket_a415d426fd8f4ee96a6fe441e36072d39}{Socket}}.
+
+\Hypertarget{class_client_socket_aa15183a41057a2bfa3404219f679fcbd}\index{ClientSocket@{ClientSocket}!received@{received}}
+\index{received@{received}!ClientSocket@{ClientSocket}}
+\doxysubsubsection{\texorpdfstring{received()}{received()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_client_socket_aa15183a41057a2bfa3404219f679fcbd} 
+virtual bool Client\+Socket::\+received (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$ \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Geeft terug of er wel of niet een bericht is ontvangen. Als er een bericht is ontvangen wordt de inhoud meegegeven. 
+
+Eerst wordt er bekeken of de socket een verbinding heeft. Is dat niet het geval, zal de verbinding opnieuw geprobeerd worden op te zetten. Als er een bericht is ontvangen worden het adres en de data meegegeven in met de pointerparameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & adres of proces id, geeft aan wat voor soort data over de lijn gestuurd wordt en wie erop moet reageren. \\
+\hline
+{\em vector$<$uint8\+\_\+t$>$} & de opslagplaats voor de ontvangen data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retourneert}
+Boolean -\/ Terugkoppeling op of er wel of niet een bericht is ontvangen. Als er is ontvangen:\+ true. 
+\end{DoxyReturn}
+
+
+Implementeert \doxymbox{\hyperlink{class_socket_a415d426fd8f4ee96a6fe441e36072d39}{Socket}}.
+
+\Hypertarget{class_client_socket_a1eb9ab96f83599a3da72ec05c062377f}\index{ClientSocket@{ClientSocket}!send@{send}}
+\index{send@{send}!ClientSocket@{ClientSocket}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_client_socket_a1eb9ab96f83599a3da72ec05c062377f} 
+void Client\+Socket::\+send (\begin{DoxyParamCaption}\item[{int}]{}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verstuurd een bericht. 
+
+Deze methode bekijkt of er verstuurd kan worden met kan\+Versturen. Als er verstuurd kan worden, wordt de meegegeven string verstuurd.
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & adres of proces id, geeft aan wat voor soort data over de lijn gestuurd wordt en wie erop moet reageren. \\
+\hline
+{\em vector$<$uint8\+\_\+t$>$} & de data die verzonden moet worden. \\
+\hline
+\end{DoxyParams}
+
+
+Implementeert \doxymbox{\hyperlink{class_socket_a99a6bc065ef6c9d3dbbf6a0546ccccbe}{Socket}}.
+
+\Hypertarget{class_client_socket_a8c6ab3e053c4afd713bd053b363f55ed}\index{ClientSocket@{ClientSocket}!send@{send}}
+\index{send@{send}!ClientSocket@{ClientSocket}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_client_socket_a8c6ab3e053c4afd713bd053b363f55ed} 
+virtual void Client\+Socket::\+send (\begin{DoxyParamCaption}\item[{int}]{}{, }\item[{std::\+vector$<$ uint8\+\_\+t $>$}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verstuurd een bericht. 
+
+Deze methode bekijkt of er verstuurd kan worden met kan\+Versturen. Als er verstuurd kan worden, wordt de meegegeven string verstuurd.
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & adres of proces id, geeft aan wat voor soort data over de lijn gestuurd wordt en wie erop moet reageren. \\
+\hline
+{\em vector$<$uint8\+\_\+t$>$} & de data die verzonden moet worden. \\
+\hline
+\end{DoxyParams}
+
+
+Implementeert \doxymbox{\hyperlink{class_socket_a99a6bc065ef6c9d3dbbf6a0546ccccbe}{Socket}}.
+
+
+
+De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:\+\begin{DoxyCompactItemize}
+\item 
+Code/\+\+Communicatie/\+\+Can\+Com/\+\+Can\+Com/\+\+Socket/\+\doxymbox{\hyperlink{_can_com_2_can_com_2_socket_2_client_socket_8h}{Client\+Socket.\+h}}\item 
+Code/\+\+Communicatie/\+\+RPi\+B/\+\+Can\+Com/\+\+Socket/\+\doxymbox{\hyperlink{_r_pi_b_2_can_com_2_socket_2_client_socket_8h}{Client\+Socket.\+h}}\item 
+Code/\+\+Communicatie/\+\+Can\+Com/\+\+Can\+Com/\+\+Socket/\+Client\+Socket.\+cpp\item 
+Code/\+\+Communicatie/\+\+RPi\+B/\+\+Can\+Com/\+\+Socket/\+Client\+Socket.\+cpp\end{DoxyCompactItemize}

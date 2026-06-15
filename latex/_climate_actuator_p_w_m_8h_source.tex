@@ -1,0 +1,31 @@
+\doxysection{Climate\+Actuator\+PWM.\+h}
+\hypertarget{_climate_actuator_p_w_m_8h_source}{}\label{_climate_actuator_p_w_m_8h_source}\index{Code/Communicatie/RPiB/CanCom/ClimateActuatorPWM.h@{Code/Communicatie/RPiB/CanCom/ClimateActuatorPWM.h}}
+\doxymbox{\hyperlink{_climate_actuator_p_w_m_8h}{Ga naar de documentatie van dit bestand.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ CLIMATEACTUATORPWM\_H}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ CLIMATEACTUATORPWM\_H}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}CommunicationController.h"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_climate_actuator_p_w_m_a38497ecaad0502b7c17e4d7d1ee2a3e4}{ClimateActuatorPWM}}\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \doxymbox{\hyperlink{class_climate_actuator_p_w_m_a38497ecaad0502b7c17e4d7d1ee2a3e4}{ClimateActuatorPWM}}(\textcolor{keywordtype}{int}\ address,\ std::shared\_ptr<Communication::CommunicationController>);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{class_climate_actuator_p_w_m_a38497ecaad0502b7c17e4d7d1ee2a3e4}{\string~ClimateActuatorPWM}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_climate_actuator_p_w_m_a235e5f2d5888fc8b8c7085ea59646688}{setPWM}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{int}\ status;}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ address;}
+\DoxyCodeLine{00056\ \ \ \ \ std::shared\_ptr<Communication::CommunicationController>\ controller;}
+\DoxyCodeLine{00057\ \};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

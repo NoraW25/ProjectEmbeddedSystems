@@ -1,0 +1,407 @@
+  % Handle batch mode
+  % to overcome problems with too many open files
+  \let\mypdfximage\pdfximage\def\pdfximage{\immediate\mypdfximage}
+  \RequirePackage{iftex}
+  \ifLuaTeX
+    \directlua{pdf.setminorversion(7)}
+  \fi
+  \ifXeTeX
+    \special{pdf:minorversion 7}
+  \fi
+  \ifPDFTeX
+    \pdfminorversion=7
+  \fi
+  % Set document class depending on configuration
+  \documentclass[twoside]{book}
+  % Packages required by doxygen
+  \makeatletter
+  \providecommand\IfFormatAtLeastTF{\@ifl@t@r\fmtversion}
+  % suppress package identification of infwarerr as it contains the word "warning"
+  \let\@@protected@wlog\protected@wlog
+  \def\protected@wlog#1{\wlog{package info suppressed}}
+  \RequirePackage{infwarerr}
+  \let\protected@wlog\@@protected@wlog
+  \makeatother
+  \IfFormatAtLeastTF{2016/01/01}{}{\usepackage{fixltx2e}} % for \textsubscript
+  \ifPDFTeX
+    \IfFormatAtLeastTF{2015/01/01}{\pdfsuppresswarningpagegroup=1}{}
+  \fi
+  \usepackage{doxygen}
+  \usepackage{graphicx}
+  \iftutex
+    \usepackage{fontspec}
+    \defaultfontfeatures{Ligatures={TeX}}
+    \usepackage{unicode-math}
+  \else
+    \usepackage[utf8]{inputenc}
+  \fi
+  \usepackage{makeidx}
+  \PassOptionsToPackage{warn}{textcomp}
+  \usepackage{textcomp}
+  \usepackage[nointegrals]{wasysym}
+  \usepackage{ifxetex}
+  % NLS support packages
+  \usepackage[dutch]{babel}
+  % Define default fonts
+  % Font selection
+  \iftutex
+  \else
+    \usepackage[T1]{fontenc}
+  \fi
+  % set main and monospaced font
+  \usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+\renewcommand{\familydefault}{\sfdefault}
+  \doxyallsectionsfont{%
+    \fontseries{bc}\selectfont%
+    \color{darkgray}%
+  }
+  \renewcommand{\DoxyLabelFont}{%
+    \fontseries{bc}\selectfont%
+    \color{darkgray}%
+  }
+  \newcommand{\+}{\discretionary{\mbox{\scriptsize$\hookleftarrow$}}{}{}}
+   % Arguments of doxygenemoji:
+   % 1) ':<text>:' form of the emoji, already LaTeX-escaped
+   % 2) file with the name of the emoji without the .png extension
+   % in case image exist use this otherwise use the ':<text>:' form
+   \newcommand{\doxygenemoji}[2]{%
+     \IfFileExists{./#2.png}{\raisebox{-0.1em}{\includegraphics[height=0.9em]{./#2.png}}}{#1}%
+   }
+  % Page & text layout
+  \usepackage{geometry}
+  \geometry{%
+    a4paper,%
+    top=2.5cm,%
+    bottom=2.5cm,%
+    left=2.5cm,%
+    right=2.5cm%
+  }
+  \usepackage{changepage}
+  % Allow a bit of overflow to go unnoticed by other means
+  \tolerance=750
+  \hfuzz=15pt
+  \hbadness=750
+  \setlength{\emergencystretch}{15pt}
+  \setlength{\parindent}{0cm}
+  \newcommand{\doxynormalparskip}{\setlength{\parskip}{3ex plus 2ex minus 2ex}}
+  \newcommand{\doxytocparskip}{\setlength{\parskip}{1ex plus 0ex minus 0ex}}
+  \doxynormalparskip
+  % Redefine paragraph/subparagraph environments, using sectsty fonts
+  \makeatletter
+  \renewcommand{\paragraph}{%
+    \@startsection{paragraph}{4}{0ex}{-1.0ex}{1.0ex}{%
+      \normalfont\normalsize\bfseries\SS@parafont%
+    }%
+  }
+  \renewcommand{\subparagraph}{%
+    \@startsection{subparagraph}{5}{0ex}{-1.0ex}{1.0ex}{%
+      \normalfont\normalsize\bfseries\SS@subparafont%
+    }%
+  }
+  \makeatother
+  \makeatletter
+  \newcommand\hrulefilll{\leavevmode\leaders\hrule\hskip 0pt plus 1filll\kern\z@}
+  \makeatother
+  % Headers & footers
+  \usepackage{fancyhdr}
+  \pagestyle{fancyplain}
+  \renewcommand{\footrulewidth}{0.4pt}
+  \fancypagestyle{fancyplain}{
+    \fancyhf{}
+    \fancyhead[LE, RO]{\bfseries\thepage}
+    \fancyhead[LO]{\bfseries\rightmark}
+    \fancyhead[RE]{\bfseries\leftmark}
+    \fancyfoot[LO, RE]{\bfseries\scriptsize Gegenereerd door Doxygen }
+  }
+  \fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[LO, RE]{\bfseries\scriptsize Gegenereerd door Doxygen }
+    \renewcommand{\headrulewidth}{0pt}
+  }
+  \pagestyle{fancyplain}
+  \renewcommand{\chaptermark}[1]{%
+    \markboth{#1}{}%
+  }
+  \renewcommand{\sectionmark}[1]{%
+    \markright{\thesection\ #1}%
+  }
+  % ToC, LoF, LoT, bibliography, and index
+  % Indices & bibliography
+  \usepackage[numbers]{natbib}
+  \usepackage[titles]{tocloft}
+  \setcounter{tocdepth}{3}
+  \setcounter{secnumdepth}{5}
+  % creating indexes
+  \makeindex
+  \ifPDFTeX
+\usepackage{newunicodechar}
+  \makeatletter
+    \def\doxynewunicodechar#1#2{%
+    \@tempswafalse
+    \edef\nuc@tempa{\detokenize{#1}}%
+    \if\relax\nuc@tempa\relax
+      \nuc@emptyargerr
+    \else
+      \edef\@tempb{\expandafter\@car\nuc@tempa\@nil}%
+      \nuc@check
+      \if@tempswa
+        \@namedef{u8:\nuc@tempa}{#2}%
+      \fi
+    \fi
+  }
+  \makeatother
+  \doxynewunicodechar{⁻}{${}^{-}$}% Superscript minus
+  \doxynewunicodechar{²}{${}^{2}$}% Superscript two
+  \doxynewunicodechar{³}{${}^{3}$}% Superscript three
+\fi
+  % Hyperlinks
+    % Hyperlinks (required, but should be loaded last)
+    \ifPDFTeX
+      \usepackage[pdftex,pagebackref=true]{hyperref}
+    \else
+      \ifXeTeX
+        \usepackage[xetex,pagebackref=true]{hyperref}
+      \else
+        \ifLuaTeX
+          \usepackage[luatex,pagebackref=true]{hyperref}
+        \else
+          \usepackage[ps2pdf,pagebackref=true]{hyperref}
+        \fi
+      \fi
+    \fi
+    \hypersetup{%
+      colorlinks=true,%
+      linkcolor=blue,%
+      citecolor=blue,%
+      unicode,%
+      pdftitle={PES Project Revalidatieverdieping},%
+      pdfsubject={Haagse Hogeschool project Embedded Systems}%
+    }
+  % Custom commands used by the header
+  % Custom commands
+  \newcommand{\clearemptydoublepage}{%
+    \newpage{\pagestyle{empty}\cleardoublepage}%
+  }
+  % caption style definition
+  \usepackage{caption}
+  \captionsetup{labelsep=space,justification=centering,font={bf},singlelinecheck=off,skip=4pt,position=top}
+  % in page table of contents
+  \IfFormatAtLeastTF{2023/05/01}{\usepackage[deeplevels]{etoc}}{\usepackage[deeplevels]{etoc_doxygen}}
+  \etocsettocstyle{\doxytocparskip}{\doxynormalparskip}
+  \etocsetlevel{subsubsubsection}{4}
+  \etocsetlevel{subsubsubsubsection}{5}
+  \etocsetlevel{subsubsubsubsubsection}{6}
+  \etocsetlevel{subsubsubsubsubsubsection}{7}
+  \etocsetlevel{paragraph}{8}
+  \etocsetlevel{subparagraph}{9}
+  % prevent numbers overlap the titles in toc
+  \renewcommand{\numberline}[1]{#1~}
+% End of preamble, now comes the document contents
+%===== C O N T E N T S =====
+\begin{document}
+  \raggedbottom
+  % Titlepage & ToC
+    % To avoid duplicate page anchors due to reuse of same numbers for
+    % the index (be it as roman numbers)
+    \hypersetup{pageanchor=false,
+                bookmarksnumbered=true,
+                pdfencoding=unicode
+               }
+  \pagenumbering{alph}
+  \begin{titlepage}
+  \vspace*{7cm}
+  \begin{center}%
+  {\Large PES Project Revalidatieverdieping}\\
+  \vspace*{1cm}
+  {\large Gegenereerd door Doxygen 1.17.0}\\
+  \end{center}
+  \end{titlepage}
+  \clearemptydoublepage
+  \pagenumbering{roman}
+  \tableofcontents
+  \clearemptydoublepage
+  \pagenumbering{arabic}
+  % re-enable anchors again
+  \hypersetup{pageanchor=true}
+%--- Begin generated contents ---
+\chapter{Hiërarchische Index}
+\input{hierarchy}
+\chapter{Klasse Index}
+\input{annotated}
+\chapter{Bestand Index}
+\input{files}
+\chapter{Klassen Documentatie}
+\input{class_alarm_system}
+\input{class_can_generaliser}
+\input{class_can_socket}
+\input{class_client_generaliser}
+\input{class_client_socket}
+\input{class_climate_actuator_p_w_m}
+\input{class_climate_display}
+\input{class_climate_sensor}
+\input{class_climate_system}
+\input{class_clock}
+\input{class_communication_1_1_communication_controller}
+\input{class_events_1_1_connection}
+\input{class_events_1_1_data_connection}
+\input{class_communication_1_1_data_processor}
+\input{class_distance_system}
+\input{class_distance_system_r_pi_b}
+\input{class_events_1_1_event}
+\input{class_hartslag_sensor}
+\input{class_heartrate_displayer}
+\input{class_interface_actuator_p_w_m}
+\input{class_interface_socket}
+\input{class_lamp}
+\input{class_lamp_p_w_m}
+\input{class_lighting_system}
+\input{class_message_translator}
+\input{class_communication_1_1_receive_binder}
+\input{class_events_1_1_receive_binder_event}
+\input{class_communication_1_1_receiver}
+\input{class_receiver}
+\input{class_communication_1_1_requestor}
+\input{class_events_1_1_requestor_event}
+\input{class_scheduling_1_1_run_service_controller}
+\input{class_scheduling_1_1_scheduler}
+\input{class_sensor_s_h_t31}
+\input{class_server_generaliser}
+\input{class_server_socket}
+\input{class_server_socket_wemos}
+\input{class_events_1_1_simple_connection}
+\input{class_socket}
+\input{class_events_1_1_timed_event}
+\input{class_communication_1_1_transmitter}
+\input{class_transmitter}
+\input{class_events_1_1_update_event}
+\input{class_virtual_receiver}
+\input{class_virtual_transmitter}
+\chapter{Bestand Documentatie}
+\input{_alarm_system_8h}
+\input{_alarm_system_8h_source}
+\input{_climate_display_8h}
+\input{_climate_display_8h_source}
+\input{_clock_8h}
+\input{_clock_8h_source}
+\input{_can_com_2_can_com_2_communication_controller_8h_source}
+\input{_r_pi_b_2_can_com_2_communication_controller_8h_source}
+\input{_can_com_2_can_com_2_connection_8h_source}
+\input{_r_pi_b_2_can_com_2_connection_8h_source}
+\input{_can_com_2_can_com_2_data_connection_8h_source}
+\input{_r_pi_b_2_can_com_2_data_connection_8h_source}
+\input{_can_com_2_can_com_2_data_processor_8h_source}
+\input{_r_pi_b_2_can_com_2_data_processor_8h_source}
+\input{_distance_system_8h}
+\input{_distance_system_8h_source}
+\input{_can_com_2_can_com_2_event_8h_source}
+\input{_r_pi_b_2_can_com_2_event_8h_source}
+\input{_lighting_system_8h}
+\input{_lighting_system_8h_source}
+\input{_can_com_2_can_com_2_receive_binder_8h_source}
+\input{_r_pi_b_2_can_com_2_receive_binder_8h_source}
+\input{_can_com_2_can_com_2_receive_binder_event_8h_source}
+\input{_r_pi_b_2_can_com_2_receive_binder_event_8h_source}
+\input{_can_com_2_can_com_2_receiver_8h_source}
+\input{_r_pi_b_2_can_com_2_receiver_8h}
+\input{_r_pi_b_2_can_com_2_receiver_8h_source}
+\input{_can_com_2_can_com_2_requestor_8h_source}
+\input{_r_pi_b_2_can_com_2_requestor_8h_source}
+\input{_can_com_2_can_com_2_requestor_event_8h_source}
+\input{_r_pi_b_2_can_com_2_requestor_event_8h_source}
+\input{_can_com_2_can_com_2_run_service_controller_8h_source}
+\input{_r_pi_b_2_can_com_2_run_service_controller_8h_source}
+\input{_can_com_2_can_com_2_scheduler_8h_source}
+\input{_r_pi_b_2_can_com_2_scheduler_8h_source}
+\input{_can_com_2_can_com_2_simple_connection_8h_source}
+\input{_r_pi_b_2_can_com_2_simple_connection_8h_source}
+\input{_can_com_2_can_com_2_socket_2_can_socket_8h}
+\input{_can_com_2_can_com_2_socket_2_can_socket_8h_source}
+\input{_r_pi_b_2_can_com_2_socket_2_can_socket_8h}
+\input{_r_pi_b_2_can_com_2_socket_2_can_socket_8h_source}
+\input{_can_com_2_can_com_2_socket_2_client_socket_8h}
+\input{_can_com_2_can_com_2_socket_2_client_socket_8h_source}
+\input{_r_pi_b_2_can_com_2_socket_2_client_socket_8h}
+\input{_r_pi_b_2_can_com_2_socket_2_client_socket_8h_source}
+\input{_can_com_2_can_com_2_socket_2_server_socket_8h}
+\input{_can_com_2_can_com_2_socket_2_server_socket_8h_source}
+\input{_r_pi_b_2_can_com_2_socket_2_server_socket_8h}
+\input{_r_pi_b_2_can_com_2_socket_2_server_socket_8h_source}
+\input{_can_com_2_can_com_2_socket_2_socket_8h_source}
+\input{_r_pi_b_2_can_com_2_socket_2_socket_8h_source}
+\input{_can_com_2_can_com_2_socket_generaliser_2_can_generaliser_8h}
+\input{_can_com_2_can_com_2_socket_generaliser_2_can_generaliser_8h_source}
+\input{_r_pi_b_2_can_com_2_socket_generaliser_2_can_generaliser_8h}
+\input{_r_pi_b_2_can_com_2_socket_generaliser_2_can_generaliser_8h_source}
+\input{_can_com_2_can_com_2_socket_generaliser_2_client_generaliser_8h}
+\input{_can_com_2_can_com_2_socket_generaliser_2_client_generaliser_8h_source}
+\input{_r_pi_b_2_can_com_2_socket_generaliser_2_client_generaliser_8h}
+\input{_r_pi_b_2_can_com_2_socket_generaliser_2_client_generaliser_8h_source}
+\input{_can_com_2_can_com_2_socket_generaliser_2_server_generaliser_8h}
+\input{_can_com_2_can_com_2_socket_generaliser_2_server_generaliser_8h_source}
+\input{_r_pi_b_2_can_com_2_socket_generaliser_2_server_generaliser_8h}
+\input{_r_pi_b_2_can_com_2_socket_generaliser_2_server_generaliser_8h_source}
+\input{_can_com_2_can_com_2_timed_event_8h_source}
+\input{_r_pi_b_2_can_com_2_timed_event_8h_source}
+\input{_communicatie_2_can_com_2_can_com_2_translator_2_message_translator_8h}
+\input{_communicatie_2_can_com_2_can_com_2_translator_2_message_translator_8h_source}
+\input{_communicatie_2_r_pi_b_2_can_com_2_translator_2_message_translator_8h}
+\input{_communicatie_2_r_pi_b_2_can_com_2_translator_2_message_translator_8h_source}
+\input{_demo_2wemosco2temp_2wemosco2temp_2_message_translator_8h_source}
+\input{_demo_2wemosdisplay_2_message_translator_8h}
+\input{_demo_2wemosdisplay_2_message_translator_8h_source}
+\input{_demo_2_wemos_encoder_2_message_translator_8h}
+\input{_demo_2_wemos_encoder_2_message_translator_8h_source}
+\input{_demo_2wemoshartslag_2demowemoshartslag_2_message_translator_8h}
+\input{_demo_2wemoshartslag_2demowemoshartslag_2_message_translator_8h_source}
+\input{_can_com_2_can_com_2_transmitter_8h_source}
+\input{_r_pi_b_2_can_com_2_transmitter_8h}
+\input{_r_pi_b_2_can_com_2_transmitter_8h_source}
+\input{_can_com_2_can_com_2_update_event_8h_source}
+\input{_r_pi_b_2_can_com_2_update_event_8h_source}
+\input{_can_com_2_can_com_2_virtual_receiver_8h_source}
+\input{_r_pi_b_2_can_com_2_virtual_receiver_8h_source}
+\input{_can_com_2_can_com_2_virtual_transmitter_8h_source}
+\input{_r_pi_b_2_can_com_2_virtual_transmitter_8h_source}
+\input{_climate_actuator_p_w_m_8h}
+\input{_climate_actuator_p_w_m_8h_source}
+\input{_climate_sensor_8h}
+\input{_climate_sensor_8h_source}
+\input{_climate_system_8h}
+\input{_climate_system_8h_source}
+\input{_distance_system_r_pi_b_8h}
+\input{_distance_system_r_pi_b_8h_source}
+\input{_heartrate_displayer_8h_source}
+\input{wemosco2temp_2wemosco2temp_2_interface_actuator_p_w_m_8h}
+\input{wemosco2temp_2wemosco2temp_2_interface_actuator_p_w_m_8h_source}
+\input{wemosdisplay_2_interface_actuator_p_w_m_8h}
+\input{wemosdisplay_2_interface_actuator_p_w_m_8h_source}
+\input{wemosco2temp_2wemosco2temp_2_lamp_8h}
+\input{wemosco2temp_2wemosco2temp_2_lamp_8h_source}
+\input{wemosdisplay_2_lamp_8h}
+\input{wemosdisplay_2_lamp_8h_source}
+\input{wemosdisplay_2_lamp_p_w_m_8cpp}
+\input{wemosco2temp_2wemosco2temp_2_lamp_p_w_m_8h}
+\input{wemosco2temp_2wemosco2temp_2_lamp_p_w_m_8h_source}
+\input{wemosdisplay_2_lamp_p_w_m_8h}
+\input{wemosdisplay_2_lamp_p_w_m_8h_source}
+\input{_sensor_s_h_t31_8h_source}
+\input{wemosco2temp_2wemosco2temp_2_server_socket_wemos_8h_source}
+\input{wemosdisplay_2_server_socket_wemos_8h}
+\input{wemosdisplay_2_server_socket_wemos_8h_source}
+\input{_wemos_encoder_2_server_socket_wemos_8h}
+\input{_wemos_encoder_2_server_socket_wemos_8h_source}
+\input{wemoshartslag_2demowemoshartslag_2_server_socket_wemos_8h}
+\input{wemoshartslag_2demowemoshartslag_2_server_socket_wemos_8h_source}
+\input{_hartslag_sensor_8h}
+\input{_hartslag_sensor_8h_source}
+%--- End generated contents ---
+% Index
+  \backmatter
+  \newpage
+  \phantomsection
+  \clearemptydoublepage
+  \addcontentsline{toc}{chapter}{\indexname}
+  \printindex
+% Required for some languages (in combination with latexdocumentpre from the header)
+\end{document}

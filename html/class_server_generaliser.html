@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PES Project Revalidatieverdieping: ServerGeneraliser Class Referentie</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PES Project Revalidatieverdieping
+   </div>
+   <div id="projectbrief">Haagse Hogeschool project Embedded Systems</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gegenereerd door Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Zoeken" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_server_generaliser.html','','class_server_generaliser-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Laden...</div>
+<div class="SRStatus" id="Searching">Zoeken...</div>
+<div class="SRStatus" id="NoMatches">Niets gevonden</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ServerGeneraliser Class Referentie</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Maakt een <a class="el" href="class_server_socket.html" title="Maakt een server socket aan en kan daardoor berichten ontvangen en versturen. Met een object van deze...">ServerSocket</a> aan of haalt de instantie ervan op en vertaalt de methodes van de socket naar methodes die gebruikt worden in het communicatie- systeem op de Raspberry Pi.  
+ <a href="#details">Meer...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_can_com_2_can_com_2_socket_generaliser_2_server_generaliser_8h_source.html">ServerGeneraliser.h</a>&gt;</code></p>
+<div class="dynheader">
+Klasse diagram voor ServerGeneraliser</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_server_generaliser.png" usemap="#ServerGeneraliser_map" alt=""/>
+  <map id="ServerGeneraliser_map" name="ServerGeneraliser_map">
+<area href="class_communication_1_1_receiver.html" alt="Communication::Receiver" shape="rect" coords="0,0,165,24"/>
+<area href="class_communication_1_1_transmitter.html" alt="Communication::Transmitter" shape="rect" coords="175,0,340,24"/>
+<area href="class_communication_1_1_receiver.html" alt="Communication::Receiver" shape="rect" coords="350,0,515,24"/>
+<area href="class_communication_1_1_transmitter.html" alt="Communication::Transmitter" shape="rect" coords="525,0,690,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Members</h2></td></tr>
+<tr class="memitem:a039fcec249775162df7ffdd44737d047" id="r_a039fcec249775162df7ffdd44737d047"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a039fcec249775162df7ffdd44737d047">ServerGeneraliser</a> ()</td></tr>
+<tr class="memdesc:a039fcec249775162df7ffdd44737d047"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maakt de <a class="el" href="class_server_socket.html" title="Maakt een server socket aan en kan daardoor berichten ontvangen en versturen. Met een object van deze...">ServerSocket</a> aan of haalt de instantie ervan op.  <br /></td></tr>
+<tr class="memitem:a8d05b0de0b2638a108816ce0fde7909c" id="r_a8d05b0de0b2638a108816ce0fde7909c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8d05b0de0b2638a108816ce0fde7909c">ServerGeneraliser</a> (int)</td></tr>
+<tr class="memdesc:a8d05b0de0b2638a108816ce0fde7909c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maakt de <a class="el" href="class_server_socket.html" title="Maakt een server socket aan en kan daardoor berichten ontvangen en versturen. Met een object van deze...">ServerSocket</a> aan of haalt de instantie ervan op.  <br /></td></tr>
+<tr class="memitem:a353a0e5e77f5b65db4effbfa5a6e4665" id="r_a353a0e5e77f5b65db4effbfa5a6e4665"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a353a0e5e77f5b65db4effbfa5a6e4665">sendData</a> (int, std::vector&lt; uint8_t &gt;) override</td></tr>
+<tr class="memitem:afa1a3a6c949777e54076ed63a775b65e" id="r_afa1a3a6c949777e54076ed63a775b65e"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#afa1a3a6c949777e54076ed63a775b65e">sendRequest</a> (int) override</td></tr>
+<tr class="memitem:a5249b7fea03b75268fa9f465e298fb4a" id="r_a5249b7fea03b75268fa9f465e298fb4a"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a5249b7fea03b75268fa9f465e298fb4a">receive</a> (int *, std::vector&lt; uint8_t &gt; *) override</td></tr>
+<tr class="memitem:a039fcec249775162df7ffdd44737d047" id="r_a039fcec249775162df7ffdd44737d047"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a039fcec249775162df7ffdd44737d047">ServerGeneraliser</a> ()</td></tr>
+<tr class="memdesc:a039fcec249775162df7ffdd44737d047"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maakt de <a class="el" href="class_server_socket.html" title="Maakt een server socket aan en kan daardoor berichten ontvangen en versturen. Met een object van deze...">ServerSocket</a> aan of haalt de instantie ervan op.  <br /></td></tr>
+<tr class="memitem:a8d05b0de0b2638a108816ce0fde7909c" id="r_a8d05b0de0b2638a108816ce0fde7909c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8d05b0de0b2638a108816ce0fde7909c">ServerGeneraliser</a> (int)</td></tr>
+<tr class="memdesc:a8d05b0de0b2638a108816ce0fde7909c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maakt de <a class="el" href="class_server_socket.html" title="Maakt een server socket aan en kan daardoor berichten ontvangen en versturen. Met een object van deze...">ServerSocket</a> aan of haalt de instantie ervan op.  <br /></td></tr>
+<tr class="memitem:aa36dcd0297bdc06208873e8879315f0b" id="r_aa36dcd0297bdc06208873e8879315f0b"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#aa36dcd0297bdc06208873e8879315f0b">sendData</a> (int, std::vector&lt; uint8_t &gt;) override</td></tr>
+<tr class="memitem:ad9ecc3f955d61935088e96aa58294e6a" id="r_ad9ecc3f955d61935088e96aa58294e6a"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#ad9ecc3f955d61935088e96aa58294e6a">sendRequest</a> (int) override</td></tr>
+<tr class="memitem:a9e2045e14dd1cd849a1b5d2b83861ea0" id="r_a9e2045e14dd1cd849a1b5d2b83861ea0"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a9e2045e14dd1cd849a1b5d2b83861ea0">receive</a> (int *, std::vector&lt; uint8_t &gt; *) override</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Gedetailleerde Beschrijving</h2>
+<div class="textblock"><p>Maakt een <a class="el" href="class_server_socket.html" title="Maakt een server socket aan en kan daardoor berichten ontvangen en versturen. Met een object van deze...">ServerSocket</a> aan of haalt de instantie ervan op en vertaalt de methodes van de socket naar methodes die gebruikt worden in het communicatie- systeem op de Raspberry Pi. </p>
+<p>De abstracte methodes uit de klassen <a class="el" href="class_communication_1_1_receiver.html">Communication::Receiver</a> en <a class="el" href="class_communication_1_1_transmitter.html">Communication::Transmitter</a> worden hiervoor overschreven. In de methodes worden <a class="el" href="class_server_socket.html" title="Maakt een server socket aan en kan daardoor berichten ontvangen en versturen. Met een object van deze...">ServerSocket</a> methodes aangeroepen. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentatie</h2>
+<a id="a039fcec249775162df7ffdd44737d047" name="a039fcec249775162df7ffdd44737d047"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a039fcec249775162df7ffdd44737d047">&#9670;&#160;</a></span>ServerGeneraliser() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ServerGeneraliser::ServerGeneraliser </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maakt de <a class="el" href="class_server_socket.html" title="Maakt een server socket aan en kan daardoor berichten ontvangen en versturen. Met een object van deze...">ServerSocket</a> aan of haalt de instantie ervan op. </p>
+<p>Het portnummer waar de server voor clients op te bereiken zal zijn, staat standaard op 8080. </p>
+
+</div>
+</div>
+<a id="a8d05b0de0b2638a108816ce0fde7909c" name="a8d05b0de0b2638a108816ce0fde7909c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d05b0de0b2638a108816ce0fde7909c">&#9670;&#160;</a></span>ServerGeneraliser() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ServerGeneraliser::ServerGeneraliser </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>port</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maakt de <a class="el" href="class_server_socket.html" title="Maakt een server socket aan en kan daardoor berichten ontvangen en versturen. Met een object van deze...">ServerSocket</a> aan of haalt de instantie ervan op. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>- het portnummer waar de server op te bereiken zal zijn. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a039fcec249775162df7ffdd44737d047" name="a039fcec249775162df7ffdd44737d047"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a039fcec249775162df7ffdd44737d047">&#9670;&#160;</a></span>ServerGeneraliser() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ServerGeneraliser::ServerGeneraliser </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maakt de <a class="el" href="class_server_socket.html" title="Maakt een server socket aan en kan daardoor berichten ontvangen en versturen. Met een object van deze...">ServerSocket</a> aan of haalt de instantie ervan op. </p>
+<p>Het portnummer waar de server voor clients op te bereiken zal zijn, staat standaard op 8080. </p>
+
+</div>
+</div>
+<a id="a8d05b0de0b2638a108816ce0fde7909c" name="a8d05b0de0b2638a108816ce0fde7909c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d05b0de0b2638a108816ce0fde7909c">&#9670;&#160;</a></span>ServerGeneraliser() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ServerGeneraliser::ServerGeneraliser </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maakt de <a class="el" href="class_server_socket.html" title="Maakt een server socket aan en kan daardoor berichten ontvangen en versturen. Met een object van deze...">ServerSocket</a> aan of haalt de instantie ervan op. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>- het portnummer waar de server op te bereiken zal zijn. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentatie van functie members</h2>
+<a id="a5249b7fea03b75268fa9f465e298fb4a" name="a5249b7fea03b75268fa9f465e298fb4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5249b7fea03b75268fa9f465e298fb4a">&#9670;&#160;</a></span>receive() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ServerGeneraliser::receive </td>
+          <td>(</td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; uint8_t &gt; *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementeert <a class="el" href="class_communication_1_1_receiver.html">Communication::Receiver</a>.</p>
+
+</div>
+</div>
+<a id="a9e2045e14dd1cd849a1b5d2b83861ea0" name="a9e2045e14dd1cd849a1b5d2b83861ea0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e2045e14dd1cd849a1b5d2b83861ea0">&#9670;&#160;</a></span>receive() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool ServerGeneraliser::receive </td>
+          <td>(</td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; uint8_t &gt; *</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementeert <a class="el" href="class_communication_1_1_receiver.html">Communication::Receiver</a>.</p>
+
+</div>
+</div>
+<a id="a353a0e5e77f5b65db4effbfa5a6e4665" name="a353a0e5e77f5b65db4effbfa5a6e4665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a353a0e5e77f5b65db4effbfa5a6e4665">&#9670;&#160;</a></span>sendData() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ServerGeneraliser::sendData </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementeert <a class="el" href="class_communication_1_1_transmitter.html">Communication::Transmitter</a>.</p>
+
+</div>
+</div>
+<a id="aa36dcd0297bdc06208873e8879315f0b" name="aa36dcd0297bdc06208873e8879315f0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa36dcd0297bdc06208873e8879315f0b">&#9670;&#160;</a></span>sendData() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ServerGeneraliser::sendData </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementeert <a class="el" href="class_communication_1_1_transmitter.html">Communication::Transmitter</a>.</p>
+
+</div>
+</div>
+<a id="afa1a3a6c949777e54076ed63a775b65e" name="afa1a3a6c949777e54076ed63a775b65e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa1a3a6c949777e54076ed63a775b65e">&#9670;&#160;</a></span>sendRequest() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ServerGeneraliser::sendRequest </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>address</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementeert <a class="el" href="class_communication_1_1_transmitter.html">Communication::Transmitter</a>.</p>
+
+</div>
+</div>
+<a id="ad9ecc3f955d61935088e96aa58294e6a" name="ad9ecc3f955d61935088e96aa58294e6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9ecc3f955d61935088e96aa58294e6a">&#9670;&#160;</a></span>sendRequest() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ServerGeneraliser::sendRequest </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementeert <a class="el" href="class_communication_1_1_transmitter.html">Communication::Transmitter</a>.</p>
+
+</div>
+</div>
+<hr/>De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:<ul>
+<li>Code/Communicatie/CanCom/CanCom/SocketGeneraliser/<a class="el" href="_can_com_2_can_com_2_socket_generaliser_2_server_generaliser_8h_source.html">ServerGeneraliser.h</a></li>
+<li>Code/Communicatie/RPiB/CanCom/SocketGeneraliser/<a class="el" href="_r_pi_b_2_can_com_2_socket_generaliser_2_server_generaliser_8h_source.html">ServerGeneraliser.h</a></li>
+<li>Code/Communicatie/CanCom/CanCom/SocketGeneraliser/<b>ServerGeneraliser.cpp</b></li>
+<li>Code/Communicatie/RPiB/CanCom/SocketGeneraliser/<b>ServerGeneraliser.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_server_generaliser.html">ServerGeneraliser</a></li>
+    <li class="footer">Gegenereerd door <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

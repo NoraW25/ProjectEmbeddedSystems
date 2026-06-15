@@ -1,0 +1,353 @@
+\doxysection{Server\+Socket\+Wemos Class Referentie}
+\hypertarget{class_server_socket_wemos}{}\label{class_server_socket_wemos}\index{ServerSocketWemos@{ServerSocketWemos}}
+
+
+Beheert een {\ttfamily Wi\+Fi\+Server} en client-\/communicatie.  
+
+
+
+
+{\ttfamily \+\#include $<$Server\+Socket\+Wemos.\+h$>$}
+
+\doxysubsubsection*{Public Members}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_server_socket_wemos_a4a7b08c629b633b26fc66324f198ecdb}\label{class_server_socket_wemos_a4a7b08c629b633b26fc66324f198ecdb} 
+{\bfseries Server\+Socket\+Wemos} (int poort)
+\item 
+\Hypertarget{class_server_socket_wemos_a11406cb8d0f988087bdcc216c15ec464}\label{class_server_socket_wemos_a11406cb8d0f988087bdcc216c15ec464} 
+void {\bfseries begin} ()
+\begin{DoxyCompactList}\small\item\em Start de Wi\+Fi server en zet TCP no-\/delay. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_server_socket_wemos_a577077acad583b4c01f39c0e92aaf9c1}{heeft\+Client}} ()
+\begin{DoxyCompactList}\small\item\em Controleer en accepteer eventueel een nieuwe client. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_server_socket_wemos_a732bbc1269e29676e7791fa785dd03be}{heeft\+Ontvangen}} ()
+\begin{DoxyCompactList}\small\item\em Lees inkomende bytes tot een newline en zet ze in de buffer. \end{DoxyCompactList}\item 
+String \doxymbox{\hyperlink{class_server_socket_wemos_a5049e246458c3195a2134c95d5eb1f15}{ontvangst}} ()
+\begin{DoxyCompactList}\small\item\em Haal de ontvangen buffer op en maak deze leeg. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_server_socket_wemos_aee3382504b5ab99d100ef1b74027a73f}{versturen}} (const String \&msg)
+\begin{DoxyCompactList}\small\item\em Verstuur een bericht naar de verbonden client. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_server_socket_wemos_a4a7b08c629b633b26fc66324f198ecdb}{Server\+Socket\+Wemos}} (int poort)
+\begin{DoxyCompactList}\small\item\em Maak een server die luistert op een poort. \end{DoxyCompactList}\item 
+\Hypertarget{class_server_socket_wemos_a11406cb8d0f988087bdcc216c15ec464}\label{class_server_socket_wemos_a11406cb8d0f988087bdcc216c15ec464} 
+void {\bfseries begin} ()
+\begin{DoxyCompactList}\small\item\em Start de server. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_server_socket_wemos_a577077acad583b4c01f39c0e92aaf9c1}{heeft\+Client}} ()
+\begin{DoxyCompactList}\small\item\em Controleer of er een client verbonden is (en accepteer nieuwe). \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_server_socket_wemos_a732bbc1269e29676e7791fa785dd03be}{heeft\+Ontvangen}} ()
+\begin{DoxyCompactList}\small\item\em Controleer of er een volledige regel (message) ontvangen is. \end{DoxyCompactList}\item 
+String \doxymbox{\hyperlink{class_server_socket_wemos_a5049e246458c3195a2134c95d5eb1f15}{ontvangst}} ()
+\begin{DoxyCompactList}\small\item\em Haal de ontvangen berichtbuffer op en maak deze leeg. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_server_socket_wemos_aee3382504b5ab99d100ef1b74027a73f}{versturen}} (const String \&msg)
+\begin{DoxyCompactList}\small\item\em Verstuur een bericht naar de verbonden client. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_server_socket_wemos_a4a7b08c629b633b26fc66324f198ecdb}{Server\+Socket\+Wemos}} (int poort)
+\begin{DoxyCompactList}\small\item\em Maak een server die luistert op een poort. \end{DoxyCompactList}\item 
+\Hypertarget{class_server_socket_wemos_a11406cb8d0f988087bdcc216c15ec464}\label{class_server_socket_wemos_a11406cb8d0f988087bdcc216c15ec464} 
+void {\bfseries begin} ()
+\begin{DoxyCompactList}\small\item\em Start de server. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_server_socket_wemos_a577077acad583b4c01f39c0e92aaf9c1}{heeft\+Client}} ()
+\begin{DoxyCompactList}\small\item\em Controleer of er een client verbonden is (en accepteer nieuwe). \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_server_socket_wemos_a732bbc1269e29676e7791fa785dd03be}{heeft\+Ontvangen}} ()
+\begin{DoxyCompactList}\small\item\em Controleer of er een volledige regel (message) ontvangen is. \end{DoxyCompactList}\item 
+String \doxymbox{\hyperlink{class_server_socket_wemos_a5049e246458c3195a2134c95d5eb1f15}{ontvangst}} ()
+\begin{DoxyCompactList}\small\item\em Haal de ontvangen berichtbuffer op en maak deze leeg. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_server_socket_wemos_aee3382504b5ab99d100ef1b74027a73f}{versturen}} (const String \&msg)
+\begin{DoxyCompactList}\small\item\em Verstuur een bericht naar de verbonden client. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_server_socket_wemos_a4a7b08c629b633b26fc66324f198ecdb}{Server\+Socket\+Wemos}} (int poort)
+\begin{DoxyCompactList}\small\item\em Maak een server die luistert op een poort. \end{DoxyCompactList}\item 
+\Hypertarget{class_server_socket_wemos_a11406cb8d0f988087bdcc216c15ec464}\label{class_server_socket_wemos_a11406cb8d0f988087bdcc216c15ec464} 
+void {\bfseries begin} ()
+\begin{DoxyCompactList}\small\item\em Start de server. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_server_socket_wemos_a577077acad583b4c01f39c0e92aaf9c1}{heeft\+Client}} ()
+\begin{DoxyCompactList}\small\item\em Controleer of er een client verbonden is (en accepteer nieuwe). \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_server_socket_wemos_a732bbc1269e29676e7791fa785dd03be}{heeft\+Ontvangen}} ()
+\begin{DoxyCompactList}\small\item\em Controleer of er een volledige regel (message) ontvangen is. \end{DoxyCompactList}\item 
+String \doxymbox{\hyperlink{class_server_socket_wemos_a5049e246458c3195a2134c95d5eb1f15}{ontvangst}} ()
+\begin{DoxyCompactList}\small\item\em Haal de ontvangen berichtbuffer op en maak deze leeg. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_server_socket_wemos_aee3382504b5ab99d100ef1b74027a73f}{versturen}} (const String \&msg)
+\begin{DoxyCompactList}\small\item\em Verstuur een bericht naar de verbonden client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Gedetailleerde Beschrijving}
+Beheert een {\ttfamily Wi\+Fi\+Server} en client-\/communicatie. 
+
+\label{class_server_socket_wemos_doc-constructors}
+\Hypertarget{class_server_socket_wemos_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentatie}
+\Hypertarget{class_server_socket_wemos_a4a7b08c629b633b26fc66324f198ecdb}\index{ServerSocketWemos@{ServerSocketWemos}!ServerSocketWemos@{ServerSocketWemos}}
+\index{ServerSocketWemos@{ServerSocketWemos}!ServerSocketWemos@{ServerSocketWemos}}
+\doxysubsubsection{\texorpdfstring{ServerSocketWemos()}{ServerSocketWemos()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_server_socket_wemos_a4a7b08c629b633b26fc66324f198ecdb} 
+Server\+Socket\+Wemos::\+\+Server\+Socket\+Wemos (\begin{DoxyParamCaption}\item[{int}]{poort}{}\end{DoxyParamCaption})}
+
+
+
+Maak een server die luistert op een poort. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em poort} & Luisterpoort \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_server_socket_wemos_a4a7b08c629b633b26fc66324f198ecdb}\index{ServerSocketWemos@{ServerSocketWemos}!ServerSocketWemos@{ServerSocketWemos}}
+\index{ServerSocketWemos@{ServerSocketWemos}!ServerSocketWemos@{ServerSocketWemos}}
+\doxysubsubsection{\texorpdfstring{ServerSocketWemos()}{ServerSocketWemos()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_server_socket_wemos_a4a7b08c629b633b26fc66324f198ecdb} 
+Server\+Socket\+Wemos::\+\+Server\+Socket\+Wemos (\begin{DoxyParamCaption}\item[{int}]{poort}{}\end{DoxyParamCaption})}
+
+
+
+Maak een server die luistert op een poort. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em poort} & Luisterpoort \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_server_socket_wemos_a4a7b08c629b633b26fc66324f198ecdb}\index{ServerSocketWemos@{ServerSocketWemos}!ServerSocketWemos@{ServerSocketWemos}}
+\index{ServerSocketWemos@{ServerSocketWemos}!ServerSocketWemos@{ServerSocketWemos}}
+\doxysubsubsection{\texorpdfstring{ServerSocketWemos()}{ServerSocketWemos()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_server_socket_wemos_a4a7b08c629b633b26fc66324f198ecdb} 
+Server\+Socket\+Wemos::\+\+Server\+Socket\+Wemos (\begin{DoxyParamCaption}\item[{int}]{poort}{}\end{DoxyParamCaption})}
+
+
+
+Maak een server die luistert op een poort. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em poort} & Luisterpoort \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_server_socket_wemos_doc-func-members}
+\Hypertarget{class_server_socket_wemos_doc-func-members}
+\doxysubsection{Documentatie van functie members}
+\Hypertarget{class_server_socket_wemos_a577077acad583b4c01f39c0e92aaf9c1}\index{ServerSocketWemos@{ServerSocketWemos}!heeftClient@{heeftClient}}
+\index{heeftClient@{heeftClient}!ServerSocketWemos@{ServerSocketWemos}}
+\doxysubsubsection{\texorpdfstring{heeftClient()}{heeftClient()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_server_socket_wemos_a577077acad583b4c01f39c0e92aaf9c1} 
+bool Server\+Socket\+Wemos::\+heeft\+Client (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Controleer en accepteer eventueel een nieuwe client. 
+
+\begin{DoxyReturn}{Retourneert}
+true als er een client verbonden is 
+\end{DoxyReturn}
+\Hypertarget{class_server_socket_wemos_a577077acad583b4c01f39c0e92aaf9c1}\index{ServerSocketWemos@{ServerSocketWemos}!heeftClient@{heeftClient}}
+\index{heeftClient@{heeftClient}!ServerSocketWemos@{ServerSocketWemos}}
+\doxysubsubsection{\texorpdfstring{heeftClient()}{heeftClient()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_server_socket_wemos_a577077acad583b4c01f39c0e92aaf9c1} 
+bool Server\+Socket\+Wemos::\+heeft\+Client (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Controleer of er een client verbonden is (en accepteer nieuwe). 
+
+\begin{DoxyReturn}{Retourneert}
+true als er een client verbonden is 
+\end{DoxyReturn}
+\Hypertarget{class_server_socket_wemos_a577077acad583b4c01f39c0e92aaf9c1}\index{ServerSocketWemos@{ServerSocketWemos}!heeftClient@{heeftClient}}
+\index{heeftClient@{heeftClient}!ServerSocketWemos@{ServerSocketWemos}}
+\doxysubsubsection{\texorpdfstring{heeftClient()}{heeftClient()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_server_socket_wemos_a577077acad583b4c01f39c0e92aaf9c1} 
+bool Server\+Socket\+Wemos::\+heeft\+Client (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Controleer of er een client verbonden is (en accepteer nieuwe). 
+
+\begin{DoxyReturn}{Retourneert}
+true als er een client verbonden is 
+\end{DoxyReturn}
+\Hypertarget{class_server_socket_wemos_a577077acad583b4c01f39c0e92aaf9c1}\index{ServerSocketWemos@{ServerSocketWemos}!heeftClient@{heeftClient}}
+\index{heeftClient@{heeftClient}!ServerSocketWemos@{ServerSocketWemos}}
+\doxysubsubsection{\texorpdfstring{heeftClient()}{heeftClient()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_server_socket_wemos_a577077acad583b4c01f39c0e92aaf9c1} 
+bool Server\+Socket\+Wemos::\+heeft\+Client (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Controleer of er een client verbonden is (en accepteer nieuwe). 
+
+\begin{DoxyReturn}{Retourneert}
+true als er een client verbonden is 
+\end{DoxyReturn}
+\Hypertarget{class_server_socket_wemos_a732bbc1269e29676e7791fa785dd03be}\index{ServerSocketWemos@{ServerSocketWemos}!heeftOntvangen@{heeftOntvangen}}
+\index{heeftOntvangen@{heeftOntvangen}!ServerSocketWemos@{ServerSocketWemos}}
+\doxysubsubsection{\texorpdfstring{heeftOntvangen()}{heeftOntvangen()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_server_socket_wemos_a732bbc1269e29676e7791fa785dd03be} 
+bool Server\+Socket\+Wemos::\+heeft\+Ontvangen (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Lees inkomende bytes tot een newline en zet ze in de buffer. 
+
+\begin{DoxyReturn}{Retourneert}
+true als een volledige regel ontvangen is 
+\end{DoxyReturn}
+\Hypertarget{class_server_socket_wemos_a732bbc1269e29676e7791fa785dd03be}\index{ServerSocketWemos@{ServerSocketWemos}!heeftOntvangen@{heeftOntvangen}}
+\index{heeftOntvangen@{heeftOntvangen}!ServerSocketWemos@{ServerSocketWemos}}
+\doxysubsubsection{\texorpdfstring{heeftOntvangen()}{heeftOntvangen()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_server_socket_wemos_a732bbc1269e29676e7791fa785dd03be} 
+bool Server\+Socket\+Wemos::\+heeft\+Ontvangen (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Controleer of er een volledige regel (message) ontvangen is. 
+
+\begin{DoxyReturn}{Retourneert}
+true als er een ontvangen bericht klaarstaat 
+\end{DoxyReturn}
+\Hypertarget{class_server_socket_wemos_a732bbc1269e29676e7791fa785dd03be}\index{ServerSocketWemos@{ServerSocketWemos}!heeftOntvangen@{heeftOntvangen}}
+\index{heeftOntvangen@{heeftOntvangen}!ServerSocketWemos@{ServerSocketWemos}}
+\doxysubsubsection{\texorpdfstring{heeftOntvangen()}{heeftOntvangen()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_server_socket_wemos_a732bbc1269e29676e7791fa785dd03be} 
+bool Server\+Socket\+Wemos::\+heeft\+Ontvangen (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Controleer of er een volledige regel (message) ontvangen is. 
+
+\begin{DoxyReturn}{Retourneert}
+true als er een ontvangen bericht klaarstaat 
+\end{DoxyReturn}
+\Hypertarget{class_server_socket_wemos_a732bbc1269e29676e7791fa785dd03be}\index{ServerSocketWemos@{ServerSocketWemos}!heeftOntvangen@{heeftOntvangen}}
+\index{heeftOntvangen@{heeftOntvangen}!ServerSocketWemos@{ServerSocketWemos}}
+\doxysubsubsection{\texorpdfstring{heeftOntvangen()}{heeftOntvangen()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_server_socket_wemos_a732bbc1269e29676e7791fa785dd03be} 
+bool Server\+Socket\+Wemos::\+heeft\+Ontvangen (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Controleer of er een volledige regel (message) ontvangen is. 
+
+\begin{DoxyReturn}{Retourneert}
+true als er een ontvangen bericht klaarstaat 
+\end{DoxyReturn}
+\Hypertarget{class_server_socket_wemos_a5049e246458c3195a2134c95d5eb1f15}\index{ServerSocketWemos@{ServerSocketWemos}!ontvangst@{ontvangst}}
+\index{ontvangst@{ontvangst}!ServerSocketWemos@{ServerSocketWemos}}
+\doxysubsubsection{\texorpdfstring{ontvangst()}{ontvangst()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_server_socket_wemos_a5049e246458c3195a2134c95d5eb1f15} 
+String Server\+Socket\+Wemos::\+ontvangst (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Haal de ontvangen buffer op en maak deze leeg. 
+
+\begin{DoxyReturn}{Retourneert}
+Ontvangen bericht 
+\end{DoxyReturn}
+\Hypertarget{class_server_socket_wemos_a5049e246458c3195a2134c95d5eb1f15}\index{ServerSocketWemos@{ServerSocketWemos}!ontvangst@{ontvangst}}
+\index{ontvangst@{ontvangst}!ServerSocketWemos@{ServerSocketWemos}}
+\doxysubsubsection{\texorpdfstring{ontvangst()}{ontvangst()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_server_socket_wemos_a5049e246458c3195a2134c95d5eb1f15} 
+String Server\+Socket\+Wemos::\+ontvangst (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Haal de ontvangen berichtbuffer op en maak deze leeg. 
+
+\begin{DoxyReturn}{Retourneert}
+Ontvangen bericht als {\ttfamily String} 
+\end{DoxyReturn}
+\Hypertarget{class_server_socket_wemos_a5049e246458c3195a2134c95d5eb1f15}\index{ServerSocketWemos@{ServerSocketWemos}!ontvangst@{ontvangst}}
+\index{ontvangst@{ontvangst}!ServerSocketWemos@{ServerSocketWemos}}
+\doxysubsubsection{\texorpdfstring{ontvangst()}{ontvangst()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_server_socket_wemos_a5049e246458c3195a2134c95d5eb1f15} 
+String Server\+Socket\+Wemos::\+ontvangst (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Haal de ontvangen berichtbuffer op en maak deze leeg. 
+
+\begin{DoxyReturn}{Retourneert}
+Ontvangen bericht als {\ttfamily String} 
+\end{DoxyReturn}
+\Hypertarget{class_server_socket_wemos_a5049e246458c3195a2134c95d5eb1f15}\index{ServerSocketWemos@{ServerSocketWemos}!ontvangst@{ontvangst}}
+\index{ontvangst@{ontvangst}!ServerSocketWemos@{ServerSocketWemos}}
+\doxysubsubsection{\texorpdfstring{ontvangst()}{ontvangst()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_server_socket_wemos_a5049e246458c3195a2134c95d5eb1f15} 
+String Server\+Socket\+Wemos::\+ontvangst (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Haal de ontvangen berichtbuffer op en maak deze leeg. 
+
+\begin{DoxyReturn}{Retourneert}
+Ontvangen bericht als {\ttfamily String} 
+\end{DoxyReturn}
+\Hypertarget{class_server_socket_wemos_aee3382504b5ab99d100ef1b74027a73f}\index{ServerSocketWemos@{ServerSocketWemos}!versturen@{versturen}}
+\index{versturen@{versturen}!ServerSocketWemos@{ServerSocketWemos}}
+\doxysubsubsection{\texorpdfstring{versturen()}{versturen()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_server_socket_wemos_aee3382504b5ab99d100ef1b74027a73f} 
+void Server\+Socket\+Wemos::\+versturen (\begin{DoxyParamCaption}\item[{const String \&}]{msg}{}\end{DoxyParamCaption})}
+
+
+
+Verstuur een bericht naar de verbonden client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & Bericht \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_server_socket_wemos_aee3382504b5ab99d100ef1b74027a73f}\index{ServerSocketWemos@{ServerSocketWemos}!versturen@{versturen}}
+\index{versturen@{versturen}!ServerSocketWemos@{ServerSocketWemos}}
+\doxysubsubsection{\texorpdfstring{versturen()}{versturen()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_server_socket_wemos_aee3382504b5ab99d100ef1b74027a73f} 
+void Server\+Socket\+Wemos::\+versturen (\begin{DoxyParamCaption}\item[{const String \&}]{msg}{}\end{DoxyParamCaption})}
+
+
+
+Verstuur een bericht naar de verbonden client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & Bericht om te versturen \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_server_socket_wemos_aee3382504b5ab99d100ef1b74027a73f}\index{ServerSocketWemos@{ServerSocketWemos}!versturen@{versturen}}
+\index{versturen@{versturen}!ServerSocketWemos@{ServerSocketWemos}}
+\doxysubsubsection{\texorpdfstring{versturen()}{versturen()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_server_socket_wemos_aee3382504b5ab99d100ef1b74027a73f} 
+void Server\+Socket\+Wemos::\+versturen (\begin{DoxyParamCaption}\item[{const String \&}]{msg}{}\end{DoxyParamCaption})}
+
+
+
+Verstuur een bericht naar de verbonden client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & Bericht om te versturen \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_server_socket_wemos_aee3382504b5ab99d100ef1b74027a73f}\index{ServerSocketWemos@{ServerSocketWemos}!versturen@{versturen}}
+\index{versturen@{versturen}!ServerSocketWemos@{ServerSocketWemos}}
+\doxysubsubsection{\texorpdfstring{versturen()}{versturen()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_server_socket_wemos_aee3382504b5ab99d100ef1b74027a73f} 
+void Server\+Socket\+Wemos::\+versturen (\begin{DoxyParamCaption}\item[{const String \&}]{msg}{}\end{DoxyParamCaption})}
+
+
+
+Verstuur een bericht naar de verbonden client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & Bericht om te versturen \\
+\hline
+\end{DoxyParams}
+
+
+De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:\+\begin{DoxyCompactItemize}
+\item 
+Code/\+\+Demo/\+wemosco2temp/\+wemosco2temp/\+Server\+Socket\+Wemos.\+h\item 
+Code/\+\+Demo/\+wemosdisplay/\+\doxymbox{\hyperlink{wemosdisplay_2_server_socket_wemos_8h}{Server\+Socket\+Wemos.\+h}}\item 
+Code/\+\+Demo/\+wemoshartslag/\+demowemoshartslag/\+\doxymbox{\hyperlink{wemoshartslag_2demowemoshartslag_2_server_socket_wemos_8h}{Server\+Socket\+Wemos.\+h}}\item 
+Code/\+\+Demo/\+\+Wemos\+Encoder/\+\doxymbox{\hyperlink{_wemos_encoder_2_server_socket_wemos_8h}{Server\+Socket\+Wemos.\+h}}\item 
+Code/\+\+Demo/\+wemosco2temp/\+wemosco2temp/\+Server\+Socket\+Wemos.\+cpp\item 
+Code/\+\+Demo/\+wemosdisplay/\+Server\+Socket\+Wemos.\+cpp\item 
+Code/\+\+Demo/\+wemoshartslag/\+demowemoshartslag/\+Server\+Socket\+Wemos.\+cpp\item 
+Code/\+\+Demo/\+\+Wemos\+Encoder/\+Server\+Socket\+Wemos.\+cpp\end{DoxyCompactItemize}

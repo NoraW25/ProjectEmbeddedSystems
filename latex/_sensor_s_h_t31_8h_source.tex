@@ -1,0 +1,33 @@
+\doxysection{Sensor\+SHT31.\+h}
+\hypertarget{_sensor_s_h_t31_8h_source}{}\label{_sensor_s_h_t31_8h_source}\index{Code/Demo/wemosco2temp/wemosco2temp/SensorSHT31.h@{Code/Demo/wemosco2temp/wemosco2temp/SensorSHT31.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SENSOR\_SHT31\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SENSOR\_SHT31\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <Wire.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Adafruit\_SHT31.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }SensorSHT31}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00010\ \ \ \ \ Adafruit\_SHT31\ sht31;}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{float}\ temperature;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{float}\ humidity;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ SensorSHT31();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{bool}\ begin(uint8\_t\ address\ =\ 0x44);}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ update();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{float}\ getTemperature();}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{float}\ getHumidity();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ printData();}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ run();}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

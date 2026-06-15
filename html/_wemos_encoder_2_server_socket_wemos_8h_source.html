@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PES Project Revalidatieverdieping: Code/Demo/WemosEncoder/ServerSocketWemos.h Bron Bestand</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PES Project Revalidatieverdieping
+   </div>
+   <div id="projectbrief">Haagse Hogeschool project Embedded Systems</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gegenereerd door Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Zoeken" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_wemos_encoder_2_server_socket_wemos_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Laden...</div>
+<div class="SRStatus" id="Searching">Zoeken...</div>
+<div class="SRStatus" id="NoMatches">Niets gevonden</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ServerSocketWemos.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_wemos_encoder_2_server_socket_wemos_8h.html">Ga naar de documentatie van dit bestand.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;ESP8266WiFi.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">class </span><a class="code hl_class" href="class_server_socket_wemos.html">ServerSocketWemos</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_server_socket_wemos.html#a4a7b08c629b633b26fc66324f198ecdb">   20</a></span>    <a class="code hl_function" href="class_server_socket_wemos.html#a4a7b08c629b633b26fc66324f198ecdb">ServerSocketWemos</a>(<span class="keywordtype">int</span> poort);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_server_socket_wemos.html#a11406cb8d0f988087bdcc216c15ec464">   25</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_server_socket_wemos.html#a11406cb8d0f988087bdcc216c15ec464">begin</a>();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_server_socket_wemos.html#a577077acad583b4c01f39c0e92aaf9c1">   31</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_server_socket_wemos.html#a577077acad583b4c01f39c0e92aaf9c1">heeftClient</a>();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_server_socket_wemos.html#a732bbc1269e29676e7791fa785dd03be">   37</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_server_socket_wemos.html#a732bbc1269e29676e7791fa785dd03be">heeftOntvangen</a>();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="class_server_socket_wemos.html#a5049e246458c3195a2134c95d5eb1f15">   43</a></span>    String <a class="code hl_function" href="class_server_socket_wemos.html#a5049e246458c3195a2134c95d5eb1f15">ontvangst</a>();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_server_socket_wemos.html#aee3382504b5ab99d100ef1b74027a73f">   49</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_server_socket_wemos.html#aee3382504b5ab99d100ef1b74027a73f">versturen</a>(<span class="keyword">const</span> String &amp;msg);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    WiFiServer server;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    WiFiClient client;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    String buffer;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>};</div>
+<div class="ttc" id="aclass_server_socket_wemos_html"><div class="ttname"><a href="class_server_socket_wemos.html">ServerSocketWemos</a></div><div class="ttdoc">Beheert een WiFiServer en client-communicatie.</div><div class="ttdef"><b>Definitie</b> ServerSocketWemos.h:4</div></div>
+<div class="ttc" id="aclass_server_socket_wemos_html_a11406cb8d0f988087bdcc216c15ec464"><div class="ttname"><a href="class_server_socket_wemos.html#a11406cb8d0f988087bdcc216c15ec464">ServerSocketWemos::begin</a></div><div class="ttdeci">void begin()</div><div class="ttdoc">Start de server.</div></div>
+<div class="ttc" id="aclass_server_socket_wemos_html_a4a7b08c629b633b26fc66324f198ecdb"><div class="ttname"><a href="class_server_socket_wemos.html#a4a7b08c629b633b26fc66324f198ecdb">ServerSocketWemos::ServerSocketWemos</a></div><div class="ttdeci">ServerSocketWemos(int poort)</div><div class="ttdoc">Maak een server die luistert op een poort.</div></div>
+<div class="ttc" id="aclass_server_socket_wemos_html_a5049e246458c3195a2134c95d5eb1f15"><div class="ttname"><a href="class_server_socket_wemos.html#a5049e246458c3195a2134c95d5eb1f15">ServerSocketWemos::ontvangst</a></div><div class="ttdeci">String ontvangst()</div><div class="ttdoc">Haal de ontvangen berichtbuffer op en maak deze leeg.</div></div>
+<div class="ttc" id="aclass_server_socket_wemos_html_a577077acad583b4c01f39c0e92aaf9c1"><div class="ttname"><a href="class_server_socket_wemos.html#a577077acad583b4c01f39c0e92aaf9c1">ServerSocketWemos::heeftClient</a></div><div class="ttdeci">bool heeftClient()</div><div class="ttdoc">Controleer of er een client verbonden is (en accepteer nieuwe).</div></div>
+<div class="ttc" id="aclass_server_socket_wemos_html_a732bbc1269e29676e7791fa785dd03be"><div class="ttname"><a href="class_server_socket_wemos.html#a732bbc1269e29676e7791fa785dd03be">ServerSocketWemos::heeftOntvangen</a></div><div class="ttdeci">bool heeftOntvangen()</div><div class="ttdoc">Controleer of er een volledige regel (message) ontvangen is.</div></div>
+<div class="ttc" id="aclass_server_socket_wemos_html_aee3382504b5ab99d100ef1b74027a73f"><div class="ttname"><a href="class_server_socket_wemos.html#aee3382504b5ab99d100ef1b74027a73f">ServerSocketWemos::versturen</a></div><div class="ttdeci">void versturen(const String &amp;msg)</div><div class="ttdoc">Verstuur een bericht naar de verbonden client.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Code</b></li><li class="navelem"><b>Demo</b></li><li class="navelem"><b>WemosEncoder</b></li><li class="navelem"><a href="_wemos_encoder_2_server_socket_wemos_8h.html">ServerSocketWemos.h</a></li>
+    <li class="footer">Gegenereerd door <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

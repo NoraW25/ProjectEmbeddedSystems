@@ -1,0 +1,79 @@
+\doxysection{Alarm\+System Class Referentie}
+\hypertarget{class_alarm_system}{}\label{class_alarm_system}\index{AlarmSystem@{AlarmSystem}}
+
+
+Laat een alarm afgaan.  
+
+
+
+
+{\ttfamily \+\#include $<$Alarm\+System.\+h$>$}
+
+\doxysubsubsection*{Public Members}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_alarm_system_a4e860bdce854c9c2e19f2458c60cf3c9}{Alarm\+System}} (std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$, std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$, int)
+\begin{DoxyCompactList}\small\item\em Constructor \doxylink{class_distance_system}{Distance\+System}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_alarm_system_af266ae6839316d2bf8ead919c9fddd8f}{sound\+Alarm}} (std::\+vector$<$ uint8\+\_\+t $>$)
+\begin{DoxyCompactList}\small\item\em Stuurt het alarmsignaal door. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Gedetailleerde Beschrijving}
+Laat een alarm afgaan. 
+
+Zorgt ervoor dat er een alarm afgaat als er een bericht van de RPiB met een specifiek adres binnenkomt. 
+
+\label{class_alarm_system_doc-constructors}
+\Hypertarget{class_alarm_system_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentatie}
+\Hypertarget{class_alarm_system_a4e860bdce854c9c2e19f2458c60cf3c9}\index{AlarmSystem@{AlarmSystem}!AlarmSystem@{AlarmSystem}}
+\index{AlarmSystem@{AlarmSystem}!AlarmSystem@{AlarmSystem}}
+\doxysubsubsection{\texorpdfstring{AlarmSystem()}{AlarmSystem()}}
+{\footnotesize\ttfamily \label{class_alarm_system_a4e860bdce854c9c2e19f2458c60cf3c9} 
+Alarm\+System::\+\+Alarm\+System (\begin{DoxyParamCaption}\item[{std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$}]{controller\+\_\+can}{, }\item[{std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_communication_1_1_communication_controller}{Communication::\+\+Communication\+Controller}} $>$}]{controller\+\_\+rpib}{, }\item[{int}]{address}{}\end{DoxyParamCaption})}
+
+
+
+Constructor \doxylink{class_distance_system}{Distance\+System}. 
+
+De standard en meegegeven waarden worden meegegeven in de attributen.
+
+De meegegeven controllers worden gekoppeld aan de ontvangst op:\+ De berichten met adres/\+\+ID = adres meegegeven in de int parameter, koppelt de methode \doxylink{class_alarm_system_af266ae6839316d2bf8ead919c9fddd8f}{sound\+Alarm(std::\+vector$<$uint8\+\_\+t$>$)} eraan vast.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shared\+\_\+ptr$<$\+Communication::\+\+Communication\+Controller$>$} & -\/ De communicatiecontroller van de CANbus. \\
+\hline
+{\em shared\+\_\+ptr$<$\+Communication::\+\+Communication\+Controller$>$} & -\/ De communicatiecontroller van de RPiB. \\
+\hline
+{\em int} & -\/ Het adres/\+\+ID waar het alarm op doorgegeven wordt. \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_alarm_system_doc-func-members}
+\Hypertarget{class_alarm_system_doc-func-members}
+\doxysubsection{Documentatie van functie members}
+\Hypertarget{class_alarm_system_af266ae6839316d2bf8ead919c9fddd8f}\index{AlarmSystem@{AlarmSystem}!soundAlarm@{soundAlarm}}
+\index{soundAlarm@{soundAlarm}!AlarmSystem@{AlarmSystem}}
+\doxysubsubsection{\texorpdfstring{soundAlarm()}{soundAlarm()}}
+{\footnotesize\ttfamily \label{class_alarm_system_af266ae6839316d2bf8ead919c9fddd8f} 
+void Alarm\+System::\+sound\+Alarm (\begin{DoxyParamCaption}\item[{std::\+vector$<$ uint8\+\_\+t $>$}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Stuurt het alarmsignaal door. 
+
+Wordt aangeroepen als er vanaf de RPiB een alarmsignaal wordt gegeven op het meegegeven adres. Verzend op het zelfde adres op de CANbus een bericht die de buzzer laat afgaan.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector$<$uint8\+\_\+t$>$} & -\/ De meegegeven data, wordt nu niks meegedaan alleen meegegeven. \\
+\hline
+\end{DoxyParams}
+
+
+De documentatie voor deze klasse is gegenereerd op basis van de volgende bestanden:\+\begin{DoxyCompactItemize}
+\item 
+Code/\+\+Communicatie/\+\+Can\+Com/\+\+Can\+Com/\+\doxymbox{\hyperlink{_alarm_system_8h}{Alarm\+System.\+h}}\item 
+Code/\+\+Communicatie/\+\+Can\+Com/\+\+Can\+Com/\+Alarm\+System.\+cpp\end{DoxyCompactItemize}

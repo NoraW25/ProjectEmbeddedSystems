@@ -1,0 +1,38 @@
+\doxysection{Requestor\+Event.\+h}
+\hypertarget{_can_com_2_can_com_2_requestor_event_8h_source}{}\label{_can_com_2_can_com_2_requestor_event_8h_source}\index{Code/Communicatie/CanCom/CanCom/RequestorEvent.h@{Code/Communicatie/CanCom/CanCom/RequestorEvent.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Event.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}DataConnection.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }Communication\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_communication_1_1_requestor}{Requestor}};}
+\DoxyCodeLine{00011\ \}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }Events\ \{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{class\ }RequestorEvent\ :\ \textcolor{keyword}{public}\ Event\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_communication_1_1_requestor}{Communication::Requestor}}*\ requestor;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ std::vector<\ std::vector<uint8\_t>\ >\ dataBuffer;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ address;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ RequestorEvent(\doxymbox{\hyperlink{class_communication_1_1_requestor}{Communication::Requestor}}*,\ \textcolor{keywordtype}{int}\ address);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ callConnected();}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ fire(std::vector<uint8\_t>);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_events_1_1_connection}{Connection}}*\ connect(std::function<\textcolor{keywordtype}{void}(std::vector<uint8\_t>)>);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getAddress();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ removeConnection(\doxymbox{\hyperlink{class_events_1_1_connection}{Connection}}*);}
+\DoxyCodeLine{00030\ \ \ \ \ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \}}
+
+\end{DoxyCode}

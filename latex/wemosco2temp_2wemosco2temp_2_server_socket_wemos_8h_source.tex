@@ -1,0 +1,24 @@
+\doxysection{Server\+Socket\+Wemos.\+h}
+\hypertarget{wemosco2temp_2wemosco2temp_2_server_socket_wemos_8h_source}{}\label{wemosco2temp_2wemosco2temp_2_server_socket_wemos_8h_source}\index{Code/Demo/wemosco2temp/wemosco2temp/ServerSocketWemos.h@{Code/Demo/wemosco2temp/wemosco2temp/ServerSocketWemos.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <ESP8266WiFi.h>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{class\ }ServerSocketWemos\ \{}
+\DoxyCodeLine{00005\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00006\ \ \ \ \ ServerSocketWemos(\textcolor{keywordtype}{int}\ poort);}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_server_socket_wemos_a11406cb8d0f988087bdcc216c15ec464}{begin}}();}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_server_socket_wemos_a577077acad583b4c01f39c0e92aaf9c1}{heeftClient}}();}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_server_socket_wemos_a732bbc1269e29676e7791fa785dd03be}{heeftOntvangen}}();}
+\DoxyCodeLine{00011\ \ \ \ \ String\ \doxymbox{\hyperlink{class_server_socket_wemos_a5049e246458c3195a2134c95d5eb1f15}{ontvangst}}();}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_server_socket_wemos_aee3382504b5ab99d100ef1b74027a73f}{versturen}}(\textcolor{keyword}{const}\ String\&\ msg);}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ WiFiServer\ server;}
+\DoxyCodeLine{00016\ \ \ \ \ WiFiClient\ client;}
+\DoxyCodeLine{00017\ \ \ \ \ String\ buffer;}
+\DoxyCodeLine{00018\ \};}
+
+\end{DoxyCode}
