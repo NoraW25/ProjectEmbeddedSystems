@@ -16,6 +16,5 @@ ClimateDisplay::ClimateDisplay(std::shared_ptr<Communication::CommunicationContr
 }
 
 void ClimateDisplay::displayValue(std::vector<uint8_t> data){
-    printf("Ontvangen en gaat versturen humidity");
     controller_can->transmitData(address_10led, data);
 }
