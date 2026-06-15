@@ -49,7 +49,9 @@ DistanceSystem::DistanceSystem(std::shared_ptr<Communication::CommunicationContr
     can_controller->logReceived(address_reset_button,
                             [this](std::vector<uint8_t> data)
                             { resetDistance(data); });
-
+    rpib_controller->logReceived(address_turns,
+                            [this](std::vector<uint8_t> data)
+                            { addToDistance(data); }); 
 }
 
 void DistanceSystem::resetDistance(std::vector<uint8_t> data){

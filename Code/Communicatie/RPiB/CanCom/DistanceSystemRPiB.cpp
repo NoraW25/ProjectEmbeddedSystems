@@ -22,11 +22,9 @@ DistanceSystemRPiB::DistanceSystemRPiB(std::shared_ptr<Communication::Communicat
 }
 
 void DistanceSystemRPiB::sendToDisplay(std::vector<uint8_t> data){
-    printf("Ga versturen\n");
     wemos_controller->transmitData(address_display, data);
 }
 
 void DistanceSystemRPiB::sendDistance(std::vector<uint8_t> data){
-    printf("Ga versturen vanaf encoder\n");
     rpia_controller->transmitData(address_distance_rpia, data);
 }
