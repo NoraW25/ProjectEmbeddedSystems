@@ -49,26 +49,52 @@ bool MessageTranslator::parseId(const std::string& message, int* id){
     return true;
 }
 
-bool MessageTranslator::parseData(const std::string& message, std::vector<uint8_t>* data){
+bool MessageTranslator::parseData(const std::string &message, std::vector<uint8_t> *data){
     std::vector<uint8_t> result;
 
-    size_t position = message.find(key_data) + key_data.length();
-    size_t next = message.find(";", position);
+    size_t position = message.find(key_data);
+    if (position == std::string::npos)
+    {
+        return false;
+    }
 
-    while(next != std::string::npos){
-        try{
-            int value = std::stoi(message.substr(position, next-position));
-            result.push_back((uint8_t) value);
+    position += key_data.length();
 
-            position = next + 1;
-            next = message.find(";", position);
-        }catch(...){
-            return false;
-        }        
+    while (result.size() < 8) {
+        size_t next = message.find(";", position);
+        if (next == std::string::npos) {
+            if (position >= message.size()) {
+                break;
+            }
+
+            std::string token = message.substr(position);
+            if (!token.empty()) {
+                try {
+                    int value = std::stoi(token);
+                    result.push_back((uint8_t)value);
+                }
+                catch (...) {
+                    return false;
+                }
+            }
+            break;
+        }
+
+        if (next > position) {
+            std::string token = message.substr(position, next - position);
+            try {
+                int value = std::stoi(token);
+                result.push_back((uint8_t)value);
+            }
+            catch (...) {
+                return false;
+            }
+        }
+
+        position = next + 1;
     }
 
     *data = result;
-
     return true;
 }
 
@@ -79,8 +105,6 @@ std::string MessageTranslator::stringifyId(int id){
 
 std::string MessageTranslator::stringifyData(std::vector<uint8_t>& data){
     std::string text;
-
-    std::cout<<"Data size: "<<std::to_string(data.size())<<std::endl;
 
     for(int it = 0; it < data.size(); it++){
         text += std::to_string(static_cast<int>(data[it])) + ";";
