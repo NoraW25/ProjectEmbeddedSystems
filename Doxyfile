@@ -1130,7 +1130,7 @@ RECURSIVE              = YES
 # Note that relative paths are relative to the directory from which Doxygen is
 # run.
 
-EXCLUDE                =
+EXCLUDE                = Code/Demo/wemosco2temp/wemosco2temp/wifi.h Code/Demo/wemosdisplay/wifi.h Code/Demo/WemosEncoder/wifi.h Code/Demo/wemoshartslag/demowemoshartslag/wifi.h
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded

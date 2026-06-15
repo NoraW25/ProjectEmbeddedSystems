@@ -68,7 +68,6 @@ var NAVTREEINDEX1 =
 "wemosco2temp_2wemosco2temp_2_lamp_p_w_m_8h.html":[1,0,0,1,0,0,2],
 "wemosco2temp_2wemosco2temp_2_lamp_p_w_m_8h_source.html":[1,0,0,1,0,0,2],
 "wemosco2temp_2wemosco2temp_2_server_socket_wemos_8h_source.html":[1,0,0,1,0,0,5],
-"wemosco2temp_2wemosco2temp_2wifi_8h_source.html":[1,0,0,1,0,0,6],
 "wemosdisplay_2_interface_actuator_p_w_m_8h.html":[1,0,0,1,1,0],
 "wemosdisplay_2_interface_actuator_p_w_m_8h_source.html":[1,0,0,1,1,0],
 "wemosdisplay_2_lamp_8h.html":[1,0,0,1,1,1],
@@ -78,8 +77,6 @@ var NAVTREEINDEX1 =
 "wemosdisplay_2_lamp_p_w_m_8h_source.html":[1,0,0,1,1,3],
 "wemosdisplay_2_server_socket_wemos_8h.html":[1,0,0,1,1,5],
 "wemosdisplay_2_server_socket_wemos_8h_source.html":[1,0,0,1,1,5],
-"wemosdisplay_2wifi_8h_source.html":[1,0,0,1,1,6],
 "wemoshartslag_2demowemoshartslag_2_server_socket_wemos_8h.html":[1,0,0,1,3,0,2],
-"wemoshartslag_2demowemoshartslag_2_server_socket_wemos_8h_source.html":[1,0,0,1,3,0,2],
-"wemoshartslag_2demowemoshartslag_2wifi_8h_source.html":[1,0,0,1,3,0,3]
+"wemoshartslag_2demowemoshartslag_2_server_socket_wemos_8h_source.html":[1,0,0,1,3,0,2]
 };
