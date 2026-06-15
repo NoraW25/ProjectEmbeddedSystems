@@ -17,6 +17,5 @@ AlarmSystem::AlarmSystem(std::shared_ptr<Communication::CommunicationController>
 }
 
 void AlarmSystem::soundAlarm(std::vector<uint8_t> data){
-    std::cout<<"In alarm systeem"<<std::endl;
     controller_can->transmitData(alarm_address, data);
 }
