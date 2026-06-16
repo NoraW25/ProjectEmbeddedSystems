@@ -8,12 +8,11 @@
 
 #include <iostream>
 
-ClimateSystem::ClimateSystem(std::shared_ptr<Communication::CommunicationController> controller, 
-    std::shared_ptr<Communication::CommunicationController> controller_rpia, 
-    int buzzer_address) : 
-        controller(controller),
-        controller_rpia(controller_rpia),
-        buzzer_address(buzzer_address)
+ClimateSystem::ClimateSystem(std::shared_ptr<Communication::CommunicationController> controller,
+                             std::shared_ptr<Communication::CommunicationController> controller_rpia,
+                             int buzzer_address) : controller(controller),
+                                                   controller_rpia(controller_rpia),
+                                                   buzzer_address(buzzer_address)
 {
 
     // Sensoren aanmaken
@@ -101,10 +100,11 @@ void ClimateSystem::calculateSettings()
                 printf("CO2 1200 + 4\n");
                 std::vector<uint8_t> data;
                 int amount_of_bytes = sizeof(int);
-                
+
                 // LSB eerst
-                for (int i = 0; i < amount_of_bytes; i++){
-                    uint8_t byte_value = (sum_type >> (8*i)) & 0xFF;
+                for (int i = 0; i < amount_of_bytes; i++)
+                {
+                    uint8_t byte_value = (sum_type >> (8 * i)) & 0xFF;
                     data.push_back(byte_value);
                 }
 
@@ -115,6 +115,18 @@ void ClimateSystem::calculateSettings()
             {
                 vensetting += 3;
                 printf("CO2 800 + 3\n");
+                std::vector<uint8_t> data;
+                int amount_of_bytes = sizeof(int);
+
+                // LSB eerst
+                for (int i = 0; i < amount_of_bytes; i++)
+                {
+                    uint8_t byte_value = (sum_type >> (8 * i)) & 0xFF;
+                    data.push_back(byte_value);
+                }
+
+                // Zend een alarm door naar RPiA
+                controller_rpia->transmitData(buzzer_address, data);
             }
             else if (sum_type > 650)
             {

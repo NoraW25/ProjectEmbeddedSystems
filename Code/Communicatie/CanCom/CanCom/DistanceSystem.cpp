@@ -6,7 +6,7 @@ DistanceSystem::DistanceSystem(std::shared_ptr<Communication::CommunicationContr
     std::shared_ptr<Communication::CommunicationController> rpib_controller):
         distance(0),
         amount_of_lights(0),
-        finish_distance(20),
+        finish_distance(10),
         amount_of_lights_available(9),
         can_controller(can_controller),
         rpib_controller(rpib_controller),
